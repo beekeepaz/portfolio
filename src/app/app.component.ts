@@ -4,13 +4,15 @@ import { RouterOutlet } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './shared/header/header/header.component'; 
 import { AboutComponent } from './about/about.component';
+import { SkillsComponent } from './skills/skills.component';
+import { ProjectsComponent } from "./projects/projects.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, 
+  imports: [CommonModule, RouterOutlet,
     MainComponent, HeaderComponent,
-  AboutComponent],
+    AboutComponent, SkillsComponent, ProjectsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

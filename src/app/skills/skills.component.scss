@@ -1,0 +1,78 @@
+.skill-set-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    border: 1px solid #3DCFB6;
+    background-color: rgb(31, 46, 43);
+    width: 568px;
+    height: 562px;
+    // gap: 40px;
+    border: 1px 0px 0px 0px;
+    // font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #FFFFFF;
+
+    >h4 {
+        // font-family: Fira Code;
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 64px;
+        letter-spacing: -0.03em;
+        text-align: left;
+        color: #3DCFB6;
+    }
+
+    >div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // font-family: Karla;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: left;
+        color: #ffffffad;
+    }
+}
+
+img.icon {
+    height: 32px;
+    width: 32px;
+}
+
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+section {
+    height: 100vh;
+    background-color: rgb(28, 28, 28);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: #FFFFFFCC;
+
+    >div {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+}
+
+.icons {
+    display: flex;
+
+    flex-wrap: wrap;
+    width: 632px;
+    height: 428px;
+    gap: 72px;
+
+    >img {
+        width: 60px;
+        height: 60px;
+    }
+}
