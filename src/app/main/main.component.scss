@@ -3,7 +3,7 @@ section {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    // width: 100vw;
     background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
 }
 
@@ -71,19 +71,44 @@ h2 {
     align-items: center;
     background-color: rgb(56, 56, 56, 0.95);
     position: absolute;
-    width: 1400px;
-    width: 100%;
+    // width: 1400px;
+    // width: 100vw;
     height: 62px;
     margin-top: 634px;
     rotate: -3deg;
+    left: -10px;
+    right: -10px;
+    text-align: left;
+    overflow: hidden;
+    // white-space: nowrap;
 
     >p {
+        animation: move-banner 25s linear infinite;
+        position: relative;
         font-family: Karla;
         color: #3DCFB6;
         font-size: 32px;
         font-weight: 400;
         line-height: 38.4px;
-        // left: -21px;
-        // right: -21px;
+        left: -21px;
+        right: -21px;
+        margin: 0;
+        text-align: left;
+        // white-space: nowrap;
+    }
+
+    >img {
+        position: relative;
+        animation: move-banner 25s linear infinite;
+    }
+}
+
+@keyframes move-banner {
+    0% {
+        left: 100%
+    }
+
+    100% {
+        left: -100%;
     }
 }
