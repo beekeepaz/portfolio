@@ -10,12 +10,16 @@
         </div>
     </div>
     <div class="banner">
-        <p>Frontend Developer</p>
+        @for (item of banneritems; track item; let index = $index;) {
+        <p>{{ banneritems[index] }}</p>
+        <img [src]="pointimg">
+        <!-- <p>Frontend Developer</p>
         <img src="./../../assets/img/point_green.png">
         <p>Based in Hannover</p>
         <img src="./../../assets/img/point_green.png">
         <p>Open to work</p>
         <img src="./../../assets/img/point_green.png">
-        <p>Available to work</p>
+        <p>Available to work</p> -->
+        }
     </div>
 </section>

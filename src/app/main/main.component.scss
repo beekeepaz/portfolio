@@ -47,7 +47,7 @@ button:hover {
 }
 
 h1 {
-    font-family: Karla;
+    font-family: Kiara;
     color: #D9D9D9;
     font-size: 128px;
     font-weight: 700;
@@ -80,12 +80,13 @@ h2 {
     right: -10px;
     text-align: left;
     overflow: hidden;
+    // flex-shrink: 0;
     // white-space: nowrap;
 
     >p {
         animation: move-banner 25s linear infinite;
         position: relative;
-        font-family: Karla;
+        font-family: Kiara;
         color: #3DCFB6;
         font-size: 32px;
         font-weight: 400;
@@ -104,6 +105,10 @@ h2 {
 }
 
 @keyframes move-banner {
+
+    // 0% { transform: translateX(0); }
+    // 100% { transform: translateX(-100%); }
+
     0% {
         left: 100%
     }
