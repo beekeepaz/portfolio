@@ -66,54 +66,98 @@ h2 {
 }
 
 .banner {
+    max-width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: rgb(56, 56, 56, 0.95);
     position: absolute;
-    // width: 1400px;
-    // width: 100vw;
     height: 62px;
     margin-top: 634px;
+    left: -21px;
+    right: -21px;
     rotate: -3deg;
-    left: -10px;
-    right: -10px;
-    text-align: left;
-    overflow: hidden;
-    // flex-shrink: 0;
-    // white-space: nowrap;
-
-    >p {
-        animation: move-banner 25s linear infinite;
-        position: relative;
-        font-family: Kiara;
-        color: #3DCFB6;
-        font-size: 32px;
-        font-weight: 400;
-        line-height: 38.4px;
-        left: -21px;
-        right: -21px;
-        margin: 0;
-        text-align: left;
-        // white-space: nowrap;
-    }
-
-    >img {
-        position: relative;
-        animation: move-banner 25s linear infinite;
-    }
 }
 
-@keyframes move-banner {
+.first-words {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    animation: movingWords 5s linear infinite;
+    margin: 0 auto;
+}
 
-    // 0% { transform: translateX(0); }
-    // 100% { transform: translateX(-100%); }
+.first-words p {
+    display: inline-block;
+    position: relative;
+    font-family: Kiara;
+    color: #3DCFB6;
+    padding: 24px;
+    font-size: 32px;
+    font-weight: 400;
+    // line-height: 38.4px;
 
+}
+
+.secound-words p {
+    animation-delay: 2.5s;
+}
+
+@keyframes movingWords {
     0% {
-        left: 100%
+        transform: translate(0%, 0);
     }
 
     100% {
-        left: -100%;
+        transform: translate(-100%, 0);
+    }
+}
+
+.banner2 {
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(56, 56, 56, 0.95);
+    position: absolute;
+    height: 62px;
+    // margin-top: 634px;
+    left: -21px;
+    right: -21px;
+    rotate: -3deg;
+}
+
+.marquee {
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+}
+
+.marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 10s linear infinite;
+    font-family: Kiara;
+    color: #3DCFB6;
+    font-size: 32px;
+}
+
+.marquee2 p {
+    animation-delay: 5s;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
     }
 }

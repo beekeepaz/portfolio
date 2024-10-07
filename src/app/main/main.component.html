@@ -9,17 +9,65 @@
             <button>contact me</button>
         </div>
     </div>
+
     <div class="banner">
-        @for (item of banneritems; track item; let index = $index;) {
-        <p>{{ banneritems[index] }}</p>
-        <img [src]="pointimg">
-        <!-- <p>Frontend Developer</p>
-        <img src="./../../assets/img/point_green.png">
-        <p>Based in Hannover</p>
-        <img src="./../../assets/img/point_green.png">
-        <p>Open to work</p>
-        <img src="./../../assets/img/point_green.png">
-        <p>Available to work</p> -->
-        }
+        <div class="first-words">
+            @for (item of banneritems; track item; let index = $index;) {
+            <p>{{ banneritems[index] }}</p>
+            <img class="point-img" [src]="pointimg">
+            }
+        </div>
+        <div class="first-words secound-words">
+            @for (item of banneritems; track item; let index = $index;) {
+            <p>{{ banneritems[index] }}</p>
+            <img class="point-img" [src]="pointimg">
+            }
+        </div>
     </div>
+
+    <div class="banner2">
+        <div class="marquee">
+            <!-- <p>This is text - This is text - This is text - This is text - This is text - This is text - This is text
+                - This is text - This is text - This is text - This is text - This is text -&nbsp;</p> -->
+            <p>
+                @for (item of banneritems; track item; let index = $index;) {
+                {{ banneritems[index] }}
+                <img class="point-img" [src]="pointimg">
+                }
+            </p>
+            <!-- <p>Frontend Developer
+                <img src="./../../assets/img/point_green.png">
+                Based in Hannover
+                <img src="./../../assets/img/point_green.png">
+                Open to work
+                <img src="./../../assets/img/point_green.png">
+                Available to work
+                <img src="./../../assets/img/point_green.png">
+            </p> -->
+        </div>
+        <div class="marquee marquee2">
+            <!-- <p>This is text - This is text - This is text - This is text - This is text - This is text - This is text
+                - This is text - This is text - This is text - This is text - This is text -&nbsp;</p> -->
+            <!-- @for (item of banneritems; track item; let index = $index;) {
+            <p>{{ banneritems[index] }}</p>
+            <img class="point-img" [src]="pointimg">
+            } -->
+            <p>
+                @for (item of banneritems; track item; let index = $index;) {
+                {{ banneritems[index] }}
+                <img class="point-img" [src]="pointimg">
+                }
+            </p>
+            <!-- <p>Frontend Developer
+                <img src="./../../assets/img/point_green.png">
+                Based in Hannover
+                <img src="./../../assets/img/point_green.png">
+                Open to work
+                <img src="./../../assets/img/point_green.png">
+                Available to work
+                <img src="./../../assets/img/point_green.png">
+            </p> -->
+        </div>
+    </div>
+
 </section>
