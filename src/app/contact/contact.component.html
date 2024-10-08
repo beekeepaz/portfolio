@@ -1,7 +1,7 @@
 <section>
     <div>
-        <h3>Contact me</h3>
-        <h1>Let's work
+        <h2>Contact me</h2>
+        <h1>Let's work<br>
             together
         </h1>
         <h2>Got a problem to solve</h2>
@@ -14,10 +14,25 @@
         </div>
     </div>
     <div>
-        <div class="line"></div>
-        <div>
-            JOIN
-        </div>
+        <form class="kontaktformular" onsubmit="sendMail(event)">
+            <div class="longe-line"></div>
+            <label>
+                <input class="name" type="name" name="name" placeholder="What's your name?"
+                    onSubmit="return is_value()" required>
+            </label>
+            <div class="longe-line"></div>
+            <label>
+                <input class="namemail" type="email" name="email" placeholder="What's your email?"
+                    onSubmit="return is_value()" required>
+            </label>
+            <div class="longe-line"></div>
+            <label>
+                <textarea class="nachricht" name="message" placeholder="How can I help you?"
+                    onSubmit="return is_value()" required></textarea>
+            </label>
+            <div class="longe-line"></div>
+            <button class="button" type="submit">Nachricht senden</button>
+        </form>
     </div>
 </section>
 <app-footer></app-footer>

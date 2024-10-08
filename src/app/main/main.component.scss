@@ -155,17 +155,20 @@ h2 {
 .marquee p {
     display: flex;
     padding-left: 100%;
+    // margin-left: 1800px;
     animation: marquee 20s linear infinite;
     font-family: Kiara;
     color: #3DCFB6;
     font-size: 32px;
     align-items: center;
+    justify-content: center;
     left: 0;
     right: 0;
 }
 
 .marquee2 p {
     animation-delay: 10s;
+    // padding-left: 100%;
 }
 
 @keyframes marquee {
