@@ -3,7 +3,7 @@ section {
     background-color: rgb(28, 28, 28);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     color: #FFFFFFCC;
 
@@ -48,7 +48,8 @@ section {
 
     >div {
         display: flex;
-        
+        width: 616px;
+
         >form {
             display: flex;
             align-items: center;
@@ -63,3 +64,7 @@ section {
     background-color: #3DCFB6;
     width: 100%;
 }
+
+
+
+
