@@ -32,6 +32,7 @@ button {
     border-radius: 100px;
     border: 1px solid #FFFFFF;
     background-color: rgb(0, 0, 0, 0.0);
+    overflow: hidden;
     // On click
     // Scroll to: "Anchor 4";
     // Animate: Animate;
@@ -40,10 +41,24 @@ button {
     height: 48px;
 }
 
-button:hover {
+button span {
     cursor: pointer;
-    animation-timing-function: ease-out;
-    animation-duration: 300ms;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    // transition: 0.5s;
+}
+
+button:hover span {
+    // cursor: pointer;
+    // animation-name: slidein;
+    // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    // animation-duration: 300ms;
+
+    animation: 3s ease-out 1s infinite both running slidein;
+
+    // animation: movingButtontxt 1s linear normal;
+    // animation: movingButton 3s linear infinite;
 }
 
 h1 {
@@ -104,7 +119,6 @@ h2 {
     font-size: 32px;
     font-weight: 400;
     // line-height: 38.4px;
-
 }
 
 .secound-words p {
@@ -169,6 +183,36 @@ h2 {
 .marquee2 p {
     animation-delay: 10s;
     // padding-left: 100%;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+@keyframes movingButtontxt {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -100%;
+    }
 }
 
 @keyframes marquee {
