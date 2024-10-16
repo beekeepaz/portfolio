@@ -17,6 +17,11 @@ export class MainComponent {
   banneritems: any[] = ["Frontend Developer", "Based in Hannover", "Open to work", "Available to work"];
   clonedArr: any[] = Array.from(this.banneritems);
 
+  // span = document.querySelector("btn-span-sec");
+
+
+  // constructor(private elementRef: ElementRef) { }
+
   ngOnInit() {
     // var elements = $('.banner').length;
 
@@ -27,5 +32,14 @@ export class MainComponent {
     console.log(this.clonedArr);
 
   }
+
+  // ngAfterViewInit() {
+  //   this.elementRef.nativeElement.querySelector('my-element')
+  //     .addEventListener('click', this.onClick.bind(this));
+  // }
+
+  // onClick(event: any) {
+  //   console.log(event);
+  // }
 
 }

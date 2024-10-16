@@ -28,37 +28,43 @@ section {
 }
 
 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #FFFFFF;
     border-radius: 100px;
     border: 1px solid #FFFFFF;
     background-color: rgb(0, 0, 0, 0.0);
     overflow: hidden;
-    // On click
-    // Scroll to: "Anchor 4";
-    // Animate: Animate;
-
+    position: relative;
     width: 143px;
     height: 48px;
 }
 
-button span {
+.btn-span-one {
     cursor: pointer;
     display: inline-block;
-    position: relative;
-    overflow: hidden;
-    // transition: 0.5s;
+    z-index: -1;
+    position: absolute;
 }
 
-button:hover span {
-    // cursor: pointer;
-    // animation-name: slidein;
-    // animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
-    // animation-duration: 300ms;
+button:hover {
+    cursor: pointer;
+}
 
-    animation: 3s ease-out 1s infinite both running slidein;
+button:hover span.btn-span-one {
+    animation: movingButtontxtInfinite 5s linear 3s infinite;
+}
 
-    // animation: movingButtontxt 1s linear normal;
-    // animation: movingButton 3s linear infinite;
+.btn-span-sec {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+}
+
+button:hover span.btn-span-sec {
+    animation: movingButtontxtOut 2.5s ease-out forwards;
 }
 
 h1 {
@@ -68,7 +74,6 @@ h1 {
     font-weight: 700;
     line-height: 128px;
     letter-spacing: -0.02em;
-    // text-align: left;
 }
 
 h2 {
@@ -77,7 +82,6 @@ h2 {
     font-size: 40px;
     font-weight: 400;
     line-height: 40px;
-    // text-align: left;
 }
 
 .point-img {
@@ -118,7 +122,6 @@ h2 {
     padding: 24px;
     font-size: 32px;
     font-weight: 400;
-    // line-height: 38.4px;
 }
 
 .secound-words p {
@@ -137,10 +140,8 @@ h2 {
 
 .banner2 {
     max-width: 100%;
-    // overflow: hidden;
     white-space: nowrap;
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: rgb(56, 56, 56, 0.95);
     position: absolute;
@@ -164,12 +165,12 @@ h2 {
     right: 0;
     margin-left: 12px;
     margin-right: 12px;
+    width: 100%;
 }
 
 .marquee p {
     display: flex;
     padding-left: 100%;
-    // margin-left: 1800px;
     animation: marquee 20s linear infinite;
     font-family: Kiara;
     color: #3DCFB6;
@@ -182,7 +183,6 @@ h2 {
 
 .marquee2 p {
     animation-delay: 10s;
-    // padding-left: 100%;
 }
 
 @keyframes marquee {
@@ -195,32 +195,28 @@ h2 {
     }
 }
 
-@keyframes movingButtontxt {
+@keyframes movingButtontxtInfinite {
     0% {
-        left: 0%;
+        z-index: 0;
+        transform: translateX(120px);
     }
 
     100% {
-        left: -100%;
+        z-index: 0;
+        transform: translateX(-150px);
     }
 }
 
-@keyframes slidein {
+@keyframes movingButtontxtOut {
     0% {
-        left: 100%;
+        transform: translateX(0);
     }
 
     100% {
-        left: -100%;
+        transform: translateX(-150px);
     }
 }
 
-@keyframes marquee {
-    0% {
-        transform: translate(0, 0);
-    }
 
-    100% {
-        transform: translate(-100%, 0);
-    }
-}
+
+
