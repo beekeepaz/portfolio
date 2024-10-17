@@ -11,18 +11,32 @@ section {
     >div {
         display: flex;
         justify-content: start;
+        align-items: center;
 
-        >button {
-            background-color: rgb(0, 0, 0, 0);
-            color: #FFFFFFCC;
+        >a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #FFFFFF;
+            font-size: 20px;
+            font-family: Fira_Code;
+            text-decoration: none;
+
+            >img {
+                visibility: hidden;
+            }
         }
 
-        >button:hover {
+        >a:hover {
             cursor: pointer;
         }
 
-        >p {
-            color: #FFFFFF;
+        >a:hover img {
+            background-color: url('../../../../assets/img/point_green.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            visibility: visible;
         }
     }
 
@@ -39,21 +53,3 @@ section {
     width: 668px;
     gap: 24px;
 }
-
-.logos {
-    border: 0;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url("../../../../assets/img/logo_sp_full.png");
-    background-position: center;
-    border-style: none;
-    border-width: 0;
-    width: 148px;
-    height: 60px;
-}
-
-.logos:hover {
-    background-image: url("../../../../assets/img/logo_sp_empty.png");
-    cursor: pointer;
-}
-

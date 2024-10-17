@@ -6,6 +6,8 @@ section {
     width: 100%;
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
+    // scroll-behavior: smooth;
+    // overflow-y: scroll;
 
 
     >div.pictures {
@@ -91,4 +93,9 @@ img.icon {
 p {
     margin-block-start: 0;
     margin-block-end: 0;
+}
+
+#targeRed {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
 }
