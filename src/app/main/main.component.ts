@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, VERSION, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header/header.component';
+import { ViewportScroller } from "@angular/common";
+import { Router } from "@angular/router";
+
 // import { Init } from 'node:v8';
 
 @Component({
@@ -9,7 +12,8 @@ import { HeaderComponent } from '../shared/header/header/header.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss'
 })
-export class MainComponent {
+export class MainComponent implements OnInit {
+  name = "Angular " + VERSION.major;
   pointimg = "./../../assets/img/point_green.png";
 
   currentIndex = 0;
@@ -21,6 +25,7 @@ export class MainComponent {
 
 
   // constructor(private elementRef: ElementRef) { }
+  constructor(private scroller: ViewportScroller, private router: Router) { }
 
   ngOnInit() {
     // var elements = $('.banner').length;
@@ -30,16 +35,18 @@ export class MainComponent {
     // };
     console.log("ngOnit Works");
     console.log(this.clonedArr);
-
+    this.router.navigate(["/"]);
   }
 
-  // ngAfterViewInit() {
-  //   this.elementRef.nativeElement.querySelector('my-element')
-  //     .addEventListener('click', this.onClick.bind(this));
-  // }
-
-  // onClick(event: any) {
-  //   console.log(event);
-  // }
+  scrollToId(id: string) {
+    const sliderElement = document.getElementById(id);
+    if (sliderElement) {
+      const offsetTop = sliderElement.offsetTop;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
 
 }
