@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
+  hideModal = true;
 
+  toggleModal() {
+    this.hideModal = !this.hideModal;
+    document.body.style.overflow = "hidden";
+  }
 }

@@ -1,6 +1,13 @@
+// $outoflowHidden: auto;
+
 * {
     margin: 0px;
+    overflow: hidden;
 }
+
+// @mixin changeOutoflow {
+//     @if 
+// }
 
 html {
     scroll-behavior: smooth;
@@ -23,8 +30,8 @@ h2:hover {
     background-repeat: no-repeat;
     background-image: url("../src/assets/img/logo_sp_full.png");
     background-position: center;
-    width: 156px;
-    height: 80px;
+    width: 196px;
+    height: 72px;
 }
 
 .logos:hover {
@@ -77,10 +84,7 @@ button:hover span.btn-span-sec {
     animation: movingButtontxtOut 2.5s ease-out forwards;
     color: #3DCFB6;
 }
-
-
-// key frames button 
-
+    
 @keyframes movingButtontxtInfinite {
     0% {
         z-index: 0;

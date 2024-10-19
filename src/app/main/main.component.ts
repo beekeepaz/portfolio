@@ -15,6 +15,7 @@ import { Router } from "@angular/router";
 export class MainComponent implements OnInit {
   name = "Angular " + VERSION.major;
   pointimg = "./../../assets/img/point_green.png";
+  // root: HTMLElement = document.documentElement;
 
   currentIndex = 0;
 
@@ -36,6 +37,10 @@ export class MainComponent implements OnInit {
     console.log("ngOnit Works");
     console.log(this.clonedArr);
     this.router.navigate(["/"]);
+    // this.root.addEventListener("mousemove", e => {
+    //   this.root.style.setProperty('--mouse-x', e.clientX + "px");
+    //   this.root.style.setProperty('--mouse-y', e.clientY + "px");
+    // });
   }
 
   scrollToId(id: string) {
@@ -48,5 +53,6 @@ export class MainComponent implements OnInit {
       });
     }
   }
+
 
 }

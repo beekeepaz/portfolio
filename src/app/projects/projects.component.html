@@ -9,7 +9,7 @@
         </div>
         <div class="projects">
             <div class="longe-line"></div>
-            <div class="single-project">
+            <div (click)="toggleModal()" class="single-project">
                 <div class="place-single-project">
                     <h3>Join</h3>
                     <div>
@@ -58,4 +58,9 @@
             <p>Work</p>
         </div>
     </div>
+    @if(this.hideModal === true) {
+    <div (click)="toggleModal()" class="preview">
+
+    </div>
+    }
 </section>

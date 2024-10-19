@@ -30,6 +30,7 @@ section {
 
         >a:hover {
             cursor: pointer;
+            color: #3DCFB6;
         }
 
         >a:hover img {
@@ -52,4 +53,79 @@ section {
     justify-content: center;
     width: 668px;
     gap: 24px;
+}
+
+// .background {
+//     background: #efefef;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     min-height: 100%;
+//     z-index: -1;
+// }
+
+.btn{
+    border: 3px solid #1a1a1a;
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    background: green;
+    text-align: center;
+    transition: background 600ms ease, color 600ms ease;
+}
+
+input[type="radio"].toggle {
+    display: none;
+    background-color: #000;
+    & + label{
+        cursor: pointer;
+        min-width: 60px;
+        &:hover{
+            background: #de1717;
+            color: #1a1a1a;
+        }
+        &:after{
+            background: #0518a7;
+            color: #0518a7;
+            content: "";
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+            width: 100%;
+            z-index: -1;
+        }
+    }
+    &.toggle-left + label {
+        border-right: 0;
+        &:after{
+            left: 100%
+        }
+    }
+    &.toggle-right + label{
+        margin-left: -5px;
+        &:after{
+            left: -100%;
+        }
+    }
+    &:checked + label {
+        cursor: default;
+        color: #fff;
+        transition: color 200ms;
+        &:after{
+            left: 0;
+        }
+    }
+}
+
+@keyframes backgrounds {
+    0% {
+        opacity: 1;
+        background: green;
+    }
+
+    100% {
+        opacity: 0;
+        background: #0518a7;
+    }
 }

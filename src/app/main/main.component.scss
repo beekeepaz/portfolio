@@ -7,6 +7,17 @@ section {
     background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
 }
 
+// mouse show effect
+
+// .mover {
+//     width: 50px;
+//     height: 50px;
+//     background: red;
+//     position: absolute;
+//     left: var(--mouse-x);
+//     top: var(--mouse-y);
+// }
+
 .headline {
     display: flex;
     justify-content: center;
@@ -154,5 +165,3 @@ h2 {
         transform: translate(-100%, 0);
     }
 }
-
-

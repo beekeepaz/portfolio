@@ -2,8 +2,33 @@ section {
     height: 25vh;
     background-color: rgb(28, 28, 28);
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     color: #FFFFFFCC;
+   
+    >div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+
+        >p {
+            position: absolute;
+        }
+
+        >div.place-logo {
+            display: flex;
+            justify-content: start;
+            width: 668px;
+        }
+
+        >div.place-links {
+            display: flex;
+            justify-content: end;
+            align-items: end;
+            flex-direction: column;
+            width: 568px;
+        }
+    }
 }

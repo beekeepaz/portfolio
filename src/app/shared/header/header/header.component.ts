@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ViewportScroller } from "@angular/common";
 import { Router } from "@angular/router";
 
 @Component({
@@ -11,8 +10,7 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent {
 
-
-  constructor(private scroller: ViewportScroller, private router: Router) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.router.navigate(["/"]);
