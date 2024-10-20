@@ -9,7 +9,7 @@
         </div>
         <div class="projects">
             <div class="longe-line"></div>
-            <div (click)="toggleModal()" class="single-project">
+            <div (click)="choosenProject( 'Join' )" class="single-project">
                 <div class="place-single-project">
                     <h3>Join</h3>
                     <div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="longe-line"></div>
-            <div class="single-project">
+            <div (click)="choosenProject( 'ElPolloLoco' )" class="single-project">
                 <div class="place-single-project">
                     <h3>El Pollop Loco</h3>
                     <div>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="longe-line"></div>
-            <div class="single-project">
+            <div (click)="choosenProject( 'DaBubble' )" class="single-project">
                 <div class="place-single-project">
                     <h3>Da Bubble</h3>
                     <div>
@@ -59,8 +59,115 @@
         </div>
     </div>
     @if(this.hideModal === true) {
-    <div (click)="toggleModal()" class="preview">
+    <div (click)="backgroundClick()" class="preview">
+        @if (this.setJoin === true) {
+        <div class="cart-layer">
+            <div class="project-description">
+                <h4>
+                    01
+                </h4>
+                <h1>Join</h1>
+                <h2>What is this project about?</h2>
+                <span>
+                    Task manager inspired by the Kanba System.
+                    Create and organize tasks using drag and drop functions, assign
+                    users and categories.
+                </span>
+                <div>
+                    <div>
+                        <img src="../../assets/img/scss-cart.png">
+                        <span>CSS</span>
+                    </div>
+                    <div>
+                        <img src="../../assets/img/html-cart.png">
+                        <span>HTML</span>
+                    </div>
+                    <div>
+                        <img src="../../assets/img/firebase-cart.png">
+                        <span>Firebase</span>
+                    </div>
+                    <div>
+                        <img src="../../assets/img/Angular-cart.png">
+                        <span>Angular</span>
+                    </div>
+                    <div>
+                        <img src="../../assets/img/typeScript-cart.png">
+                        <span>TypeScript</span>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <button>
+                            <span class="btn-span-one">GitHub</span>
+                            <span class="btn-span-sec">GitHub</span>
+                        </button>
 
+                        <button>
+                            <span class="btn-span-one">Live Test</span>
+                            <span class="btn-span-sec">Live Test</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <div class="closes"></div>
+                    <div class="cart-radius">
+                        <img class="cart-preview" src="../../assets/img/joinPreview-cart.png">
+                    </div>
+                    <button>
+                        <span>Next project</span>
+                        <div class="nextes"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        } @else if (this.setElPolloLoco === true) {
+        <div>
+            <h4>
+                02
+            </h4>
+            <h1>EL Pollo Loco</h1>
+            <span>What is this project about?</span>
+            <span>
+                Jump, run and throw game based on object-oriented
+                approach. Help Pepe to find coins and tabasco salsa to
+                fight against the crazy hen.
+            </span>
+            <div>
+                <div>
+                    <img src="../../assets/img/scss-cart.png">
+                    <span>CSS</span>
+                </div>
+                <div>
+                    <img src="../../assets/img/html-cart.png">
+                    <span>HTML</span>
+                </div>
+                <div>
+                    <img src="../../assets/img/firebase-cart.png">
+                    <span>Firebase</span>
+                </div>
+            </div>
+            <div>
+                <div>
+                    <button>
+                        <span class="btn-span-one">GitHub</span>
+                    </button>
+
+                    <button>
+                        <span class="btn-span-one">Live Test</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        } @else if (this.setDaBubble === true) {
+        <div>
+            <h4>
+                03
+            </h4>
+            <h1>Da Bubble</h1>
+        </div>
+        }
     </div>
     }
 </section>
