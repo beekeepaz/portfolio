@@ -90,9 +90,13 @@ section {
             }
 
             >div.single-project:hover {
-                background-color: #37af9b7e;
+                background-color: #37af9b52;
                 cursor: pointer;
             }
+
+            // >div.single-project:hover .image-preview {
+            //     visibility: visible;
+            // }
 
         }
     }
@@ -122,7 +126,6 @@ section {
     border-radius: 30px;
     border: 1px solid #3DCFB6;
     background-color: rgb(31, 46, 43);
-    border: 1px 0px 0px 0px;
     font-family: Karla;
     font-size: 18px;
     font-weight: 400;
@@ -237,4 +240,35 @@ img.cart-preview {
     border-radius: 30px;
     width: 520px;
     height: 370px;
+}
+
+.btn-cart {
+    display: flex;
+}
+
+.btn-arrow {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    background-image: url('../../assets/img/arrow_btn.png');
+}
+
+button:hover .btn-arrow {
+    background-image: url('../../assets/img/arrow_btn_out.png');
+}
+
+.image-preview {
+    display: flex;
+    visibility: hidden;
+    height: 200px;
+    width: 500px;
+    background-image: url('../../assets/img/joinPreview.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+}
+
+div:hover .image-preview {
+    opacity: 0.5;
+    visibility: visible;
 }
