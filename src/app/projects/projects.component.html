@@ -9,7 +9,7 @@
         </div>
         <div class="projects">
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'Join' )" class="single-project">
+            <div (click)="choosenProject( 'Join' )" class="single-project" (mouseenter)="mouseEnter('preJoin') "  (mouseleave)="mouseLeave('leaveJoin')">
                 <div class="place-single-project">
                     <h3>Join</h3>
                     <div>
@@ -24,9 +24,10 @@
                         <p>Firebase</p>
                     </div>
                 </div>
+                <!-- <div class="image-preview"></div> -->
             </div>
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'ElPolloLoco' )" class="single-project">
+            <div (click)="choosenProject( 'ElPolloLoco' )" class="single-project" (mouseenter)="mouseEnter('preElPollo') "  (mouseleave)="mouseLeave('leaveElPollo')">
                 <div class="place-single-project">
                     <h3>El Pollop Loco</h3>
                     <div>
@@ -39,7 +40,7 @@
                 </div>
             </div>
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'DaBubble' )" class="single-project">
+            <div (click)="choosenProject( 'DaBubble' )" class="single-project" (mouseenter)="mouseEnter('preDaBubble') "  (mouseleave)="mouseLeave('leaveDaBubble')">
                 <div class="place-single-project">
                     <h3>Da Bubble</h3>
                     <div>
@@ -56,7 +57,16 @@
     <div class="preview-projects">
         <div>
             <p>Work</p>
-            <div class="image-preview"></div>
+            @if (this.hoverJoin === true) {
+                <img class="pre" src="../../assets/img/joinPreview.png">
+            } @else if (this.hoverElPollo === true) {
+                <img class="pre" src="../../assets/img/pollo-locoPreview.png">
+            } @else if (this.hoverDaBubble === true) {
+                <img class="pre" src="../../assets/img/neonCity.webp">
+            }
+
+
+            <!-- <div class="image-preview"></div> -->
         </div>
     </div>
     @if(this.hideModal === true) {

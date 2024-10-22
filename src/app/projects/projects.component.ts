@@ -10,6 +10,10 @@ import { Component } from '@angular/core';
 export class ProjectsComponent {
   hideModal = false;
 
+  hoverJoin = false;
+  hoverElPollo = false;
+  hoverDaBubble = false;
+
   setJoin = false;
   setElPolloLoco = false;
   setDaBubble = false;
@@ -17,6 +21,18 @@ export class ProjectsComponent {
   join: string = '';
   elpolloloco: string = '';
   dabubble: string = '';
+
+  mouseEnter(enterproject: string) {
+    this.hoverJoin = enterproject === 'preJoin' ? true : this.hoverJoin;
+    this.hoverElPollo = enterproject === 'preElPollo' ? true : this.hoverElPollo;
+    this.hoverDaBubble = enterproject === 'preDaBubble' ? true : this.hoverDaBubble;
+  }
+
+  mouseLeave(leaveproject: string) {
+    this.hoverJoin = leaveproject === 'leaveJoin' ? false : this.hoverJoin;
+    this.hoverElPollo = leaveproject === 'leaveElPollo' ? false : this.hoverElPollo;
+    this.hoverDaBubble = leaveproject === 'leaveDaBubble' ? false : this.hoverDaBubble;
+  }
 
   backgroundClick() {
     this.toggleModal();

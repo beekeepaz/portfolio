@@ -64,6 +64,8 @@ section {
             display: flex;
             flex-direction: column;
             align-items: start;
+            // justify-content: space-between;
+
 
             >div.single-project {
                 display: flex;
@@ -71,6 +73,8 @@ section {
                 align-items: center;
                 height: 109px;
                 width: 880px;
+                width: 100%;
+
 
                 >div.place-single-project {
                     display: flex;
@@ -94,10 +98,6 @@ section {
                 cursor: pointer;
             }
 
-            // >div.single-project:hover .image-preview {
-            //     visibility: visible;
-            // }
-
         }
     }
 
@@ -113,6 +113,36 @@ section {
     height: 1px;
     background-color: #3DCFB6;
     width: 100%;
+}
+
+div.single-project:hover div.image-preview {
+    opacity: 0.9;
+    visibility: visible;
+}
+
+img.pre {
+    display: flex;
+    position: absolute;
+    height: 300px;
+    width: 500px;
+    object-fit: contain;
+    border-radius: 30px;
+}
+
+.image-preview {
+    display: flex;
+    position: absolute;
+    visibility: hidden;
+    height: 300px;
+    width: 500px;
+    background-image: url('../../assets/img/joinPreview.png');
+    background-size: cover;
+    object-fit: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+    left: 1100px;
+    margin-top: 80px;
 }
 
 // carts carts carts carts carts carts carts carts carts 
@@ -257,18 +287,6 @@ button:hover .btn-arrow {
     background-image: url('../../assets/img/arrow_btn_out.png');
 }
 
-.image-preview {
-    display: flex;
-    visibility: hidden;
-    height: 200px;
-    width: 500px;
-    background-image: url('../../assets/img/joinPreview.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: 30px;
-}
 
-div:hover .image-preview {
-    opacity: 0.5;
-    visibility: visible;
-}
+
+
