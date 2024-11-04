@@ -1,8 +1,9 @@
 <section>
     <div>
         <h1>What my colleagues say about me</h1>
-        <div class="comment-field"> 
+        <div class="comment-field">
             <div class="show-container">
+                @if(animateleft === true) {
                 <div class="single-comment-field preview left">
                     <span>
                         {{ preText[currentIndex].text }}
@@ -10,6 +11,40 @@
                         {{ preText[currentIndex].name }}
                     </span>
                 </div>
+                } @else if(animateright === true) {
+                <div class="single-comment-field preview left-right">
+                    <span>
+                        {{ preText[currentIndex].text }}
+                        <div class="line"></div>
+                        {{ preText[currentIndex].name }}
+                    </span>
+                </div>
+                } @else if(animateleft === false && animateright === false) {
+                <div class="single-comment-field preview">
+                    <span>
+                        {{ preText[currentIndex].text }}
+                        <div class="line"></div>
+                        {{ preText[currentIndex].name }}
+                    </span>
+                </div>
+                }
+                @if(animateleft === true) {
+                <div class="single-comment-field mid-left">
+                    <span>
+                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        <div class="line"></div>
+                        {{ preText[(currentIndex + 1) % preText.length].name }}
+                    </span>
+                </div>
+                } @else if (animateright === true) {
+                <div class="single-comment-field mid-right">
+                    <span>
+                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        <div class="line"></div>
+                        {{ preText[(currentIndex + 1) % preText.length].name }}
+                    </span>
+                </div>
+                } @else {
                 <div class="single-comment-field">
                     <span>
                         {{ preText[(currentIndex + 1) % preText.length].text }}
@@ -17,6 +52,8 @@
                         {{ preText[(currentIndex + 1) % preText.length].name }}
                     </span>
                 </div>
+                }
+                @if(animateleft === true) {
                 <div class="single-comment-field preview right">
                     <span>
                         {{ preText[(currentIndex + 2) % preText.length].text }}
@@ -24,7 +61,26 @@
                         {{ preText[(currentIndex + 2) % preText.length].name }}
                     </span>
                 </div>
+                } @else if(animateright === true) {
+                <div class="single-comment-field preview right-right">
+                    <span>
+                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        <div class="line"></div>
+                        {{ preText[(currentIndex + 2) % preText.length].name }}
+                    </span>
+                </div>
+                } @else {
+                <div class="single-comment-field preview">
+                    <span>
+                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        <div class="line"></div>
+                        {{ preText[(currentIndex + 2) % preText.length].name }}
+                    </span>
+                </div>
+                }
             </div>
+            <div class="box-shadow"></div>
+            <div class="box-shadow-second"></div>
             <div>
                 <a class="prev" (click)="prevSlide()">&lt;</a>
                 <a class="next" (click)="nextSlide()">&gt;</a>
