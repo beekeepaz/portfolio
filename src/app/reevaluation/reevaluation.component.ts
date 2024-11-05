@@ -27,13 +27,13 @@ export class ReevaluationComponent {
     setTimeout(() => {
       this.animateleft = false;
 
-    }, 1000);
+      if (this.currentIndex == this.preText.length - 1) {
+        this.currentIndex = 0;
+      } else {
+        this.currentIndex++;
+      }
 
-    if (this.currentIndex == 0) {
-      this.currentIndex = this.preText.length - 1;
-    } else {
-      this.currentIndex--;
-    }
+    }, 1000);
   }
 
   nextSlide() {
@@ -42,13 +42,15 @@ export class ReevaluationComponent {
     setTimeout(() => {
       this.animateright = false;
 
-    }, 1000);
 
-    if (this.currentIndex == this.preText.length - 1) {
-      this.currentIndex = 0;
-    } else {
-      this.currentIndex++;
-    }
+
+      if (this.currentIndex == 0) {
+        this.currentIndex = this.preText.length - 1;
+      } else {
+        this.currentIndex--;
+      }
+
+    }, 1000);
   }
 
 }
