@@ -17,30 +17,30 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview left">
                     <span>
-                        {{ preText[currentIndex].text }}
+                        {{ preText[(currentIndex + 1) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[currentIndex].name }}
+                            {{ preText[(currentIndex + 1) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateright === true) {
                 <div class="single-comment-field preview left-right">
                     <span>
-                        {{ preText[currentIndex].text }}
+                        {{ preText[(currentIndex + 1) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[currentIndex].name }}
+                            {{ preText[(currentIndex + 1) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateleft === false && animateright === false) {
                 <div class="single-comment-field preview">
                     <span>
-                        {{ preText[currentIndex].text }}
+                        {{ preText[(currentIndex + 1) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[currentIndex].name }}
+                            {{ preText[(currentIndex + 1) % preText.length].name }}
                         </div>
                     </span>
                 </div>
@@ -48,30 +48,30 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field mid-left">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ preText[(currentIndex + 2) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ preText[(currentIndex + 2) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if (animateright === true) {
                 <div class="single-comment-field mid-right">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ preText[(currentIndex + 2) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ preText[(currentIndex + 2) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else {
                 <div class="single-comment-field">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ preText[(currentIndex + 2) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ preText[(currentIndex + 2) % preText.length].name }}
                         </div>
                     </span>
                 </div>
@@ -79,30 +79,30 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview right">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ preText[(currentIndex + 3) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ preText[(currentIndex + 3) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateright === true) {
                 <div class="single-comment-field preview right-right">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ preText[(currentIndex + 3) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ preText[(currentIndex + 3) % preText.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else {
                 <div class="single-comment-field preview">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ preText[(currentIndex + 3) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ preText[(currentIndex + 3) % preText.length].name }}
                         </div>
                     </span>
                 </div>
@@ -110,10 +110,10 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview right-in">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ preText[(currentIndex + 4) % preText.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ preText[(currentIndex + 4) % preText.length].name }}
                         </div>
                     </span>
                 </div>

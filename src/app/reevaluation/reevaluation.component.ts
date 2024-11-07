@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './reevaluation.component.html',
   styleUrl: './reevaluation.component.scss'
 })
+
 export class ReevaluationComponent {
   preText = [
     { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
@@ -41,8 +42,6 @@ export class ReevaluationComponent {
 
     setTimeout(() => {
       this.animateright = false;
-
-
 
       if (this.currentIndex == 0) {
         this.currentIndex = this.preText.length - 1;
