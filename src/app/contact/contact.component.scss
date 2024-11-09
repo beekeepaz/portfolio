@@ -52,8 +52,20 @@ section {
 
         >form {
             display: flex;
-            align-items: center;
+            align-items: start;
             flex-direction: column;
+
+            .contact-question {
+                color: #3DCFB6;
+                font-family: Fira_Code;
+                font-size: 24px;
+                font-weight: 500;
+                line-height: 28.8px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                padding-bottom: 32px;
+            }
         }
 
     }
@@ -65,7 +77,21 @@ section {
     width: 100%;
 }
 
+.con-information-pos {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    padding: 32px;
+}
 
+.con-button-pos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 32px;
+}
 
-
-
+.valid-massage {
+    color: #EC7B7B;
+    font-family: Kiara;
+}
