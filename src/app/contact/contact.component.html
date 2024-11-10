@@ -18,8 +18,8 @@
             <div class="longe-line"></div>
             <div class="con-information-pos">
                 <span class="contact-question">What's your name?</span>
-                <input required #name="ngModel" minlength="6" [(ngModel)]="contactData.name" class="name" type="name"
-                    name="name" placeholder="What's your name?">
+                <input required #name="ngModel" id="fnmae" minlength="2" [(ngModel)]="contactData.name" class="name"
+                    type="name" name="name" placeholder="Your name goes here">
                 @if(!name.valid && name.touched) {
                 <span class="valid-massage">Oops! it seems your name is missing</span>
                 }
@@ -43,8 +43,15 @@
                 }
             </div>
             <div class="longe-line"></div>
+            <div class="con-police-pos">
+                <input required [checked]="check == 'false'" type="checkbox">
+                <span>I've read the<a>privacy policy</a>and agree to the processing of my data as outlined.</span>
+                @if(check === false) {
+                <span class="valid-massage">Hoppla! your email is required</span>
+                }
+            </div>
             <div class="con-button-pos">
-                <button required class="button" type="submit">
+                <button required class="button" (click)="sendMail(contactForm)" type="submit">
                     <span class="btn-span-one">Say Hello ;)</span>
                     <span class="btn-span-sec">Say Hello ;)</span>
                 </button>

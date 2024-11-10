@@ -40,7 +40,6 @@ section {
             text-align: justified;
             color: #FFFFFF;
             width: 456px;
-            // height: 44px;
             gap: 0px;
             opacity: 0px;
         }
@@ -67,13 +66,13 @@ section {
                 padding-bottom: 32px;
             }
         }
-
     }
 }
 
 .longe-line {
     height: 1px;
     background-color: #3DCFB6;
+    opacity: 0.5;
     width: 100%;
 }
 
@@ -82,6 +81,12 @@ section {
     align-items: start;
     flex-direction: column;
     padding: 32px;
+}
+
+.con-police-pos {
+    display: flex;
+    font-family: Kiara;
+    font-size: 24px;
 }
 
 .con-button-pos {
@@ -94,4 +99,42 @@ section {
 .valid-massage {
     color: #EC7B7B;
     font-family: Kiara;
+}
+
+input {
+    display: flex;
+    background-color: rgb(28, 28, 28);
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    width: 332px;
+    outline: none;
+    box-sizing: border-box;
+    color: #3DCFB6;
+    font-family: Kiara;
+    font-size: 24px;
+}
+
+::placeholder {
+    color: #3DCFB6;
+    font-family: Kiara;
+    font-size: 24px;
+}
+
+input:focus {
+    border: none;
+}
+
+textarea {
+    outline: none;
+    background-color: rgb(28, 28, 28);
+    height: 32px;
+    width: 332px;
+    border: none;
+    cursor: pointer;
+    color: #3DCFB6;
+    font-family: Kiara;
+    font-size: 24px;
+    resize: none;
+    overflow: auto;
 }

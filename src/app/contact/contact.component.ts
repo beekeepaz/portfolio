@@ -20,6 +20,9 @@ export class ContactComponent {
     message: "",
   }
 
+  name: any;
+  check: any = true;
+
   mailTest = true;
 
   post = {
