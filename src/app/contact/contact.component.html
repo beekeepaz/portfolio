@@ -44,7 +44,10 @@
             </div>
             <div class="longe-line"></div>
             <div class="con-police-pos">
-                <input required [checked]="check == 'false'" type="checkbox">
+                <label class="container">
+                    <input required [checked]="check == 'false'" type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
                 <span>I've read the<a>privacy policy</a>and agree to the processing of my data as outlined.</span>
                 @if(check === false) {
                 <span class="valid-massage">Hoppla! your email is required</span>
