@@ -55,38 +55,38 @@ section {
     gap: 24px;
 }
 
-// .background {
-//     background: #efefef;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     min-height: 100%;
-//     z-index: -1;
-// }
+.background {
+    z-index: 1;
+    border: 1px solid #3DCFB6;
+    border-radius: 24px;
+}
 
-.btn{
-    border: 3px solid #1a1a1a;
+.btn {
     display: inline-block;
     padding: 10px;
     position: relative;
-    background: green;
     text-align: center;
-    transition: background 600ms ease, color 600ms ease;
+    // border-radius: 24px;
+    // transition: background 600ms ease, color 600ms ease;
 }
 
 input[type="radio"].toggle {
     display: none;
-    background-color: #000;
-    & + label{
+
+    &+label {
         cursor: pointer;
         min-width: 60px;
-        &:hover{
-            background: #de1717;
+
+        // width: 100%;
+        &:hover {
+            background: none;
             color: #1a1a1a;
+            // width: 100%;
         }
-        &:after{
-            background: #0518a7;
-            color: #0518a7;
+
+        &:after {
+            background: #3DCFB6;
+            border-radius: 24px;
             content: "";
             height: 100%;
             position: absolute;
@@ -96,36 +96,28 @@ input[type="radio"].toggle {
             z-index: -1;
         }
     }
-    &.toggle-left + label {
+
+    &.toggle-left+label {
         border-right: 0;
-        &:after{
+
+        &:after {
             left: 100%
         }
     }
-    &.toggle-right + label{
-        margin-left: -5px;
-        &:after{
+
+    &.toggle-right+label {
+        &:after {
             left: -100%;
         }
     }
-    &:checked + label {
+
+    &:checked+label {
         cursor: default;
         color: #fff;
         transition: color 200ms;
-        &:after{
+
+        &:after {
             left: 0;
         }
-    }
-}
-
-@keyframes backgrounds {
-    0% {
-        opacity: 1;
-        background: green;
-    }
-
-    100% {
-        opacity: 0;
-        background: #0518a7;
     }
 }
