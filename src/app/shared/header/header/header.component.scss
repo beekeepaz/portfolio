@@ -45,6 +45,7 @@ section {
         display: flex;
         justify-content: end;
         width: 568px;
+        z-index: 100;
     }
 }
 
@@ -53,6 +54,7 @@ section {
     justify-content: center;
     width: 668px;
     gap: 24px;
+    z-index: 99;
 }
 
 .background {
