@@ -193,7 +193,6 @@ h2 {
 .line-left-pos {
     display: flex;
     flex-direction: column;
-    // align-items: end;
     justify-content: end;
     width: 150px;
     height: 100vh;
@@ -207,6 +206,74 @@ h2 {
     background-color: #3DCFB6;
     width: 1px;
     margin-left: 180px;
+}
+
+.git-pos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 180px;
+    position: absolute;
+    margin-right: 151px;
+    margin-bottom: 214px;
+
+    >img:last-child {
+        visibility: hidden;
+        margin-left: 4px;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.git-pos:hover img:last-child {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.git-pos:hover div:first-child {
+    background-image: url('../../assets/img/github_white.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.git-pos div:first-child {
+    background-image: url('../../assets/img/github_green.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.git-pos:hover {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.mail-pos {
+    display: flex;
+    rotate: -90deg;
+    margin-right: 180px;
+    position: absolute;
+    margin-right: 94px;
+    margin-bottom: 343px;
+
+    >a {
+        text-decoration: none;
+        font-family: Kiara;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21.6px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #FFFFFF;
+    }
+
+    >a:hover {
+        color: #3DCFB6;
+    }
 }
 
 .line-right-pos {
