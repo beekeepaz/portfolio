@@ -134,7 +134,7 @@ h2 {
     overflow: hidden;
     position: absolute;
     display: flex;
-    align-items: center;
+    align-items: start;
     left: 0;
     right: 0;
     margin-left: 12px;
@@ -144,19 +144,21 @@ h2 {
 
 .marquee p {
     display: flex;
-    padding-left: 100%;
+    padding-left: -100%;
     animation: marquee 20s linear infinite;
     font-family: Kiara;
     color: #3DCFB6;
     font-size: 32px;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     left: 0;
     right: 0;
 }
 
 .marquee2 p {
     animation-delay: 10s;
+    // padding-left: -100%;
+    // animation: marquee linear 10s infinite;
 }
 
 .arrow-box {
@@ -296,11 +298,11 @@ h2 {
 
 @keyframes marquee {
     0% {
-        transform: translate(0, 0);
+        transform: translateX(100%);
     }
 
     100% {
-        transform: translate(-100%, 0);
+        transform: translateX(-100%);
     }
 }
 

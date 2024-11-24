@@ -19,7 +19,8 @@ export class MainComponent implements OnInit {
 
   currentIndex = 0;
 
-  banneritems: any[] = ["Frontend Developer", "Based in Hannover", "Open to work", "Available to work"];
+  banneritems: any[] = ["Frontend Developer", "Based in Hannover", "Open to work",
+    "Available to work"];
   clonedArr: any[] = Array.from(this.banneritems);
 
   // span = document.querySelector("btn-span-sec");
