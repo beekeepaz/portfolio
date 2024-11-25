@@ -79,11 +79,33 @@ h2 {
 //     overflow: hidden;
 // }
 
+.banner-point {
+    height: 10px;
+    width: 10px;
+    // padding-left: 32px;
+    // padding-right: 32px;
+    // margin-left: 32px;
+    // margin-right: 32px;
+}
+
+.banner-text {
+    position: relative;
+    overflow: hidden;
+    font-size: 32px;
+    font-family: Kiara;
+    color: #3DCFB6;
+    max-width: fit-content;
+    // margin-left: 32px;
+    // margin-right: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
 .marquee {
     max-width: 100%;
     display: flex;
     align-items: center;
-    // white-space: nowrap;
+    white-space: nowrap;
     block-size: var(--marquee-item-height);
     margin-block: var(--marquee-item-height);
     rotate: -3deg;
@@ -104,7 +126,7 @@ h2 {
 }
 
 .marquee--8 {
-    --marquee-item-width: 100px;
+    --marquee-item-width: 1px;
     --marquee-item-height: 100px;
     --marquee-duration: 36s;
     --marquee-items: 8;
