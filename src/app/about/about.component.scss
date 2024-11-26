@@ -30,18 +30,21 @@ section {
             margin-top: 32px;
         }
     }
-
-    >h3 {
-        display: flex;
-        flex-direction: column;
-        font-family: Karla;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 28.06px;
-        height: 100%;
-    }
 }
 
+h3 {
+    display: flex;
+    flex-direction: column;
+    font-family: Karla;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.06px;
+    height: 100%;
+    color: #3DCFB6;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    cursor: default;
+}
 
 .about-me-container {
     display: flex;
@@ -49,14 +52,16 @@ section {
     border-radius: 30px;
     border: 1px solid #3DCFB6;
     background-color: rgb(31, 46, 43);
-    width: 568px;
-    height: 562px;
+    width: 536px;
+    height: 530px;
     border: 1px 0px 0px 0px;
     font-family: Karla;
     font-size: 18px;
     font-weight: 400;
     line-height: 21.6px;
     color: #FFFFFF;
+    padding: 32px;
+    gap: 40px;
 
     >h4 {
         font-family: Fira_Code;
@@ -66,6 +71,7 @@ section {
         letter-spacing: -0.03em;
         text-align: left;
         color: #3DCFB6;
+        cursor: default;
     }
 
     >div {
@@ -78,17 +84,32 @@ section {
         line-height: 21.6px;
         text-align: left;
         color: #ffffffad;
+        gap: 32px;
+        height: 100%;
     }
 }
 
-img.icon {
-    height: 32px;
-    width: 32px;
+.icon-pos {
+    display: flex;
+    align-items: baseline;
+    height: 100%;
 }
 
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
+img.icon {
+    height: 26px;
+    width: 21px;
+    object-fit: contain;
+}
+
+span {
+    display: flex;
+    align-items: baseline;
+    height: 100%;
+}
+
+span:hover {
+    cursor: default;
+    color: #ffffffed;
 }
 
 #targeRed {

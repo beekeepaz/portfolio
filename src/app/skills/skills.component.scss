@@ -1,33 +1,35 @@
 .skill-set-container {
     display: flex;
     flex-direction: column;
+    align-items: baseline;
     border-radius: 30px;
     border: 1px solid #3DCFB6;
     background-color: rgb(31, 46, 43);
-    width: 568px;
-    height: 562px;
-    // gap: 40px;
+    width: 536px;
+    height: 530px;
     border: 1px 0px 0px 0px;
     font-family: Karla;
     font-size: 18px;
     font-weight: 400;
     line-height: 21.6px;
     color: #FFFFFF;
+    padding: 32px;
+    gap: 40px;
 
     >h4 {
         font-family: Fira_Code;
         font-size: 64px;
         font-weight: 700;
         line-height: 64px;
-        letter-spacing: -0.03em;
+        letter-spacing: -3%;
         text-align: left;
         color: #3DCFB6;
     }
 
     >div {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        // align-items: center;
         font-family: Karla;
         font-size: 18px;
         font-weight: 400;
@@ -37,14 +39,44 @@
     }
 }
 
+h3 {
+    display: flex;
+    flex-direction: column;
+    font-family: Karla;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 28.06px;
+    color: #3DCFB6;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    cursor: default;
+}
+
+h5 {
+    font-family: Fira_Code;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28.8px;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.green {
+    color: #3DCFB6;
+}
+
+.width {
+    width: 100%;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+}
+
 img.icon {
     height: 32px;
     width: 32px;
-}
-
-p {
-    margin-block-start: 0;
-    margin-block-end: 0;
 }
 
 section {
@@ -70,8 +102,31 @@ section {
     height: 428px;
     gap: 72px;
 
-    >img {
-        width: 60px;
-        height: 60px;
+    >div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 104px;
+        height: 116px;
+        gap: 8px;
+
+        >img {
+            width: 60px;
+            height: 60px;
+        }
+
+        >img:hover {
+            transform: scale(1.078);
+        }
+
+        >span {
+            font-family: Fira_Code;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21.6px;
+            letter-spacing: -3%;
+            width: 100%;
+            text-align: center;
+        }
     }
 }
