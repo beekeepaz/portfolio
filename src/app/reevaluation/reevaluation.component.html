@@ -3,6 +3,9 @@
         <h1>What my colleagues say about me</h1>
         <div class="comment-field">
             <div class="show-container">
+                <div class="quotes-img-pos">
+                    <img class="quotes" src="../../assets/img/quotes.png">
+                </div>
                 @if(animateright === true) {
                 <div class="single-comment-field preview left-in">
                     <span>
@@ -66,7 +69,7 @@
                     </span>
                 </div>
                 } @else {
-                <div class="single-comment-field">
+                <div class="single-comment-field show-mid-color">
                     <span>
                         {{ preText[(currentIndex + 2) % preText.length].text }}
                         <div class="place-name">
@@ -123,8 +126,15 @@
             <div class="box-shadow-second"></div>
         </div>
         <div class="place-arrows">
-            <a class="prev" (click)="prevSlide()">&lt;</a>
-            <a class="next" (click)="nextSlide()">&gt;</a>
+            <button (click)="prevSlide()">
+                <div class="left-arrow"></div>
+            </button>
+            <div class="point-slider"></div>
+            <div class="point-slider"></div>
+            <div class="point-slider"></div>
+            <button (click)="nextSlide()">
+                <div class="right-arrow"></div>
+            </button>
         </div>
     </div>
 </section>
