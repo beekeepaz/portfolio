@@ -1,5 +1,5 @@
 section {
-    height: 100vh;
+    height: 70vh;
     background-color: rgb(28, 28, 28);
     display: flex;
     align-items: start;
@@ -14,6 +14,11 @@ section {
         // width: 880px;
         height: 100%;
         overflow-x: hidden;
+        cursor: default;
+
+        >div {
+            padding-top: 32px;
+        }
 
         >h1 {
             font-family: Fira_Code;
@@ -50,6 +55,22 @@ section {
             width: 100%;
             gap: 0px;
             opacity: 0px;
+        }
+
+        >div span {
+            font-family: Karla;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 21.6px;
+            text-align: justified;
+            color: #FFFFFF;
+            width: 100%;
+            gap: 0px;
+            opacity: 0px;
+        }
+
+        >div span.farbcode-green {
+            color: #3DCFB6;
         }
     }
 
@@ -94,8 +115,27 @@ section {
 
 .con-police-pos {
     display: flex;
-    font-family: Kiara;
-    font-size: 24px;
+    align-items: center;
+    justify-content: center;
+    font-family: Karla;
+    height: 75px;
+    font-size: 15px;
+    cursor: default;
+
+    >span {
+        display: inline-block;
+
+        >a {
+            color: #3DCFB6;
+            padding-right: 6px;
+            padding-left: 6px;
+        }
+
+        >a:hover {
+            color: #FFFFFF;
+            cursor: pointer;
+        }
+    }
 }
 
 .con-button-pos {
@@ -107,7 +147,7 @@ section {
 
 .valid-massage {
     color: #EC7B7B;
-    font-family: Kiara;
+    font-family: Karla;
 }
 
 input {
@@ -126,7 +166,7 @@ input {
 
 ::placeholder {
     color: #3DCFB6;
-    font-family: Kiara;
+    font-family: Karla;
     font-size: 24px;
 }
 
@@ -152,7 +192,7 @@ textarea {
     display: block;
     position: relative;
     padding-left: 35px;
-    margin-bottom: 12px;
+    margin-bottom: 22px;
     cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
@@ -175,10 +215,10 @@ textarea {
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 18px;
+    width: 18px;
     background-color: rgb(28, 28, 28);
-    border: 2px solid #3DCFB6;
+    border: 3px solid #3DCFB6;
     border-radius: 6px;
 }
 
@@ -206,10 +246,10 @@ textarea {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
+    left: 6px;
+    top: 2px;
+    width: 3px;
+    height: 8px;
     border: solid #3DCFB6;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);

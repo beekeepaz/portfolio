@@ -6,21 +6,50 @@ section {
     align-items: center;
     width: 100%;
     color: #FFFFFFCC;
-   
+
     >div {
         display: flex;
         justify-content: space-around;
         align-items: center;
         width: 100%;
 
-        >p {
+        >span {
+            display: flex;
+            align-items: center;
             position: absolute;
+            color: #3DCFB6;
+            font-family: Fira_Code;
+        }
+
+        >span:hover {
+            cursor: default;
         }
 
         >div.place-logo {
             display: flex;
             justify-content: start;
+            flex-direction: column;
             width: 668px;
+
+            >div.logos {
+                display: flex;
+                padding-top: 32px;
+            }
+
+            >span {
+                font-family: Karla;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 19.2px;
+                text-align: left;
+                text-underline-position: from-font;
+                text-decoration-skip-ink: none;
+                color: #FFFFFF;
+            }
+
+            >span:hover {
+                cursor: default;
+            }
         }
 
         >div.place-links {
@@ -29,6 +58,45 @@ section {
             align-items: end;
             flex-direction: column;
             width: 568px;
+            gap: 10px;
+
+            >div {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                >span {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    width: 130px;
+                    color: #FFFFFF;
+                    font-family: Fira_Code;
+                    gap: 6px;
+
+                    >img.green-point {
+                        visibility: hidden;
+                        width: 8px;
+                        height: 8px;
+                    }
+                }
+
+                >span:hover {
+                    color: #3DCFB6;
+                }
+
+                >span:hover img.green-point {
+                    visibility: visible;
+                }
+            }
+        }
+
+        >div.place-links:hover {
+            cursor: default;
         }
     }
+}
+
+span:hover img {
+    visibility: hidden;
 }
