@@ -6,7 +6,8 @@ section {
     justify-content: space-around;
     width: 100%;
     color: #FFFFFFCC;
-    overflow-x: hidden;
+    // overflow-x: hidden;
+    // z-index: 99;
 
     >div.contact-me {
         display: flex;
@@ -94,73 +95,121 @@ section {
                 text-underline-position: from-font;
                 text-decoration-skip-ink: none;
                 padding-bottom: 32px;
+                cursor: default;
+            }
+
+            >div.longe-line {
+                height: 1px;
+                background-color: #3DCFB6;
+                width: 100%;
+            }
+
+            >.ll1:hover {
+                opacity: 1;
+            }
+
+            div.ll1:hover div.ll2 {
+                opacity: 1;
+            }
+
+            >div.ll1 {
+                opacity: 0.5;
+            }
+
+            >div.con-information-pos {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+                padding: 32px;
+                // height: 100%;
+                // width: 100%;
+            }
+
+            >div.con-information-pos.cip1:hover .ll1 {
+                opacity: 1;
+            }
+
+            >div.con-information-pos:hover div.ll1 {
+                opacity: 1;
             }
         }
+
+        >form:hover .ll1 {
+            opacity: 1;
+        }
+
     }
 }
 
-.longe-line {
-    height: 1px;
-    background-color: #3DCFB6;
-    opacity: 0.5;
-    width: 100%;
-}
-
-.con-information-pos {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    padding: 32px;
+div.ll1:hover div.ll2 {
+    opacity: 0.1;
 }
 
 .con-police-pos {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     font-family: Karla;
     height: 75px;
     font-size: 15px;
-    cursor: default;
+    width: 100%;
+
+    >div {
+        display: flex;
+        flex-direction: row;
+
+        >span {
+            display: inline-block;
+            cursor: default;
+
+            >a {
+                color: #3DCFB6;
+                padding-right: 6px;
+                padding-left: 6px;
+                cursor: default;
+            }
+
+            >a:hover {
+                color: #FFFFFF;
+            }
+        }
+    }
 
     >span {
-        display: inline-block;
-
-        >a {
-            color: #3DCFB6;
-            padding-right: 6px;
-            padding-left: 6px;
-        }
-
-        >a:hover {
-            color: #FFFFFF;
-            cursor: pointer;
-        }
+        display: flex;
+        justify-content: baseline;
+        width: 100%;
+        position: relative;
+        padding-top: 10px;
     }
 }
 
 .con-button-pos {
     display: flex;
     justify-content: center;
+    // position: absolute;
     width: 100%;
     padding-top: 32px;
+    z-index: 99;
 }
 
 .valid-massage {
     color: #EC7B7B;
     font-family: Karla;
+    cursor: default;
 }
 
 input {
     display: flex;
     background-color: rgb(28, 28, 28);
     border: none;
-    cursor: pointer;
     height: 32px;
     width: 332px;
     outline: none;
     box-sizing: border-box;
     color: #3DCFB6;
-    font-family: Kiara;
+    font-family: Karla;
     font-size: 24px;
 }
 
@@ -178,14 +227,19 @@ textarea {
     outline: none;
     background-color: rgb(28, 28, 28);
     height: 32px;
-    width: 332px;
+    width: 500px;
     border: none;
-    cursor: pointer;
     color: #3DCFB6;
-    font-family: Kiara;
+    font-family: Karla;
     font-size: 24px;
     resize: none;
-    overflow: auto;
+    // min-height: 32px;
+    // max-height: 500px;
+    // field-sizing: content;
+    // overflow: hidden;
+    min-block-size: 3.5rlh;
+    min-inline-size: 20ch;
+    max-inline-size: 50ch;
 }
 
 .container {
@@ -193,12 +247,18 @@ textarea {
     position: relative;
     padding-left: 35px;
     margin-bottom: 22px;
-    cursor: pointer;
     font-size: 22px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.container:hover span {
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 100%;
+    background-color: #3DCFB6;
 }
 
 /* Hide the browser's default checkbox */
@@ -218,8 +278,8 @@ textarea {
     height: 18px;
     width: 18px;
     background-color: rgb(28, 28, 28);
-    border: 3px solid #3DCFB6;
-    border-radius: 6px;
+    border: 2px solid #3DCFB6;
+    border-radius: 3px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -230,6 +290,7 @@ textarea {
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
     background-color: rgb(28, 28, 28);
+    border-radius: 100%;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -246,12 +307,12 @@ textarea {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-    left: 6px;
-    top: 2px;
+    left: 7px;
+    top: 3px;
     width: 3px;
     height: 8px;
     border: solid #3DCFB6;
-    border-width: 0 3px 3px 0;
+    border-width: 0 2px 2px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);

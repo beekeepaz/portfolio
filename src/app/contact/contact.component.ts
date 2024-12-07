@@ -21,12 +21,13 @@ export class ContactComponent {
   }
 
   name: any;
-  check: any = true;
+  checked: boolean = false;
+  formchech: any = true;
 
   mailTest = true;
 
   post = {
-    endPoint: 'https://devaka-projekte.de/sendMail.php',
+    endPoint: 'https://frueherwarmehrlammetta.de/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
@@ -37,7 +38,11 @@ export class ContactComponent {
   };
 
   sendMail(ngForm: NgForm) {
+    console.log('Da tut sich was');
+    // console.log(this.contactData);
+
     if (ngForm.form.valid && ngForm.submitted && !this.mailTest) {
+      console.log(this.contactData);
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
