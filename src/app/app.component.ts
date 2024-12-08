@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { MainComponent } from './main/main.component';
-import { HeaderComponent } from './shared/header/header/header.component'; 
 import { AboutComponent } from './about/about.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from "./projects/projects.component";
@@ -13,9 +12,8 @@ import { ContactComponent } from "./contact/contact.component";
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet,
-    MainComponent, HeaderComponent,
-    AboutComponent, SkillsComponent, 
-    ProjectsComponent, ReevaluationComponent, 
+    MainComponent, AboutComponent, SkillsComponent,
+    ProjectsComponent, ReevaluationComponent,
     ContactComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

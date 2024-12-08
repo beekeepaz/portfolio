@@ -1,6 +1,5 @@
 import { Component, VERSION, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header/header.component';
-import { ViewportScroller } from "@angular/common";
 import { Router } from "@angular/router";
 import { MarqueeComponent } from '../marquee/marquee.component';
 
@@ -23,11 +22,11 @@ export class MainComponent implements OnInit {
     "Available to work"];
   clonedArr: any[] = Array.from(this.banneritems);
 
-  constructor(private scroller: ViewportScroller, private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    console.log("ngOnit Works");
-    console.log(this.clonedArr);
+    // console.log("ngOnit Works");
+    // console.log(this.clonedArr);
     this.router.navigate(["/"]);
   }
 

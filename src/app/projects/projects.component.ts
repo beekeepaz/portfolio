@@ -1,63 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProjectCartComponent } from './project-cart/project-cart.component';
+import { Carts } from '../global/carts';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [ProjectCartComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
-  hideModal = false;
+export class ProjectsComponent implements OnInit {
 
-  hoverJoin = false;
-  hoverElPollo = false;
-  hoverDaBubble = false;
+  constructor(public carts: Carts) {
+  }
 
-  setJoin = false;
-  setElPolloLoco = false;
-  setDaBubble = false;
-
-  join: string = '';
-  elpolloloco: string = '';
-  dabubble: string = '';
+  ngOnInit(): void {
+    console.log(this.carts.hideModal); // Globale Variable prüfen
+  }
 
   mouseEnter(enterproject: string) {
-    this.hoverJoin = enterproject === 'preJoin' ? true : this.hoverJoin;
-    this.hoverElPollo = enterproject === 'preElPollo' ? true : this.hoverElPollo;
-    this.hoverDaBubble = enterproject === 'preDaBubble' ? true : this.hoverDaBubble;
+    this.carts.hoverJoin = enterproject === 'preJoin' ? true : this.carts.hoverJoin;
+    this.carts.hoverElPollo = enterproject === 'preElPollo' ? true : this.carts.hoverElPollo;
+    this.carts.hoverDaBubble = enterproject === 'preDaBubble' ? true : this.carts.hoverDaBubble;
   }
 
   mouseLeave(leaveproject: string) {
-    this.hoverJoin = leaveproject === 'leaveJoin' ? false : this.hoverJoin;
-    this.hoverElPollo = leaveproject === 'leaveElPollo' ? false : this.hoverElPollo;
-    this.hoverDaBubble = leaveproject === 'leaveDaBubble' ? false : this.hoverDaBubble;
+    this.carts.hoverJoin = leaveproject === 'leaveJoin' ? false : this.carts.hoverJoin;
+    this.carts.hoverElPollo = leaveproject === 'leaveElPollo' ? false : this.carts.hoverElPollo;
+    this.carts.hoverDaBubble = leaveproject === 'leaveDaBubble' ? false : this.carts.hoverDaBubble;
   }
 
   backgroundClick() {
-    this.toggleModal();
-    this.setFalse();
+    console.log('Background clicked');
+    this.carts.toggleModal();
+    this.carts.setFalse();
   }
 
   choosenProject(ele: string) {
+    console.log(ele);
     this.getSingleProject(ele);
-    this.toggleModal();
-  }
-
-  toggleModal() {
-    this.hideModal = !this.hideModal;
+    this.carts.toggleModal();
   }
 
   getSingleProject(ele: string) {
-    return ele === 'Join' ? this.setJoin = true :
-      ele === 'ElPolloLoco' ? this.setElPolloLoco = true :
-        ele === 'DaBubble' ? this.setDaBubble = true : null;
-  }
-
-  setFalse() {
-    this.setJoin = false;
-    this.setElPolloLoco = false;
-    this.setDaBubble = false;
+    return ele === 'Join' ? this.carts.setJoin = true :
+      ele === 'ElPolloLoco' ? this.carts.setElPolloLoco = true :
+        ele === 'DaBubble' ? this.carts.setDaBubble = true : null;
   }
 
 }
