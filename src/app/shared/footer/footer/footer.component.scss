@@ -1,22 +1,29 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
 section {
-    height: 25vh;
+    @include display($f: row);
+    @include position($p: default, $z: default, $h: 25vh);
     background-color: rgb(28, 28, 28);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     color: #FFFFFFCC;
-    // z-index: -1;
 
     >div {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 100%;
+        @include display($j: space-around, $f: row, $a: end);
+        @include position($p: default, $z: default);
 
         >span {
-            display: flex;
-            align-items: center;
+            @include display($j: end);
             position: absolute;
             color: #3DCFB6;
             font-family: Fira_Code;
@@ -27,9 +34,7 @@ section {
         }
 
         >div.place-logo {
-            display: flex;
-            justify-content: start;
-            flex-direction: column;
+            @include display($j: end, $a: start);
             width: 668px;
 
             >div.logos {
@@ -40,11 +45,8 @@ section {
             >span {
                 font-family: Karla;
                 font-size: 16px;
-                font-weight: 400;
                 line-height: 19.2px;
                 text-align: left;
-                text-underline-position: from-font;
-                text-decoration-skip-ink: none;
                 color: #FFFFFF;
             }
 
@@ -54,31 +56,24 @@ section {
         }
 
         >div.place-links {
-            display: flex;
-            justify-content: end;
-            align-items: end;
-            flex-direction: column;
-            width: 568px;
+            @include display($j: end, $a: end);
+            @include position($p: default, $z: default, $w: 568px);
             gap: 10px;
 
             >div {
-                display: flex;
-                align-items: center;
+                @include display($a: center);
                 gap: 6px;
 
                 >span {
-                    display: flex;
-                    justify-content: start;
-                    align-items: center;
+                    @include display($j: start, $a: center, $f: default);
                     width: 130px;
                     color: #FFFFFF;
                     font-family: Fira_Code;
                     gap: 6px;
 
                     >img.green-point {
+                        @include position($p: default, $z: default, $h: 8px, $w: 8px);
                         visibility: hidden;
-                        width: 8px;
-                        height: 8px;
                     }
                 }
 

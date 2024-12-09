@@ -1,41 +1,43 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
 section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+    @include display($j: space-around, $f: row);
+    @include position($p: default, $z: default, $h: 100vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
 
     >div.preview-projects {
-        display: flex;
-        justify-content: center;
         width: 280px;
 
         >div {
-            display: flex;
-            justify-content: end;
             position: absolute;
         }
     }
 
     >div {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        @include display($a: default);
         width: 880px;
 
         >div.portfolio-header {
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
+            @include display($a: start);
 
             >h1 {
                 padding-bottom: 32px;
                 font-family: Fira_Code;
                 font-size: 64px;
                 letter-spacing: -0.03em;
-                text-align: left;
                 color: #3DCFB6;
             }
 
@@ -43,15 +45,12 @@ section {
                 padding-bottom: 32px;
                 font-family: Karla;
                 font-size: 24px;
-                font-weight: 700;
                 line-height: 28.06px;
-                text-align: left;
                 color: #3DCFB6;
             }
 
             >span {
-                width: 456px;
-                height: 44px;
+                @include position($p: default, $z: default, $h: 44px, $w: 456px);
                 padding-bottom: 32px;
                 font-family: Karla;
                 font-size: 18px;
@@ -62,45 +61,29 @@ section {
         }
 
         >div.projects {
-            display: flex;
-            align-items: start;
-            flex-direction: column;
 
             >div.single-project {
-                display: flex;
-                justify-content: space-around;
-                width: 100%;
-                align-items: center;
-                height: 109px;
+                @include display();
+                @include position($p: default, $z: default, $h: 109px);
 
                 >div.place-single-project {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-direction: row;
+                    @include display($j: space-between, $f: row);
                     width: 800px;
 
                     h3 {
                         font-family: Fira_Code;
                         font-size: 24px;
-                        text-align: left;
-                        text-underline-position: from-font;
-                        text-decoration-skip-ink: none;
                         color: #FFFFFF;
                     }
 
                     span {
                         font-family: Karla;
                         font-size: 18px;
-                        text-align: left;
-                        text-underline-position: from-font;
-                        text-decoration-skip-ink: none;
                         color: #FFFFFF;
                     }
 
                     >div {
-                        display: flex;
-                        align-items: center;
+                        @include display($f: row);
                         gap: 4px;
                     }
                 }
@@ -115,14 +98,12 @@ section {
 }
 
 .short-line {
-    width: 1px;
-    height: 20px;
+    @include position($p: default, $z: default, $h: 20px, $w: 1px);
     background-color: #3DCFB6;
 }
 
 .longe-line {
-    width: 100%;
-    height: 1px;
+    @include position($p: default, $z: default, $h: 1px);
     background-color: #3DCFB6;
 }
 
@@ -132,24 +113,13 @@ div.single-project:hover div.image-preview {
 }
 
 img.pre {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 1;
-    width: 500px;
-    height: 300px;
+    @include position($z: 1, $h: 300px, $w: 500px);
     object-fit: cover;
     border-radius: 30px;
 }
 
 img.back {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 500px;
-    height: 300px;
+    @include position($z: default, $h: 300px, $w: 500px);
     margin-top: 20px;
     margin-left: 40px;
     object-fit: cover;
@@ -157,71 +127,11 @@ img.back {
 }
 
 .set-background {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 100%;
+    @include display($j: baseline);
+    @include position($p: relative, $z: default);
 }
-
-div.pos-next-button {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 100%;
-
-    >button.next-button {
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        border: none;
-        width: 240px;
-
-        >span {
-            position: absolute;
-            margin-right: 48px;
-            font-family: Karla;
-            font-size: 18px;
-            text-align: left;
-            color: #3DCFB6;
-        }
-
-        img {
-            position: absolute;
-        }
-
-        img.second {
-            visibility: hidden;
-        }
-    }
-
-    >button.next-button:hover .next-span {
-        color: #FFFFFF;
-    }
-
-    >button.next-button:hover img.second {
-        visibility: visible;
-    }
-}
-
-.next-button:hover img.second {
-    visibility: visible;
-}
-
-.next-button:hover img.first {
-    visibility: hidden;
-}
-
-.next-button:hover .next-span {
-    color: #FFFFFF;
-}
-
 
 app-project-cart {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    @include display($f: row);
+    @include position($z: default);
 }

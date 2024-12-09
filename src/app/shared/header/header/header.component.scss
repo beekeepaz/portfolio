@@ -1,7 +1,19 @@
+@mixin display($d: flex,$j: center,$a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+  }
+
+  @mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+  }
+
 section {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include display($j: space-around, $f: row);
     position: absolute;
     color: #FFFFFFCC;
     width: 100%;
@@ -10,15 +22,10 @@ section {
 
 
     >div {
-        display: flex;
-        justify-content: start;
-        align-items: center;
+        @include display($j: start, $f: row);
 
         >a {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include display();
             color: #FFFFFF;
             font-size: 20px;
             font-family: Fira_Code;
@@ -44,30 +51,22 @@ section {
     }
 
     >div.second {
-        display: flex;
-        justify-content: end;
-        width: 568px;
-        z-index: 100;
+        @include display($j: end, $f: row);
+        @include position($p: default, $z: 100, $h: default, $w: 568px);
     }
 }
 
 .menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 668px;
+    @include display($j: end, $f: row);
+    @include position($p: default, $z:99, $h: default, $w: 668px);
     gap: 24px;
-    z-index: 99;
 }
 
 .background {
-    display: flex;
-    align-items: center;
-    z-index: 1;
+    @include display($f: row);
+    @include position($p: default, $z:1, $h: 28px, $w: 84px);
     border: 1px solid #3DCFB6;
     border-radius: 24px;
-    height: 28px;
-    width: 84px;
 }
 
 .btn {
@@ -92,14 +91,11 @@ input[type="radio"].toggle {
         }
 
         &:after {
+            @include position($z: -1, $h: 28px);
             background: #3DCFB6;
             border-radius: 24px;
             content: "";
-            height: 28px;
-            position: absolute;
             transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
-            width: 100%;
-            z-index: -1;
             top: 6px;
         }
     }

@@ -1,20 +1,22 @@
-// $outoflowHidden: auto;
-
 * {
     margin: 0px;
-    // overflow: hidden;
-    // z-index: -1;
 }
-
-// @mixin changeOutoflow {
-//     @if 
-// }
 
 html {
     scroll-behavior: smooth;
 }
 
-// h tags
+// colors
+// background-color: rgb(28, 28, 28);
+// background-color: rgb(31, 46, 43);
+// background-color: #37af9b52;
+// color: #FFFFFFCC;
+// color: #3DCFB6;
+// color: #3DCFB6;
+// color: #ffffffad;
+// color: #ffffffed;
+// color: #FFFFFF;
+
 
 h1:hover {
     cursor: default;
@@ -23,8 +25,6 @@ h1:hover {
 h2:hover {
     cursor: default;
 }
-
-// logo sp
 
 .logos {
     background-size: contain;
@@ -39,9 +39,6 @@ h2:hover {
     background-image: url("../src/assets/img/logo_sp_empty.png");
     cursor: pointer;
 }
-
-
-// button
 
 button {
     display: flex;
@@ -83,7 +80,7 @@ button:hover span.btn-span-sec {
     animation: movingButtontxtOut 2.5s ease-out forwards;
     color: #3DCFB6;
 }
-    
+
 @keyframes movingButtontxtInfinite {
     0% {
         content-visibility: visible;
@@ -107,9 +104,6 @@ button:hover span.btn-span-sec {
         transform: translateX(-150px);
     }
 }
-
-
-// font
 
 @font-face {
     font-family: Fira_Code;

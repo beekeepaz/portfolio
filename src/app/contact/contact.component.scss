@@ -1,18 +1,36 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin karla-font($ff: Karla, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin fira-font($ff: Fira_Code, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
 section {
-    height: 70vh;
+    @include display($j: space-around, $a: start,$f: default);
+    @include position($p: default, $z: default,$h: 70vh);
     background-color: rgb(28, 28, 28);
-    display: flex;
-    align-items: start;
-    justify-content: space-around;
-    width: 100%;
     color: #FFFFFFCC;
-    // overflow-x: hidden;
-    // z-index: 99;
 
     >div.contact-me {
-        display: flex;
-        flex-direction: column;
-        // width: 880px;
         height: 100%;
         overflow-x: hidden;
         cursor: default;
@@ -22,22 +40,14 @@ section {
         }
 
         >h1 {
-            font-family: Fira_Code;
-            font-size: 64px;
-            font-weight: 700;
-            line-height: 64px;
+            @include fira-font($fs: 64px, $lh: 64px);
             letter-spacing: -0.03em;
-            text-align: left;
             color: #3DCFB6;
             padding-top: 16px;
         }
 
         >h2 {
-            font-family: Karla;
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 28.06px;
-            text-align: left;
+            @include karla-font($fs: 24px, $lh: 28.06px);
             color: #3DCFB6;
             padding-bottom: 32px;
         }
@@ -47,11 +57,7 @@ section {
         }
 
         >span {
-            font-family: Karla;
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 21.6px;
-            text-align: justified;
+            @include karla-font($fs: 18px);
             color: #FFFFFF;
             width: 100%;
             gap: 0px;
@@ -59,11 +65,7 @@ section {
         }
 
         >div span {
-            font-family: Karla;
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 21.6px;
-            text-align: justified;
+            @include karla-font($fs: 18px);
             color: #FFFFFF;
             width: 100%;
             gap: 0px;
@@ -81,19 +83,10 @@ section {
         overflow-x: hidden;
 
         >form {
-            display: flex;
-            align-items: start;
-            flex-direction: column;
 
             .contact-question {
+                @include fira-font($fs: 24px, $lh: 28.8px);
                 color: #3DCFB6;
-                font-family: Fira_Code;
-                font-size: 24px;
-                font-weight: 500;
-                line-height: 28.8px;
-                text-align: left;
-                text-underline-position: from-font;
-                text-decoration-skip-ink: none;
                 padding-bottom: 32px;
                 cursor: default;
             }
@@ -117,12 +110,8 @@ section {
             }
 
             >div.con-information-pos {
-                display: flex;
-                align-items: start;
-                flex-direction: column;
+                @include display($a: start);
                 padding: 32px;
-                // height: 100%;
-                // width: 100%;
             }
 
             >div.con-information-pos.cip1:hover .ll1 {
@@ -146,18 +135,12 @@ div.ll1:hover div.ll2 {
 }
 
 .con-police-pos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    font-family: Karla;
-    height: 75px;
-    font-size: 15px;
-    width: 100%;
+    @include display();
+    @include karla-font($fs: 15px);
+    @include position($p: default, $z: default,$h: 75px);
 
     >div {
-        display: flex;
-        flex-direction: row;
+        @include display($f: row);
 
         >span {
             display: inline-block;
@@ -177,46 +160,36 @@ div.ll1:hover div.ll2 {
     }
 
     >span {
-        display: flex;
-        justify-content: baseline;
-        width: 100%;
-        position: relative;
+        @include position($p: relative, $z: default,$h: default);
         padding-top: 10px;
     }
 }
 
 .con-button-pos {
-    display: flex;
-    justify-content: center;
-    // position: absolute;
-    width: 100%;
+    @include display($f: default);
+    @include position($p: default,$h: default);
     padding-top: 32px;
-    z-index: 99;
 }
 
 .valid-massage {
-    color: #EC7B7B;
     font-family: Karla;
+    color: #EC7B7B;
     cursor: default;
 }
 
 input {
-    display: flex;
-    background-color: rgb(28, 28, 28);
+    @include position($p: default,$z: default, $h: 32px, $w: 332px);
+    @include karla-font($fs: 24px, $lh: default);
     border: none;
-    height: 32px;
-    width: 332px;
     outline: none;
     box-sizing: border-box;
     color: #3DCFB6;
-    font-family: Karla;
-    font-size: 24px;
+    background-color: rgb(28, 28, 28);
 }
 
 ::placeholder {
+    @include karla-font($fs: 24px, $lh: default);
     color: #3DCFB6;
-    font-family: Karla;
-    font-size: 24px;
 }
 
 input:focus {
@@ -224,14 +197,10 @@ input:focus {
 }
 
 textarea {
+    @include position($p: default,$z: default, $h: 32px, $w: 500px);
+    @include karla-font($fs: 24px, $lh: default);
     outline: none;
-    background-color: rgb(28, 28, 28);
-    height: 32px;
-    width: 500px;
     border: none;
-    color: #3DCFB6;
-    font-family: Karla;
-    font-size: 24px;
     resize: none;
     // min-height: 32px;
     // max-height: 500px;
@@ -240,10 +209,11 @@ textarea {
     min-block-size: 3.5rlh;
     min-inline-size: 20ch;
     max-inline-size: 50ch;
+    color: #3DCFB6;
+    background-color: rgb(28, 28, 28);
 }
 
 .container {
-    display: block;
     position: relative;
     padding-left: 35px;
     margin-bottom: 22px;

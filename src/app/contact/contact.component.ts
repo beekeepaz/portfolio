@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { FooterComponent } from "../shared/footer/footer/footer.component";
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FooterComponent, FormsModule],
+  imports: [FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })

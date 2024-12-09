@@ -7,6 +7,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from "./projects/projects.component";
 import { ReevaluationComponent } from "./reevaluation/reevaluation.component";
 import { ContactComponent } from "./contact/contact.component";
+import { FooterComponent } from './shared/footer/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { ContactComponent } from "./contact/contact.component";
   imports: [CommonModule, RouterOutlet,
     MainComponent, AboutComponent, SkillsComponent,
     ProjectsComponent, ReevaluationComponent,
-    ContactComponent],
+    ContactComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
