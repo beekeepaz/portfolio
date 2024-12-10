@@ -1,4 +1,4 @@
-@mixin display($d: flex,$j: center,$a: center, $f: column) {
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
   display: $d;
   justify-content: $j;
   align-items: $a;
@@ -60,11 +60,11 @@ section {
 }
 
 .show-container {
-  @include display($f:row);
+  @include display($f: row);
   width: 100%;
 
   >div.quotes-img-pos {
-    @include display($a: baseline, $j: baseline, $f:default);
+    @include display($a: baseline, $j: baseline, $f: default);
     @include position($z: default, $h: 322px, $w: 700px);
   }
 }
@@ -186,6 +186,7 @@ div.right-arrow:hover {
 }
 
 .right-in {
+  transform: scale(1.15);
   animation: animaRightIn 1s ease-in-out;
   margin-right: -525px;
 }
@@ -216,7 +217,7 @@ div.right-arrow:hover {
   }
 
   100% {
-    transform: scale(0.85) translateX(-700px);
+    transform: scale(0.84) translateX(-700px);
   }
 }
 
@@ -226,7 +227,7 @@ div.right-arrow:hover {
   }
 
   100% {
-    transform: scale(0.85) translateX(700px);
+    transform: scale(0.84) translateX(700px);
   }
 }
 
@@ -246,7 +247,7 @@ div.right-arrow:hover {
   }
 
   100% {
-    transform: scale(1.15) translateX(-500px);
+    transform: scale(1.1755) translateX(-500px);
   }
 }
 
@@ -266,6 +267,6 @@ div.right-arrow:hover {
   }
 
   100% {
-    transform: scale(1.15) translateX(500px);
+    transform: scale(1.1755) translateX(500px);
   }
 }

@@ -25,8 +25,8 @@
 }
 
 section {
-    @include display($j: space-around, $a: start,$f: default);
-    @include position($p: default, $z: default,$h: 70vh);
+    @include display($j: space-around, $a: start, $f: default);
+    @include position($p: default, $z: default, $h: 100vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
 
@@ -137,7 +137,7 @@ div.ll1:hover div.ll2 {
 .con-police-pos {
     @include display();
     @include karla-font($fs: 15px);
-    @include position($p: default, $z: default,$h: 75px);
+    @include position($p: default, $z: default, $h: 75px);
 
     >div {
         @include display($f: row);
@@ -160,14 +160,14 @@ div.ll1:hover div.ll2 {
     }
 
     >span {
-        @include position($p: relative, $z: default,$h: default);
+        @include position($p: relative, $z: default, $h: default);
         padding-top: 10px;
     }
 }
 
 .con-button-pos {
     @include display($f: default);
-    @include position($p: default,$h: default);
+    @include position($p: default, $h: default);
     padding-top: 32px;
 }
 
@@ -178,7 +178,7 @@ div.ll1:hover div.ll2 {
 }
 
 input {
-    @include position($p: default,$z: default, $h: 32px, $w: 332px);
+    @include position($p: default, $z: default, $h: 32px, $w: 332px);
     @include karla-font($fs: 24px, $lh: default);
     border: none;
     outline: none;
@@ -197,7 +197,7 @@ input:focus {
 }
 
 textarea {
-    @include position($p: default,$z: default, $h: 32px, $w: 500px);
+    @include position($p: default, $z: default, $h: 32px, $w: 500px);
     @include karla-font($fs: 24px, $lh: default);
     outline: none;
     border: none;

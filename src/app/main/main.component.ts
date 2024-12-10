@@ -1,7 +1,7 @@
 import { Component, VERSION, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header/header.component';
 import { Router } from "@angular/router";
-import { MarqueeComponent } from '../marquee/marquee.component';
+import { MarqueeComponent } from '../main/marquee/marquee.component';
 
 // import { Init } from 'node:v8';
 

@@ -23,10 +23,10 @@ export class ContactComponent {
   checked: boolean = false;
   formchech: any = true;
 
-  mailTest = true;
+  mailTest = false;
 
   post = {
-    endPoint: 'https://frueherwarmehrlammetta.de/sendMail.php',
+    endPoint: 'https://devcontain.de/portfolio/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
@@ -45,7 +45,7 @@ export class ContactComponent {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-
+            console.log(this.contactData);
             ngForm.resetForm();
           },
           error: (error: any) => {
@@ -54,7 +54,7 @@ export class ContactComponent {
           complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-
+      console.log(this.contactData);
       ngForm.resetForm();
     }
   }

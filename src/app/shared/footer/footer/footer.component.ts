@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  // togglelegal: boolean = false;
 
+  // setToggle() {
+  //   this.togglelegal = true;
+  // }
 }

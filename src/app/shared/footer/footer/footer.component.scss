@@ -19,7 +19,7 @@ section {
     color: #FFFFFFCC;
 
     >div {
-        @include display($j: space-around, $f: row, $a: end);
+        @include display($j: space-around, $f: row, $a: center);
         @include position($p: default, $z: default);
 
         >span {
@@ -56,7 +56,7 @@ section {
         }
 
         >div.place-links {
-            @include display($j: end, $a: end);
+            @include display($j: center, $a: end);
             @include position($p: default, $z: default, $w: 568px);
             gap: 10px;
 
@@ -64,8 +64,9 @@ section {
                 @include display($a: center);
                 gap: 6px;
 
-                >span {
+                >a {
                     @include display($j: start, $a: center, $f: default);
+                    text-decoration: none;
                     width: 130px;
                     color: #FFFFFF;
                     font-family: Fira_Code;
@@ -77,11 +78,11 @@ section {
                     }
                 }
 
-                >span:hover {
+                >a:hover {
                     color: #3DCFB6;
                 }
 
-                >span:hover img.green-point {
+                >a:hover img.green-point {
                     visibility: visible;
                 }
             }
@@ -96,3 +97,7 @@ section {
 span:hover img {
     visibility: hidden;
 }
+
+// app-legal-notice {
+//     @include position();
+// }
