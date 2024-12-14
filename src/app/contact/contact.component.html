@@ -1,0 +1,71 @@
+<section id="contact">
+    <div class="contact-me">
+        <h2>Contact me</h2>
+        <h1>Let's work<br>
+            together
+        </h1>
+        <h2 class="distance-second">Got a problem to solve</h2>
+        <span>Contact me through this form, I am interestd in hearing from you,
+            knowing<br>your ideas and contributing to your projects with my work.
+        </span>
+        <div>
+            <span>Need a Frontend developer?</span>
+            <span style="padding-left: 6px;" class="farbcode-green">Let's talk!</span>
+        </div>
+    </div>
+    <div class="form-contain">
+        <form autocomplete="off" class="kontaktformular position-contact-elements" (ngSubmit)="sendMail(contactForm)"
+            #contactForm="ngForm" id="contact-me">
+            <div class="longe-line ll1"></div>
+            <div class="con-information-pos">
+                <span class="contact-question">What's your name?</span>
+                <input autocomplete="off" required #name="ngModel" id="fnmae" minlength="2"
+                    [(ngModel)]="contactData.name" class="name" type="name" name="name"
+                    placeholder="Your name goes here">
+                @if(!name.valid && name.touched) {
+                <span class="valid-massage">Oops! it seems your name is missing</span>
+                }
+            </div>
+            <div class="longe-line ll2"></div>
+            <div class="con-information-pos cip2">
+                <span class="contact-question">What's your email?</span>
+                <input autocomplete="off" required #mail="ngModel" [(ngModel)]="contactData.email" class="namemail"
+                    type="email" name="email" placeholder="What's your email?"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                @if(!mail.valid && mail.touched) {
+                <span class="valid-massage">Hoppla! your email is required</span>
+                }
+            </div>
+            <div class="longe-line ll3"></div>
+            <div class="con-information-pos cip3">
+                <span class="contact-question">How can I help you?</span>
+                <textarea autocomplete="off" required #message="ngModel" minlength="6" [(ngModel)]="contactData.message"
+                    class="nachricht" name="message" placeholder="How can I help you?"></textarea>
+                @if(!message.valid && message.touched) {
+                <span class="valid-massage">What do you need to develop?</span>
+                }
+            </div>
+            <div class="longe-line ll4"></div>
+            <div class="con-police-pos">
+                <div>
+                    <label class="container">
+                        <input required [checked]="false" [(ngModel)]="checked" type="checkbox" name="myCheckbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span>I've read the<a>privacy policy</a>and agree to the processing of my data as outlined.</span>
+                </div>
+
+                @if(checked === false) {
+                <span class="valid-massage">Please accept the privacy policy</span>
+                }
+            </div>
+            <div class="con-button-pos">
+                <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit">
+                    <span class="btn-span-one">Say Hello ;)</span>
+                    <span class="btn-span-sec">Say Hello ;)</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- <app-footer></app-footer> -->

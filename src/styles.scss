@@ -1,0 +1,146 @@
+* {
+    margin: 0px;
+}
+
+html.no-scroll {
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+
+// colors
+// background-color: rgb(28, 28, 28);
+// background-color: rgb(31, 46, 43);
+// background-color: #37af9b52;
+// color: #FFFFFFCC;
+// color: #3DCFB6;
+// color: #3DCFB6;
+// color: #ffffffad;
+// color: #ffffffed;
+// color: #FFFFFF;
+
+h1:hover {
+    cursor: default;
+}
+
+h2:hover {
+    cursor: default;
+}
+
+.logos {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../src/assets/img/logo_sp_full.png");
+    background-position: center;
+    width: 196px;
+    height: 72px;
+}
+
+.logos:hover {
+    background-image: url("../src/assets/img/logo_sp_empty.png");
+    cursor: pointer;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    border-radius: 100px;
+    border: 1px solid #FFFFFF;
+    background-color: rgb(0, 0, 0, 0.0);
+    overflow: hidden;
+    position: relative;
+    width: 143px;
+    height: 48px;
+}
+
+button:hover {
+    cursor: pointer;
+    border-color: #3DCFB6;
+}
+
+.btn-span-one {
+    content-visibility: hidden;
+}
+
+button:hover span.btn-span-one {
+    animation: movingButtontxtInfinite 5s linear 2s infinite;
+    color: #3DCFB6;
+}
+
+.btn-span-sec {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 0;
+}
+
+button:hover span.btn-span-sec {
+    animation: movingButtontxtOut 2.5s ease-out forwards;
+    color: #3DCFB6;
+}
+
+@keyframes movingButtontxtInfinite {
+    0% {
+        content-visibility: visible;
+        z-index: 0;
+        transform: translateX(120px);
+    }
+
+    100% {
+        content-visibility: visible;
+        z-index: 0;
+        transform: translateX(-300px);
+    }
+}
+
+@keyframes movingButtontxtOut {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-150px);
+    }
+}
+
+@font-face {
+    font-family: Fira_Code;
+    src: url(../src/assets/fonts/Fira_Code/static/FiraCode-Regular.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Karla;
+    src: url(../src/assets/fonts/Karla/static/Karla-Regular.ttf);
+    font-weight: bold;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #021814;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #07aa8c;
+    border-radius: 6px;
+    border: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #055e4d;
+}
+
+@media (max-width: 500px) {
+    .logos {
+        background-image: url("../src/assets/img/sp_full.png");
+    }
+
+    .logos:hover {
+        background-image: url("../src/assets/img/sp_empty.png");
+    }
+}

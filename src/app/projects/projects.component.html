@@ -1,0 +1,100 @@
+<section>
+    <div>
+        <div class="portfolio-header">
+            <h2 id="projects">Portfolio</h2>
+            <h1>Featured Projects</h1>
+            <span>Explore a selection of my work here - Interact with
+                projects to see my skills in action.
+            </span>
+        </div>
+        <div class="projects">
+            <div class="longe-line"></div>
+            <div (click)="choosenProject( 'Join' )" class="single-project" (mouseenter)="mouseEnter('preJoin') "
+                (mouseleave)="mouseLeave('leaveJoin')">
+                <div class="place-single-project">
+                    <div>
+                        <h3>Join</h3>
+                        @if (this.carts.hoverJoin === true) {
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
+                            src="../../assets/img/arrow_outward.png">
+                        }
+                    </div>
+                    <div>
+                        <span>Angular</span>
+                        <div class="short-line"></div>
+                        <span>TypeScript</span>
+                        <div class="short-line"></div>
+                        <span>HTML</span>
+                        <div class="short-line"></div>
+                        <span>CSS</span>
+                        <div class="short-line"></div>
+                        <span>Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="longe-line"></div>
+            <div (click)="choosenProject( 'ElPolloLoco' )" class="single-project"
+                (mouseenter)="mouseEnter('preElPollo') " (mouseleave)="mouseLeave('leaveElPollo')">
+                <div class="place-single-project">
+                    <div>
+                        <h3>El Pollo Loco</h3>
+                        @if (this.carts.hoverElPollo === true) {
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
+                            src="../../assets/img/arrow_outward.png">
+                        }
+                    </div>
+                    <div>
+                        <span>HTML</span>
+                        <div class="short-line"></div>
+                        <span>CSS</span>
+                        <div class="short-line"></div>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="longe-line"></div>
+            <div (click)="choosenProject( 'DaBubble' )" class="single-project" (mouseenter)="mouseEnter('preDaBubble') "
+                (mouseleave)="mouseLeave('leaveDaBubble')">
+                <div class="place-single-project">
+                    <div>
+                        <h3>Da Bubble</h3>
+                        @if (this.carts.hoverDaBubble === true) {
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
+                            src="../../assets/img/arrow_outward.png">
+                        }
+                    </div>
+                    <div>
+                        <span>Angular</span>
+                        <div class="short-line"></div>
+                        <span>Firebase</span>
+                        <div class="short-line"></div>
+                        <span>TypeScript</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="preview-projects">
+        <div class="pre-pos">
+            @if (this.carts.hoverJoin === true) {
+            <div class="set-background" style="padding-bottom: 200px;">
+                <img class="pre" src="../../assets/img/joinPreview.png">
+                <img class="back" src="../../assets/img/single-project-back-ground.png">
+            </div>
+            } @else if (this.carts.hoverElPollo === true) {
+            <div class="set-background">
+                <img class="pre" src="../../assets/img/pollo-locoPreview.png">
+                <img class="back" src="../../assets/img/single-project-back-ground.png">
+            </div>
+            } @else if (this.carts.hoverDaBubble === true) {
+            <div class="set-background" style="padding-top: 260px;">
+                <img class="pre" src="../../assets/img/racoon_CSM.png">
+                <img class="back" src="../../assets/img/single-project-back-ground.png">
+            </div>
+            }
+        </div>
+    </div>
+    @if(this.carts.hideModal === true) {
+    <app-project-cart></app-project-cart>
+    }
+</section>

@@ -1,0 +1,130 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+  }
+
+.skill-set-container {
+    @include display($a: baseline);
+    @include position($p: default, $z: default, $h: 530px, $w: 536px);
+    border-radius: 30px;
+    border: 1px solid #3DCFB6;
+    background-color: rgb(31, 46, 43);
+    border: 1px 0px 0px 0px;
+    font-family: Karla;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.6px;
+    color: #FFFFFF;
+    padding: 32px;
+    gap: 40px;
+
+    >h4 {
+        font-family: Fira_Code;
+        font-size: 64px;
+        line-height: 64px;
+        letter-spacing: -3%;
+        text-align: left;
+        color: #3DCFB6;
+    }
+
+    >div {
+        font-family: Karla;
+        font-size: 18px;
+        text-align: left;
+        color: #ffffffad;
+    }
+}
+
+.header-pos {
+    @include display($j: baseline, $a: baseline);
+    @include position($z: default, $w: default);
+    margin-top: -40px;
+}
+
+.skill-pos {
+    @include display($j: space-around, $a: start, $f: row);
+    width: 100%;
+}
+
+h3 {
+    font-family: Karla;
+    font-size: 24px;
+    color: #3DCFB6;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    cursor: default;
+}
+
+h5 {
+    font-family: Fira_Code;
+    font-size: 24px;
+    line-height: 28.8px;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.green {
+    padding-left: 14px;
+    color: #3DCFB6;
+}
+
+.width {
+    @include display($j: baseline, $a: baseline, $f: row);
+    width: 100%;
+}
+
+img.icon {
+    @include position($p: default, $z: default, $h: 32px, $w: 32px);
+}
+
+section {
+    height: 100vh;
+    background-color: rgb(28, 28, 28);
+    width: 100%;
+    color: #FFFFFFCC;
+
+    >div {
+        width: 100%;
+    }
+}
+
+.icons {
+    @include position($p: default, $z: default, $h: 428px, $w: 632px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 72px;
+
+    >div {
+        @include display();
+        @include position($p: default, $z: default, $h: 116px, $w: 104px);
+        gap: 8px;
+
+        >img {
+            @include position($p: default, $z: default, $h: 60px, $w: 60px);
+        }
+
+        >img:hover {
+            transform: scale(1.078);
+        }
+
+        >span {
+            font-family: Fira_Code;
+            font-size: 18px;
+            line-height: 21.6px;
+            letter-spacing: -3%;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,108 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin karla-font($ff: Karla, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin fira-font($ff: Fira_Code, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display($j: space-around, $f: default);
+    @include position($p: default, $z: default, $h: 100vh);
+    background-color: rgb(28, 28, 28);
+    color: #FFFFFFCC;
+
+    >div.pictures {
+        @include display($j: space-between, $f: default);
+        @include position($p: default, $z: default, $h: 668px, $w: 668px);
+
+        >img.front {
+            @include position($z: 1, $h: 568px, $w: 568px);
+            border-radius: 30px;
+            margin-left: 32px;
+        }
+
+        >img.behind {
+            @include position($z: default, $h: 568px, $w: 568px);
+            margin-top: 32px;
+        }
+    }
+}
+
+h3 {
+    @include display($j: start, $f: default);
+    @include karla-font();
+    height: 100%;
+    color: #3DCFB6;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    cursor: default;
+}
+
+.about-me-container {
+    @include display($a: start);
+    @include position($p: default, $z: default, $h: 530px, $w: 536px);
+    @include karla-font($fs: 18px);
+    border-radius: 30px;
+    border: 1px solid #3DCFB6;
+    background-color: rgb(31, 46, 43);
+    color: #FFFFFF;
+    padding: 32px;
+    gap: 40px;
+
+    >h4 {
+        @include fira-font($fs: 64px, $lh: default);
+        letter-spacing: -0.03em;
+        color: #3DCFB6;
+        cursor: default;
+    }
+
+    >div {
+        @include display($f: default);
+        @include karla-font($fs: 18px);
+        color: #ffffffad;
+        gap: 32px;
+        height: 100%;
+    }
+}
+
+.icon-pos {
+    height: 100%;
+}
+
+img.icon {
+    @include position($p: default, $z: default, $h: 26px, $w: 21px);
+    object-fit: contain;
+}
+
+span {
+    height: 100%;
+}
+
+span:hover {
+    cursor: default;
+    color: #ffffffed;
+}
+
+#targeRed {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}

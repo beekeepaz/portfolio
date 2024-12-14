@@ -1,0 +1,42 @@
+<section>
+
+    <input class="checkbox" type="checkbox" id="toggle_button" [(ngModel)]="isChecked">
+    <label for="toggle_button" class="toggle_button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </label>
+
+    <div class="menu" (click)="backgroundClick()">
+
+        <nav (click)="$event.stopPropagation()">
+            <div class="background">
+                <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
+                    [(ngModel)]="toggleValue" checked>
+                <label for="toggle-on" class="btn">EN</label>
+                <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
+                    [(ngModel)]="toggleValue">
+                <label for="toggle-off" class="btn">DE</label>
+            </div>
+
+            <a href="#aboutme" (click)="backgroundClick()">
+                {{ languageService.currentHeader.navleft }}
+                <img src="../../../../assets/img/point_green.png">
+            </a>
+            <a href="#skills" (click)="backgroundClick()">
+                {{ languageService.currentHeader.navmid }}
+                <img src="../../../../assets/img/point_green.png">
+            </a>
+            <a href="#projects" (click)="backgroundClick()">
+                {{ languageService.currentHeader.navright }}
+                <img src="../../../../assets/img/point_green.png">
+            </a>
+        </nav>
+    </div>
+
+    <div class="second">
+        <div class="logos">
+        </div>
+    </div>
+
+</section>

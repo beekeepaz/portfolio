@@ -1,0 +1,52 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display();
+    @include position($p: default, $z: default);
+    background-color: rgb(28, 28, 28);
+
+    >.data-notice {
+        @include display();
+        padding-top: 32px;
+        padding-bottom: 32px;
+        padding-right: 64px;
+        padding-left: 64px;
+        color: #FFFFFFCC;
+        gap: 14px;
+    }
+
+    h1 {
+        font-family: Fira_Code;
+        font-weight: bolder;
+        font-size: 32px;
+        color: #3DCFB6;
+    }
+
+    p {
+        font-family: Karla;
+        font-size: 18px;
+    }
+
+    a {
+        font-family: Karla;
+        font-size: 18px;
+        text-decoration: none;
+        color: #3DCFB6;
+
+        &:hover{
+            color: #47ecd1;
+        }
+    }
+}

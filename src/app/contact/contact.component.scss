@@ -1,0 +1,289 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin karla-font($ff: Karla, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin fira-font($ff: Fira_Code, $fs: 24px, $lh: 21.6px) {
+    font-family: $ff;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display($j: space-around, $a: start, $f: default);
+    @include position($p: default, $z: default, $h: 100vh);
+    background-color: rgb(28, 28, 28);
+    color: #FFFFFFCC;
+
+    >div.contact-me {
+        height: 100%;
+        overflow-x: hidden;
+        cursor: default;
+
+        >div {
+            padding-top: 32px;
+        }
+
+        >h1 {
+            @include fira-font($fs: 64px, $lh: 64px);
+            letter-spacing: -0.03em;
+            color: #3DCFB6;
+            padding-top: 16px;
+        }
+
+        >h2 {
+            @include karla-font($fs: 24px, $lh: 28.06px);
+            color: #3DCFB6;
+            padding-bottom: 32px;
+        }
+
+        >h2.distance-second {
+            padding-top: 32px;
+        }
+
+        >span {
+            @include karla-font($fs: 18px);
+            color: #FFFFFF;
+            width: 100%;
+            gap: 0px;
+            opacity: 0px;
+        }
+
+        >div span {
+            @include karla-font($fs: 18px);
+            color: #FFFFFF;
+            width: 100%;
+            gap: 0px;
+            opacity: 0px;
+        }
+
+        >div span.farbcode-green {
+            color: #3DCFB6;
+        }
+    }
+
+    >div.form-contain {
+        display: flex;
+        width: 616px;
+        overflow-x: hidden;
+
+        >form {
+
+            .contact-question {
+                @include fira-font($fs: 24px, $lh: 28.8px);
+                color: #3DCFB6;
+                padding-bottom: 32px;
+                cursor: default;
+            }
+
+            >div.longe-line {
+                height: 1px;
+                background-color: #3DCFB6;
+                width: 100%;
+            }
+
+            >.ll1:hover {
+                opacity: 1;
+            }
+
+            div.ll1:hover div.ll2 {
+                opacity: 1;
+            }
+
+            >div.ll1 {
+                opacity: 0.5;
+            }
+
+            >div.con-information-pos {
+                @include display($a: start);
+                padding: 32px;
+            }
+
+            >div.con-information-pos.cip1:hover .ll1 {
+                opacity: 1;
+            }
+
+            >div.con-information-pos:hover div.ll1 {
+                opacity: 1;
+            }
+        }
+
+        >form:hover .ll1 {
+            opacity: 1;
+        }
+
+    }
+}
+
+div.ll1:hover div.ll2 {
+    opacity: 0.1;
+}
+
+.con-police-pos {
+    @include display();
+    @include karla-font($fs: 15px);
+    @include position($p: default, $z: default, $h: 75px);
+
+    >div {
+        @include display($f: row);
+
+        >span {
+            display: inline-block;
+            cursor: default;
+
+            >a {
+                color: #3DCFB6;
+                padding-right: 6px;
+                padding-left: 6px;
+                cursor: default;
+            }
+
+            >a:hover {
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    >span {
+        @include position($p: relative, $z: default, $h: default);
+        padding-top: 10px;
+    }
+}
+
+.con-button-pos {
+    @include display($f: default);
+    @include position($p: default, $h: default);
+    padding-top: 32px;
+}
+
+.valid-massage {
+    font-family: Karla;
+    color: #EC7B7B;
+    cursor: default;
+}
+
+input {
+    @include position($p: default, $z: default, $h: 32px, $w: 332px);
+    @include karla-font($fs: 24px, $lh: default);
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    color: #3DCFB6;
+    background-color: rgb(28, 28, 28);
+}
+
+::placeholder {
+    @include karla-font($fs: 24px, $lh: default);
+    color: #3DCFB6;
+}
+
+input:focus {
+    border: none;
+}
+
+textarea {
+    @include position($p: default, $z: default, $h: 32px, $w: 500px);
+    @include karla-font($fs: 24px, $lh: default);
+    outline: none;
+    border: none;
+    resize: none;
+    // min-height: 32px;
+    // max-height: 500px;
+    // field-sizing: content;
+    // overflow: hidden;
+    min-block-size: 3.5rlh;
+    min-inline-size: 20ch;
+    max-inline-size: 50ch;
+    color: #3DCFB6;
+    background-color: rgb(28, 28, 28);
+}
+
+.container {
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 22px;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.container:hover span {
+    cursor: pointer;
+    z-index: 99;
+    border-radius: 100%;
+    background-color: #3DCFB6;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: rgb(28, 28, 28);
+    border: 2px solid #3DCFB6;
+    border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: rgb(28, 28, 28);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: rgb(28, 28, 28);
+    border-radius: 100%;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 3px;
+    height: 8px;
+    border: solid #3DCFB6;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

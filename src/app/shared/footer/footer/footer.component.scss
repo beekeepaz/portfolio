@@ -1,0 +1,103 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display($f: row);
+    @include position($p: default, $z: default, $h: 25vh);
+    background-color: rgb(28, 28, 28);
+    color: #FFFFFFCC;
+
+    >div {
+        @include display($j: space-around, $f: row, $a: center);
+        @include position($p: default, $z: default);
+
+        >span {
+            @include display($j: end);
+            position: absolute;
+            color: #3DCFB6;
+            font-family: Fira_Code;
+        }
+
+        >span:hover {
+            cursor: default;
+        }
+
+        >div.place-logo {
+            @include display($j: end, $a: start);
+            width: 668px;
+
+            >div.logos {
+                display: flex;
+                padding-top: 32px;
+            }
+
+            >span {
+                font-family: Karla;
+                font-size: 16px;
+                line-height: 19.2px;
+                text-align: left;
+                color: #FFFFFF;
+            }
+
+            >span:hover {
+                cursor: default;
+            }
+        }
+
+        >div.place-links {
+            @include display($j: center, $a: end);
+            @include position($p: default, $z: default, $w: 568px);
+            gap: 10px;
+
+            >div {
+                @include display($a: center);
+                gap: 6px;
+
+                >a {
+                    @include display($j: start, $a: center, $f: default);
+                    text-decoration: none;
+                    width: 130px;
+                    color: #FFFFFF;
+                    font-family: Fira_Code;
+                    gap: 6px;
+
+                    >img.green-point {
+                        @include position($p: default, $z: default, $h: 8px, $w: 8px);
+                        visibility: hidden;
+                    }
+                }
+
+                >a:hover {
+                    color: #3DCFB6;
+                }
+
+                >a:hover img.green-point {
+                    visibility: visible;
+                }
+            }
+        }
+
+        >div.place-links:hover {
+            cursor: default;
+        }
+    }
+}
+
+span:hover img {
+    visibility: hidden;
+}
+
+// app-legal-notice {
+//     @include position();
+// }

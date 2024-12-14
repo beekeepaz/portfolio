@@ -1,0 +1,137 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display($j: space-around, $f: row);
+    @include position($p: default, $z: default, $h: 100vh);
+    background-color: rgb(28, 28, 28);
+    color: #FFFFFFCC;
+
+    >div.preview-projects {
+        width: 280px;
+
+        >div {
+            position: absolute;
+        }
+    }
+
+    >div {
+        @include display($a: default);
+        width: 880px;
+
+        >div.portfolio-header {
+            @include display($a: start);
+
+            >h1 {
+                padding-bottom: 32px;
+                font-family: Fira_Code;
+                font-size: 64px;
+                letter-spacing: -0.03em;
+                color: #3DCFB6;
+            }
+
+            >h2 {
+                padding-bottom: 32px;
+                font-family: Karla;
+                font-size: 24px;
+                line-height: 28.06px;
+                color: #3DCFB6;
+            }
+
+            >span {
+                @include position($p: default, $z: default, $h: 44px, $w: 456px);
+                padding-bottom: 32px;
+                font-family: Karla;
+                font-size: 18px;
+                color: #FFFFFF;
+                gap: 0px;
+                opacity: 0px;
+            }
+        }
+
+        >div.projects {
+
+            >div.single-project {
+                @include display();
+                @include position($p: default, $z: default, $h: 109px);
+
+                >div.place-single-project {
+                    @include display($j: space-between, $f: row);
+                    width: 800px;
+
+                    h3 {
+                        font-family: Fira_Code;
+                        font-size: 24px;
+                        color: #FFFFFF;
+                    }
+
+                    span {
+                        font-family: Karla;
+                        font-size: 18px;
+                        color: #FFFFFF;
+                    }
+
+                    >div {
+                        @include display($f: row);
+                        gap: 4px;
+                    }
+                }
+            }
+
+            >div.single-project:hover {
+                background-color: #37af9b52;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.short-line {
+    @include position($p: default, $z: default, $h: 20px, $w: 1px);
+    background-color: #3DCFB6;
+}
+
+.longe-line {
+    @include position($p: default, $z: default, $h: 1px);
+    background-color: #3DCFB6;
+}
+
+div.single-project:hover div.image-preview {
+    opacity: 0.9;
+    visibility: visible;
+}
+
+img.pre {
+    @include position($z: 1, $h: 300px, $w: 500px);
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+img.back {
+    @include position($z: default, $h: 300px, $w: 500px);
+    margin-top: 20px;
+    margin-left: 40px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+.set-background {
+    @include display($j: baseline);
+    @include position($p: relative, $z: default);
+}
+
+app-project-cart {
+    @include display($f: row);
+    @include position($z: default);
+}

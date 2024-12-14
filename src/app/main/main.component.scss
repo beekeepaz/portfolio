@@ -1,0 +1,162 @@
+@mixin display($d: flex, $j: center, $a: center, $f: column) {
+    display: $d;
+    justify-content: $j;
+    align-items: $a;
+    flex-direction: $f;
+}
+
+@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
+    position: $p;
+    z-index: $z;
+    height: $h;
+    width: $w;
+}
+
+section {
+    @include display($f: default);
+    height: 100vh;
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+}
+
+.headline {
+    @include display();
+    @include position($p: default, $z: default);
+    top: 316px;
+    left: 343px;
+    gap: 12px;
+
+    >div {
+        @include display($a: default, $f: default);
+        @include position($p: default, $z: 6, $h: 48px, $w: 363px);
+        gap: 48px;
+    }
+}
+
+h1 {
+    font-family: Karla;
+    font-size: 128px;
+    letter-spacing: -0.02em;
+    color: #D9D9D9;
+}
+
+h2 {
+    color: #D9D9D9;
+    font-family: Fira_Code;
+    font-size: 40px;
+}
+
+app-marquee {
+    @include display($j: default, $f: default);
+    @include position($z: 5);
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.arrow-box {
+    @include display($f: default);
+    @include position($z: default, $h: 48px, $w: 32px);
+    margin-left: 164px;
+    margin-bottom: 264px;
+    border: 1px solid #3DCFB6;
+    border-radius: 16px;
+}
+
+.arrow {
+    color: #FFFFFF;
+    font-size: 20px;
+    animation: arrow-marquee ease-in-out 1s infinite;
+}
+
+.line {
+    @include display($j: space-between, $a: end, $f: default);
+    @include position($z: default, $h: 100vh);
+}
+
+.line-left-pos {
+    @include display($j: end, $a: default);
+    @include position($p: relative, $z: 1, $h: 100vh, $w: 150px);
+}
+
+.line-left {
+    @include position($z: default, $h: 240px, $w: 1px);
+    margin-left: 180px;
+    background-color: #3DCFB6;
+}
+
+.git-pos {
+    @include display($j: center, $a: center, $f: default);
+    position: absolute;
+    margin-right: 180px;
+    margin-right: 151px;
+    margin-bottom: 214px;
+
+    >img:last-child {
+        @include position($p: default, $z: default, $h: 10px, $w: 10px);
+        visibility: hidden;
+        margin-left: 4px;
+    }
+}
+
+.git-pos:hover img:last-child {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.git-pos:hover div:first-child {
+    background-image: url('../../assets/img/github_white.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.git-pos div:first-child {
+    @include position($p: default, $z: default, $h: 32px, $w: 32px);
+    background-image: url('../../assets/img/github_green.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.git-pos:hover {
+    visibility: visible;
+    cursor: pointer;
+}
+
+.mail-pos {
+    position: absolute;
+    margin-right: 94px;
+    margin-bottom: 343px;
+    rotate: -90deg;
+
+    >a {
+        font-family: Karla;
+        font-size: 18px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+
+    >a:hover {
+        color: #3DCFB6;
+    }
+}
+
+.line-right-pos {
+    @include display($j: end, $a: end, $f: default);
+    @include position($p: relative, $z: 2, $h: 100vh, $w: 150px);
+}
+
+.line-right {
+    @include position($z: default, $h: 200px, $w: 1px);
+    margin-right: 180px;
+    background-color: #3DCFB6;
+}
+
+@keyframes arrow-marquee {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
+}
