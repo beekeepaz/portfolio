@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
-import { ViewportScroller } from "@angular/common";
+// import { Router } from "@angular/router";
+// import { ViewportScroller } from "@angular/common";
 
 @Component({
   selector: 'app-about',
@@ -11,10 +11,10 @@ import { ViewportScroller } from "@angular/common";
 })
 export class AboutComponent {
 
-  constructor(private scroller: ViewportScroller, private router: Router) {}
+  // constructor(private scroller: ViewportScroller, private router: Router) {}
 
-  ngOnInit() {
-    this.router.navigate(["targetRed"]);
-  }
+  // ngOnInit() {
+  //   this.router.navigate(["targetRed"]);
+  // }
 
 }
