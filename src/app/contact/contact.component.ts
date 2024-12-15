@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Language } from '../global/language';
 
 @Component({
   selector: 'app-contact',
@@ -35,6 +36,10 @@ export class ContactComponent {
       },
     },
   };
+
+  constructor(
+    public languageService: Language
+  ) { }
 
   sendMail(ngForm: NgForm) {
     if (ngForm.form.valid && ngForm.submitted && !this.mailTest) {

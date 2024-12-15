@@ -1,16 +1,15 @@
 <section id="contact">
     <div class="contact-me">
-        <h2>Contact me</h2>
-        <h1>Let's work<br>
-            together
+        <h2>{{ languageService.contact.headeroverbox }}</h2>
+        <h1>{{ languageService.contact.headbefore }}<br>
+            {{ languageService.contact.headafter }}
         </h1>
-        <h2 class="distance-second">Got a problem to solve</h2>
-        <span>Contact me through this form, I am interestd in hearing from you,
-            knowing<br>your ideas and contributing to your projects with my work.
+        <h2 class="distance-second">{{ languageService.contact.underhead }}</h2>
+        <span>{{ languageService.contact.descriptbefore }}<br>{{ languageService.contact.descriptafter }}
         </span>
         <div>
-            <span>Need a Frontend developer?</span>
-            <span style="padding-left: 6px;" class="farbcode-green">Let's talk!</span>
+            <span>{{ languageService.contact.question }}</span>
+            <span style="padding-left: 6px;" class="farbcode-green">{{ languageService.contact.reply }}</span>
         </div>
     </div>
     <div class="form-contain">
@@ -18,31 +17,31 @@
             #contactForm="ngForm" id="contact-me">
             <div class="longe-line ll1"></div>
             <div class="con-information-pos">
-                <span class="contact-question">What's your name?</span>
+                <span class="contact-question">{{ languageService.contact.name }}</span>
                 <input autocomplete="off" required #name="ngModel" id="fnmae" minlength="2"
                     [(ngModel)]="contactData.name" class="name" type="name" name="name"
-                    placeholder="Your name goes here">
+                    placeholder="{{ languageService.contact.name }}">
                 @if(!name.valid && name.touched) {
-                <span class="valid-massage">Oops! it seems your name is missing</span>
+                <span class="valid-massage">{{ languageService.contact.missingname }}</span>
                 }
             </div>
             <div class="longe-line ll2"></div>
             <div class="con-information-pos cip2">
-                <span class="contact-question">What's your email?</span>
+                <span class="contact-question">{{ languageService.contact.email }}</span>
                 <input autocomplete="off" required #mail="ngModel" [(ngModel)]="contactData.email" class="namemail"
-                    type="email" name="email" placeholder="What's your email?"
+                    type="email" name="email" placeholder="{{ languageService.contact.email }}"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 @if(!mail.valid && mail.touched) {
-                <span class="valid-massage">Hoppla! your email is required</span>
+                <span class="valid-massage">{{ languageService.contact.missingmail }}</span>
                 }
             </div>
             <div class="longe-line ll3"></div>
             <div class="con-information-pos cip3">
-                <span class="contact-question">How can I help you?</span>
+                <span class="contact-question">{{ languageService.contact.message }}</span>
                 <textarea autocomplete="off" required #message="ngModel" minlength="6" [(ngModel)]="contactData.message"
-                    class="nachricht" name="message" placeholder="How can I help you?"></textarea>
+                    class="nachricht" name="message" placeholder="{{ languageService.contact.message }}"></textarea>
                 @if(!message.valid && message.touched) {
-                <span class="valid-massage">What do you need to develop?</span>
+                <span class="valid-massage">{{ languageService.contact.missingmassage }}</span>
                 }
             </div>
             <div class="longe-line ll4"></div>
@@ -52,17 +51,17 @@
                         <input required [checked]="false" [(ngModel)]="checked" type="checkbox" name="myCheckbox">
                         <span class="checkmark"></span>
                     </label>
-                    <span>I've read the<a>privacy policy</a>and agree to the processing of my data as outlined.</span>
+                    <span>{{ languageService.contact.policytxtbefore }}<a>{{ languageService.contact.policyicealink }}</a>{{ languageService.contact.policyafter }}</span>
                 </div>
 
                 @if(checked === false) {
-                <span class="valid-massage">Please accept the privacy policy</span>
+                <span class="valid-massage">{{ languageService.contact.missingpolicy }}</span>
                 }
             </div>
             <div class="con-button-pos">
                 <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit">
-                    <span class="btn-span-one">Say Hello ;)</span>
-                    <span class="btn-span-sec">Say Hello ;)</span>
+                    <span class="btn-span-one">{{ languageService.contact.button }}</span>
+                    <span class="btn-span-sec">{{ languageService.contact.button }}</span>
                 </button>
             </div>
         </form>

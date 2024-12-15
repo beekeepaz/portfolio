@@ -23,9 +23,9 @@ export class ReevaluationComponent {
   animateleft = false;
   animateright = false;
 
-    constructor(
-      public languageService: Language
-    ) { }
+  constructor(
+    public languageService: Language
+  ) { }
 
   prevSlide() {
     this.animateleft = true;
@@ -33,7 +33,7 @@ export class ReevaluationComponent {
     setTimeout(() => {
       this.animateleft = false;
 
-      if (this.currentIndex == this.languageService.currentReevaluation.length - 1) {
+      if (this.currentIndex == this.languageService.reevaluation.length - 1) {
         this.currentIndex = 0;
       } else {
         this.currentIndex++;
@@ -49,7 +49,7 @@ export class ReevaluationComponent {
       this.animateright = false;
 
       if (this.currentIndex == 0) {
-        this.currentIndex = this.languageService.currentReevaluation.length - 1;
+        this.currentIndex = this.languageService.reevaluation.length - 1;
       } else {
         this.currentIndex--;
       }

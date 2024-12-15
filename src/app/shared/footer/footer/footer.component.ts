@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Language } from '../../../global/language';
 
 @Component({
   selector: 'app-footer',
@@ -8,9 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  // togglelegal: boolean = false;
-
-  // setToggle() {
-  //   this.togglelegal = true;
-  // }
+  constructor(
+    public languageService: Language
+  ) { }
 }
