@@ -2,17 +2,17 @@
 
 <section>
     <div class="headline">
-        <h2>Frontend Developer</h2>
+        <h2>{{ languageService.currentHeader.bannertxta }}</h2>
         <h1>Sebastian Peters</h1>
         <div>
             <button (click)="scrollToId('projects')">
-                <span class="btn-span-one">check my work</span>
-                <span class="btn-span-sec">check my work</span>
+                <span class="btn-span-one">{{ languageService.currentHeader.buttonleft }}</span>
+                <span class="btn-span-sec">{{ languageService.currentHeader.buttonleft }}</span>
             </button>
 
             <button (click)="scrollToId('contact')">
-                <span class="btn-span-one">contact me</span>
-                <span class="btn-span-sec">contact me</span>
+                <span class="btn-span-one">{{ languageService.currentHeader.buttonright }}</span>
+                <span class="btn-span-sec">{{ languageService.currentHeader.buttonright }}</span>
             </button>
         </div>
     </div>

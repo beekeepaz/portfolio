@@ -12,10 +12,10 @@
         <nav (click)="$event.stopPropagation()">
             <div class="background">
                 <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
-                    [(ngModel)]="toggleValue" checked>
+                    [(ngModel)]="languageService.toggleValue" checked>
                 <label for="toggle-on" class="btn">EN</label>
                 <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
-                    [(ngModel)]="toggleValue">
+                    [(ngModel)]="languageService.toggleValue">
                 <label for="toggle-off" class="btn">DE</label>
             </div>
 

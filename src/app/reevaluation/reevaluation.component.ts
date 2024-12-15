@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Language } from '../global/language';
 
 @Component({
   selector: 'app-reevaluation',
@@ -9,18 +10,22 @@ import { Component } from '@angular/core';
 })
 
 export class ReevaluationComponent {
-  preText = [
-    { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
-    { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
-    { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
-    { text: "Lorem ipsum Stein", name: "Patrick Star" },
-    { text: "Lorem ipsum Eintopf", name: "Yellow Dragon" },
-    { text: "Lorem Knallerbsen", name: "Lira Larum Löffel" }
-  ];
+  // preText = [
+  //   { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
+  //   { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
+  //   { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
+  //   { text: "Lorem ipsum Stein", name: "Patrick Star" },
+  //   { text: "Lorem ipsum Eintopf", name: "Yellow Dragon" },
+  //   { text: "Lorem Knallerbsen", name: "Lira Larum Löffel" }
+  // ];
 
   currentIndex = 0;
   animateleft = false;
   animateright = false;
+
+    constructor(
+      public languageService: Language
+    ) { }
 
   prevSlide() {
     this.animateleft = true;
@@ -28,7 +33,7 @@ export class ReevaluationComponent {
     setTimeout(() => {
       this.animateleft = false;
 
-      if (this.currentIndex == this.preText.length - 1) {
+      if (this.currentIndex == this.languageService.currentReevaluation.length - 1) {
         this.currentIndex = 0;
       } else {
         this.currentIndex++;
@@ -44,7 +49,7 @@ export class ReevaluationComponent {
       this.animateright = false;
 
       if (this.currentIndex == 0) {
-        this.currentIndex = this.preText.length - 1;
+        this.currentIndex = this.languageService.currentReevaluation.length - 1;
       } else {
         this.currentIndex--;
       }

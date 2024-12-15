@@ -1,32 +1,21 @@
 <section id="skills">
     <div class="skill-pos">
-
         <div>
             <div class="header-pos">
-                <h3>Technologies</h3>
+                <h3>{{ languageService.currentHeader.skillsa }}</h3>
             </div>
             <div class="skill-set-container">
-                <h4>Skill Set</h4>
-                <span>
-                    My journey has involved working on diverse projects,
-                    employing a range of frontend technologies and
-                    concepts. I am open to empracing new technologies
-                    and methodolohies to Continously enhance my skills
-                    and stay ahead in the ever-evolving landscape of web
-                    develepment.
-                </span>
+                <h4>{{ languageService.currentHeader.skillsb }}</h4>
+                <span>{{ languageService.currentHeader.skillsc }}</span>
                 <div class="width">
-                    <h5 class="white">You need</h5>
-                    <h5 class="green">another skill</h5>
+                    <h5 class="white">{{ languageService.currentHeader.skillsd }}</h5>
+                    <h5 class="green">{{ languageService.currentHeader.skillse }}</h5>
                 </div>
-                <span>
-                    Feel free ton contact me. I look forward to
-                    expanding on my previous knowledge
-                </span>
+                <span>{{ languageService.currentHeader.skillsf }}</span>
                 <div>
                     <button (click)="scrollToId('contact')">
-                        <span class="btn-span-one">Lets Talk</span>
-                        <span class="btn-span-sec">Lets Talk</span>
+                        <span class="btn-span-one">{{ languageService.currentHeader.skillsbutton }}</span>
+                        <span class="btn-span-sec">{{ languageService.currentHeader.skillsbutton }}</span>
                     </button>
                 </div>
             </div>

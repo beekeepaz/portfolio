@@ -2,6 +2,7 @@ import { Component, VERSION, OnInit } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header/header.component';
 import { Router } from "@angular/router";
 import { MarqueeComponent } from '../main/marquee/marquee.component';
+import { Language } from '../global/language';
 
 // import { Init } from 'node:v8';
 
@@ -22,7 +23,10 @@ export class MainComponent implements OnInit {
     "Available to work"];
   clonedArr: any[] = Array.from(this.banneritems);
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    public languageService: Language
+  ) { }
 
   ngOnInit() {
     // console.log("ngOnit Works");
@@ -39,5 +43,13 @@ export class MainComponent implements OnInit {
         behavior: 'smooth'
       });
     }
+  }
+
+  get toggleValue(): string {
+    return this.languageService.toggleValue;
+  }
+
+  set toggleValue(value: string) {
+    this.languageService.toggleValue = value;
   }
 }

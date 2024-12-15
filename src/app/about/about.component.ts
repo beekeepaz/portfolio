@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// import { Router } from "@angular/router";
-// import { ViewportScroller } from "@angular/common";
+import { Language } from '../global/language';
 
 @Component({
   selector: 'app-about',
@@ -11,10 +10,15 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
-  // constructor(private scroller: ViewportScroller, private router: Router) {}
+  constructor(
+    public languageService: Language
+  ) { }
 
-  // ngOnInit() {
-  //   this.router.navigate(["targetRed"]);
-  // }
+  get toggleValue(): string {
+    return this.languageService.toggleValue;
+  }
 
+  set toggleValue(value: string) {
+    this.languageService.toggleValue = value;
+  }
 }

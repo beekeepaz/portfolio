@@ -1,5 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 import { Carts } from '../../global/carts';
+import { Language } from '../../global/language';
 
 @Component({
   selector: 'app-project-cart',
@@ -10,7 +11,10 @@ import { Carts } from '../../global/carts';
 })
 export class ProjectCartComponent {
 
-  constructor(public carts: Carts) { }
+  constructor(
+    public carts: Carts,
+    public languageService: Language
+  ) { }
 
   backgroundClick() {
     this.carts.toggleModal();

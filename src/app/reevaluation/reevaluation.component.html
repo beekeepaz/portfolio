@@ -1,6 +1,6 @@
 <section>
     <div>
-        <h1>What my colleagues say about me</h1>
+        <h1>{{ languageService.currentHeader.headerrevaluation }}</h1>
         <div class="comment-field">
             <div class="show-container">
                 <div class="quotes-img-pos">
@@ -9,10 +9,10 @@
                 @if(animateright === true) {
                 <div class="single-comment-field preview left-in">
                     <span>
-                        {{ preText[currentIndex].text }}
+                        {{ languageService.currentReevaluation[currentIndex].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[currentIndex].name }}
+                            {{ languageService.currentReevaluation[currentIndex].name }}
                         </div>
                     </span>
                 </div>
@@ -20,30 +20,36 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview left">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 1) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 1) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateright === true) {
                 <div class="single-comment-field preview left-right">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 1) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 1) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateleft === false && animateright === false) {
                 <div class="single-comment-field preview">
                     <span>
-                        {{ preText[(currentIndex + 1) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 1) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 1) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 1) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
@@ -51,30 +57,36 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field mid-left">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 2) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 2) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if (animateright === true) {
                 <div class="single-comment-field mid-right">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 2) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 2) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else {
                 <div class="single-comment-field show-mid-color">
                     <span>
-                        {{ preText[(currentIndex + 2) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 2) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 2) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 2) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
@@ -82,30 +94,36 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview right">
                     <span>
-                        {{ preText[(currentIndex + 3) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 3) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 3) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 3) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else if(animateright === true) {
                 <div class="single-comment-field preview right-right">
                     <span>
-                        {{ preText[(currentIndex + 3) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 3) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 3) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 3) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
                 } @else {
                 <div class="single-comment-field preview">
                     <span>
-                        {{ preText[(currentIndex + 3) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 3) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 3) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 3) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>
@@ -113,10 +131,12 @@
                 @if(animateleft === true) {
                 <div class="single-comment-field preview right-in">
                     <span>
-                        {{ preText[(currentIndex + 4) % preText.length].text }}
+                        {{ languageService.currentReevaluation[(currentIndex + 4) %
+                        languageService.currentReevaluation.length].text }}
                         <div class="place-name">
                             <div class="line"></div>
-                            {{ preText[(currentIndex + 4) % preText.length].name }}
+                            {{ languageService.currentReevaluation[(currentIndex + 4) %
+                            languageService.currentReevaluation.length].name }}
                         </div>
                     </span>
                 </div>

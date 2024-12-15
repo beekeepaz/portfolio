@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectCartComponent } from './project-cart/project-cart.component';
 import { Carts } from '../global/carts';
+import { Language } from '../global/language';
 
 @Component({
   selector: 'app-projects',
@@ -11,7 +12,10 @@ import { Carts } from '../global/carts';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor(public carts: Carts) {
+  constructor(
+    public carts: Carts,
+    public languageService: Language
+  ) {
   }
 
   ngOnInit(): void { }

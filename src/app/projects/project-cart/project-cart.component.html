@@ -6,12 +6,8 @@
                 01
             </h4>
             <h1>Join</h1>
-            <h2>What is this project about?</h2>
-            <span>
-                Task manager inspired by the Kanba System.
-                Create and organize tasks using drag and drop functions, assign
-                users and categories.
-            </span>
+            <h2>{{ languageService.currentHeader.headercart }}</h2>
+            <span>{{ languageService.currentHeader.descriptcard }}</span>
             <div>
                 <div>
                     <img src="../../assets/img/scss-cart.png">
@@ -42,7 +38,7 @@
                     </button>
 
                     <button>
-                        <span class="btn-cart">Life test</span>
+                        <span class="btn-cart">{{ languageService.currentHeader.testbtncard }}</span>
                         <div class="btn-arrow"></div>
                     </button>
                 </div>
@@ -56,7 +52,7 @@
                 </div>
                 <div class="pos-next-button">
                     <button class="next-button">
-                        <span class="next-span">Next project</span>
+                        <span class="next-span">{{ languageService.currentHeader.nextbtncard }}</span>
                         <img class="first" src="../../assets/img/arrow-hirizontal.png">
                         <img class="second" src="../../assets/img/arrow-horizontale-moved.png">
                     </button>
