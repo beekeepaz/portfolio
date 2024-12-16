@@ -13,21 +13,21 @@
 }
 
 section {
-    @include display($f: default);
+    @include display($f: unset);
     height: 100vh;
     background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
 }
 
 .headline {
     @include display();
-    @include position($p: default, $z: default);
+    @include position($p: unset, $z: unset);
     top: 316px;
     left: 343px;
     gap: 12px;
 
     >div {
-        @include display($a: default, $f: default);
-        @include position($p: default, $z: 6, $h: 48px, $w: 363px);
+        @include display($a: unset, $f: unset);
+        @include position($p: unset, $z: 6, $h: 48px, $w: 363px);
         gap: 48px;
     }
 }
@@ -46,15 +46,15 @@ h2 {
 }
 
 app-marquee {
-    @include display($j: default, $f: default);
+    @include display($j: unset, $f: unset);
     @include position($z: 5);
     white-space: nowrap;
     overflow: hidden;
 }
 
 .arrow-box {
-    @include display($f: default);
-    @include position($z: default, $h: 48px, $w: 32px);
+    @include display($f: unset);
+    @include position($z: unset, $h: 48px, $w: 32px);
     margin-left: 164px;
     margin-bottom: 264px;
     border: 1px solid #3DCFB6;
@@ -68,30 +68,31 @@ app-marquee {
 }
 
 .line {
-    @include display($j: space-between, $a: end, $f: default);
-    @include position($z: default, $h: 100vh);
+    @include display($j: space-between, $a: end, $f: unset);
+    @include position($z: unset, $h: 100vh);
 }
 
 .line-left-pos {
-    @include display($j: end, $a: default);
-    @include position($p: relative, $z: 1, $h: 100vh, $w: 150px);
+    @include display($j: end, $a: unset);
+    @include position($p: relative, $z: 1, $h: 100vh);
 }
 
 .line-left {
-    @include position($z: default, $h: 240px, $w: 1px);
+    @include position($z: unset, $h: 240px, $w: 1px);
     margin-left: 180px;
     background-color: #3DCFB6;
 }
 
 .git-pos {
-    @include display($j: center, $a: center, $f: default);
+    @include display($j: center, $a: center, $f: unset);
     position: absolute;
+    z-index: 999999;
     margin-right: 180px;
     margin-right: 151px;
     margin-bottom: 214px;
 
     >img:last-child {
-        @include position($p: default, $z: default, $h: 10px, $w: 10px);
+        @include position($p: unset, $z: unset, $h: 8px, $w: 8px);
         visibility: hidden;
         margin-left: 4px;
     }
@@ -110,7 +111,7 @@ app-marquee {
 }
 
 .git-pos div:first-child {
-    @include position($p: default, $z: default, $h: 32px, $w: 32px);
+    @include position($p: unset, $z: unset, $h: 32px, $w: 32px);
     background-image: url('../../assets/img/github_green.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -124,6 +125,7 @@ app-marquee {
 
 .mail-pos {
     position: absolute;
+    z-index: 999999;
     margin-right: 94px;
     margin-bottom: 343px;
     rotate: -90deg;
@@ -141,12 +143,12 @@ app-marquee {
 }
 
 .line-right-pos {
-    @include display($j: end, $a: end, $f: default);
-    @include position($p: relative, $z: 2, $h: 100vh, $w: 150px);
+    @include display($j: end, $a: end, $f: unset);
+    @include position($p: relative, $z: unset, $h: 100vh, $w: 150px);
 }
 
 .line-right {
-    @include position($z: default, $h: 200px, $w: 1px);
+    @include position($z: unset, $h: 200px, $w: 1px);
     margin-right: 180px;
     background-color: #3DCFB6;
 }
@@ -158,5 +160,154 @@ app-marquee {
 
     100% {
         transform: translateY(4px);
+    }
+}
+
+@media (max-width: 1400px) {
+    h1 {
+        font-size: 100px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .arrow-box {
+        margin-left: 124px;
+    }
+
+    .line-left {
+        margin-left: 140px;
+    }
+
+    .mail-pos {
+        margin-right: 44px;
+    }
+
+    .git-pos {
+        margin-right: 103px;
+    }
+
+    .line-right {
+        margin-right: 130px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .mail-pos {
+        display: none;
+    }
+
+    .mail-img-pos:hover img:last-child {
+        visibility: visible;
+        cursor: pointer;
+    }
+
+    .mail-img-pos:hover div:first-child {
+        background-image: url('../../assets/img/mail_white.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .mail-img-pos div:first-child {
+        @include position($p: unset, $z: unset, $h: 32px, $w: 32px);
+        background-image: url('../../assets/img/mail_green.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .mail-img-pos {
+        @include display($j: center, $a: center, $f: unset);
+        position: absolute;
+        z-index: 999999;
+        margin-right: 103px;
+        margin-bottom: 252px;
+
+        >img:last-child {
+            @include position($p: unset, $z: unset, $h: 8px, $w: 8px);
+            visibility: hidden;
+            margin-left: 4px;
+        }
+    }
+
+    .mail-img-pos:hover img:last-child {
+        visibility: visible;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 740px) {
+    h1 {
+        font-size: 74px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        text-align: center;
+        font-size: 68px;
+    }
+
+    .headline {
+
+        >div {
+            gap: 10px;
+        }
+    }
+}
+
+@media (max-width: 515px) {
+    .arrow-box {
+        margin-left: 84px;
+    }
+
+    .line-left {
+        margin-left: 100px;
+    }
+
+    .mail-img-pos {
+        margin-right: 63px;
+    }
+
+    .git-pos {
+        margin-right: 63px;
+    }
+
+    .line-right {
+        margin-right: 90px;
+    }
+}
+
+@media (max-width: 515px) {
+    .arrow-box {
+        margin-left: 24px;
+    }
+
+    .line-left {
+        margin-left: 40px;
+    }
+
+    .mail-img-pos {
+        margin-right: 3px;
+    }
+
+    .git-pos {
+        margin-right: 3px;
+    }
+
+    .line-right {
+        margin-right: 30px;
     }
 }
