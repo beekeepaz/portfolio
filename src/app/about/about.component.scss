@@ -25,14 +25,14 @@
 }
 
 section {
-    @include display($j: space-around, $f: default);
-    @include position($p: default, $z: default, $h: 100vh);
+    @include display($j: space-around, $f: unset);
+    @include position($p: unset, $z: unset, $h: 100vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
 
     >div.pictures {
-        @include display($j: space-between, $f: default);
-        @include position($p: default, $z: default, $h: 668px, $w: 668px);
+        @include display($j: space-between, $f: unset);
+        @include position($p: unset, $z: unset, $h: 668px, $w: 668px);
 
         >img.front {
             @include position($z: 1, $h: 568px, $w: 568px);
@@ -41,16 +41,15 @@ section {
         }
 
         >img.behind {
-            @include position($z: default, $h: 568px, $w: 568px);
+            @include position($z: unset, $h: 568px, $w: 568px);
             margin-top: 32px;
         }
     }
 }
 
 h3 {
-    @include display($j: start, $f: default);
+    @include display($j: start, $f: unset);
     @include karla-font();
-    height: 100%;
     color: #3DCFB6;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -59,7 +58,7 @@ h3 {
 
 .about-me-container {
     @include display($a: start);
-    @include position($p: default, $z: default, $h: 530px, $w: 536px);
+    @include position($p: unset, $z: unset, $h: 530px, $w: 536px);
     @include karla-font($fs: 18px);
     border-radius: 30px;
     border: 1px solid #3DCFB6;
@@ -69,14 +68,14 @@ h3 {
     gap: 40px;
 
     >h4 {
-        @include fira-font($fs: 64px, $lh: default);
+        @include fira-font($fs: 64px, $lh: unset);
         letter-spacing: -0.03em;
         color: #3DCFB6;
         cursor: default;
     }
 
     >div {
-        @include display($f: default);
+        @include display($f: unset);
         @include karla-font($fs: 18px);
         color: #ffffffad;
         gap: 32px;
@@ -89,15 +88,16 @@ h3 {
 }
 
 img.icon {
-    @include position($p: default, $z: default, $h: 26px, $w: 21px);
+    @include position($p: unset, $z: unset, $h: 26px, $w: 21px);
     object-fit: contain;
 }
 
 span {
     height: 100%;
+    cursor: default;
 }
 
-span:hover {
+span.hover-text:hover {
     cursor: default;
     color: #ffffffed;
 }
@@ -105,4 +105,87 @@ span:hover {
 #targeRed {
     scroll-behavior: smooth;
     overflow-y: scroll;
+}
+
+@media (max-width: 1400px) {
+    section {
+        @include display($j: center, $f: unset);
+
+        >div.pictures {
+            @include position($p: unset, $z: unset, $h: 568px, $w: 568px);
+
+            >img.front {
+                @include position($z: 1, $h: 468px, $w: 468px);
+            }
+
+            >img.behind {
+                @include position($z: unset, $h: 468px, $w: 468px);
+            }
+        }
+    }
+
+    .about-me-container {
+        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+        @include karla-font($fs: 16px);
+        gap: 16px;
+
+        >h4 {
+            @include fira-font($fs: 54px, $lh: unset);
+        }
+
+        >div {
+            @include karla-font($fs: 16px);
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    section {
+        >div.pictures {
+            @include position($p: unset, $z: unset, $h: 568px, $w: 526px);
+        }
+    }
+
+    .about-me-container {
+        @include position($p: unset, $z: unset, $h: 530px, $w: 320px);
+    }
+}
+
+@media (max-width: 950px) {
+    section {
+        @include display($j: space-around, $f: column);
+        @include position($p: unset, $z: unset, $h: 1096px);
+    }
+
+    .about-me-container {
+        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+    }
+}
+
+@media (max-width: 560px) {
+    section {
+        @include position($p: unset, $z: unset, $h: 1196px);
+
+        >div.pictures {
+            @include display();
+
+            >img.front {
+                @include position($z: 1, $h: 298px, $w: 298px);
+                margin-left: 16px;
+            }
+
+            >img.behind {
+                @include position($z: unset, $h: 298px, $w: 298px);
+                margin-right: 16px;
+            }
+        }
+    }
+
+    .about-me-container {
+        @include position($p: unset, $z: unset, $h: 680px, $w: 248px);
+
+        >h4 {
+            font-size: 48px;
+        }
+    }
 }
