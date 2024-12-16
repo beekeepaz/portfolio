@@ -10,11 +10,11 @@
     z-index: $z;
     height: $h;
     width: $w;
-  }
+}
 
 .skill-set-container {
     @include display($a: baseline);
-    @include position($p: default, $z: default, $h: 530px, $w: 536px);
+    @include position($p: unset, $z: unset, $h: 530px, $w: 536px);
     border-radius: 30px;
     border: 1px solid #3DCFB6;
     background-color: rgb(31, 46, 43);
@@ -46,7 +46,7 @@
 
 .header-pos {
     @include display($j: baseline, $a: baseline);
-    @include position($z: default, $w: default);
+    @include position($z: unset, $w: unset);
     margin-top: -40px;
 }
 
@@ -85,12 +85,13 @@ h5 {
 }
 
 img.icon {
-    @include position($p: default, $z: default, $h: 32px, $w: 32px);
+    @include position($p: unset, $z: unset, $h: 32px, $w: 32px);
 }
 
 section {
-    height: 100vh;
+    @include display($f: unset);
     background-color: rgb(28, 28, 28);
+    height: 100vh;
     width: 100%;
     color: #FFFFFFCC;
 
@@ -99,19 +100,25 @@ section {
     }
 }
 
+.icon-container-pos {
+    display: flex;
+    justify-content: flex-end;
+    width: 632px;
+}
+
 .icons {
-    @include position($p: default, $z: default, $h: 428px, $w: 632px);
+    @include position($p: unset, $z: unset, $h: 428px, $w: 632px);
     display: flex;
     flex-wrap: wrap;
     gap: 72px;
 
     >div {
         @include display();
-        @include position($p: default, $z: default, $h: 116px, $w: 104px);
+        @include position($p: unset, $z: unset, $h: 116px, $w: 104px);
         gap: 8px;
 
         >img {
-            @include position($p: default, $z: default, $h: 60px, $w: 60px);
+            @include position($p: unset, $z: unset, $h: 60px, $w: 60px);
         }
 
         >img:hover {
@@ -127,4 +134,43 @@ section {
             text-align: center;
         }
     }
+}
+
+@media (max-width: 1400px) {
+    .skill-pos {
+        @include display($j: center, $a: center, $f: row);
+    }
+
+    .skill-set-container {
+        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+        gap: 32px;
+    }
+
+    .icons {
+        @include position($p: unset, $z: unset, $h: 428px, $w: 512px);
+        // padding-left: 64px;
+        gap: 32px;
+    }
+
+    .icon-container-pos {
+        width: 564px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .skill-set-container {
+        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+        gap: 32px;
+    }
+
+    .icons {
+        @include position($p: unset, $z: unset, $h: 428px, $w: 436px);
+        // padding-left: 32px;
+        gap: 28px;
+    }
+
+    // .skill-set-container {
+    //     @include position($p: unset, $z: unset, $h: 500px, $w: 320px);
+    //     gap: 16px;
+    // }
 }
