@@ -170,6 +170,34 @@ span.hover-text:hover {
             @include display();
 
             >img.front {
+                @include position($z: 1, $h: 386px, $w: 386px);
+                margin-left: 16px;
+            }
+
+            >img.behind {
+                @include position($z: unset, $h: 386px, $w: 386px);
+                margin-right: 16px;
+            }
+        }
+    }
+
+    .about-me-container {
+        @include position($p: unset, $z: unset, $h: 580px, $w: 336px);
+
+        >h4 {
+            font-size: 48px;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    section {
+        @include position($p: unset, $z: unset, $h: 1196px);
+
+        >div.pictures {
+            @include display();
+
+            >img.front {
                 @include position($z: 1, $h: 298px, $w: 298px);
                 margin-left: 16px;
             }
@@ -183,9 +211,5 @@ span.hover-text:hover {
 
     .about-me-container {
         @include position($p: unset, $z: unset, $h: 680px, $w: 248px);
-
-        >h4 {
-            font-size: 48px;
-        }
     }
 }
