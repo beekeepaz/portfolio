@@ -14,9 +14,10 @@
 
 section {
     @include display($j: space-around, $f: row);
-    @include position($p: default, $z: default, $h: 100vh);
+    @include position($p: unset, $z: unset, $h: 100vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
+    overflow: hidden;
 
     >div.preview-projects {
         width: 280px;
@@ -27,7 +28,7 @@ section {
     }
 
     >div {
-        @include display($a: default);
+        @include display($a: unset);
         width: 880px;
 
         >div.portfolio-header {
@@ -50,7 +51,7 @@ section {
             }
 
             >span {
-                @include position($p: default, $z: default, $h: 44px, $w: 456px);
+                @include position($p: unset, $z: unset, $h: 44px, $w: 456px);
                 padding-bottom: 32px;
                 font-family: Karla;
                 font-size: 18px;
@@ -64,7 +65,7 @@ section {
 
             >div.single-project {
                 @include display();
-                @include position($p: default, $z: default, $h: 109px);
+                @include position($p: unset, $z: unset, $h: 109px);
 
                 >div.place-single-project {
                     @include display($j: space-between, $f: row);
@@ -97,13 +98,21 @@ section {
     }
 }
 
+.back-distance-bot {
+    padding-bottom: 200px;
+}
+
+.back-distance-top {
+    padding-top: 200px;
+}
+
 .short-line {
-    @include position($p: default, $z: default, $h: 20px, $w: 1px);
+    @include position($p: unset, $z: unset, $h: 20px, $w: 1px);
     background-color: #3DCFB6;
 }
 
 .longe-line {
-    @include position($p: default, $z: default, $h: 1px);
+    @include position($p: unset, $z: unset, $h: 1px);
     background-color: #3DCFB6;
 }
 
@@ -119,7 +128,7 @@ img.pre {
 }
 
 img.back {
-    @include position($z: default, $h: 300px, $w: 500px);
+    @include position($z: unset, $h: 300px, $w: 500px);
     margin-top: 20px;
     margin-left: 40px;
     object-fit: cover;
@@ -128,10 +137,189 @@ img.back {
 
 .set-background {
     @include display($j: baseline);
-    @include position($p: relative, $z: default);
+    @include position($p: relative, $z: unset);
 }
 
 app-project-cart {
     @include display($f: row);
-    @include position($z: default);
+    @include position($z: unset);
+}
+
+@media (max-width: 1700px) {
+    section {
+        div.preview-projects {
+            width: 158px;
+        }
+    }
+}
+
+@media (max-width: 1550px) {
+    section {
+        >div {
+            width: 750px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 650px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1450px) {
+    section {
+        >div {
+            width: 750px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 650px;
+                    }
+                }
+            }
+        }
+    }
+
+    img.pre {
+        @include position($z: 1, $h: 260px, $w: 440px);
+    }
+
+    img.back {
+        @include position($z: unset, $h: 260px, $w: 440px);
+    }
+}
+
+@media (max-width: 1400px) {
+    section {
+        >div {
+            width: 600px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 550px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    section {
+        >div {
+            width: 412px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        align-items: start;
+                        flex-direction: column;
+                        width: 400px;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1075px) {
+    section {
+        justify-content: start;
+
+        >div {
+            padding-left: 32px;
+        }
+
+        >div.preview-projects {
+            padding-left: 252px;
+        }
+    }
+}
+
+@media (max-width: 975px) {
+    section {
+        justify-content: center;
+
+        div.preview-projects {
+            display: none;
+        }
+
+        >div {
+            width: 780px;
+            padding-left: 0px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 700px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    section {
+        >div {
+            width: 480px;
+            padding-left: 0px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 400px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    section {
+        >div {
+            width: 380px;
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 300px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    section {
+        >div {
+            width: 280px;
+
+            >div.portfolio-header {
+                >span {
+                    width: 280px;
+                }
+            }
+
+            >div.projects {
+                >div.single-project {
+                    >div.place-single-project {
+                        width: 280px;
+
+                        span {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
