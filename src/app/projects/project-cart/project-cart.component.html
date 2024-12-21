@@ -1,10 +1,8 @@
-<div (click)="backgroundClick()" class="preview">
+<div (click)="close()" class="preview">
     @if (this.carts.setJoin === true) {
     <div (click)="$event.stopPropagation()" class="cart-layer">
         <div class="project-description">
-            <h4>
-                01
-            </h4>
+            <h4>01</h4>
             <h1>Join</h1>
             <h2>{{ languageService.currentHeader.headercart }}</h2>
             <span>{{ languageService.currentHeader.descriptcard }}</span>
@@ -17,10 +15,10 @@
                     <img src="../../assets/img/html-cart.png">
                     <span class="cart-font-icon">HTML</span>
                 </div>
-                <div>
+                <!-- <div>
                     <img src="../../assets/img/firebase-cart.png">
                     <span class="cart-font-icon">Firebase</span>
-                </div>
+                </div> -->
                 <div>
                     <img src="../../assets/img/Angular-cart.png">
                     <span class="cart-font-icon">Angular</span>
@@ -32,7 +30,7 @@
             </div>
             <div>
                 <div style="gap: 24px;">
-                    <button>
+                    <button (click)="goToPage()">
                         <span class="btn-cart">GitHub</span>
                         <div class="btn-arrow"></div>
                     </button>
@@ -46,7 +44,7 @@
         </div>
         <div>
             <div class="cart-rightside-pos">
-                <div class="closes"></div>
+                <div (click)="close()" class="closes"></div>
                 <div class="cart-radius">
                     <img class="cart-preview" src="../../assets/img/joinPreview-cart.png">
                 </div>

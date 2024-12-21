@@ -67,7 +67,6 @@ div.pos-next-button {
     background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
     font-family: Karla;
     font-size: 18px;
-    line-height: 21.6px;
     color: #FFFFFF;
     margin: 42px;
     position: absolute;
@@ -84,8 +83,8 @@ div.preview {
 }
 
 .project-description {
-    @include display($a: default);
-    @include position($p: default, $z: default, $h: 674px, $w: 480px);
+    @include display($a: unset);
+    @include position($p: unset, $z: unset, $h: 674px, $w: 480px);
     gap: 44px;
     padding-left: 64px;
 
@@ -93,23 +92,20 @@ div.preview {
         height: fit-content;
         font-size: 128px;
         font-family: Karla;
-        font-weight: 700px;
         color: #3DCFB6;
-        padding-bottom: 56px;
+        // padding-bottom: 56px;
         cursor: default;
     }
 
     >h1 {
         font-size: 64px;
         font-family: Fira_Code;
-        font-weight: 700px;
         color: #FFFFFF;
     }
 
     >h2 {
         font-size: 24px;
         font-family: Fira_Code;
-        font-weight: 700px;
         color: #3DCFB6;
     }
 
@@ -144,7 +140,7 @@ div.preview {
 }
 
 .closes {
-    @include position($p: default, $z: default, $h: 18px, $w: 18px);
+    @include position($p: unset, $z: unset, $h: 18px, $w: 18px);
     background-position: center;
     background-size: contain;
     background-repeat: hidden;
@@ -161,8 +157,8 @@ div.preview {
 }
 
 img.cart-preview {
-    @include display($f: default);
-    @include position($p: relative, $z: default, $h: 370px, $w: 520px);
+    @include display($f: unset);
+    @include position($p: relative, $z: unset, $h: 370px, $w: 520px);
     border-radius: 30px;
     object-fit: cover;
 }
@@ -174,7 +170,7 @@ img.cart-preview {
 }
 
 .btn-arrow {
-    @include position($p: default, $z: default, $h: 20px, $w: 20px);
+    @include position($p: unset, $z: unset, $h: 20px, $w: 20px);
     background-image: url('../../../assets/img/arrow_btn.png');
 }
 
@@ -191,4 +187,137 @@ button:hover .btn-cart {
     color: #FFFFFF;
     font-family: Karla !important;
     cursor: default;
+}
+
+@media (max-width: 1350px) {
+    .project-description {
+        width: 330px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .project-description {
+        width: 518px;
+        height: 500px;
+        gap: 22px;
+    }
+
+    img.cart-preview {
+        height: 334px;
+    }
+
+    .cart-layer {
+        flex-direction: column-reverse;
+    }
+
+    .cart-rightside-pos {
+        padding-right: 64px;
+        padding-left: 64px;
+    }
+
+    .cart-layer {
+        align-items: start;
+    }
+
+    .cart-radius {
+        margin-bottom: 0px;
+        margin-top: 32px;
+    }
+
+    .closes {
+        margin-top: 32px;
+    }
+
+    .next-button {
+        position: absolute;
+        top: 842px;
+    }
+}
+
+@media (max-width: 800px) {
+    .project-description {
+        padding-left: 32px;
+        width: 518px;
+        height: 500px;
+        gap: 22px;
+    }
+
+    img.cart-preview {
+        height: 334px;
+    }
+
+    .cart-layer {
+        flex-direction: column-reverse;
+    }
+
+    .cart-rightside-pos {
+        padding-right: 32px;
+        padding-left: 32px;
+    }
+
+    .cart-layer {
+        align-items: start;
+    }
+
+    .cart-radius {
+        margin-bottom: 0px;
+        margin-top: 32px;
+    }
+
+    .closes {
+        margin-top: 32px;
+    }
+
+    .next-button {
+        position: absolute;
+        top: 842px;
+    }
+}
+
+@media (max-width: 675px) {
+    img.cart-preview {
+        height: 268px;
+        width: 384px;
+    }
+
+    .project-description {
+        width: 384px;
+        gap: 14px;
+    }
+
+    .next-button {
+        top: 800px;
+    }
+}
+
+@media (max-width: 540px) {
+    img.cart-preview {
+        height: 228px;
+        width: 284px;
+    }
+
+    .project-description {
+        justify-content: start;
+        width: 284px;
+        gap: 6px;
+        padding-left: 16px;
+
+        >h4 {
+            font-size: 72px;
+        }
+
+        >div {
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+    }
+
+    .next-button {
+        top: 754px;
+    }
+
+    .cart-rightside-pos {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
 }

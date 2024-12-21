@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectCartComponent } from './project-cart/project-cart.component';
 import { Carts } from '../global/carts';
 import { Language } from '../global/language';
+import { ToggleScroll } from '../global/togglescroll';
 
 @Component({
   selector: 'app-projects',
@@ -14,7 +15,8 @@ export class ProjectsComponent implements OnInit {
 
   constructor(
     public carts: Carts,
-    public languageService: Language
+    public languageService: Language,
+    public scrollbarService: ToggleScroll
   ) {
   }
 
@@ -32,12 +34,9 @@ export class ProjectsComponent implements OnInit {
     this.carts.hoverDaBubble = leaveproject === 'leaveDaBubble' ? false : this.carts.hoverDaBubble;
   }
 
-  backgroundClick() {
-    this.carts.toggleModal();
-    this.carts.setFalse();
-  }
-
   choosenProject(ele: string) {
+    const html = document.documentElement;
+    html.classList.add('no-scroll');
     this.getSingleProject(ele);
     this.carts.toggleModal();
   }
