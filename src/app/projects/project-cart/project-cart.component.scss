@@ -85,28 +85,35 @@ div.preview {
 .project-description {
     @include display($a: unset);
     @include position($p: unset, $z: unset, $h: 674px, $w: 480px);
-    gap: 44px;
+    gap: 24px;
     padding-left: 64px;
 
-    >h4 {
-        height: fit-content;
-        font-size: 128px;
-        font-family: Karla;
-        color: #3DCFB6;
-        // padding-bottom: 56px;
-        cursor: default;
-    }
+    >div.project-headers {
+        @include display($a: start, $j: start, $f: column);
+        gap: 4px;
 
-    >h1 {
-        font-size: 64px;
-        font-family: Fira_Code;
-        color: #FFFFFF;
+        >h4 {
+            font-size: 128px;
+            font-family: Karla;
+            line-height: 128px;
+            color: #3DCFB6;
+            cursor: default;
+        }
+
+        >h1 {
+            font-size: 64px;
+            font-family: Fira_Code;
+            line-height: 64px;
+            color: #FFFFFF;
+        }
     }
 
     >h2 {
         font-size: 24px;
+        line-height: 24px;
         font-family: Fira_Code;
         color: #3DCFB6;
+        word-spacing: -4px;
     }
 
     >span {
@@ -116,12 +123,12 @@ div.preview {
     }
 
     >div {
-        @include display($j: baseline, $f: default);
+        @include display($j: baseline, $f: unset);
         gap: 24px;
 
         >div {
             display: flex;
-            gap: 4px;
+            gap: 24px;
 
             >span {
                 display: flex;
@@ -192,14 +199,40 @@ button:hover .btn-cart {
 @media (max-width: 1350px) {
     .project-description {
         width: 330px;
+
+        >div {
+            width: 330px;
+            flex-wrap: wrap;
+        }
     }
 }
 
 @media (max-width: 1200px) {
     .project-description {
+        justify-content: start;
         width: 518px;
         height: 500px;
         gap: 22px;
+
+        >div {
+            width: 518px;
+            flex-wrap: wrap;
+        }
+
+        >div.project-headers {
+            padding-top: 14px;
+
+            >h4 {
+                font-size: 80px;
+                line-height: 80px;
+            }
+
+            >h1 {
+                font-size: 64px;
+                line-height: 64px;
+            }
+        }
+
     }
 
     img.cart-preview {
@@ -282,11 +315,41 @@ button:hover .btn-cart {
 
     .project-description {
         width: 384px;
-        gap: 14px;
+        gap: 8px;
+
+        >div.project-headers {
+            padding-top: 6px;
+            width: 384px;
+            gap: 8px;
+
+            >h4 {
+                font-size: 58px;
+                line-height: 58px;
+            }
+
+            >h1 {
+                font-size: 64px;
+                line-height: 64px;
+            }
+        }
+
+        >div {
+            width: 384px;
+            gap: 16px;
+
+            >div {
+                gap: 16px;
+            }
+        }
+
+        >div.place-btn {
+            padding-top: 18px;
+            justify-content: center;
+        }
     }
 
     .next-button {
-        top: 800px;
+        top: 786px;
     }
 }
 
@@ -299,16 +362,21 @@ button:hover .btn-cart {
     .project-description {
         justify-content: start;
         width: 284px;
-        gap: 6px;
         padding-left: 16px;
 
-        >h4 {
-            font-size: 72px;
+        >h2 {
+            font-size: 18px;
+            line-height: 18px;
         }
 
         >div {
+            width: 284px;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
+
+            >div {
+                gap: 8px;
+            }
         }
     }
 
@@ -319,5 +387,10 @@ button:hover .btn-cart {
     .cart-rightside-pos {
         padding-right: 16px;
         padding-left: 16px;
+    }
+
+    button {
+        width: 132px;
+        height: 42px;
     }
 }

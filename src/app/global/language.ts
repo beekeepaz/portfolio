@@ -37,9 +37,9 @@ export class Language {
         projectsb: 'Explore a selection of my work here - Interact with projects to see my skills in action.',
 
         headercart: 'What is this project about?',
-        descriptcard: 'Task manager inspired by the Kanba System. Create and organize tasks using drag and drop functions, assign users and categories.',
         testbtncard: 'Life test',
         nextbtncard: 'Next project',
+
         headerrevaluation: 'What my colleagues say about me',
 
         footerunderlogoa: 'Web Developer',
@@ -79,9 +79,9 @@ export class Language {
         projectsb: 'Entdecken Sie hier eine Auswahl meiner Arbeiten - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.',
 
         headercart: 'Um was geht es bei diesem Projekt?',
-        descriptcard: 'Aufgabenmanager nach dem Vorbild des Kanba-Systems. Erstellen und organisieren Sie Aufgaben mit Hilfe von Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.',
         testbtncard: 'Testen',
         nextbtncard: 'Nächstes Projekt',
+
         headerrevaluation: 'Was meine Kollegen über mich sagen',
 
         footerunderlogoa: 'Web-Entwickler',
@@ -158,6 +158,42 @@ export class Language {
         button: 'Absenden'
     };
 
+    public joinenglish = {
+        cardnumber: '01',
+        headercard: 'Join',
+        descriptcard: 'Task manager inspired by the Kanba System. Create and organize tasks using drag and drop functions, assign users and categories.'
+    }
+
+    public joingerman = {
+        cardnumber: '01',
+        headercard: 'Join',
+        descriptcard: 'Aufgabenmanager nach dem Vorbild des Kanba-Systems. Erstellen und organisieren Sie Aufgaben mit Hilfe von Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.'
+    }
+
+    public locoenglish = {
+        cardnumber: '02',
+        headercard: 'EL Pollo Loco',
+        descriptcard: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
+    }
+
+    public locogerman = {
+        cardnumber: '02',
+        headercard: 'EL Pollo Loco',
+        descriptcard: 'Aufgabenmanager nach dem Vorbild des Kanba-Systems. Erstellen und organisieren Sie Aufgaben mit Hilfe von Drag-and-Drop-Funktionen, weisen Sie Benutzer und Kategorien zu.'
+    }
+
+    public bubbleenglish = {
+        cardnumber: '03',
+        headercard: 'Da Bubble',
+        descriptcard: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
+    }
+
+    public bubblegerman = {
+        cardnumber: '03',
+        headercard: 'Da Bubble',
+        descriptcard: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
+    }
+
     public toggleValue: string = 'false';
 
     get currentHeader(): any {
@@ -170,5 +206,17 @@ export class Language {
 
     get contact(): any {
         return this.toggleValue === 'false' ? this.contacttxtenglish : this.contacttxtgerman;
+    }
+
+    get join(): any {
+        return this.toggleValue === 'false' ? this.joinenglish : this.joingerman;
+    }
+
+    get loco(): any {
+        return this.toggleValue === 'false' ? this.locoenglish : this.locogerman;
+    }
+
+    get bubble(): any {
+        return this.toggleValue === 'false' ? this.bubbleenglish : this.bubblegerman;
     }
 }

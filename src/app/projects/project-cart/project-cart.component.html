@@ -1,11 +1,27 @@
 <div (click)="close()" class="preview">
-    @if (this.carts.setJoin === true) {
+    <!-- @if (this.carts.setJoin === true) { -->
     <div (click)="$event.stopPropagation()" class="cart-layer">
         <div class="project-description">
-            <h4>01</h4>
-            <h1>Join</h1>
+            <div class="project-headers">
+                @if(this.carts.setJoin === true) {
+                <h4>{{ languageService.join.cardnumber }}</h4>
+                <h1>{{ languageService.join.headercard }}</h1>
+                } @else if(this.carts.setElPolloLoco === true) {
+                <h4>{{ languageService.loco.cardnumber }}</h4>
+                <h1>{{ languageService.loco.headercard }}</h1>
+                } @else if(this.carts.setDaBubble === true) {
+                <h4>{{ languageService.bubble.cardnumber }}</h4>
+                <h1>{{ languageService.bubble.headercard }}</h1>
+                }
+            </div>
             <h2>{{ languageService.currentHeader.headercart }}</h2>
-            <span>{{ languageService.currentHeader.descriptcard }}</span>
+            @if (this.carts.setJoin === true) {
+            <span>{{ languageService.join.descriptcard }}</span>
+            } @else if(this.carts.setElPolloLoco === true) {
+            <span>{{ languageService.loco.descriptcard }}</span>
+            } @else if(this.carts.setDaBubble === true) {
+            <span>{{ languageService.loco.descriptcard }}</span>
+            }
             <div>
                 <div>
                     <img src="../../assets/img/scss-cart.png">
@@ -15,10 +31,6 @@
                     <img src="../../assets/img/html-cart.png">
                     <span class="cart-font-icon">HTML</span>
                 </div>
-                <!-- <div>
-                    <img src="../../assets/img/firebase-cart.png">
-                    <span class="cart-font-icon">Firebase</span>
-                </div> -->
                 <div>
                     <img src="../../assets/img/Angular-cart.png">
                     <span class="cart-font-icon">Angular</span>
@@ -28,8 +40,8 @@
                     <span class="cart-font-icon">TypeScript</span>
                 </div>
             </div>
-            <div>
-                <div style="gap: 24px;">
+            <div class="place-btn">
+                <div class="btn-gap">
                     <button (click)="goToPage()">
                         <span class="btn-cart">GitHub</span>
                         <div class="btn-arrow"></div>
@@ -58,113 +70,4 @@
             </div>
         </div>
     </div>
-    } @else if (this.carts.setElPolloLoco === true) {
-    <div (click)="$event.stopPropagation()" class="cart-layer">
-        <div class="project-description">
-            <h4>
-                02
-            </h4>
-            <h1>EL Pollo Loco</h1>
-            <span>What is this project about?</span>
-            <span>
-                Jump, run and throw game based on object-oriented
-                approach. Help Pepe to find coins and tabasco salsa to
-                fight against the crazy hen.
-            </span>
-            <div>
-                <div>
-                    <img src="../../assets/img/scss-cart.png">
-                    <span class="cart-font-icon">CSS</span>
-                </div>
-                <div>
-                    <img src="../../assets/img/html-cart.png">
-                    <span class="cart-font-icon">HTML</span>
-                </div>
-                <div>
-                    <img src="../../assets/img/firebase-cart.png">
-                    <span class="cart-font-icon">Firebase</span>
-                </div>
-            </div>
-            <div>
-                <div style="gap: 24px;">
-                    <button>
-                        <span class="btn-cart">GitHub</span>
-                        <div class="btn-arrow"></div>
-                    </button>
-
-                    <button>
-                        <span class="btn-cart">Life test</span>
-                        <div class="btn-arrow"></div>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div>
-                <div class="closes"></div>
-                <div class="cart-radius">
-                    <img class="cart-preview" src="../../assets/img/elPolloPreview-cart.png">
-                </div>
-                <button>
-                    <span>Next project</span>
-                    <div class="nextes"></div>
-                </button>
-            </div>
-        </div>
-    </div>
-    } @else if (this.carts.setDaBubble === true) {
-    <div (click)="$event.stopPropagation()" class="cart-layer">
-        <div class="project-description">
-            <h4>
-                02
-            </h4>
-            <h1>EL Pollo Loco</h1>
-            <span>What is this project about?</span>
-            <span>
-                Jump, run and throw game based on object-oriented
-                approach. Help Pepe to find coins and tabasco salsa to
-                fight against the crazy hen.
-            </span>
-            <div>
-                <div>
-                    <img src="../../assets/img/scss-cart.png">
-                    <span class="cart-font-icon">CSS</span>
-                </div>
-                <div>
-                    <img src="../../assets/img/html-cart.png">
-                    <span class="cart-font-icon">HTML</span>
-                </div>
-                <div>
-                    <img src="../../assets/img/firebase-cart.png">
-                    <span class="cart-font-icon">Firebase</span>
-                </div>
-            </div>
-            <div>
-                <div style="gap: 24px;">
-                    <button>
-                        <span class="btn-cart">GitHub</span>
-                        <div class="btn-arrow"></div>
-                    </button>
-
-                    <button>
-                        <span class="btn-cart">Life test</span>
-                        <div class="btn-arrow"></div>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div>
-                <div class="closes"></div>
-                <div class="cart-radius">
-                    <img class="cart-preview" src="../../assets/img/elPolloPreview-cart.png">
-                </div>
-                <button>
-                    <span>Next project</span>
-                    <div class="nextes"></div>
-                </button>
-            </div>
-        </div>
-    </div>
-    }
 </div>
