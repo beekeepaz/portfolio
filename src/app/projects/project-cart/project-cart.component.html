@@ -1,5 +1,4 @@
 <div (click)="close()" class="preview">
-    <!-- @if (this.carts.setJoin === true) { -->
     <div (click)="$event.stopPropagation()" class="cart-layer">
         <div class="project-description">
             <div class="project-headers">
@@ -23,22 +22,50 @@
             <span>{{ languageService.loco.descriptcard }}</span>
             }
             <div>
+                @if (this.carts.setJoin === true) {
                 <div>
-                    <img src="../../assets/img/scss-cart.png">
+                    <img src="../../../assets/img/scss-cart.png">
                     <span class="cart-font-icon">CSS</span>
                 </div>
                 <div>
-                    <img src="../../assets/img/html-cart.png">
+                    <img src="../../../assets/img/html-cart.png">
                     <span class="cart-font-icon">HTML</span>
                 </div>
                 <div>
-                    <img src="../../assets/img/Angular-cart.png">
+                    <img src="../../../assets/img/Angular-cart.png">
                     <span class="cart-font-icon">Angular</span>
                 </div>
                 <div>
-                    <img src="../../assets/img/typeScript-cart.png">
+                    <img src="../../../assets/img/typeScript-cart.png">
                     <span class="cart-font-icon">TypeScript</span>
                 </div>
+                }@else if(this.carts.setElPolloLoco === true) {
+                <div>
+                    <img src="../../../assets/img/html-cart.png">
+                    <span class="cart-font-icon">HTML</span>
+                </div>
+                <div>
+                    <img src="../../../assets/img/scss-cart.png">
+                    <span class="cart-font-icon">CSS</span>
+                </div>
+                <div>
+                    <img src="../../../assets/img/javaScript-cart.png">
+                    <span class="cart-font-icon">JavaScript</span>
+                </div>
+                }@else if(this.carts.setDaBubble === true) {
+                <div>
+                    <img src="../../../assets/img/Angular-cart.png">
+                    <span class="cart-font-icon">Angular</span>
+                </div>
+                <div>
+                    <img src="../../../assets/img/firebase-cart.png">
+                    <span class="cart-font-icon">Firebase</span>
+                </div>
+                <div>
+                    <img src="../../../assets/img/typeScript-cart.png">
+                    <span class="cart-font-icon">TypeScript</span>
+                </div>
+                }
             </div>
             <div class="place-btn">
                 <div class="btn-gap">

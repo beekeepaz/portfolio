@@ -33,6 +33,7 @@ section {
 
         >div.portfolio-header {
             @include display($a: start);
+            cursor: default;
 
             >h1 {
                 padding-bottom: 32px;

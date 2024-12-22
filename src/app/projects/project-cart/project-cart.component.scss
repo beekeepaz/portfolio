@@ -128,7 +128,7 @@ div.preview {
 
         >div {
             display: flex;
-            gap: 24px;
+            gap: 10px;
 
             >span {
                 display: flex;
@@ -136,6 +136,12 @@ div.preview {
                 font-family: Kiara;
                 font-size: 16px;
             }
+        }
+    }
+
+    >div.place-btn {
+        >div.btn-gap {
+            gap: 28px;
         }
     }
 }
@@ -328,8 +334,8 @@ button:hover .btn-cart {
             }
 
             >h1 {
-                font-size: 64px;
-                line-height: 64px;
+                font-size: 52px;
+                line-height: 52px;
             }
         }
 
@@ -378,6 +384,12 @@ button:hover .btn-cart {
                 gap: 8px;
             }
         }
+
+        >div.place-btn {
+            >div.btn-gap {
+                gap: 12px;
+            }
+        }
     }
 
     .next-button {
@@ -393,4 +405,5 @@ button:hover .btn-cart {
         width: 132px;
         height: 42px;
     }
+
 }
