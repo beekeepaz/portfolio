@@ -57,4 +57,23 @@ export class ReevaluationComponent {
     }, 1000);
   }
 
+  getReevaluationText(offset: number): string {
+    const index = (this.currentIndex + offset) % this.languageService.reevaluation.length;
+    return this.languageService.reevaluation[index].text;
+  }
+
+  getReevaluationName(offset: number): string {
+    const index = (this.currentIndex + offset) % this.languageService.reevaluation.length;
+    return this.languageService.reevaluation[index].name;
+  }
+
+  getAnimationClass(index: number): string {
+    if (index === 0) return this.animateright ? 'left-in' : 'left';
+    if (index === 1) return this.animateleft ? 'mid-left' : 'mid-right';
+    if (index === 2) return 'show-mid-color';
+    if (index === 3) return this.animateright ? 'right-right' : 'right';
+    if (index === 4) return 'right-in';
+    return '';
+  }
+
 }

@@ -6,7 +6,21 @@
                 <div class="quotes-img-pos">
                     <img class="quotes" src="../../assets/img/quotes.png">
                 </div>
-                @if(animateright === true) {
+
+                @for(offset of [0, 1, 2, 3, 4];track offset; let index = $index) {
+                <div class="single-commentar-field">
+                    <span>
+                        {{ getReevaluationText(index) }}
+                        <div class="place-name">
+                            <div class="line"></div>
+                            {{ getReevaluationName(index) }}
+                        </div>
+                    </span>
+                </div>
+                }
+
+
+                <!-- '@if(animateright === true) {
                 <div class="single-comment-field preview left-in">
                     <span>
                         {{ languageService.reevaluation[currentIndex].text }}
@@ -140,7 +154,7 @@
                         </div>
                     </span>
                 </div>
-                }
+                } -->
             </div>
             <div class="box-shadow"></div>
             <div class="box-shadow-second"></div>
