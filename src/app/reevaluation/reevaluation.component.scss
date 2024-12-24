@@ -14,7 +14,7 @@
 
 section {
   @include display();
-  @include position($p: default, $z: default, $h: 100vh);
+  @include position($p: unset, $z: unset, $h: 100vh);
   background-color: rgb(28, 28, 28);
   color: #FFFFFFCC;
 
@@ -35,7 +35,7 @@ section {
 
 .single-comment-field {
   @include display();
-  @include position($p: default, $z: default, $h: 300px, $w: 600px);
+  @include position($p: unset, $z: unset, $h: 300px, $w: 600px);
   border-style: solid;
   border-width: 1px;
   border-color: #3DCFB6;
@@ -54,7 +54,7 @@ section {
 }
 
 .preview {
-  @include position($p: default, $z: default, $h: 250px, $w: 500px);
+  @include position($p: unset, $z: unset, $h: 250px, $w: 500px);
   margin: 32px;
   background-color: #2b3a37;
 }
@@ -64,23 +64,23 @@ section {
   width: 100%;
 
   >div.quotes-img-pos {
-    @include display($a: baseline, $j: baseline, $f: default);
-    @include position($z: default, $h: 322px, $w: 700px);
+    @include display($a: baseline, $j: baseline, $f: unset);
+    @include position($z: unset, $h: 322px, $w: 700px);
   }
 }
 
 img.quotes {
-  @include position($h: default, $w: default);
+  @include position($h: unset, $w: unset);
 }
 
 .box-shadow {
-  @include position($z: default, $h: 400px);
+  @include position($z: unset, $h: 400px);
   box-shadow: inset 625px 0px 150px 0px rgba(28, 28, 28, 0.5),
     inset -625px 0px 150px -220px rgba(28, 28, 28, 0.5);
 }
 
 .box-shadow-second {
-  @include position($z: default, $h: 400px);
+  @include position($z: unset, $h: 400px);
   box-shadow: inset 150px 0px 15px 0px rgba(28, 28, 28, 1),
     inset -150px 0px 15px 0px rgba(28, 28, 28, 1);
 }
@@ -92,17 +92,17 @@ img.quotes {
 
 .place-name {
   @include display($f: row);
-  @include position($p: default, $z: default, $h: 32px);
+  @include position($p: unset, $z: unset, $h: 32px);
   gap: 16px;
 }
 
 .line {
-  @include position($p: default, $z: default, $h: 1px, $w: 200px);
+  @include position($p: unset, $z: unset, $h: 1px, $w: 200px);
   background-color: #3DCFB6;
 }
 
 div.left-arrow {
-  @include position($p: default, $z: default, $h: 36px, $w: 36px);
+  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
   background-repeat: hidden;
@@ -110,7 +110,7 @@ div.left-arrow {
 }
 
 div.left-arrow:hover {
-  @include position($p: default, $z: default, $h: 36px, $w: 36px);
+  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
   background-repeat: hidden;
@@ -118,7 +118,7 @@ div.left-arrow:hover {
 }
 
 div.right-arrow {
-  @include position($p: default, $z: default, $h: 36px, $w: 36px);
+  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
   background-repeat: hidden;
@@ -126,7 +126,7 @@ div.right-arrow {
 }
 
 div.right-arrow:hover {
-  @include position($p: default, $z: default, $h: 36px, $w: 36px);
+  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
   background-repeat: hidden;
@@ -147,7 +147,7 @@ div.right-arrow:hover {
 
 .point-slider {
   @include display($f: row);
-  @include position($p: default, $z: default, $h: 12px, $w: 12px);
+  @include position($p: unset, $z: unset, $h: 12px, $w: 12px);
   background-position: center;
   background-size: contain;
   background-repeat: hidden;
