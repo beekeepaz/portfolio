@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Language } from '../global/language';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reevaluation',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './reevaluation.component.html',
   styleUrl: './reevaluation.component.scss'
 })
@@ -75,5 +76,39 @@ export class ReevaluationComponent {
     if (index === 4) return 'right-in';
     return '';
   }
+
+  //   if(animateright === true)
+  //     single-comment-field preview left-in
+
+  //   if(animateleft === true)
+  //     single-comment-field preview left
+
+  //   else if(animateright === true)
+  //     single-comment-field preview left-right
+
+  //   else if(animateleft === false && animateright === false)
+  //     single-comment-field preview
+
+  //   if(animateleft === true)
+  //     single-comment-field mid-left
+
+  //   else if (animateright === true)
+  //     single-comment-field mid-right
+
+  //   else
+  //     single-comment-field show-mid-color
+
+  //     if(animateleft === true)
+  //       single-comment-field preview right
+
+  //     else if(animateright === true)
+  //       single-comment-field preview right-right
+
+  //     else
+  //       single-comment-field preview
+
+  //       if(animateleft === true)
+  //         single-comment-field preview right-in
+  // 
 
 }
