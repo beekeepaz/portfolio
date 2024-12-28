@@ -8,7 +8,7 @@
                 </div>
 
                 @for(offset of [0, 1, 2, 3, 4];track offset; let index = $index) {
-                <div [ngClass]="getAnimationClass(index)" class="single-commentar-field">
+                <div [ngClass]="getAnimationClass(index)">
                     <span>
                         {{ getReevaluationText(index) }}
                         <div class="place-name">

@@ -69,11 +69,17 @@ export class ReevaluationComponent {
   }
 
   getAnimationClass(index: number): string {
-    if (index === 0) return this.animateright ? 'left-in' : 'left';
-    if (index === 1) return this.animateleft ? 'mid-left' : 'mid-right';
-    if (index === 2) return 'show-mid-color';
-    if (index === 3) return this.animateright ? 'right-right' : 'right';
-    if (index === 4) return 'right-in';
+    if (index === 0 && this.animateright === true) return 'single-comment-field preview left-in';
+    if (index === 1 && this.animateleft === true) return 'single-comment-field preview left';
+    else if (index === 1 && this.animateright === true) return 'single-comment-field preview left-right';
+    else if (index === 1 && this.animateleft === false && this.animateright === false) return 'single-comment-field preview';
+    if (index === 2 && this.animateleft === true) return 'single-comment-field mid-left';
+    else if (index === 2 && this.animateright === true) return 'single-comment-field mid-right';
+    else if (index === 2) return 'single-comment-field show-mid-color';
+    if (index === 3 && this.animateleft === true) return 'single-comment-field preview right';
+    else if (index === 3 && this.animateright === true) return 'single-comment-field preview right-right';
+    else if (index === 3) return 'single-comment-field preview';
+    if (index === 4 && this.animateleft === true) return 'single-comment-field preview right-in';
     return '';
   }
 
@@ -83,7 +89,7 @@ export class ReevaluationComponent {
   //   if(animateleft === true)
   //     single-comment-field preview left
 
-  //   else if(animateright === true)
+  //   else if(animateleft === false && animateright === true)
   //     single-comment-field preview left-right
 
   //   else if(animateleft === false && animateright === false)
@@ -95,7 +101,7 @@ export class ReevaluationComponent {
   //   else if (animateright === true)
   //     single-comment-field mid-right
 
-  //   else
+  //   else ()
   //     single-comment-field show-mid-color
 
   //     if(animateleft === true)
