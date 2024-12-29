@@ -101,6 +101,10 @@ img.quotes {
   background-color: #3DCFB6;
 }
 
+.d-none {
+  display: none;
+}
+
 div.left-arrow {
   @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
   background-position: center;

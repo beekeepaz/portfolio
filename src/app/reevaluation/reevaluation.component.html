@@ -7,7 +7,7 @@
                     <img class="quotes" src="../../assets/img/quotes.png">
                 </div>
 
-                @for(offset of [0, 1, 2];track offset; let index = $index) {
+                @for(offset of [0, 1, 2, 3, 4];track offset; let index = $index) {
                 <div [ngClass]="animationClasses[index]">
                     <span>
                         {{ getReevaluationText(index) }}
