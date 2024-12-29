@@ -154,6 +154,14 @@ div.right-arrow:hover {
   background-image: url("../../assets/img/point_green.png");
 }
 
+.left-out-left {
+  animation: animaLeftOutLeft 1s ease-in-out;
+}
+
+.right-out-right {
+  animation: animaRightOutRight 1s ease-in-out;
+}
+
 .left {
   animation: animaOutLeft 1s ease-in-out;
 }
@@ -231,6 +239,16 @@ div.right-arrow:hover {
   }
 }
 
+@keyframes animaLeftOutLeft {
+  0% {
+    transform: translateX(0px)
+  }
+
+  100% {
+    transform: translateX(-700px);
+  }
+}
+
 @keyframes animaOutLeft {
   0% {
     transform: translateX(0px)
@@ -268,5 +286,15 @@ div.right-arrow:hover {
 
   100% {
     transform: scale(1.1755) translateX(500px);
+  }
+}
+
+@keyframes animaRightOutRight {
+  0% {
+    transform: translateX(0px)
+  }
+
+  100% {
+    transform: translateX(700px);
   }
 }
