@@ -84,63 +84,74 @@ export class ReevaluationComponent {
     return this.languageService.reevaluation[index].name;
   }
 
-  getAnimationClass(index: number): string {
-    if (index === 0 && this.animateright === false && this.animateleft === false) {
-      console.log(0.0);
-      return 'd-none';
-    } else if (index === 0 && this.animateright === true && this.animateleft === false) {
-      console.log(0.1);
-      return 'single-comment-field preview left-in';
-    } else if (index === 0 && this.animateright === false && this.animateleft === true) {
-      console.log(0.2);
-      return 'd-none';
-    }
-
-    if (index === 1 && this.animateleft === true) {
-      // console.log(1.0);
-      return 'single-comment-field preview left';
-    } else if (index === 1 && this.animateright === true) {
-      // console.log(1.1);
-      return 'single-comment-field preview left-right';
-    } else if (index === 1 && this.animateleft === false && this.animateright === false) {
-      // console.log(1.2);
-      return 'single-comment-field preview';
-    }
-
-    if (index === 2 && this.animateleft === true) {
-      // console.log(2.0);
-      return 'single-comment-field mid-left';
-    } else if (index === 2 && this.animateright === true) {
-      // console.log(2.1);
-      return 'single-comment-field mid-right';
-    } else if (index === 2) {
-      // console.log(2.2);
-      return 'single-comment-field show-mid-color';
-    }
-
-    if (index === 3 && this.animateleft === true) {
-      // console.log(3.0);
-      return 'single-comment-field preview right';
-    } else if (index === 3 && this.animateright === true) {
-      // console.log(3.1);
-      return 'single-comment-field preview right-right';
-    } else if (index === 3) {
-      // console.log(3.2);
-      return 'single-comment-field preview';
-    }
-
-    if (index === 4 && this.animateleft === false && this.animateright === false) {
-      console.log(4.0);
-      return 'd-none';
-    } else if (index === 4 && this.animateleft === true && this.animateright === false) {
-      console.log(4.1);
-      return 'single-comment-field preview right-in';
-    } else if(index === 4 && this.animateleft === false && this.animateright === true) {
-      console.log(4.2);
-      return 'd-none';
-    }
-
-    console.log('No condition matched');
-    return '';
+  // Funktion 1: Animationen für Index 0
+  getAnimationIndex0(): string {
+    return !this.animateright && !this.animateleft
+      ? 'd-none'
+      : this.animateright && !this.animateleft
+        ? 'single-comment-field preview left-in'
+        : !this.animateright && this.animateleft
+          ? 'd-none'
+          : '';
   }
+
+  // Funktion 2: Animationen für Index 1
+  getAnimationIndex1(): string {
+    return this.animateleft
+      ? 'single-comment-field preview left'
+      : this.animateright
+        ? 'single-comment-field preview left-right'
+        : !this.animateleft && !this.animateright
+          ? 'single-comment-field preview'
+          : '';
+  }
+
+  // Funktion 3: Animationen für Index 2
+  getAnimationIndex2(): string {
+    return this.animateleft
+      ? 'single-comment-field mid-left'
+      : this.animateright
+        ? 'single-comment-field mid-right'
+        : 'single-comment-field show-mid-color';
+  }
+
+  // Funktion 4: Animationen für Index 3
+  getAnimationIndex3(): string {
+    return this.animateleft
+      ? 'single-comment-field preview right'
+      : this.animateright
+        ? 'single-comment-field preview right-right'
+        : 'single-comment-field preview';
+  }
+
+  // Funktion 5: Animationen für Index 4
+  getAnimationIndex4(): string {
+    return !this.animateleft && !this.animateright
+      ? 'd-none'
+      : this.animateleft && !this.animateright
+        ? 'single-comment-field preview right-in'
+        : !this.animateleft && this.animateright
+          ? 'd-none'
+          : '';
+  }
+
+  // Hauptfunktion, um die richtige Subfunktion aufzurufen
+  getAnimationClass(index: number): string {
+    switch (index) {
+      case 0:
+        return this.getAnimationIndex0();
+      case 1:
+        return this.getAnimationIndex1();
+      case 2:
+        return this.getAnimationIndex2();
+      case 3:
+        return this.getAnimationIndex3();
+      case 4:
+        return this.getAnimationIndex4();
+      default:
+        console.log('No condition matched');
+        return '';
+    }
+  }
+
 }
