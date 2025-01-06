@@ -22,13 +22,13 @@
             <div class="box-shadow-second"></div>
         </div>
         <div class="place-arrows">
-            <button (click)="prevSlide()">
+            <button class="b-left" (click)="prevSlide()">
                 <div class="left-arrow"></div>
             </button>
-            <div class="point-slider"></div>
-            <div class="point-slider"></div>
-            <div class="point-slider"></div>
-            <button (click)="nextSlide()">
+            @for(slide of slides; track slide; let i = $index) {
+            <div class="point-slider" [ngClass]="{ 'active': isActive(i) }"></div>
+            }
+            <button class="b-right" (click)="nextSlide()">
                 <div class="right-arrow"></div>
             </button>
         </div>

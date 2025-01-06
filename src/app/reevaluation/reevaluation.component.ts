@@ -26,6 +26,10 @@ export class ReevaluationComponent {
 
   animationClasses: string[] = [];
 
+  slides = ['Slide 1', 'Slide 2', 'Slide 3'];
+
+  slideIndex: number = 0;
+
   constructor(
     public languageService: Language
   ) { }
@@ -50,6 +54,7 @@ export class ReevaluationComponent {
         this.calculateAnimationClasses();
       } else {
         this.currentIndex++;
+        this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
         this.calculateAnimationClasses();
       }
 
@@ -68,6 +73,7 @@ export class ReevaluationComponent {
         this.calculateAnimationClasses();
       } else {
         this.currentIndex--;
+        this.slideIndex = (this.slideIndex + 1) % this.slides.length;
         this.calculateAnimationClasses();
       }
 
@@ -84,7 +90,6 @@ export class ReevaluationComponent {
     return this.languageService.reevaluation[index].name;
   }
 
-  // Funktion 1: Animationen für Index 0
   getAnimationIndex0(): string {
     return !this.animateright && !this.animateleft
       ? 'd-none'
@@ -95,7 +100,6 @@ export class ReevaluationComponent {
           : '';
   }
 
-  // Funktion 2: Animationen für Index 1
   getAnimationIndex1(): string {
     return this.animateleft
       ? 'single-comment-field preview left'
@@ -106,7 +110,6 @@ export class ReevaluationComponent {
           : '';
   }
 
-  // Funktion 3: Animationen für Index 2
   getAnimationIndex2(): string {
     return this.animateleft
       ? 'single-comment-field mid-left'
@@ -115,7 +118,6 @@ export class ReevaluationComponent {
         : 'single-comment-field show-mid-color';
   }
 
-  // Funktion 4: Animationen für Index 3
   getAnimationIndex3(): string {
     return this.animateleft
       ? 'single-comment-field preview right'
@@ -124,7 +126,6 @@ export class ReevaluationComponent {
         : 'single-comment-field preview';
   }
 
-  // Funktion 5: Animationen für Index 4
   getAnimationIndex4(): string {
     return !this.animateleft && !this.animateright
       ? 'd-none'
@@ -135,7 +136,6 @@ export class ReevaluationComponent {
           : '';
   }
 
-  // Hauptfunktion, um die richtige Subfunktion aufzurufen
   getAnimationClass(index: number): string {
     switch (index) {
       case 0:
@@ -154,4 +154,7 @@ export class ReevaluationComponent {
     }
   }
 
+  isActive(index: number): boolean {
+    return this.slideIndex === index;
+  }
 }

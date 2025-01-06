@@ -147,15 +147,29 @@ div.right-arrow:hover {
   >button {
     border: none;
   }
+
+  >button.b-right:active {
+    transform: translateX(-5px);
+  }
+
+  >button.b-left:active {
+    transform: translateX(5px);
+  }
 }
 
 .point-slider {
   @include display($f: row);
   @include position($p: unset, $z: unset, $h: 12px, $w: 12px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: hidden;
-  background-image: url("../../assets/img/point_green.png");
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background-color: gray;
+  display: inline-block;
+  border-radius: 50%;
+}
+
+.point-slider.active {
+  background-color: white;
 }
 
 .left {
