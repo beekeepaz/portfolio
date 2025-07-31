@@ -1,14 +1,10 @@
-<div class="marquee marquee--8">
-    <span class="marquee__item banner-text">{{ languageService.currentHeader.bannertxta }}
+<div class="marquee" #marquee>
+  <div class="marquee__track" #track>
+    @for (item of bannerTextArray; track item) {
+    <span class="marquee__item">
+      <span class="banner-text">{{ item.text }}</span>
+      <img [src]="pointimg" alt="punkt">
     </span>
-    <span class="marquee__item"><img class="banner-point" [src]="pointimg" alt=""></span>
-    <span class="marquee__item banner-text">{{ languageService.currentHeader.bannertxtb }}
-    </span>
-    <span class="marquee__item"><img class="banner-point" [src]="pointimg" alt=""></span>
-    <span class="marquee__item banner-text">{{ languageService.currentHeader.bannertxtc }}
-    </span>
-    <span class="marquee__item"><img class="banner-point" [src]="pointimg" alt=""></span>
-    <span class="marquee__item banner-text">{{ languageService.currentHeader.bannertxtd }}
-    </span>
-    <span class="marquee__item"><img class="banner-point" [src]="pointimg" alt=""></span>
+    }
+  </div>
 </div>

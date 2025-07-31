@@ -46,7 +46,7 @@ h2 {
 }
 
 app-marquee {
-    @include display($j: unset, $f: unset);
+    @include display($j: unset, $f: unset, $a: flex-end);
     @include position($z: 5);
     white-space: nowrap;
     overflow: hidden;
