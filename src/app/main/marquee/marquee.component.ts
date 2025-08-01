@@ -18,48 +18,36 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
   pointimg = './../../assets/img/point_green.png';
 
   @ViewChild('track') trackRef!: ElementRef<HTMLDivElement>;
-  @ViewChild('marquee') marqueeRef!: ElementRef<HTMLDivElement>;
 
   private animationFrameId = 0;
   private offset = 0;
-  private speed = 2.5; // px pro Frame
+  private speed = 6.5;
 
   readonly languageService = inject(Language);
 
-  bannerTextArray = [
-    { text: this.languageService.currentHeader.bannertxta },
-    { text: this.languageService.currentHeader.bannertxtb },
-    { text: this.languageService.currentHeader.bannertxtc },
-    { text: this.languageService.currentHeader.bannertxtd },
-    { text: this.languageService.currentHeader.bannertxta },
-    { text: this.languageService.currentHeader.bannertxtb },
-    { text: this.languageService.currentHeader.bannertxtc },
-    { text: this.languageService.currentHeader.bannertxtd }
-  ];
+  // Dummy-Daten für Sprachumschaltung
+  readonly testLangEN = {
+    bannertxta: 'Welcome',
+    bannertxtb: 'We innovate',
+    bannertxtc: 'Contact us',
+    bannertxtd: 'Your success'
+  };
 
-  ngAfterViewInit(): void {
-    const track = this.trackRef.nativeElement;
-    const clone = track.cloneNode(true) as HTMLElement;
-    track.appendChild(clone);
-    this.animate();
+  readonly testLangDE = {
+    bannertxta: 'Willkommen',
+    bannertxtb: 'Wir innovieren',
+    bannertxtc: 'Kontaktieren Sie uns',
+    bannertxtd: 'Ihr Erfolg'
+  };
+
+  bannerTextArrayDynamic: { text: string }[] = [];
+
+  ngOnInit(): void {
+    this.updateBannerText();
   }
 
-  private animate(): void {
-    const track = this.trackRef.nativeElement;
-
-    const step = () => {
-      this.offset -= this.speed;
-
-      const maxScroll = track.scrollWidth / 2;
-      if (Math.abs(this.offset) >= maxScroll) {
-        this.offset = 0;
-      }
-
-      track.style.transform = `translateX(${this.offset}px)`;
-      this.animationFrameId = requestAnimationFrame(step);
-    };
-
-    this.animationFrameId = requestAnimationFrame(step);
+  ngAfterViewInit(): void {
+    this.animate();
   }
 
   ngOnDestroy(): void {
@@ -72,5 +60,39 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
 
   set toggleValue(value: string) {
     this.languageService.toggleValue = value;
+    this.updateBannerText();
+  }
+
+  public updateBannerText(): void {
+    const lang = this.toggleValue === 'true' ? this.testLangDE : this.testLangEN;
+
+    this.bannerTextArrayDynamic = [
+      { text: lang.bannertxta },
+      { text: lang.bannertxtb },
+      { text: lang.bannertxtc },
+      { text: lang.bannertxtd },
+      { text: lang.bannertxta },
+      { text: lang.bannertxtb },
+      { text: lang.bannertxtc },
+      { text: lang.bannertxtd }
+    ];
+  }
+
+  private animate(): void {
+    const track = this.trackRef.nativeElement;
+
+    const step = () => {
+      this.offset -= this.speed;
+
+      const trackWidth = track.scrollWidth;
+      if (Math.abs(this.offset) >= trackWidth / 2) {
+        this.offset = 0;
+      }
+
+      track.style.transform = `translateX(${this.offset}px)`;
+      this.animationFrameId = requestAnimationFrame(step);
+    };
+
+    this.animationFrameId = requestAnimationFrame(step);
   }
 }

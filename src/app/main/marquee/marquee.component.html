@@ -1,6 +1,12 @@
 <div class="marquee" #marquee>
   <div class="marquee__track" #track>
-    @for (item of bannerTextArray; track item) {
+    @for (item of bannerTextArrayDynamic; track item) {
+    <span class="marquee__item">
+      <span class="banner-text">{{ item.text }}</span>
+      <img [src]="pointimg" alt="punkt">
+    </span>
+    }
+    @for (item of bannerTextArrayDynamic; track item) {
     <span class="marquee__item">
       <span class="banner-text">{{ item.text }}</span>
       <img [src]="pointimg" alt="punkt">
@@ -8,3 +14,7 @@
     }
   </div>
 </div>
+
+<button (click)="toggleValue = toggleValue === 'true' ? 'false' : 'true'">
+  Sprache wechseln
+</button>
