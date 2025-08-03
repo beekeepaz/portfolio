@@ -1,22 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Language } from '../../../global/language';
 import { ToggleScroll } from '../../../global/togglescroll';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 
 export class HeaderComponent {
 
+  readonly languageService = inject(Language);
+
+  switchLanguage(value: string): void {
+    this.languageService.toggleValue = value;
+  }
+
   constructor(
     private router: Router,
-    public languageService: Language,
     public scrollbarService: ToggleScroll
   ) { }
 

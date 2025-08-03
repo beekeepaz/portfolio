@@ -7,6 +7,7 @@ import {
   inject
 } from '@angular/core';
 import { Language } from '../../global/language';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-marquee',
@@ -21,29 +22,18 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
 
   private animationFrameId = 0;
   private offset = 0;
-  private speed = 6.5;
+  private speed = 3.5;
 
   readonly languageService = inject(Language);
 
-  // Dummy-Daten für Sprachumschaltung
-  readonly testLangEN = {
-    bannertxta: 'Welcome',
-    bannertxtb: 'We innovate',
-    bannertxtc: 'Contact us',
-    bannertxtd: 'Your success'
-  };
-
-  readonly testLangDE = {
-    bannertxta: 'Willkommen',
-    bannertxtb: 'Wir innovieren',
-    bannertxtc: 'Kontaktieren Sie uns',
-    bannertxtd: 'Ihr Erfolg'
-  };
+  private langSub!: Subscription;
 
   bannerTextArrayDynamic: { text: string }[] = [];
 
   ngOnInit(): void {
-    this.updateBannerText();
+    this.langSub = this.languageService.toggleValue$.subscribe(() => {
+      this.updateBannerText();
+    });
   }
 
   ngAfterViewInit(): void {
@@ -52,6 +42,7 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     cancelAnimationFrame(this.animationFrameId);
+    if (this.langSub) this.langSub.unsubscribe();
   }
 
   get toggleValue(): string {
@@ -64,17 +55,17 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
   }
 
   public updateBannerText(): void {
-    const lang = this.toggleValue === 'true' ? this.testLangDE : this.testLangEN;
+    const header = this.languageService.currentHeader;
 
     this.bannerTextArrayDynamic = [
-      { text: lang.bannertxta },
-      { text: lang.bannertxtb },
-      { text: lang.bannertxtc },
-      { text: lang.bannertxtd },
-      { text: lang.bannertxta },
-      { text: lang.bannertxtb },
-      { text: lang.bannertxtc },
-      { text: lang.bannertxtd }
+      { text: header.bannertxta },
+      { text: header.bannertxtb },
+      { text: header.bannertxtc },
+      { text: header.bannertxtd },
+      { text: header.bannertxta },
+      { text: header.bannertxtb },
+      { text: header.bannertxtc },
+      { text: header.bannertxtd }
     ];
   }
 

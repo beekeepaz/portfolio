@@ -1,10 +1,21 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 
 export class Language {
+
+    private _toggleValue = new BehaviorSubject<string>('false');
+    toggleValue$ = this._toggleValue.asObservable();
+
+    get toggleValue(): string {
+        return this._toggleValue.getValue();
+    }
+    set toggleValue(val: string) {
+        this._toggleValue.next(val);
+    }
 
     public english = {
         navleft: 'About me',
@@ -193,8 +204,6 @@ export class Language {
         headercard: 'Da Bubble',
         descriptcard: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
     }
-
-    public toggleValue: string = 'false';
 
     get currentHeader(): any {
         return this.toggleValue === 'false' ? this.english : this.german;

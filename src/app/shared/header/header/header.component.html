@@ -10,12 +10,12 @@
     <div class="menu" (click)="backgroundClick()">
 
         <nav (click)="$event.stopPropagation()">
-            <div class="background">
+            <div class="background" *ngIf="languageService.toggleValue$ | async as toggleValue">
                 <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
-                    [(ngModel)]="languageService.toggleValue" checked>
+                    [checked]="toggleValue === 'false'"(change)="switchLanguage('false')">
                 <label for="toggle-on" class="btn">EN</label>
                 <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
-                    [(ngModel)]="languageService.toggleValue">
+                     [checked]="toggleValue === 'true'"(change)="switchLanguage('true')">
                 <label for="toggle-off" class="btn">DE</label>
             </div>
 
