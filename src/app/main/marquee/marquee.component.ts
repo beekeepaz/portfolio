@@ -1,11 +1,4 @@
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  OnDestroy,
-  inject
-} from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, inject } from '@angular/core';
 import { Language } from '../../global/language';
 import { Subscription } from 'rxjs';
 

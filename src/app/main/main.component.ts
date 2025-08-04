@@ -17,11 +17,7 @@ export class MainComponent implements OnInit {
   name = "Angular " + VERSION.major;
   pointimg = "./../../assets/img/point_green.png";
 
-  currentIndex = 0;
-
-/*   banneritems: any[] = ["Frontend Developer", "Based in Hannover", "Open to work",
-    "Available to work"];
-  clonedArr: any[] = Array.from(this.banneritems); */
+  /*   currentIndex = 0; */
 
   constructor(
     private router: Router,
@@ -29,20 +25,45 @@ export class MainComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log("ngOnit Works");
-    // console.log(this.clonedArr);
     this.router.navigate(["/"]);
   }
 
-  scrollToId(id: string) {
-    const sliderElement = document.getElementById(id);
-    if (sliderElement) {
-      const offsetTop = sliderElement.offsetTop;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      });
+    scrollToId(id: string) {
+      const sliderElement = document.getElementById(id);
+      if (sliderElement) {
+        const offsetTop = sliderElement.offsetTop;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
     }
+
+  scrollToIds(id: string, duration: number = 800) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const start = window.pageYOffset;
+    const end = target.getBoundingClientRect().top + start;
+    const distance = end - start;
+    let startTime: number | null = null;
+
+    const step = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1); // 0 to 1
+      const easeInOut = progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, start + distance * easeInOut);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
   }
 
   get toggleValue(): string {

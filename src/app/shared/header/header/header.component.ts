@@ -55,6 +55,36 @@ export class HeaderComponent {
     }
   }
 
+  scrollToId(id: string, duration: number = 8000) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const start = window.pageYOffset;
+    const end = target.getBoundingClientRect().top + start;
+    const distance = end - start;
+    let startTime: number | null = null;
+
+    const step = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1); // 0 to 1
+      const easeInOut = progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, start + distance * easeInOut);
+
+      this.logCheckedStatus();
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+    this.logCheckedStatus();
+  }
+
   get toggleValue(): string {
     return this.languageService.toggleValue;
   }

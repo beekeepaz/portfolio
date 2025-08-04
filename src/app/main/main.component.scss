@@ -142,6 +142,10 @@ app-marquee {
     }
 }
 
+.mail-img-pos img:last-child {
+    visibility: hidden;
+}
+
 .line-right-pos {
     @include display($j: end, $a: end, $f: unset);
     @include position($p: relative, $z: unset, $h: 100vh, $w: 150px);
