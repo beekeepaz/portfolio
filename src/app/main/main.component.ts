@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
     this.router.navigate(["/"]);
   }
 
-    scrollToId(id: string) {
+/*     scrollToId(id: string) {
       const sliderElement = document.getElementById(id);
       if (sliderElement) {
         const offsetTop = sliderElement.offsetTop;
@@ -37,9 +37,9 @@ export class MainComponent implements OnInit {
           behavior: 'smooth'
         });
       }
-    }
+    } */
 
-  scrollToIds(id: string, duration: number = 800) {
+  scrollToId(id: string, duration: number = 800) {
     const target = document.getElementById(id);
     if (!target) return;
 

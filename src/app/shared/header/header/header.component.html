@@ -19,15 +19,15 @@
                 <label for="toggle-off" class="btn">DE</label>
             </div>
 
-            <a href="#aboutme">
+            <a (click)="scrollToId('aboutme')" (click)="backgroundClick()">
                 {{ languageService.currentHeader.navleft }}
                 <img src="../../../../assets/img/point_green.png">
             </a>
-            <a href="#skills" (click)="backgroundClick()">
+            <a (click)="scrollToId('skills')" (click)="backgroundClick()">
                 {{ languageService.currentHeader.navmid }}
                 <img src="../../../../assets/img/point_green.png">
             </a>
-            <a href="#projects" (click)="backgroundClick()">
+            <a (click)="scrollToId('projects')" (click)="backgroundClick()">
                 {{ languageService.currentHeader.navright }}
                 <img src="../../../../assets/img/point_green.png">
             </a>

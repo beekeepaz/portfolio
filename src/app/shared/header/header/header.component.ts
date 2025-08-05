@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Language } from '../../../global/language';
@@ -13,18 +13,45 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss'
 })
 
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   readonly languageService = inject(Language);
-
-  switchLanguage(value: string): void {
-    this.languageService.toggleValue = value;
-  }
 
   constructor(
     private router: Router,
     public scrollbarService: ToggleScroll
   ) { }
+
+  scrollToId(id: string, duration: number = 800) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const start = window.pageYOffset;
+    const end = target.getBoundingClientRect().top + start;
+    const distance = end - start;
+    let startTime: number | null = null;
+
+    const step = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1); // 0 to 1
+      const easeInOut = progress < 0.5
+        ? 2 * progress * progress
+        : -1 + (4 - 2 * progress) * progress;
+
+      window.scrollTo(0, start + distance * easeInOut);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(step);
+      }
+    };
+
+    requestAnimationFrame(step);
+  }
+
+  switchLanguage(value: string): void {
+    this.languageService.toggleValue = value;
+  }
 
   ngOnInit() {
     this.router.navigate(["/"]);
@@ -53,36 +80,6 @@ export class HeaderComponent {
     } else {
       html.classList.remove('no-scroll');
     }
-  }
-
-  scrollToId(id: string, duration: number = 8000) {
-    const target = document.getElementById(id);
-    if (!target) return;
-
-    const start = window.pageYOffset;
-    const end = target.getBoundingClientRect().top + start;
-    const distance = end - start;
-    let startTime: number | null = null;
-
-    const step = (currentTime: number) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); // 0 to 1
-      const easeInOut = progress < 0.5
-        ? 2 * progress * progress
-        : -1 + (4 - 2 * progress) * progress;
-
-      window.scrollTo(0, start + distance * easeInOut);
-
-      this.logCheckedStatus();
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(step);
-      }
-    };
-
-    requestAnimationFrame(step);
-    this.logCheckedStatus();
   }
 
   get toggleValue(): string {
