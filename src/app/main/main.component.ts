@@ -1,4 +1,4 @@
-import { Component, VERSION, OnInit } from '@angular/core';
+import { Component, VERSION, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header/header.component';
 import { Router } from "@angular/router";
 import { MarqueeComponent } from '../main/marquee/marquee.component';
@@ -17,7 +17,11 @@ export class MainComponent implements OnInit {
   name = "Angular " + VERSION.major;
   pointimg = "./../../assets/img/point_green.png";
 
-  /*   currentIndex = 0; */
+  private animationFrameId = 0;
+  private offset = 0;
+  private speed = 0.15;
+
+  @ViewChild('arrowtrack') trackRef!: ElementRef<HTMLDivElement>;
 
   constructor(
     private router: Router,
@@ -28,16 +32,9 @@ export class MainComponent implements OnInit {
     this.router.navigate(["/"]);
   }
 
-/*     scrollToId(id: string) {
-      const sliderElement = document.getElementById(id);
-      if (sliderElement) {
-        const offsetTop = sliderElement.offsetTop;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    } */
+  ngAfterViewInit(): void {
+    this.animate();
+  }
 
   scrollToId(id: string, duration: number = 800) {
     const target = document.getElementById(id);
@@ -64,6 +61,24 @@ export class MainComponent implements OnInit {
     };
 
     requestAnimationFrame(step);
+  }
+
+  private animate(): void {
+    const track = this.trackRef.nativeElement;
+
+    const step = () => {
+      this.offset -= this.speed;
+
+      const trackWidth = track.scrollWidth; 
+      if (Math.abs(this.offset) >= trackWidth / 2) {
+        this.offset = 0;
+      }
+
+      track.style.transform = `translateY(${this.offset}px)`;
+      this.animationFrameId = requestAnimationFrame(step);
+    };
+
+    this.animationFrameId = requestAnimationFrame(step);
   }
 
   get toggleValue(): string {

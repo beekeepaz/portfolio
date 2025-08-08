@@ -157,7 +157,7 @@ app-marquee {
     background-color: #3DCFB6;
 }
 
-@keyframes arrow-marquee {
+/* @keyframes arrow-marquee {
     0% {
         transform: translateY(0);
     }
@@ -165,7 +165,7 @@ app-marquee {
     100% {
         transform: translateY(4px);
     }
-}
+} */
 
 @media (max-width: 1400px) {
     h1 {
