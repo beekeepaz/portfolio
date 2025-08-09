@@ -107,6 +107,16 @@ span.hover-text:hover {
     overflow-y: scroll;
 }
 
+div.layout-section {
+    @include display($a: center, $f: unset);
+    @include position($p: absolute, $z: 0, $h: 100%, $w: 100%);
+    background-image: url("../../assets/img/background_skill.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: start;
+    opacity: 1;
+}
+
 @media (max-width: 1400px) {
     section {
         @include display($j: center, $f: unset);
@@ -151,6 +161,12 @@ span.hover-text:hover {
     }
 }
 
+@media (max-width: 850px) {
+    div.layout-section {
+        height: 127%;
+    }
+}
+
 @media (max-width: 950px) {
     section {
         @include display($j: space-around, $f: column);
@@ -159,6 +175,12 @@ span.hover-text:hover {
 
     .about-me-container {
         @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+    }
+}
+
+@media (max-width: 710px) {
+    div.layout-section {
+        height: 134%;
     }
 }
 
@@ -211,5 +233,9 @@ span.hover-text:hover {
 
     .about-me-container {
         @include position($p: unset, $z: unset, $h: 680px, $w: 248px);
+    }
+
+    div.layout-section {
+        height: 148%;
     }
 }

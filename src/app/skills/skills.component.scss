@@ -12,6 +12,19 @@
     width: $w;
 }
 
+section {
+    @include display($f: unset);
+    @include position($p: relative, $z: 2, $h: 100vh);
+    background-color: rgba(28, 28, 28);
+    color: #FFFFFFCC;
+    opacity: 0.85;
+    cursor: default;
+
+    >div {
+        width: 100%;
+    }
+}
+
 .skill-set-container {
     @include display($a: baseline);
     @include position($p: unset, $z: unset, $h: 530px, $w: 536px);
@@ -85,27 +98,6 @@ h5 {
 
 img.icon {
     @include position($p: unset, $z: unset, $h: 32px, $w: 32px);
-}
-
-section {
-    @include display($f: unset);
-    @include position($p: relative, $z: unset, $h: 100vh, $w: 100%);
-    background-color: rgba(28, 28, 28);
-    color: #FFFFFFCC;
-    cursor: default;
-
-    >div {
-        width: 100%;
-    }
-}
-
-div.layout-section {
-    @include display($f: unset);
-    @include position($p: absolute, $z: 2, $h: 100vh, $w: 100%);
-    background-image: url("../../assets/img/background_skill.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.5;
 }
 
 .icon-container-pos {

@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
     const step = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); // 0 to 1
+      const progress = Math.min(timeElapsed / duration, 1); 
       const easeInOut = progress < 0.5
         ? 2 * progress * progress
         : -1 + (4 - 2 * progress) * progress;
