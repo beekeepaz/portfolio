@@ -98,6 +98,31 @@ span:hover img {
     visibility: hidden;
 }
 
+@media (max-width: 1400px) {
+    .place-links {
+        padding-right: 32px;
+    }
+
+    .place-logo {
+        padding-left: 32px;
+    }
+}
+
+@media (max-width: 720px) {
+    section {
+        height: 35vh;
+
+        >div {
+            @include display($j: space-around, $f: row, $a: center);
+            @include position($p: default, $z: default);
+
+            >span {
+                padding-top: 254px;
+            }
+        }
+    }
+}
+
 // app-legal-notice {
 //     @include position();
 // }

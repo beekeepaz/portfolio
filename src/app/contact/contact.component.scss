@@ -79,6 +79,7 @@ section {
 
     >div.form-contain {
         display: flex;
+        justify-content: center;
         width: 616px;
         overflow-x: hidden;
 
@@ -227,7 +228,6 @@ textarea {
 .container:hover span {
     cursor: pointer;
     z-index: 99;
-    border-radius: 100%;
     background-color: #3DCFB6;
 }
 
@@ -260,7 +260,6 @@ textarea {
 /* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
     background-color: rgb(28, 28, 28);
-    border-radius: 100%;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -286,4 +285,28 @@ textarea {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+
+@media (max-width: 1200px) {
+    section {
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+
+        div.contact-me {
+            padding-bottom: 64px;
+            padding-right: 32px;
+            padding-left: 32px;
+        }
+
+        >div.form-contain {
+            >form {
+                div.con-information-pos {
+                    padding-right: 58px;
+                    padding-left: 58px;
+                }
+            }
+        }
+    }
 }
