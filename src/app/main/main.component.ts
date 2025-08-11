@@ -21,6 +21,8 @@ export class MainComponent implements OnInit {
   private offset = 0;
   private speed = 0.15;
 
+  private direction: number = 1;
+
   @ViewChild('arrowtrack') trackRef!: ElementRef<HTMLDivElement>;
 
   constructor(
@@ -48,7 +50,7 @@ export class MainComponent implements OnInit {
     const step = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); 
+      const progress = Math.min(timeElapsed / duration, 1);
       const easeInOut = progress < 0.5
         ? 2 * progress * progress
         : -1 + (4 - 2 * progress) * progress;
@@ -63,15 +65,25 @@ export class MainComponent implements OnInit {
     requestAnimationFrame(step);
   }
 
+
   private animate(): void {
     const track = this.trackRef.nativeElement;
 
     const step = () => {
-      this.offset -= this.speed;
+      this.offset += this.speed * this.direction;
 
-      const trackWidth = track.scrollWidth; 
-      if (Math.abs(this.offset) >= trackWidth / 2) {
-        this.offset = 0;
+      const trackWidth = track.scrollWidth;
+
+      const maxOffset = (trackWidth / 2) - this.speed;
+
+      // Unten angekommen -> Richtung umkehren
+      if (this.offset >= maxOffset) {
+        this.direction = -1;
+      }
+
+      // Oben angekommen -> Richtung umkehren
+      if (this.offset <= 0) {
+        this.direction = 1;
       }
 
       track.style.transform = `translateY(${this.offset}px)`;

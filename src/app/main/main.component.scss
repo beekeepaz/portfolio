@@ -64,7 +64,7 @@ app-marquee {
 .arrow {
     color: #FFFFFF;
     font-size: 20px;
-    animation: arrow-marquee ease-in-out 1s infinite;
+    padding-bottom: 6px;
 }
 
 .line {
@@ -295,6 +295,10 @@ app-marquee {
 }
 
 @media (max-width: 515px) {
+    .headline {
+        padding-bottom: 128px;
+    }
+
     .arrow-box {
         margin-left: 24px;
     }
