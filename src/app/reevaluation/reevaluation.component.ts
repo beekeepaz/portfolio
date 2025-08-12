@@ -26,7 +26,7 @@ export class ReevaluationComponent {
 
   animationClasses: string[] = [];
 
-  slides = ['Slide 1', 'Slide 2', 'Slide 3'];
+  slides: string[] = [];
 
   slideIndex: number = 0;
 
@@ -35,6 +35,7 @@ export class ReevaluationComponent {
   ) { }
 
   ngOnInit(): void {
+    this.slides = Array(this.languageService.reevaluation.length).fill('');
     this.calculateAnimationClasses();
   }
 
@@ -42,41 +43,28 @@ export class ReevaluationComponent {
     this.animationClasses = [0, 1, 2, 3, 4].map(index => this.getAnimationClass(index));
   }
 
-  prevSlide() {
-    this.animateleft = true;
+  changeSlide(direction: 'left' | 'right') {
+    const isLeft = direction === 'left';
+
+    this.animateleft = isLeft;
+    this.animateright = !isLeft;
     this.calculateAnimationClasses();
 
     setTimeout(() => {
       this.animateleft = false;
-
-      if (this.currentIndex == this.languageService.reevaluation.length - 1) {
-        this.currentIndex = 0;
-        this.calculateAnimationClasses();
-      } else {
-        this.currentIndex++;
-        this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
-        this.calculateAnimationClasses();
-      }
-
-    }, 1000);
-  }
-
-  nextSlide() {
-    this.animateright = true;
-    this.calculateAnimationClasses();
-
-    setTimeout(() => {
       this.animateright = false;
 
-      if (this.currentIndex == 0) {
-        this.currentIndex = this.languageService.reevaluation.length - 1;
-        this.calculateAnimationClasses();
+      const length = this.languageService.reevaluation.length;
+
+      if (isLeft) {
+        this.currentIndex = (this.currentIndex + 1) % length;
+        this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
       } else {
-        this.currentIndex--;
+        this.currentIndex = (this.currentIndex - 1 + length) % length;
         this.slideIndex = (this.slideIndex + 1) % this.slides.length;
-        this.calculateAnimationClasses();
       }
 
+      this.calculateAnimationClasses();
     }, 1000);
   }
 
@@ -90,68 +78,25 @@ export class ReevaluationComponent {
     return this.languageService.reevaluation[index].name;
   }
 
-  getAnimationIndex0(): string {
-    return !this.animateright && !this.animateleft
-      ? 'd-none'
-      : this.animateright && !this.animateleft
-        ? 'single-comment-field preview left-in'
-        : !this.animateright && this.animateleft
-          ? 'd-none'
-          : '';
-  }
-
-  getAnimationIndex1(): string {
-    return this.animateleft
-      ? 'single-comment-field preview left'
-      : this.animateright
-        ? 'single-comment-field preview left-right'
-        : !this.animateleft && !this.animateright
-          ? 'single-comment-field preview'
-          : '';
-  }
-
-  getAnimationIndex2(): string {
-    return this.animateleft
-      ? 'single-comment-field mid-left'
-      : this.animateright
-        ? 'single-comment-field mid-right'
-        : 'single-comment-field show-mid-color';
-  }
-
-  getAnimationIndex3(): string {
-    return this.animateleft
-      ? 'single-comment-field preview right'
-      : this.animateright
-        ? 'single-comment-field preview right-right'
-        : 'single-comment-field preview';
-  }
-
-  getAnimationIndex4(): string {
-    return !this.animateleft && !this.animateright
-      ? 'd-none'
-      : this.animateleft && !this.animateright
-        ? 'single-comment-field preview right-in'
-        : !this.animateleft && this.animateright
-          ? 'd-none'
-          : '';
-  }
-
   getAnimationClass(index: number): string {
-    switch (index) {
-      case 0:
-        return this.getAnimationIndex0();
-      case 1:
-        return this.getAnimationIndex1();
-      case 2:
-        return this.getAnimationIndex2();
-      case 3:
-        return this.getAnimationIndex3();
-      case 4:
-        return this.getAnimationIndex4();
-      default:
-        console.log('No condition matched');
-        return '';
+    const baseClasses: any = {
+      0: { neutral: 'd-none', left: 'd-none', right: 'single-comment-field preview left-in' },
+      1: { neutral: 'single-comment-field preview', left: 'single-comment-field preview left', right: 'single-comment-field preview left-right' },
+      2: { neutral: 'single-comment-field show-mid-color', left: 'single-comment-field mid-left', right: 'single-comment-field mid-right' },
+      3: { neutral: 'single-comment-field preview', left: 'single-comment-field preview right', right: 'single-comment-field preview right-right' },
+      4: { neutral: 'd-none', left: 'single-comment-field preview right-in', right: 'd-none' }
+    };
+
+    if (!this.animateleft && !this.animateright) {
+      return baseClasses[index]?.neutral || '';
     }
+    if (this.animateleft) {
+      return baseClasses[index]?.left || '';
+    }
+    if (this.animateright) {
+      return baseClasses[index]?.right || '';
+    }
+    return '';
   }
 
   isActive(index: number): boolean {

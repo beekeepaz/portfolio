@@ -211,7 +211,7 @@ div.right-arrow:hover {
 
 @keyframes animaRightIn {
   0% {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   100% {
@@ -221,7 +221,7 @@ div.right-arrow:hover {
 
 @keyframes animaLeftIn {
   0% {
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 
   100% {
@@ -231,7 +231,7 @@ div.right-arrow:hover {
 
 @keyframes animaMidLeft {
   0% {
-    transform: scale(1) translateX(0px)
+    transform: scale(1) translateX(0px);
   }
 
   100% {
@@ -241,7 +241,7 @@ div.right-arrow:hover {
 
 @keyframes animaMidRight {
   0% {
-    transform: scale(1) translateX(0px)
+    transform: scale(1) translateX(0px);
   }
 
   100% {
@@ -251,7 +251,7 @@ div.right-arrow:hover {
 
 @keyframes animaOutLeft {
   0% {
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 
   100% {
@@ -261,7 +261,7 @@ div.right-arrow:hover {
 
 @keyframes animaInRight {
   0% {
-    transform: scale(1) translateX(0px)
+    transform: scale(1) translateX(0px);
   }
 
   100% {
@@ -271,7 +271,7 @@ div.right-arrow:hover {
 
 @keyframes animaOutRight {
   0% {
-    transform: translateX(0px)
+    transform: translateX(0px);
   }
 
   100% {
@@ -281,7 +281,7 @@ div.right-arrow:hover {
 
 @keyframes animaInLeftToRight {
   0% {
-    transform: scale(1) translateX(0px)
+    transform: scale(1) translateX(0px);
   }
 
   100% {
@@ -291,14 +291,38 @@ div.right-arrow:hover {
 
 @media (max-width:1700px) {
   .box-shadow {
-    box-shadow: inset 425px 0px 150px 0px rgba(28, 28, 28, 0.5),
+    box-shadow: inset 425px 0px 150px -220px rgba(28, 28, 28, 0.5),
       inset -425px 0px 150px -220px rgba(28, 28, 28, 0.5);
   }
 }
 
-@media (max-width:1700px) {
+@media (max-width:1200px) {
   .box-shadow {
-    box-shadow: inset 425px 0px 150px 0px rgba(28, 28, 28, 0.5),
-      inset -425px 0px 150px -220px rgba(28, 28, 28, 0.5);
+    box-shadow: inset 225px 0px 200px -220px rgba(28, 28, 28, 0.5),
+      inset -225px 0px 200px -220px rgba(28, 28, 28, 0.5);
+  }
+}
+
+@media (max-width:950px) {
+  .box-shadow {
+    box-shadow: none;
+  }
+
+  .box-shadow-second {
+    box-shadow: inset 72px 0px 15px 0px rgb(28, 28, 28),
+      inset -72px 0px 15px 0px rgb(28, 28, 28);
+  }
+}
+
+@media (max-width: 800px) {
+  .single-comment-field {
+    width: 500px;
+  }
+
+  .show-container {
+    >div.quotes-img-pos {
+      height: 318px;
+      width: 628px;
+    }
   }
 }
