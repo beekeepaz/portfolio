@@ -6,8 +6,9 @@
                 <div class="quotes-img-pos">
                     <img class="quotes" src="../../assets/img/quotes.png">
                 </div>
-                @for(offset of [0, 1, 2, 3, 4];track offset; let index = $index) {
-                <div [ngClass]="animationClasses[index]">
+                @for(offset of [0, 1, 2, 3, 4]; track offset; let index = $index) {
+                <div [ngClass]="animationClasses[index]" [style.--ad]="animationDuration"
+                    [style.--atf]="animationTiming">
                     <span>
                         {{ getReevaluationText(index) }}
                         <div class="place-name">

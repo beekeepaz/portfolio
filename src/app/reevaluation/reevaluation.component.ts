@@ -11,14 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 
 export class ReevaluationComponent {
-  // preText = [
-  //   { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
-  //   { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
-  //   { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
-  //   { text: "Lorem ipsum Stein", name: "Patrick Star" },
-  //   { text: "Lorem ipsum Eintopf", name: "Yellow Dragon" },
-  //   { text: "Lorem Knallerbsen", name: "Lira Larum Löffel" }
-  // ];
+
+  animationDuration = '800ms';
+  animationTiming = 'ease-in-out';
+
+  private get animMs(): number {
+    const n = Number(this.animationDuration.replace('ms', ''));
+    return isNaN(n) ? 1000 : n;
+  }
 
   currentIndex = 0;
   animateleft = false;
@@ -65,7 +65,7 @@ export class ReevaluationComponent {
       }
 
       this.calculateAnimationClasses();
-    }, 1000);
+    }, this.animMs);
   }
 
   getReevaluationText(offset: number): string {
@@ -102,4 +102,5 @@ export class ReevaluationComponent {
   isActive(index: number): boolean {
     return this.slideIndex === index;
   }
+
 }

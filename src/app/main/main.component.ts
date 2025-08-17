@@ -76,12 +76,10 @@ export class MainComponent implements OnInit {
 
       const maxOffset = (trackWidth / 2) - this.speed;
 
-      // Unten angekommen -> Richtung umkehren
       if (this.offset >= maxOffset) {
         this.direction = -1;
       }
 
-      // Oben angekommen -> Richtung umkehren
       if (this.offset <= 0) {
         this.direction = 1;
       }
