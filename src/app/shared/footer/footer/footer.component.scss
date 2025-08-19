@@ -14,13 +14,13 @@
 
 section {
     @include display($f: row);
-    @include position($p: default, $z: default, $h: 25vh);
+    @include position($p: unset, $z: unset, $h: 25vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
 
     >div {
         @include display($j: space-around, $f: row, $a: center);
-        @include position($p: default, $z: default);
+        @include position($p: unset, $z: unset);
 
         >span {
             @include display($j: end);
@@ -57,7 +57,7 @@ section {
 
         >div.place-links {
             @include display($j: center, $a: end);
-            @include position($p: default, $z: default, $w: 568px);
+            @include position($p: unset, $z: unset, $w: 568px);
             gap: 10px;
 
             >div {
@@ -65,7 +65,7 @@ section {
                 gap: 6px;
 
                 >a {
-                    @include display($j: start, $a: center, $f: default);
+                    @include display($j: start, $a: center, $f: unset);
                     text-decoration: none;
                     width: 130px;
                     color: #FFFFFF;
@@ -73,13 +73,14 @@ section {
                     gap: 6px;
 
                     >img.green-point {
-                        @include position($p: default, $z: default, $h: 8px, $w: 8px);
+                        @include position($p: unset, $z: unset, $h: 8px, $w: 8px);
                         visibility: hidden;
                     }
                 }
 
                 >a:hover {
                     color: #3DCFB6;
+                    cursor: pointer;
                 }
 
                 >a:hover img.green-point {
@@ -114,10 +115,10 @@ span:hover img {
 
         >div {
             @include display($j: space-around, $f: row, $a: center);
-            @include position($p: default, $z: default);
+            @include position($p: unset, $z: unset);
 
             >span {
-                padding-top: 254px;
+                margin-top: 254px;
             }
         }
     }

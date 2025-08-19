@@ -27,8 +27,10 @@ section {
       color: #3DCFB6;
       font-family: Fira_Code;
       font-size: 32px;
-      text-align: left;
+      text-align: center;
       margin-bottom: 48px;
+      margin-right: 32px;
+      margin-left: 32px;
     }
   }
 }
@@ -349,6 +351,14 @@ div.right-arrow:hover {
     >div.quotes-img-pos {
       height: 318px;
       width: 506px;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .show-container {
+    >div.quotes-img-pos {
+      width: 306px;
     }
   }
 }

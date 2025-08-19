@@ -14,7 +14,7 @@
 
 section {
     @include display();
-    @include position($p: default, $z: default);
+    @include position($p: unset, $z: unset);
     background-color: rgb(28, 28, 28);
 
     >.data-notice {

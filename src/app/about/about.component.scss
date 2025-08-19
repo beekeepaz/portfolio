@@ -190,6 +190,7 @@ div.layout-section {
 
         >div.pictures {
             @include display();
+            width: 306px;
 
             >img.front {
                 @include position($z: 1, $h: 386px, $w: 386px);
@@ -217,8 +218,6 @@ div.layout-section {
         @include position($p: unset, $z: unset, $h: 1196px);
 
         >div.pictures {
-            @include display();
-
             >img.front {
                 @include position($z: 1, $h: 298px, $w: 298px);
                 margin-left: 16px;

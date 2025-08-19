@@ -25,8 +25,8 @@
 }
 
 section {
-    @include display($j: space-around, $a: start, $f: default);
-    @include position($p: default, $z: default, $h: 100vh);
+    @include display($j: space-around, $a: start, $f: unset);
+    @include position($p: unset, $z: unset, $h: 100vh);
     background-color: rgb(28, 28, 28);
     color: #FFFFFFCC;
 
@@ -138,7 +138,7 @@ div.ll1:hover div.ll2 {
 .con-police-pos {
     @include display();
     @include karla-font($fs: 15px);
-    @include position($p: default, $z: default, $h: 75px);
+    @include position($p: unset, $z: unset, $h: 75px);
 
     >div {
         @include display($f: row);
@@ -161,14 +161,14 @@ div.ll1:hover div.ll2 {
     }
 
     >span {
-        @include position($p: relative, $z: default, $h: default);
+        @include position($p: relative, $z: unset, $h: unset);
         padding-top: 10px;
     }
 }
 
 .con-button-pos {
-    @include display($f: default);
-    @include position($p: default, $h: default);
+    @include display($f: unset);
+    @include position($p: unset, $h: unset);
     padding-top: 32px;
 }
 
@@ -179,8 +179,8 @@ div.ll1:hover div.ll2 {
 }
 
 input {
-    @include position($p: default, $z: default, $h: 32px, $w: 332px);
-    @include karla-font($fs: 24px, $lh: default);
+    @include position($p: unset, $z: unset, $h: 32px, $w: 332px);
+    @include karla-font($fs: 24px, $lh: unset);
     border: none;
     outline: none;
     box-sizing: border-box;
@@ -189,7 +189,7 @@ input {
 }
 
 ::placeholder {
-    @include karla-font($fs: 24px, $lh: default);
+    @include karla-font($fs: 24px, $lh: unset);
     color: #3DCFB6;
 }
 
@@ -198,8 +198,8 @@ input:focus {
 }
 
 textarea {
-    @include position($p: default, $z: default, $h: 32px, $w: 500px);
-    @include karla-font($fs: 24px, $lh: default);
+    @include position($p: unset, $z: unset, $h: 32px, $w: 500px);
+    @include karla-font($fs: 24px, $lh: unset);
     outline: none;
     border: none;
     resize: none;
@@ -308,5 +308,33 @@ textarea {
                 }
             }
         }
+    }
+}
+
+@media (max-width: 710px) {
+    section {
+        >div.form-contain {
+            width: 506px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        >div.form-contain {
+            width: 406px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    section {
+        >div.form-contain {
+            width: 356px;
+        }
+    }
+
+    textarea {
+        width: 356px;
     }
 }

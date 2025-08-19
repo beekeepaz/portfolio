@@ -22,7 +22,7 @@ section {
 
     >div {
         @include display($j: start, $f: row);
-        @include position($p: default, $z: 99, $h: default, $w: 668px);
+        @include position($p: unset, $z: 99, $h: unset, $w: 668px);
         gap: 24px;
 
         nav {
@@ -60,13 +60,13 @@ section {
 
     >div.second {
         @include display($j: end, $f: row);
-        @include position($p: default, $z: 100, $h: default, $w: 568px);
+        @include position($p: unset, $z: 100, $h: unset, $w: 568px);
     }
 }
 
 .background {
     @include display($f: row);
-    @include position($p: default, $z: 1, $h: 28px, $w: 76px);
+    @include position($p: unset, $z: 1, $h: 28px, $w: 76px);
     border: 1px solid #3DCFB6;
     border-radius: 22px;
 }
