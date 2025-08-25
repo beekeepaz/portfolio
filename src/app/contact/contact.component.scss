@@ -96,17 +96,22 @@ section {
                 height: 1px;
                 background-color: #3DCFB6;
                 width: 100%;
-            }
-
-            >.ll1:hover {
-                opacity: 1;
-            }
-
-            div.ll1:hover div.ll2 {
-                opacity: 1;
+                transition: opacity 0.2s ease-in-out;
             }
 
             >div.ll1 {
+                opacity: 0.5;
+            }
+
+            >div.ll2 {
+                opacity: 0.5;
+            }
+
+            >div.ll3 {
+                opacity: 0.5;
+            }
+
+            >div.ll4 {
                 opacity: 0.5;
             }
 
@@ -114,25 +119,41 @@ section {
                 @include display($a: start);
                 padding: 32px;
             }
-
-            >div.con-information-pos.cip1:hover .ll1 {
-                opacity: 1;
-            }
-
-            >div.con-information-pos:hover div.ll1 {
-                opacity: 1;
-            }
         }
-
-        >form:hover .ll1 {
-            opacity: 1;
-        }
-
     }
 }
 
-div.ll1:hover div.ll2 {
-    opacity: 0.1;
+form:has(.cip1:hover) .ll1,
+form:has(.cip1:hover) .ll2 {
+    opacity: 1 !important;
+}
+
+.cip1:hover~.ll2 {
+    opacity: 1 !important;
+}
+
+form:has(.cip2:hover) .ll2,
+form:has(.cip2:hover) .ll3 {
+    opacity: 1 !important;
+}
+
+.cip2:hover~.ll3 {
+    opacity: 1 !important;
+}
+
+form:has(.cip3:hover) .ll3,
+form:has(.cip3:hover) .ll4 {
+    opacity: 1 !important;
+}
+
+.cip3:hover~.ll4 {
+    opacity: 1 !important;
+}
+
+.con-information-pos.cip1,
+.con-information-pos.cip2,
+.con-information-pos.cip3 {
+    cursor: text;
 }
 
 .con-police-pos {
@@ -198,15 +219,12 @@ input:focus {
 }
 
 textarea {
-    @include position($p: unset, $z: unset, $h: 32px, $w: 500px);
+    @include position($p: unset, $z: unset, $h: 32px);
     @include karla-font($fs: 24px, $lh: unset);
     outline: none;
     border: none;
     resize: none;
-    // min-height: 32px;
-    // max-height: 500px;
-    // field-sizing: content;
-    // overflow: hidden;
+    overflow: hidden;
     min-block-size: 3.5rlh;
     min-inline-size: 20ch;
     max-inline-size: 50ch;
@@ -314,7 +332,7 @@ textarea {
 @media (max-width: 710px) {
     section {
         >div.form-contain {
-            width: 506px;
+            width: 536px;
         }
     }
 }
@@ -322,19 +340,38 @@ textarea {
 @media (max-width: 600px) {
     section {
         >div.form-contain {
-            width: 406px;
+            width: 476px;
         }
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
     section {
         >div.form-contain {
             width: 356px;
+
+            >form {
+                div.con-information-pos {
+                    padding-right: 0px;
+
+                }
+            }
         }
     }
+}
 
-    textarea {
-        width: 356px;
+@media (max-width: 430px) {
+    section {
+        >div.form-contain {
+            width: 326px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    section {
+        >div.form-contain {
+            width: 286px;
+        }
     }
 }

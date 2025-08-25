@@ -16,30 +16,34 @@
         <form autocomplete="off" class="kontaktformular position-contact-elements" (ngSubmit)="sendMail(contactForm)"
             #contactForm="ngForm" id="contact-me">
             <div class="longe-line ll1"></div>
-            <div class="con-information-pos">
+            <div class="con-information-pos cip1" (click)="this.focusInput(nameInput)" tabindex="0"
+                aria-label="Name eingeben">
                 <span class="contact-question">{{ languageService.contact.name }}</span>
-                <input autocomplete="off" required #name="ngModel" id="fnmae" minlength="2"
-                    [(ngModel)]="contactData.name" class="name" type="name" name="name"
+                <input #nameInput autocomplete="off" required #name="ngModel" id="name" minlength="2"
+                    [(ngModel)]="contactData.name" class="name" type="text" name="name"
                     placeholder="{{ languageService.contact.name }}">
                 @if(!name.valid && name.touched) {
                 <span class="valid-massage">{{ languageService.contact.missingname }}</span>
                 }
             </div>
             <div class="longe-line ll2"></div>
-            <div class="con-information-pos cip2">
+            <div class="con-information-pos cip2" (click)="this.focusInput(mailInput)" tabindex="0"
+                aria-label="E-Mail eingeben">
                 <span class="contact-question">{{ languageService.contact.email }}</span>
-                <input autocomplete="off" required #mail="ngModel" [(ngModel)]="contactData.email" class="namemail"
-                    type="email" name="email" placeholder="{{ languageService.contact.email }}"
+                <input #mailInput autocomplete="off" required #mail="ngModel" [(ngModel)]="contactData.email"
+                    class="namemail" type="email" name="email" placeholder="{{ languageService.contact.email }}"
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 @if(!mail.valid && mail.touched) {
                 <span class="valid-massage">{{ languageService.contact.missingmail }}</span>
                 }
             </div>
             <div class="longe-line ll3"></div>
-            <div class="con-information-pos cip3">
+            <div class="con-information-pos cip3" (click)="this.focusInput(messageInput)" tabindex="0"
+                aria-label="Nachricht eingeben">
                 <span class="contact-question">{{ languageService.contact.message }}</span>
-                <textarea autocomplete="off" required #message="ngModel" minlength="6" [(ngModel)]="contactData.message"
-                    class="nachricht" name="message" placeholder="{{ languageService.contact.message }}"></textarea>
+                <textarea #messageInput autocomplete="off" required #message="ngModel" minlength="6"
+                    [(ngModel)]="contactData.message" class="nachricht" name="message"
+                    placeholder="{{ languageService.contact.message }}"></textarea>
                 @if(!message.valid && message.touched) {
                 <span class="valid-massage">{{ languageService.contact.missingmassage }}</span>
                 }
@@ -51,7 +55,8 @@
                         <input required [checked]="false" [(ngModel)]="checked" type="checkbox" name="myCheckbox">
                         <span class="checkmark"></span>
                     </label>
-                    <span>{{ languageService.contact.policytxtbefore }}<a>{{ languageService.contact.policyicealink }}</a>{{ languageService.contact.policyafter }}</span>
+                    <span>{{ languageService.contact.policytxtbefore }}<a>{{ languageService.contact.policyicealink
+                            }}</a>{{ languageService.contact.policyafter }}</span>
                 </div>
 
                 @if(checked === false) {

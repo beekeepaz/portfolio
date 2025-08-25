@@ -61,4 +61,13 @@ export class ContactComponent {
     }
   }
 
+  focusInput(element: HTMLInputElement | HTMLTextAreaElement) {
+    element?.focus();
+    if (element instanceof HTMLTextAreaElement ||
+      element instanceof HTMLInputElement && element.type === 'text') {
+      const len = element.value.length;
+      element.selectionStart = len;
+      element.selectionEnd = len;
+    }
+  }
 }
