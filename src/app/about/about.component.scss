@@ -1,81 +1,57 @@
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
-
-@mixin karla-font($ff: Karla, $fs: 24px, $lh: 21.6px) {
-    font-family: $ff;
-    font-size: $fs;
-    line-height: $lh;
-}
-
-@mixin fira-font($ff: Fira_Code, $fs: 24px, $lh: 21.6px) {
-    font-family: $ff;
-    font-size: $fs;
-    line-height: $lh;
-}
-
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
-}
+@use '../scss_global/global.style' as *;
 
 section {
-    @include display($j: space-around, $f: unset);
-    @include position($p: unset, $z: unset, $h: 100vh);
-    background-color: rgb(28, 28, 28);
-    color: #FFFFFFCC;
+    @include display($d: flex, $j: space-around);
+    @include position($p: relative, $h: 100vh);
+    background-color: $c-bg;
+    color: $c-fg;
 
     >div.pictures {
-        @include display($j: space-between, $f: unset);
-        @include position($p: unset, $z: unset, $h: 668px, $w: 668px);
+        @include display($d: flex, $j: space-between);
+        @include position($p: relative, $h: 668px, $w: 668px);
 
         >img.front {
-            @include position($z: 1, $h: 568px, $w: 568px);
+            @include position($p: absolute, $z: 2, $h: 568px, $w: 568px);
             border-radius: 30px;
             margin-left: 32px;
         }
 
         >img.behind {
-            @include position($z: unset, $h: 568px, $w: 568px);
+            @include position($p: absolute, $z: 1, $h: 568px, $w: 568px);
             margin-top: 32px;
         }
     }
 }
 
 h3 {
-    @include display($j: start, $f: unset);
-    @include karla-font();
-    color: #3DCFB6;
+    @include display($d: flex, $j: flex-start);
+    @include karla-font($fs: 24px, $lh: 21.6px);
+    color: $c-accent;
     padding-bottom: 10px;
     padding-left: 10px;
     cursor: default;
 }
 
 .about-me-container {
-    @include display($a: start);
-    @include position($p: unset, $z: unset, $h: 530px, $w: 536px);
+    @include display($d: flex, $a: flex-start);
+    @include position($h: 530px, $w: 536px);
     @include karla-font($fs: 18px);
     border-radius: 30px;
-    border: 1px solid #3DCFB6;
+    border: 1px solid $c-accent;
     background-color: rgb(31, 46, 43);
     color: #FFFFFF;
     padding: 32px;
     gap: 40px;
 
     >h4 {
-        @include fira-font($fs: 64px, $lh: unset);
+        @include fira-font($fs: 64px);
         letter-spacing: -0.03em;
-        color: #3DCFB6;
+        color: $c-accent;
         cursor: default;
     }
 
     >div {
-        @include display($f: unset);
+        @include display($d: flex);
         @include karla-font($fs: 18px);
         color: #ffffffad;
         gap: 32px;
@@ -88,7 +64,7 @@ h3 {
 }
 
 img.icon {
-    @include position($p: unset, $z: unset, $h: 26px, $w: 21px);
+    @include position($h: 26px, $w: 21px);
     object-fit: contain;
 }
 
@@ -108,39 +84,40 @@ span.hover-text:hover {
 }
 
 div.layout-section {
-    @include display($a: center, $f: unset);
-    @include position($p: absolute, $z: 0, $h: 100%, $w: 100%);
+    @include display($d: flex, $a: center);
+    @include position($p: absolute, $z: -1, $h: 100%, $w: 100%);
+    inset: 0; 
+    pointer-events: none; 
     background-image: url("../../assets/img/background_skill.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: start;
-    opacity: 1;
+    background-position: left top; 
 }
 
-@media (max-width: 1400px) {
+@include respond(1400px) {
     section {
-        @include display($j: center, $f: unset);
+        @include display($d: flex, $j: center);
 
         >div.pictures {
-            @include position($p: unset, $z: unset, $h: 568px, $w: 568px);
+            @include position($h: 568px, $w: 568px);
 
             >img.front {
                 @include position($z: 1, $h: 468px, $w: 468px);
             }
 
             >img.behind {
-                @include position($z: unset, $h: 468px, $w: 468px);
+                @include position($h: 468px, $w: 468px);
             }
         }
     }
 
     .about-me-container {
-        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+        @include position($h: 430px, $w: 436px);
         @include karla-font($fs: 16px);
         gap: 16px;
 
         >h4 {
-            @include fira-font($fs: 54px, $lh: unset);
+            @include fira-font($fs: 54px);
         }
 
         >div {
@@ -149,47 +126,45 @@ div.layout-section {
     }
 }
 
-@media (max-width: 1150px) {
-    section {
-        >div.pictures {
-            @include position($p: unset, $z: unset, $h: 568px, $w: 526px);
-        }
+@include respond(1150px) {
+    section>div.pictures {
+        @include position($h: 568px, $w: 526px);
     }
 
     .about-me-container {
-        @include position($p: unset, $z: unset, $h: 530px, $w: 320px);
+        @include position($h: 530px, $w: 320px);
     }
 }
 
-@media (max-width: 850px) {
+@include respond(950px) {
+    section {
+        @include display($d: flex, $j: space-around, $f: column);
+        @include position($h: 1096px);
+    }
+
+    .about-me-container {
+        @include position($h: 430px, $w: 436px);
+    }
+}
+
+@include respond(850px) {
     div.layout-section {
         height: 127%;
     }
 }
 
-@media (max-width: 950px) {
-    section {
-        @include display($j: space-around, $f: column);
-        @include position($p: unset, $z: unset, $h: 1096px);
-    }
-
-    .about-me-container {
-        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
-    }
-}
-
-@media (max-width: 710px) {
+@include respond(710px) {
     div.layout-section {
         height: 134%;
     }
 }
 
-@media (max-width: 560px) {
+@include respond(560px) {
     section {
-        @include position($p: unset, $z: unset, $h: 1196px);
+        @include position($h: 1196px);
 
         >div.pictures {
-            @include display();
+            @include display($d: flex);
             width: 306px;
 
             >img.front {
@@ -198,14 +173,14 @@ div.layout-section {
             }
 
             >img.behind {
-                @include position($z: unset, $h: 386px, $w: 386px);
+                @include position($h: 386px, $w: 386px);
                 margin-right: 16px;
             }
         }
     }
 
     .about-me-container {
-        @include position($p: unset, $z: unset, $h: 580px, $w: 336px);
+        @include position($h: 580px, $w: 336px);
 
         >h4 {
             font-size: 48px;
@@ -213,9 +188,9 @@ div.layout-section {
     }
 }
 
-@media (max-width: 450px) {
+@include respond(450px) {
     section {
-        @include position($p: unset, $z: unset, $h: 1196px);
+        @include position($h: 1196px);
 
         >div.pictures {
             >img.front {
@@ -224,14 +199,14 @@ div.layout-section {
             }
 
             >img.behind {
-                @include position($z: unset, $h: 298px, $w: 298px);
+                @include position($h: 298px, $w: 298px);
                 margin-right: 16px;
             }
         }
     }
 
     .about-me-container {
-        @include position($p: unset, $z: unset, $h: 680px, $w: 248px);
+        @include position($h: 680px, $w: 248px);
     }
 
     div.layout-section {

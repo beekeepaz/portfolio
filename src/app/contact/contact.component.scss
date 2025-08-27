@@ -1,34 +1,10 @@
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
-
-@mixin karla-font($ff: Karla, $fs: 24px, $lh: 21.6px) {
-    font-family: $ff;
-    font-size: $fs;
-    line-height: $lh;
-}
-
-@mixin fira-font($ff: Fira_Code, $fs: 24px, $lh: 21.6px) {
-    font-family: $ff;
-    font-size: $fs;
-    line-height: $lh;
-}
-
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
-}
+@use '../scss_global/global.style' as *;
 
 section {
-    @include display($j: space-around, $a: start, $f: unset);
-    @include position($p: unset, $z: unset, $h: 100vh);
-    background-color: rgb(28, 28, 28);
-    color: #FFFFFFCC;
+    @include display(flex, space-around, flex-start);
+    @include position(null, null, 100vh);
+    background-color: $c-bg;
+    color: $c-fg;
 
     >div.contact-me {
         height: 100%;
@@ -42,13 +18,13 @@ section {
         >h1 {
             @include fira-font($fs: 64px, $lh: 64px);
             letter-spacing: -0.03em;
-            color: #3DCFB6;
+            color: $c-accent;
             padding-top: 16px;
         }
 
         >h2 {
             @include karla-font($fs: 24px, $lh: 28.06px);
-            color: #3DCFB6;
+            color: $c-accent;
             padding-bottom: 32px;
         }
 
@@ -56,24 +32,17 @@ section {
             padding-top: 32px;
         }
 
-        >span {
-            @include karla-font($fs: 18px);
-            color: #FFFFFF;
-            width: 100%;
-            gap: 0px;
-            opacity: 0px;
-        }
-
+        >span,
         >div span {
             @include karla-font($fs: 18px);
-            color: #FFFFFF;
+            color: #fff;
             width: 100%;
-            gap: 0px;
-            opacity: 0px;
+            gap: 0;
+            opacity: 0;
         }
 
         >div span.farbcode-green {
-            color: #3DCFB6;
+            color: $c-accent;
         }
     }
 
@@ -84,39 +53,29 @@ section {
         overflow-x: hidden;
 
         >form {
-
             .contact-question {
                 @include fira-font($fs: 24px, $lh: 28.8px);
-                color: #3DCFB6;
+                color: $c-accent;
                 padding-bottom: 32px;
                 cursor: default;
             }
 
             >div.longe-line {
                 height: 1px;
-                background-color: #3DCFB6;
+                background-color: $c-accent;
                 width: 100%;
                 transition: opacity 0.2s ease-in-out;
             }
 
-            >div.ll1 {
-                opacity: 0.5;
-            }
-
-            >div.ll2 {
-                opacity: 0.5;
-            }
-
-            >div.ll3 {
-                opacity: 0.5;
-            }
-
+            >div.ll1,
+            >div.ll2,
+            >div.ll3,
             >div.ll4 {
                 opacity: 0.5;
             }
 
             >div.con-information-pos {
-                @include display($a: start);
+                @include display(null, null, flex-start);
                 padding: 32px;
             }
         }
@@ -124,28 +83,19 @@ section {
 }
 
 form:has(.cip1:hover) .ll1,
-form:has(.cip1:hover) .ll2 {
-    opacity: 1 !important;
-}
-
+form:has(.cip1:hover) .ll2,
 .cip1:hover~.ll2 {
     opacity: 1 !important;
 }
 
 form:has(.cip2:hover) .ll2,
-form:has(.cip2:hover) .ll3 {
-    opacity: 1 !important;
-}
-
+form:has(.cip2:hover) .ll3,
 .cip2:hover~.ll3 {
     opacity: 1 !important;
 }
 
 form:has(.cip3:hover) .ll3,
-form:has(.cip3:hover) .ll4 {
-    opacity: 1 !important;
-}
-
+form:has(.cip3:hover) .ll4,
 .cip3:hover~.ll4 {
     opacity: 1 !important;
 }
@@ -157,70 +107,69 @@ form:has(.cip3:hover) .ll4 {
 }
 
 .con-police-pos {
-    @include display();
+    @include display(flex, center, center, column);
     @include karla-font($fs: 15px);
-    @include position($p: unset, $z: unset, $h: 75px);
+    @include position(null, null, 75px);
 
     >div {
-        @include display($f: row);
+        @include display(flex, null, null, row);
 
         >span {
             display: inline-block;
             cursor: default;
 
             >a {
-                color: #3DCFB6;
+                color: $c-accent;
                 padding-right: 6px;
                 padding-left: 6px;
                 cursor: default;
-            }
 
-            >a:hover {
-                color: #FFFFFF;
+                &:hover {
+                    color: #fff;
+                }
             }
         }
     }
 
     >span {
-        @include position($p: relative, $z: unset, $h: unset);
+        position: relative;
         padding-top: 10px;
     }
 }
 
 .con-button-pos {
-    @include display($f: unset);
-    @include position($p: unset, $h: unset);
+    @include display(flex);
     padding-top: 32px;
 }
 
 .valid-massage {
-    font-family: Karla;
-    color: #EC7B7B;
+    font-family: $ff-karla;
+    color: $c-error;
     cursor: default;
 }
 
 input {
-    @include position($p: unset, $z: unset, $h: 32px, $w: 332px);
-    @include karla-font($fs: 24px, $lh: unset);
+    @include position(null, null, 32px, 332px);
+    @include karla-font($fs: 24px);
     border: none;
     outline: none;
     box-sizing: border-box;
-    color: #3DCFB6;
-    background-color: rgb(28, 28, 28);
+    color: $c-accent;
+    background-color: $c-bg;
+
+    &:focus {
+        border: none;
+    }
 }
 
 ::placeholder {
-    @include karla-font($fs: 24px, $lh: unset);
-    color: #3DCFB6;
-}
-
-input:focus {
-    border: none;
+    @include karla-font($fs: 24px);
+    color: $c-accent;
 }
 
 textarea {
-    @include position($p: unset, $z: unset, $h: 32px);
-    @include karla-font($fs: 24px, $lh: unset);
+    @include position(null, null, 32px);
+    @include karla-font($fs: 24px);
     outline: none;
     border: none;
     resize: none;
@@ -228,8 +177,8 @@ textarea {
     min-block-size: 3.5rlh;
     min-inline-size: 20ch;
     max-inline-size: 50ch;
-    color: #3DCFB6;
-    background-color: rgb(28, 28, 28);
+    color: $c-accent;
+    background-color: $c-bg;
 }
 
 .container {
@@ -237,141 +186,112 @@ textarea {
     padding-left: 35px;
     margin-bottom: 22px;
     font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
+
+    &:hover span {
+        cursor: pointer;
+        z-index: 99;
+        background-color: $c-accent;
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
 }
 
-.container:hover span {
-    cursor: pointer;
-    z-index: 99;
-    background-color: #3DCFB6;
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Create a custom checkbox */
 .checkmark {
     position: absolute;
     top: 0;
     left: 0;
     height: 18px;
     width: 18px;
-    background-color: rgb(28, 28, 28);
-    border: 2px solid #3DCFB6;
+    background-color: $c-bg;
+    border: 2px solid $c-accent;
     border-radius: 3px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
 }
 
-/* On mouse-over, add a grey background color */
 .container:hover input~.checkmark {
-    background-color: rgb(28, 28, 28);
+    background-color: $c-bg;
 }
 
-/* When the checkbox is checked, add a blue background */
 .container input:checked~.checkmark {
-    background-color: rgb(28, 28, 28);
+    background-color: $c-bg;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkmark when checked */
 .container input:checked~.checkmark:after {
     display: block;
 }
 
-/* Style the checkmark/indicator */
 .container .checkmark:after {
     left: 7px;
     top: 3px;
     width: 3px;
     height: 8px;
-    border: solid #3DCFB6;
+    border: solid $c-accent;
     border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 
-@media (max-width: 1200px) {
-    section {
-        height: 100%;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
+@include respond(1200px) {
+  section {
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 
-        div.contact-me {
-            padding-bottom: 64px;
-            padding-right: 32px;
-            padding-left: 32px;
-        }
-
-        >div.form-contain {
-            >form {
-                div.con-information-pos {
-                    padding-right: 58px;
-                    padding-left: 58px;
-                }
-            }
-        }
+    div.contact-me {
+      padding-bottom: 64px;
+      padding-right: 32px;
+      padding-left: 32px;
     }
+
+    >div.form-contain > form .con-information-pos {
+      padding-right: 58px;
+      padding-left: 58px;
+    }
+  }
 }
 
-@media (max-width: 710px) {
-    section {
-        >div.form-contain {
-            width: 536px;
-        }
-    }
+@include respond(710px) {
+  section > div.form-contain {
+    width: 536px;
+  }
 }
 
-@media (max-width: 600px) {
-    section {
-        >div.form-contain {
-            width: 476px;
-        }
-    }
+@include respond(600px) {
+  section > div.form-contain {
+    width: 476px;
+  }
 }
 
-@media (max-width: 520px) {
-    section {
-        >div.form-contain {
-            width: 356px;
+@include respond(520px) {
+  section > div.form-contain {
+    width: 356px;
 
-            >form {
-                div.con-information-pos {
-                    padding-right: 0px;
-
-                }
-            }
-        }
+    > form .con-information-pos {
+      padding-right: 0;
     }
+  }
 }
 
-@media (max-width: 430px) {
-    section {
-        >div.form-contain {
-            width: 326px;
-        }
-    }
+@include respond(430px) {
+  section > div.form-contain {
+    width: 326px;
+  }
 }
 
-@media (max-width: 380px) {
-    section {
-        >div.form-contain {
-            width: 286px;
-        }
-    }
+@include respond(380px) {
+  section > div.form-contain {
+    width: 286px;
+  }
 }

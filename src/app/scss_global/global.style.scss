@@ -1,0 +1,74 @@
+$c-bg: #1c1c1c;
+/* rgb(28,28,28) */
+$c-fg: #ffffffcc;
+$c-accent: #3DCFB6;
+$c-error: #EC7B7B;
+
+$ff-karla: Karla, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$ff-fira: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+@mixin display($d: null, $j: null, $a: null, $f: null) {
+    @if $d {
+        display: $d;
+    }
+
+    @if $j {
+        justify-content: $j;
+    }
+
+    @if $a {
+        align-items: $a;
+    }
+
+    @if $f {
+        flex-direction: $f;
+    }
+}
+
+@mixin karla-font($ff: $ff-karla, $fs: null, $lh: null) {
+    font-family: $ff;
+
+    @if $fs {
+        font-size: $fs;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
+@mixin fira-font($ff: $ff-fira, $fs: null, $lh: null) {
+    font-family: $ff;
+
+    @if $fs {
+        font-size: $fs;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
+@mixin position($p: null, $z: null, $h: null, $w: null) {
+    @if $p {
+        position: $p;
+    }
+
+    @if $z {
+        z-index: $z;
+    }
+
+    @if $h {
+        height: $h;
+    }
+
+    @if $w {
+        width: $w;
+    }
+}
+
+@mixin respond($max) {
+    @media (max-width: $max) {
+        @content;
+    }
+}

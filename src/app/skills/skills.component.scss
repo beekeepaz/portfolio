@@ -1,22 +1,14 @@
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
+@use '../scss_global/global.style' as *; // Tokens & Basis-Mixins (inkl. respond)
 
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
-}
+// ----------------------------
+// Skills Component Styles (refactored auf neue Mixins & Tokens)
+// ----------------------------
 
 section {
-    @include display($f: unset);
+    @include display($d: flex, $j: space-around);
     @include position($p: relative, $z: 2, $h: 100vh);
-    background-color: rgba(28, 28, 28);
-    color: #FFFFFFCC;
+    background-color: $c-bg;
+    color: $c-fg;
     opacity: 0.85;
     cursor: default;
 
@@ -26,60 +18,50 @@ section {
 }
 
 .skill-set-container {
-    @include display($a: baseline);
-    @include position($p: unset, $z: unset, $h: 530px, $w: 536px);
+    @include display($d: flex, $a: baseline);
+    @include position($h: 530px, $w: 536px);
+    @include karla-font($fs: 18px, $lh: 21.6px);
     border-radius: 30px;
-    border: 1px solid #3DCFB6;
+    border: 1px solid $c-accent;
     background-color: rgb(31, 46, 43);
-    border: 1px 0px 0px 0px;
-    font-family: Karla;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 21.6px;
     color: #FFFFFF;
     padding: 32px;
     gap: 40px;
 
     >h4 {
-        font-family: Fira_Code;
-        font-size: 64px;
-        line-height: 64px;
-        letter-spacing: -3%;
+        @include fira-font($fs: 64px, $lh: 64px);
+        letter-spacing: -0.03em; // statt %-Wert (CSS akzeptiert Länge)
         text-align: left;
-        color: #3DCFB6;
+        color: $c-accent;
     }
 
     >div {
-        font-family: Karla;
-        font-size: 18px;
+        @include karla-font($fs: 18px);
         text-align: left;
         color: #ffffffad;
     }
 }
 
 .header-pos {
-    @include display($j: baseline, $a: baseline);
-    @include position($z: unset, $w: unset);
+    @include display($d: flex, $j: baseline, $a: baseline);
+    // position: inherits default (kein unnötiges unset)
     margin-top: -40px;
 }
 
 .skill-pos {
-    @include display($j: space-around, $a: start, $f: row);
+    @include display($d: flex, $j: space-around, $a: flex-start, $f: row);
     width: 100%;
 }
 
 h3 {
-    font-family: Karla;
-    font-size: 24px;
-    color: #3DCFB6;
+    @include karla-font($fs: 24px);
+    color: $c-accent;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
 h5 {
-    font-family: Fira_Code;
-    font-size: 24px;
-    line-height: 28.8px;
+    @include fira-font($fs: 24px, $lh: 28.8px);
 }
 
 .white {
@@ -87,38 +69,37 @@ h5 {
 }
 
 .green {
+    color: $c-accent;
     padding-left: 14px;
-    color: #3DCFB6;
 }
 
 .width {
-    @include display($j: baseline, $a: baseline, $f: row);
+    @include display($d: flex, $j: baseline, $a: baseline, $f: row);
     width: 100%;
 }
 
 img.icon {
-    @include position($p: unset, $z: unset, $h: 32px, $w: 32px);
+    @include position($h: 32px, $w: 32px);
 }
 
 .icon-container-pos {
-    display: flex;
-    justify-content: flex-end;
+    @include display($d: flex, $j: flex-end);
     width: 632px;
 }
 
 .icons {
-    @include position($p: unset, $z: unset, $h: 428px, $w: 632px);
-    display: flex;
+    @include position($h: 428px, $w: 632px);
+    @include display($d: flex);
     flex-wrap: wrap;
     gap: 72px;
 
     >div {
-        @include display();
-        @include position($p: unset, $z: unset, $h: 116px, $w: 104px);
+        @include display($d: flex);
+        @include position($h: 116px, $w: 104px);
         gap: 8px;
 
         >img {
-            @include position($p: unset, $z: unset, $h: 60px, $w: 60px);
+            @include position($h: 60px, $w: 60px);
         }
 
         >img:hover {
@@ -126,29 +107,30 @@ img.icon {
         }
 
         >span {
-            font-family: Fira_Code;
-            font-size: 18px;
-            line-height: 21.6px;
-            letter-spacing: -3%;
+            @include fira-font($fs: 18px, $lh: 21.6px);
+            letter-spacing: -0.03em; // statt %-Wert
             width: 100%;
             text-align: center;
         }
     }
 }
 
-@media (max-width: 1400px) {
+// ----------------------------
+// Responsive via respond($max)
+// ----------------------------
+
+@include respond(1400px) {
     .skill-pos {
-        @include display($j: center, $a: center, $f: row);
+        @include display($d: flex, $j: center, $a: center, $f: row);
     }
 
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 430px, $w: 436px);
+        @include position($h: 430px, $w: 436px);
         gap: 32px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 512px);
-        // padding-left: 64px;
+        @include position($h: 428px, $w: 512px);
         gap: 32px;
     }
 
@@ -157,14 +139,14 @@ img.icon {
     }
 }
 
-@media (max-width: 1150px) {
+@include respond(1150px) {
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 430px, $w: 380px);
+        @include position($h: 430px, $w: 380px);
         gap: 24px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 436px);
+        @include position($h: 428px, $w: 436px);
         gap: 28px;
     }
 
@@ -173,15 +155,14 @@ img.icon {
     }
 }
 
-@media (max-width: 1050px) {
+@include respond(1050px) {
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 528px, $w: 336px);
+        @include position($h: 528px, $w: 336px);
         gap: 32px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 368px);
-        // padding-left: 32px;
+        @include position($h: 428px, $w: 368px);
         gap: 28px;
     }
 
@@ -190,24 +171,23 @@ img.icon {
     }
 }
 
-@media (max-width: 850px) {
-
+@include respond(850px) {
     section {
         height: 1200px;
     }
 
     .skill-pos {
         flex-direction: column;
-        gap: 24px
+        gap: 24px;
     }
 
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 436px);
+        @include position($h: 428px, $w: 436px);
         gap: 32px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 512px);
+        @include position($h: 428px, $w: 512px);
         gap: 28px;
     }
 
@@ -216,15 +196,14 @@ img.icon {
     }
 }
 
-@media (max-width: 560px) {
+@include respond(560px) {
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 528px, $w: 336px);
+        @include position($h: 528px, $w: 336px);
         gap: 32px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 368px);
-        // padding-left: 32px;
+        @include position($h: 428px, $w: 368px);
         gap: 28px;
     }
 
@@ -233,19 +212,18 @@ img.icon {
     }
 }
 
-@media (max-width: 450px) {
+@include respond(450px) {
     section {
         height: 1300px;
     }
 
     .skill-set-container {
-        @include position($p: unset, $z: unset, $h: 628px, $w: 248px);
+        @include position($h: 628px, $w: 248px);
         gap: 32px;
     }
 
     .icons {
-        @include position($p: unset, $z: unset, $h: 428px, $w: 368px);
-        // padding-left: 32px;
+        @include position($h: 428px, $w: 368px);
         gap: 16px;
     }
 
@@ -254,8 +232,7 @@ img.icon {
     }
 }
 
-@media (max-width: 410px) {
-
+@include respond(410px) {
     .icon-container-pos {
         width: 400px;
     }
@@ -263,10 +240,8 @@ img.icon {
     .icons {
         gap: 8px;
 
-        >div {
-            >span {
-                font-size: 14px;
-            }
+        >div>span {
+            font-size: 14px;
         }
     }
 }

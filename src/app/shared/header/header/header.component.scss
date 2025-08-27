@@ -1,3 +1,5 @@
+@use '../../../scss_global/global.style' as *;
+
 @mixin display($d: flex, $j: center, $a: center, $f: column) {
     display: $d;
     justify-content: $j;

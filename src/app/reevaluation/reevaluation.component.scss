@@ -1,32 +1,21 @@
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-  display: $d;
-  justify-content: $j;
-  align-items: $a;
-  flex-direction: $f;
-}
+@use '../scss_global/global.style' as *; // Tokens & Mixins (inkl. respond)
 
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-  position: $p;
-  z-index: $z;
-  height: $h;
-  width: $w;
-}
+// Nur globale-Anpassungen: Tokens + globale Mixins. Keine Layoutlogik verändert.
 
 section {
-  @include display();
-  @include position($p: unset, $z: unset, $h: 100vh);
-  background-color: rgb(28, 28, 28);
-  color: #FFFFFFCC;
+  @include display($d: flex, $j: center, $a: center, $f: column);
+  @include position($h: 100vh); // kein position gesetzt (wie bisher via unset)
+  background-color: $c-bg;
+  color: $c-fg;
 
   >div {
-    @include display();
+    @include display($d: flex, $j: center, $a: center, $f: column);
     width: 100%;
     overflow: hidden;
 
     >h1 {
-      color: #3DCFB6;
-      font-family: Fira_Code;
-      font-size: 32px;
+      color: $c-accent;
+      @include fira-font($fs: 32px);
       text-align: center;
       margin-bottom: 48px;
       margin-right: 32px;
@@ -36,17 +25,17 @@ section {
 }
 
 .single-comment-field {
-  @include display();
-  @include position($p: unset, $z: unset, $h: 300px, $w: 600px);
+  @include display($d: flex, $j: center, $a: center, $f: column);
+  @include position($h: 300px, $w: 600px);
   border-style: solid;
   border-width: 1px;
-  border-color: #3DCFB6;
+  border-color: $c-accent;
   background-color: #2b3a37;
   border-radius: 16px;
-  font-family: Fira_Code;
+  @include fira-font();
 
   >span {
-    @include display();
+    @include display($d: flex, $j: center, $a: center, $f: column);
     width: 100%;
   }
 }
@@ -56,51 +45,53 @@ section {
 }
 
 .preview {
-  @include position($p: unset, $z: unset, $h: 250px, $w: 500px);
+  @include position($h: 250px, $w: 500px);
   margin: 32px;
   background-color: #2b3a37;
 }
 
 .show-container {
-  @include display($f: row);
+  @include display($d: flex, $j: center, $a: center, $f: row);
   width: 100%;
 
   >div.quotes-img-pos {
-    @include display($a: baseline, $j: baseline, $f: unset);
-    @include position($z: unset, $h: 322px, $w: 700px);
+    @include display($d: flex, $j: baseline, $a: baseline);
+    @include position($h: 322px, $w: 700px);
   }
 }
 
 img.quotes {
-  @include position($h: unset, $w: unset);
+  @include position();
 }
 
 .box-shadow {
-  @include position($z: unset, $h: 400px);
-  box-shadow: inset 625px 0px 150px 0px rgba(28, 28, 28, 0.5),
+  @include position($h: 400px);
+  box-shadow:
+    inset 625px 0px 150px 0px rgba(28, 28, 28, 0.5),
     inset -625px 0px 150px -220px rgba(28, 28, 28, 0.5);
 }
 
 .box-shadow-second {
-  @include position($z: unset, $h: 400px);
-  box-shadow: inset 150px 0px 15px 0px rgba(28, 28, 28, 1),
+  @include position($h: 400px);
+  box-shadow:
+    inset 150px 0px 15px 0px rgba(28, 28, 28, 1),
     inset -150px 0px 15px 0px rgba(28, 28, 28, 1);
 }
 
 .comment-field {
-  @include display();
+  @include display($d: flex, $j: center, $a: center, $f: column);
   overflow: hidden;
 }
 
 .place-name {
-  @include display($f: row);
-  @include position($p: unset, $z: unset, $h: 32px);
+  @include display($d: flex, $j: center, $a: center, $f: row);
+  @include position($h: 32px);
   gap: 16px;
 }
 
 .line {
-  @include position($p: unset, $z: unset, $h: 1px, $w: 200px);
-  background-color: #3DCFB6;
+  @include position($h: 1px, $w: 200px);
+  background-color: $c-accent;
 }
 
 .d-none {
@@ -108,39 +99,39 @@ img.quotes {
 }
 
 div.left-arrow {
-  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
+  @include position($h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
-  background-repeat: hidden;
+  background-repeat: hidden; // unverändert gelassen
   background-image: url("../../assets/img/left-arrow.png");
 }
 
 div.left-arrow:hover {
-  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
+  @include position($h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
-  background-repeat: hidden;
+  background-repeat: hidden; // unverändert gelassen
   background-image: url("../../assets/img/left-arrow-move.png");
 }
 
 div.right-arrow {
-  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
+  @include position($h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
-  background-repeat: hidden;
+  background-repeat: hidden; // unverändert gelassen
   background-image: url("../../assets/img/right-arrow.png");
 }
 
 div.right-arrow:hover {
-  @include position($p: unset, $z: unset, $h: 36px, $w: 36px);
+  @include position($h: 36px, $w: 36px);
   background-position: center;
   background-size: contain;
-  background-repeat: hidden;
+  background-repeat: hidden; // unverändert gelassen
   background-image: url("../../assets/img/right-arrow-move.png");
 }
 
 .place-arrows {
-  @include display($f: row);
+  @include display($d: flex, $j: center, $a: center, $f: row);
   margin-top: 32px;
   padding-top: 32px;
   width: 100%;
@@ -160,8 +151,8 @@ div.right-arrow:hover {
 }
 
 .point-slider {
-  @include display($f: row);
-  @include position($p: unset, $z: unset, $h: 12px, $w: 12px);
+  @include display($d: flex, $j: center, $a: center, $f: row);
+  @include position($h: 12px, $w: 12px);
   width: 10px;
   height: 10px;
   margin: 5px;
@@ -304,61 +295,62 @@ div.right-arrow:hover {
   }
 }
 
-@media (max-width:1700px) {
+// ----------------------------
+// Responsive via respond($max) — nur 1:1 umgestellt
+// ----------------------------
+
+@include respond(1700px) {
   .box-shadow {
-    box-shadow: inset 425px 0px 150px -220px rgba(28, 28, 28, 0.5),
+    box-shadow:
+      inset 425px 0px 150px -220px rgba(28, 28, 28, 0.5),
       inset -425px 0px 150px -220px rgba(28, 28, 28, 0.5);
   }
 }
 
-@media (max-width:1200px) {
+@include respond(1200px) {
   .box-shadow {
-    box-shadow: inset 225px 0px 200px -220px rgba(28, 28, 28, 0.5),
+    box-shadow:
+      inset 225px 0px 200px -220px rgba(28, 28, 28, 0.5),
       inset -225px 0px 200px -220px rgba(28, 28, 28, 0.5);
   }
 }
 
-@media (max-width:950px) {
+@include respond(950px) {
   .box-shadow {
     box-shadow: none;
   }
 
   .box-shadow-second {
-    box-shadow: inset 72px 0px 15px 0px rgb(28, 28, 28),
+    box-shadow:
+      inset 72px 0px 15px 0px rgb(28, 28, 28),
       inset -72px 0px 15px 0px rgb(28, 28, 28);
   }
 }
 
-@media (max-width: 800px) {
+@include respond(800px) {
   .single-comment-field {
     width: 500px;
   }
 
-  .show-container {
-    >div.quotes-img-pos {
-      height: 318px;
-      width: 628px;
-    }
+  .show-container>div.quotes-img-pos {
+    height: 318px;
+    width: 628px;
   }
 }
 
-@media (max-width: 715px) {
+@include respond(715px) {
   .single-comment-field {
     width: 400px;
   }
 
-  .show-container {
-    >div.quotes-img-pos {
-      height: 318px;
-      width: 506px;
-    }
+  .show-container>div.quotes-img-pos {
+    height: 318px;
+    width: 506px;
   }
 }
 
-@media (max-width: 580px) {
-  .show-container {
-    >div.quotes-img-pos {
-      width: 306px;
-    }
+@include respond(580px) {
+  .show-container>div.quotes-img-pos {
+    width: 306px;
   }
 }

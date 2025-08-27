@@ -1,129 +1,94 @@
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
+@use '../../../scss_global/global.style' as *; // Tokens, Mixins, respond()
 
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
-}
+// ----------------------------
+// Footer Component Styles (refactored auf globale Mixins & Tokens)
+// ----------------------------
 
 section {
-    @include display($f: row);
-    @include position($p: unset, $z: unset, $h: 25vh);
-    background-color: rgb(28, 28, 28);
-    color: #FFFFFFCC;
+  @include display($d: flex, $f: row);
+  @include position($h: 25vh);
+  background-color: $c-bg;
+  color: $c-fg;
 
-    >div {
-        @include display($j: space-around, $f: row, $a: center);
-        @include position($p: unset, $z: unset);
+  > div {
+    @include display($d: flex, $j: space-around, $a: center, $f: row);
 
-        >span {
-            @include display($j: end);
-            position: absolute;
-            color: #3DCFB6;
-            font-family: Fira_Code;
-        }
-
-        >span:hover {
-            cursor: default;
-        }
-
-        >div.place-logo {
-            @include display($j: end, $a: start);
-            width: 668px;
-
-            >div.logos {
-                display: flex;
-                padding-top: 32px;
-            }
-
-            >span {
-                font-family: Karla;
-                font-size: 16px;
-                line-height: 19.2px;
-                text-align: left;
-                color: #FFFFFF;
-            }
-
-            >span:hover {
-                cursor: default;
-            }
-        }
-
-        >div.place-links {
-            @include display($j: center, $a: end);
-            @include position($p: unset, $z: unset, $w: 568px);
-            gap: 10px;
-
-            >div {
-                @include display($a: center);
-                gap: 6px;
-
-                >a {
-                    @include display($j: start, $a: center, $f: unset);
-                    text-decoration: none;
-                    width: 130px;
-                    color: #FFFFFF;
-                    font-family: Fira_Code;
-                    gap: 6px;
-
-                    >img.green-point {
-                        @include position($p: unset, $z: unset, $h: 8px, $w: 8px);
-                        visibility: hidden;
-                    }
-                }
-
-                >a:hover {
-                    color: #3DCFB6;
-                    cursor: pointer;
-                }
-
-                >a:hover img.green-point {
-                    visibility: visible;
-                }
-            }
-        }
-
-        >div.place-links:hover {
-            cursor: default;
-        }
+    > span {
+      @include display($d: flex, $j: flex-end);
+      @include position($p: absolute); // bewusst absolut, wie im Original
+      @include fira-font();
+      color: $c-accent;
     }
+
+    > span:hover { cursor: default; }
+
+    > div.place-logo {
+      @include display($d: flex, $j: flex-end, $a: flex-start);
+      width: 668px;
+
+      > div.logos { display: flex; padding-top: 32px; }
+
+      > span {
+        @include karla-font($fs: 16px, $lh: 19.2px);
+        text-align: left;
+        color: #FFFFFF;
+      }
+
+      > span:hover { cursor: default; }
+    }
+
+    > div.place-links {
+      @include display($d: flex, $j: center, $a: flex-end);
+      @include position($w: 568px);
+      gap: 10px;
+
+      > div {
+        @include display($d: flex, $a: center);
+        gap: 6px;
+
+        > a {
+          @include display($d: flex, $j: flex-start, $a: center);
+          text-decoration: none;
+          width: 130px;
+          color: #FFFFFF;
+          @include fira-font();
+          gap: 6px;
+
+          > img.green-point { @include position($h: 8px, $w: 8px); visibility: hidden; }
+        }
+
+        > a:hover { color: $c-accent; cursor: pointer; }
+        > a:hover img.green-point { visibility: visible; }
+      }
+    }
+
+    > div.place-links:hover { cursor: default; }
+  }
 }
 
-span:hover img {
-    visibility: hidden;
+span:hover img { visibility: hidden; }
+
+// ----------------------------
+// Responsive via respond($max)
+// ----------------------------
+
+@include respond(1400px) {
+  .place-links { padding-right: 32px; }
+  .place-logo { padding-left: 32px; }
 }
 
-@media (max-width: 1400px) {
-    .place-links {
-        padding-right: 32px;
+@include respond(720px) {
+  section {
+    @include position($h: 35vh);
+
+    > div {
+      @include display($d: flex, $j: space-around, $a: center, $f: row);
+
+      > span { margin-top: 254px; }
     }
-
-    .place-logo {
-        padding-left: 32px;
-    }
-}
-
-@media (max-width: 720px) {
-    section {
-        height: 35vh;
-
-        >div {
-            @include display($j: space-around, $f: row, $a: center);
-            @include position($p: unset, $z: unset);
-
-            >span {
-                margin-top: 254px;
-            }
-        }
-    }
+  }
 }
 
 // app-legal-notice {
-//     @include position();
+//   // Beispiel: @include position();
 // }
