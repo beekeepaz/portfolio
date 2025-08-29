@@ -1,42 +1,25 @@
 @use '../../../scss_global/global.style' as *;
 
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
-
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
-}
-
 section {
-    @include display($j: space-around, $f: row);
-    position: absolute;
-    color: #FFFFFFCC;
-    height: 98px;
-    width: 100%;
+    @include display(flex, space-around, center, row);
+    @include position(absolute, null, 98px, 100%);
+    color: $c-fg;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 13.56%, rgba(0, 0, 0, 0.6) 84.01%);
 
     >div {
-        @include display($j: start, $f: row);
-        @include position($p: unset, $z: 99, $h: unset, $w: 668px);
+        @include display(flex, start, center, row);
+        @include position(null, 99, null, 668px);
         gap: 24px;
 
         nav {
-            @include display($j: start, $a: center, $f: row);
+            @include display(flex, start, center, row);
             width: 100%;
             gap: 28px;
 
             >a {
-                @include display();
-                color: #FFFFFF;
-                font-size: 20px;
-                font-family: Fira_Code;
+                @include display(flex, center, center, column);
+                @include fira-font($fs: 20px);
+                color: $c-fg;
                 text-decoration: none;
                 margin-top: 6px;
                 white-space: nowrap;
@@ -48,33 +31,31 @@ section {
 
             >a:hover {
                 cursor: pointer;
-                color: #3DCFB6;
+                color: $c-accent;
             }
 
             >a:hover img {
-                background-color: url('../../../../assets/img/point_green.png');
-                background-size: contain;
-                background-repeat: no-repeat;
+                background: url('../../../../assets/img/point_green.png') no-repeat center/contain;
                 visibility: visible;
             }
         }
     }
 
     >div.second {
-        @include display($j: end, $f: row);
-        @include position($p: unset, $z: 100, $h: unset, $w: 568px);
+        @include display(flex, end, center, row);
+        @include position(null, 100, null, 568px);
     }
 }
 
 .background {
-    @include display($f: row);
-    @include position($p: unset, $z: 1, $h: 28px, $w: 76px);
-    border: 1px solid #3DCFB6;
+    @include display(flex, center, center, row);
+    @include position(null, 1, 28px, 76px);
+    border: 1px solid $c-accent;
     border-radius: 22px;
-}
 
-.background:hover {
-    border-color: #FFFFFF;
+    &:hover {
+        border-color: #fff;
+    }
 }
 
 .btn {
@@ -82,8 +63,7 @@ section {
     padding: 10px;
     position: relative;
     text-align: center;
-    font-family: Fira_Code;
-    font-size: 16px;
+    @include fira-font($fs: 16px);
 }
 
 input[type="radio"].toggle {
@@ -91,16 +71,16 @@ input[type="radio"].toggle {
 
     &+label {
         cursor: pointer;
-        color: #3DCFB680;
+        color: rgba($c-accent, 0.5);
 
         &:hover {
             background: none;
-            color: #3DCFB6;
+            color: $c-accent;
         }
 
         &:after {
-            @include position($z: -1, $h: 28px);
-            background: #3DCFB6;
+            @include position(absolute, -1, 28px);
+            background: $c-accent;
             border-radius: 18px;
             content: "";
             transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
@@ -136,23 +116,18 @@ input[type="radio"].toggle {
 }
 
 .toggle_button {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 23px;
-    position: absolute;
+    @include display(none, space-between, null, column);
+    @include position(absolute, 9999, 23px, 30px);
     top: 40px;
     right: 25px;
-    z-index: 9999;
-}
 
-.toggle_button:hover .bar {
-    background-color: #3DCFB6;
-}
+    &:hover {
+        cursor: pointer;
 
-.toggle_button:hover {
-    cursor: pointer;
+        .bar {
+            background-color: $c-accent;
+        }
+    }
 }
 
 nav {
@@ -166,26 +141,23 @@ nav {
 .bar {
     height: 2px;
     width: 100%;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     border-radius: 100px;
 }
 
-@media (max-width: 1400px) {
+// Responsive
+@include respond(1400px) {
     section {
         justify-content: center;
 
-        >div {
-            width: 40%;
-        }
-
+        >div,
         >div.second {
             width: 40%;
         }
     }
 }
 
-@media (max-width: 1000px) {
-
+@include respond(1000px) {
     #toggle_button:checked~.menu nav {
         display: flex;
     }
@@ -198,13 +170,13 @@ nav {
         justify-content: start;
 
         >div.menu {
-            @include display($d: none, $f: row);
-            @include position($p: fixed, $z: 999);
+            @include display(none, center, center, row);
+            @include position(fixed, 999, 100%, 100%);
             left: 0;
             right: 0;
             top: 0;
             bottom: 0;
-            background-color: #061513c2;
+            background-color: rgba(6, 21, 19, 0.76);
         }
 
         >.menu nav {
@@ -212,16 +184,14 @@ nav {
             height: min-content;
             width: 300px;
 
-            @include display($d: none);
+            @include display(flex, center, center, column);
             position: fixed;
             top: 100px;
             right: 8px;
-            padding-top: 24px;
-            padding-bottom: 24px;
-            background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
-
+            padding: 24px 0;
+            background: linear-gradient(55.22deg, $c-bg 36.26%, #08463B 93.28%);
             border-radius: 30px;
-            border: 1px solid #3DCFB6;
+            border: 1px solid $c-accent;
         }
 
         >div.second {
@@ -230,7 +200,6 @@ nav {
             left: 25px;
         }
     }
-
 
     .toggle_button {
         display: flex;
@@ -241,38 +210,26 @@ html.no-scroll {
     overflow-y: hidden;
 }
 
-@media (max-width: 500px) {
-    section {
-
-        >div.second {
-            left: -45px;
-        }
+@include respond(500px) {
+    section>div.second {
+        left: -45px;
     }
 }
 
-@media (max-width: 450px) {
-    section {
-
-        >div.second {
-            left: -35px;
-        }
+@include respond(450px) {
+    section>div.second {
+        left: -35px;
     }
 }
 
-@media (max-width: 400px) {
-    section {
-
-        >div.second {
-            left: -30px;
-        }
+@include respond(400px) {
+    section>div.second {
+        left: -30px;
     }
 }
 
-@media (max-width: 350px) {
-    section {
-
-        >div.second {
-            left: -20px;
-        }
+@include respond(350px) {
+    section>div.second {
+        left: -20px;
     }
 }
