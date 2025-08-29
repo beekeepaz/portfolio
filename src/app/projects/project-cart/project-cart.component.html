@@ -1,100 +1,120 @@
 <div (click)="close()" class="preview">
-    <div (click)="$event.stopPropagation()" class="cart-layer">
-        <div class="project-description">
-            <div class="project-headers">
-                @if(this.carts.setJoin === true) {
-                <h4>{{ languageService.join.cardnumber }}</h4>
-                <h1>{{ languageService.join.headercard }}</h1>
-                } @else if(this.carts.setElPolloLoco === true) {
-                <h4>{{ languageService.loco.cardnumber }}</h4>
-                <h1>{{ languageService.loco.headercard }}</h1>
-                } @else if(this.carts.setDaBubble === true) {
-                <h4>{{ languageService.bubble.cardnumber }}</h4>
-                <h1>{{ languageService.bubble.headercard }}</h1>
-                }
-            </div>
-            <h2>{{ languageService.currentHeader.headercart }}</h2>
-            @if (this.carts.setJoin === true) {
-            <span>{{ languageService.join.descriptcard }}</span>
-            } @else if(this.carts.setElPolloLoco === true) {
-            <span>{{ languageService.loco.descriptcard }}</span>
-            } @else if(this.carts.setDaBubble === true) {
-            <span>{{ languageService.loco.descriptcard }}</span>
-            }
-            <div>
-                @if (this.carts.setJoin === true) {
-                <div>
-                    <img src="../../../assets/img/scss-cart.png">
-                    <span class="cart-font-icon">CSS</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/html-cart.png">
-                    <span class="cart-font-icon">HTML</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/Angular-cart.png">
-                    <span class="cart-font-icon">Angular</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/typeScript-cart.png">
-                    <span class="cart-font-icon">TypeScript</span>
-                </div>
-                }@else if(this.carts.setElPolloLoco === true) {
-                <div>
-                    <img src="../../../assets/img/html-cart.png">
-                    <span class="cart-font-icon">HTML</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/scss-cart.png">
-                    <span class="cart-font-icon">CSS</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/javaScript-cart.png">
-                    <span class="cart-font-icon">JavaScript</span>
-                </div>
-                }@else if(this.carts.setDaBubble === true) {
-                <div>
-                    <img src="../../../assets/img/Angular-cart.png">
-                    <span class="cart-font-icon">Angular</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/firebase-cart.png">
-                    <span class="cart-font-icon">Firebase</span>
-                </div>
-                <div>
-                    <img src="../../../assets/img/typeScript-cart.png">
-                    <span class="cart-font-icon">TypeScript</span>
-                </div>
-                }
-            </div>
-            <div class="place-btn">
-                <div class="btn-gap">
-                    <button (click)="goToPage()">
-                        <span class="btn-cart">GitHub</span>
-                        <div class="btn-arrow"></div>
-                    </button>
+  <div (click)="$event.stopPropagation()" class="cart-layer">
+    <div class="project-description">
+      <div class="project-headers">
+        @if (this.carts.setJoin === true) {
+          <h4>{{ languageService.join.cardnumber }}</h4>
+          <h1>{{ languageService.join.headercard }}</h1>
+        } @else if (this.carts.setElPolloLoco === true) {
+          <h4>{{ languageService.loco.cardnumber }}</h4>
+          <h1>{{ languageService.loco.headercard }}</h1>
+        } @else if (this.carts.setDaBubble === true) {
+          <h4>{{ languageService.bubble.cardnumber }}</h4>
+          <h1>{{ languageService.bubble.headercard }}</h1>
+        }
+      </div>
 
-                    <button>
-                        <span class="btn-cart">{{ languageService.currentHeader.testbtncard }}</span>
-                        <div class="btn-arrow"></div>
-                    </button>
-                </div>
-            </div>
+      <h2>{{ languageService.currentHeader.headercart }}</h2>
+
+      @if (this.carts.setJoin === true) {
+        <span>{{ languageService.join.descriptcard }}</span>
+      } @else if (this.carts.setElPolloLoco === true) {
+        <span>{{ languageService.loco.descriptcard }}</span>
+      } @else if (this.carts.setDaBubble === true) {
+        <span>{{ languageService.loco.descriptcard }}</span>
+      }
+
+      <div>
+        @if (this.carts.setJoin === true) {
+          <div>
+            <img [src]="img.scssCart" alt="CSS">
+            <span class="cart-font-icon">CSS</span>
+          </div>
+          <div>
+            <img [src]="img.htmlCart" alt="HTML">
+            <span class="cart-font-icon">HTML</span>
+          </div>
+          <div>
+            <img [src]="img.angularCart" alt="Angular">
+            <span class="cart-font-icon">Angular</span>
+          </div>
+          <div>
+            <img [src]="img.typeScriptCart" alt="TypeScript">
+            <span class="cart-font-icon">TypeScript</span>
+          </div>
+        } @else if (this.carts.setElPolloLoco === true) {
+          <div>
+            <img [src]="img.htmlCart" alt="HTML">
+            <span class="cart-font-icon">HTML</span>
+          </div>
+          <div>
+            <img [src]="img.scssCart" alt="CSS">
+            <span class="cart-font-icon">CSS</span>
+          </div>
+          <div>
+            <img [src]="img.javaScriptCart" alt="JavaScript">
+            <span class="cart-font-icon">JavaScript</span>
+          </div>
+        } @else if (this.carts.setDaBubble === true) {
+          <div>
+            <img [src]="img.angularCart" alt="Angular">
+            <span class="cart-font-icon">Angular</span>
+          </div>
+          <div>
+            <img [src]="img.firebaseCart" alt="Firebase">
+            <span class="cart-font-icon">Firebase</span>
+          </div>
+          <div>
+            <img [src]="img.typeScriptCart" alt="TypeScript">
+            <span class="cart-font-icon">TypeScript</span>
+          </div>
+        }
+      </div>
+
+      <div class="place-btn">
+        <div class="btn-gap">
+          <button (mouseenter)="onArrowBtnEnter(0)" (mouseleave)="onArrowBtnLeave(0)" (click)="goToPage()">
+            <span class="btn-cart">GitHub</span>
+            <img class="btn-arrow" [src]="arrowBtnSrc(0)" alt="">
+          </button>
+
+          <button (mouseenter)="onArrowBtnEnter(1)" (mouseleave)="onArrowBtnLeave(1)">
+            <span class="btn-cart">{{ languageService.currentHeader.testbtncard }}</span>
+            <img class="btn-arrow" [src]="arrowBtnSrc(1)" alt="">
+          </button>
         </div>
-        <div>
-            <div class="cart-rightside-pos">
-                <div (click)="close()" class="closes"></div>
-                <div class="cart-radius">
-                    <img class="cart-preview" src="../../assets/img/joinPreview-cart.png">
-                </div>
-                <div class="pos-next-button">
-                    <button class="next-button">
-                        <span class="next-span">{{ languageService.currentHeader.nextbtncard }}</span>
-                        <img class="first" src="../../assets/img/arrow-hirizontal.png">
-                        <img class="second" src="../../assets/img/arrow-horizontale-moved.png">
-                    </button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+
+    <div>
+      <div class="cart-rightside-pos">
+        <img
+          class="closes"
+          [src]="closeIcon"
+          (mouseenter)="onCloseEnter()"
+          (mouseleave)="onCloseLeave()"
+          (click)="close()"
+          alt="Close"
+        >
+        <div class="cart-radius">
+          <img class="cart-preview" [src]="img.joinPreviewCart" alt="Preview">
+        </div>
+
+        <div class="pos-next-button">
+          <button
+            class="next-button"
+            (mouseenter)="onNextEnter()"
+            (mouseleave)="onNextLeave()"
+          >
+            <span class="next-span">{{ languageService.currentHeader.nextbtncard }}</span>
+            @if (showNextFirst) {
+              <img class="first" [src]="img.nextFirst" alt="">
+            } @else {
+              <img class="second" [src]="img.nextSecond" alt="">
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
