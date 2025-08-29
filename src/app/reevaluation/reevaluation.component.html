@@ -1,12 +1,14 @@
 <section>
     <div>
         <h1>{{ languageService.currentHeader.headerrevaluation }}</h1>
+
         <div class="comment-field">
             <div class="show-container">
                 <div class="quotes-img-pos">
-                    <img class="quotes" src="../../assets/img/quotes.png">
+                    <img class="quotes" [src]="img.quotes" alt="quotes">
                 </div>
-                @for(offset of [0, 1, 2, 3, 4]; track offset; let index = $index) {
+
+                @for (offset of [0, 1, 2, 3, 4]; track offset; let index = $index) {
                 <div [ngClass]="animationClasses[index]" [style.--ad]="animationDuration"
                     [style.--atf]="animationTiming">
                     <span>
@@ -19,18 +21,24 @@
                 </div>
                 }
             </div>
+
             <div class="box-shadow"></div>
             <div class="box-shadow-second"></div>
         </div>
+
         <div class="place-arrows">
             <button class="b-left" (click)="changeSlide('left')">
-                <div class="left-arrow"></div>
+                <img class="left-arrow" [src]="leftArrowSrc" (mouseenter)="onLeftEnter()" (mouseleave)="onLeftLeave()"
+                    alt="left">
             </button>
-            @for(slide of slides; track slide; let i = $index) {
+
+            @for (slide of slides; track slide; let i = $index) {
             <div class="point-slider" [ngClass]="{ 'active': isActive(i) }"></div>
             }
+
             <button class="b-right" (click)="changeSlide('right')">
-                <div class="right-arrow"></div>
+                <img class="right-arrow" [src]="rightArrowSrc" (mouseenter)="onRightEnter()"
+                    (mouseleave)="onRightLeave()" alt="right">
             </button>
         </div>
     </div>

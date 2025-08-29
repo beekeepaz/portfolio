@@ -1,31 +1,34 @@
 @use '../scss_global/global.style' as *;
 
 section {
-    @include display($d: flex, $j: space-around);
-    @include position($p: relative, $h: 100vh);
+    @include display(flex, space-around, center, row);
+    @include position(relative, 99, 100vh, 100%);
     background-color: $c-bg;
     color: $c-fg;
 
     >div.pictures {
-        @include display($d: flex, $j: space-between);
-        @include position($p: relative, $h: 668px, $w: 668px);
+        @include display(flex, space-between, center, column);
+        @include position(relative, 99, 668px, 668px);
 
         >img.front {
-            @include position($p: absolute, $z: 2, $h: 568px, $w: 568px);
+            @include position(absolute, 2, 568px, 568px);
             border-radius: 30px;
             margin-left: 32px;
         }
 
         >img.behind {
-            @include position($p: absolute, $z: 1, $h: 568px, $w: 568px);
+            @include position(absolute, 1, 568px, 568px);
             margin-top: 32px;
         }
     }
 }
 
 h3 {
-    @include display($d: flex, $j: flex-start);
-    @include karla-font($fs: 24px, $lh: 21.6px);
+    @include display(flex, flex-start, center, column);
+    /* @include karla-font($fs: 24px, $lh: 21.6px); */
+    font-family: var(--ff-karla);
+    font-size: 24px;
+    line-height: 21.6px;
     color: $c-accent;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -33,9 +36,11 @@ h3 {
 }
 
 .about-me-container {
-    @include display($d: flex, $a: flex-start);
-    @include position($h: 530px, $w: 536px);
-    @include karla-font($fs: 18px);
+    @include display(flex, center, flex-start, column);
+    @include position(absolute, 99, 530px, 536px);
+    /* @include karla-font($fs: 18px); */
+    font-family: var(--ff-karla);
+    font-size: 18px;
     border-radius: 30px;
     border: 1px solid $c-accent;
     background-color: rgb(31, 46, 43);
@@ -44,15 +49,19 @@ h3 {
     gap: 40px;
 
     >h4 {
-        @include fira-font($fs: 64px);
+        /* @include fira-font($fs: 64px); */
+        font-family: var(--ff-fira);
+        font-size: 64px;
         letter-spacing: -0.03em;
         color: $c-accent;
         cursor: default;
     }
 
     >div {
-        @include display($d: flex);
-        @include karla-font($fs: 18px);
+        @include display(flex, center, center, column);
+        /* @include karla-font($fs: 18px); */
+        font-family: var(--ff-karla);
+        font-size: 18px;
         color: #ffffffad;
         gap: 32px;
         height: 100%;
@@ -64,7 +73,7 @@ h3 {
 }
 
 img.icon {
-    @include position($h: 26px, $w: 21px);
+    @include position(absolute, 99, 26px, 21px);
     object-fit: contain;
 }
 
@@ -84,62 +93,67 @@ span.hover-text:hover {
 }
 
 div.layout-section {
-    @include display($d: flex, $a: center);
-    @include position($p: absolute, $z: -1, $h: 100%, $w: 100%);
-    inset: 0; 
-    pointer-events: none; 
+    @include display(flex, center, center, column);
+    @include position(absolute, -1, 100%, 100%);
+    inset: 0;
+    pointer-events: none;
     background-image: url("../../assets/img/background_skill.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left top; 
+    background-position: left top;
 }
+
+/* ---------- Responsive ---------- */
 
 @include respond(1400px) {
     section {
-        @include display($d: flex, $j: center);
+        @include display(flex, center, center, column);
 
         >div.pictures {
-            @include position($h: 568px, $w: 568px);
+            @include position(absolute, 99, 568px, 568px);
 
             >img.front {
-                @include position($z: 1, $h: 468px, $w: 468px);
+                @include position(absolute, 1, 468px, 468px);
             }
 
             >img.behind {
-                @include position($h: 468px, $w: 468px);
+                @include position(absolute, 99, 468px, 468px);
             }
         }
     }
 
     .about-me-container {
-        @include position($h: 430px, $w: 436px);
-        @include karla-font($fs: 16px);
+        @include position(absolute, 99, 430px, 436px);
+        /* @include karla-font($fs: 16px); */
+        font-size: 16px;
         gap: 16px;
 
         >h4 {
-            @include fira-font($fs: 54px);
+            /* @include fira-font($fs: 54px); */
+            font-size: 54px;
         }
 
         >div {
-            @include karla-font($fs: 16px);
+            /* @include karla-font($fs: 16px); */
+            font-size: 16px;
         }
     }
 }
 
 @include respond(1150px) {
     section>div.pictures {
-        @include position($h: 568px, $w: 526px);
+        @include position(absolute, 99, 568px, 526px);
     }
 
     .about-me-container {
-        @include position($h: 530px, $w: 320px);
+        @include position(absolute, 99, 530px, 320px);
     }
 }
 
 @include respond(950px) {
     section {
-        @include display($d: flex, $j: space-around, $f: column);
-        @include position($h: 1096px);
+        @include display(flex, space-around, column);
+        @include position(absolute, 99, 1096px, 100%);
     }
 
     .about-me-container {

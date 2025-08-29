@@ -137,6 +137,12 @@ button:hover span.btn-span-sec {
     font-weight: bold;
 }
 
+/* Globale Tokens (einmalig) */
+:root {
+    --ff-fira: "Fira Sans", system-ui, sans-serif;
+    --ff-karla: "Karla", system-ui, sans-serif;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }

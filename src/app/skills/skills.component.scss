@@ -1,12 +1,8 @@
-@use '../scss_global/global.style' as *; // Tokens & Basis-Mixins (inkl. respond)
-
-// ----------------------------
-// Skills Component Styles (refactored auf neue Mixins & Tokens)
-// ----------------------------
+@use '../scss_global/global.style' as *;
 
 section {
-    @include display($d: flex, $j: space-around);
-    @include position($p: relative, $z: 2, $h: 100vh);
+    @include display(flex, space-around, center, column);
+    @include position(relative, 2, 100vh, 100%);
     background-color: $c-bg;
     color: $c-fg;
     opacity: 0.85;
@@ -18,54 +14,71 @@ section {
 }
 
 .skill-set-container {
-    @include display($d: flex, $a: baseline);
-    @include position($h: 530px, $w: 536px);
-    @include karla-font($fs: 18px, $lh: 21.6px);
+    @include display(flex, center, baseline, column);
+    @include position(absolute, 99, 530px, 536px);
+
+    /* ▼ Fonts statt Mixins */
+    font-family: var(--ff-karla);
+    font-size: 18px;
+    line-height: 21.6px;
+
     border-radius: 30px;
     border: 1px solid $c-accent;
     background-color: rgb(31, 46, 43);
-    color: #FFFFFF;
+    color: #fff;
     padding: 32px;
     gap: 40px;
 
     >h4 {
-        @include fira-font($fs: 64px, $lh: 64px);
-        letter-spacing: -0.03em; // statt %-Wert (CSS akzeptiert Länge)
+        /* ▼ Fonts statt Mixins */
+        font-family: var(--ff-fira);
+        font-size: 64px;
+        line-height: 64px;
+
+        letter-spacing: -0.03em;
         text-align: left;
         color: $c-accent;
     }
 
     >div {
-        @include karla-font($fs: 18px);
+        /* ▼ Fonts statt Mixins */
+        font-family: var(--ff-karla);
+        font-size: 18px;
+
         text-align: left;
         color: #ffffffad;
     }
 }
 
 .header-pos {
-    @include display($d: flex, $j: baseline, $a: baseline);
-    // position: inherits default (kein unnötiges unset)
+    @include display(flex, baseline, baseline, column);
     margin-top: -40px;
 }
 
 .skill-pos {
-    @include display($d: flex, $j: space-around, $a: flex-start, $f: row);
+    @include display(flex, space-around, flex-start, row);
     width: 100%;
 }
 
 h3 {
-    @include karla-font($fs: 24px);
+    /* ▼ Fonts statt Mixins */
+    font-family: var(--ff-karla);
+    font-size: 24px;
+
     color: $c-accent;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
 h5 {
-    @include fira-font($fs: 24px, $lh: 28.8px);
+    /* ▼ Fonts statt Mixins */
+    font-family: var(--ff-fira);
+    font-size: 24px;
+    line-height: 28.8px;
 }
 
 .white {
-    color: #FFFFFF;
+    color: #fff;
 }
 
 .green {
@@ -74,32 +87,32 @@ h5 {
 }
 
 .width {
-    @include display($d: flex, $j: baseline, $a: baseline, $f: row);
+    @include display(flex, baseline, baseline, row);
     width: 100%;
 }
 
 img.icon {
-    @include position($h: 32px, $w: 32px);
+    @include position(absolute, 99, 32px, 32px);
 }
 
 .icon-container-pos {
-    @include display($d: flex, $j: flex-end);
+    @include display(flex, flex-end, center, column);
     width: 632px;
 }
 
 .icons {
-    @include position($h: 428px, $w: 632px);
-    @include display($d: flex);
+    @include position(absolute, 99, 428px, 632px);
+    @include display(flex, center, center, column);
     flex-wrap: wrap;
     gap: 72px;
 
     >div {
-        @include display($d: flex);
-        @include position($h: 116px, $w: 104px);
+        @include display(flex, center, center, column);
+        @include position(absolute, 99, 116px, 104px);
         gap: 8px;
 
         >img {
-            @include position($h: 60px, $w: 60px);
+            @include position(absolute, 99, 60px, 60px);
         }
 
         >img:hover {
@@ -107,21 +120,23 @@ img.icon {
         }
 
         >span {
-            @include fira-font($fs: 18px, $lh: 21.6px);
-            letter-spacing: -0.03em; // statt %-Wert
+            /* ▼ Fonts statt Mixins */
+            font-family: var(--ff-fira);
+            font-size: 18px;
+            line-height: 21.6px;
+
+            letter-spacing: -0.03em;
             width: 100%;
             text-align: center;
         }
     }
 }
 
-// ----------------------------
-// Responsive via respond($max)
-// ----------------------------
+/* ---------- Responsive ---------- */
 
 @include respond(1400px) {
     .skill-pos {
-        @include display($d: flex, $j: center, $a: center, $f: row);
+        @include display(flex, center, center, row);
     }
 
     .skill-set-container {
@@ -136,6 +151,22 @@ img.icon {
 
     .icon-container-pos {
         width: 564px;
+    }
+
+    .skill-set-container {
+        font-size: 16px;
+
+        /* statt karla-font */
+        >h4 {
+            font-size: 54px;
+        }
+
+        /* statt fira-font */
+        >div {
+            font-size: 16px;
+        }
+
+        /* statt karla-font */
     }
 }
 

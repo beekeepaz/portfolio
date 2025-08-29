@@ -1,10 +1,8 @@
-@use '../scss_global/global.style' as *; // Tokens & Mixins (inkl. respond)
-
-// Nur globale-Anpassungen: Tokens + globale Mixins. Keine Layoutlogik verändert.
+@use '../scss_global/global.style' as *;
 
 section {
   @include display($d: flex, $j: center, $a: center, $f: column);
-  @include position($h: 100vh); // kein position gesetzt (wie bisher via unset)
+  @include position($h: 100vh);
   background-color: $c-bg;
   color: $c-fg;
 
@@ -17,9 +15,7 @@ section {
       color: $c-accent;
       @include fira-font($fs: 32px);
       text-align: center;
-      margin-bottom: 48px;
-      margin-right: 32px;
-      margin-left: 32px;
+      margin: 0 32px 48px
     }
   }
 }
@@ -27,111 +23,73 @@ section {
 .single-comment-field {
   @include display($d: flex, $j: center, $a: center, $f: column);
   @include position($h: 300px, $w: 600px);
-  border-style: solid;
-  border-width: 1px;
-  border-color: $c-accent;
+  border: 1px solid $c-accent;
   background-color: #2b3a37;
   border-radius: 16px;
   @include fira-font();
 
   >span {
     @include display($d: flex, $j: center, $a: center, $f: column);
-    width: 100%;
+    width: 100%
   }
 }
 
 .show-mid-color {
-  background-color: #3DCFB64D;
+  background-color: #3DCFB64D
 }
 
 .preview {
   @include position($h: 250px, $w: 500px);
   margin: 32px;
-  background-color: #2b3a37;
+  background-color: #2b3a37
 }
 
 .show-container {
-  @include display($d: flex, $j: center, $a: center, $f: row);
+  @include display($d: flex, $j: center, $a: center);
   width: 100%;
 
   >div.quotes-img-pos {
     @include display($d: flex, $j: baseline, $a: baseline);
-    @include position($h: 322px, $w: 700px);
+    @include position($h: 322px, $w: 700px)
   }
 }
 
 img.quotes {
-  @include position();
+  display: block
 }
 
 .box-shadow {
   @include position($h: 400px);
-  box-shadow:
-    inset 625px 0px 150px 0px rgba(28, 28, 28, 0.5),
-    inset -625px 0px 150px -220px rgba(28, 28, 28, 0.5);
+  box-shadow: inset 625px 0 150px 0 rgba(28, 28, 28, .5), inset -625px 0 150px -220px rgba(28, 28, 28, .5)
 }
 
 .box-shadow-second {
   @include position($h: 400px);
-  box-shadow:
-    inset 150px 0px 15px 0px rgba(28, 28, 28, 1),
-    inset -150px 0px 15px 0px rgba(28, 28, 28, 1);
+  box-shadow: inset 150px 0 15px 0 rgb(28, 28, 28), inset -150px 0 15px 0 rgb(28, 28, 28)
 }
 
 .comment-field {
   @include display($d: flex, $j: center, $a: center, $f: column);
-  overflow: hidden;
+  overflow: hidden
 }
 
 .place-name {
-  @include display($d: flex, $j: center, $a: center, $f: row);
+  @include display($d: flex, $j: center, $a: center);
   @include position($h: 32px);
-  gap: 16px;
+  gap: 16px
 }
 
 .line {
   @include position($h: 1px, $w: 200px);
-  background-color: $c-accent;
+  background-color: $c-accent
 }
 
 .d-none {
-  display: none;
-}
-
-div.left-arrow {
-  @include position($h: 36px, $w: 36px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: hidden; // unverändert gelassen
-  background-image: url("../../assets/img/left-arrow.png");
-}
-
-div.left-arrow:hover {
-  @include position($h: 36px, $w: 36px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: hidden; // unverändert gelassen
-  background-image: url("../../assets/img/left-arrow-move.png");
-}
-
-div.right-arrow {
-  @include position($h: 36px, $w: 36px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: hidden; // unverändert gelassen
-  background-image: url("../../assets/img/right-arrow.png");
-}
-
-div.right-arrow:hover {
-  @include position($h: 36px, $w: 36px);
-  background-position: center;
-  background-size: contain;
-  background-repeat: hidden; // unverändert gelassen
-  background-image: url("../../assets/img/right-arrow-move.png");
+  display: none
 }
 
 .place-arrows {
-  @include display($d: flex, $j: center, $a: center, $f: row);
+  @include display($d: flex, $j: center, $a: center);
   margin-top: 32px;
   padding-top: 32px;
   width: 100%;
@@ -139,218 +97,222 @@ div.right-arrow:hover {
 
   >button {
     border: none;
+    background: none;
+    padding: 0
   }
 
   >button.b-right:active {
-    transform: translateX(-5px);
+    transform: translateX(-5px)
   }
 
   >button.b-left:active {
-    transform: translateX(5px);
+    transform: translateX(5px)
   }
 }
 
+.left-arrow,
+.right-arrow {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+  cursor: pointer
+}
+
 .point-slider {
-  @include display($d: flex, $j: center, $a: center, $f: row);
-  @include position($h: 12px, $w: 12px);
-  width: 10px;
-  height: 10px;
+  @include display($d: flex, $j: center, $a: center);
+  width: 12px;
+  height: 12px;
   margin: 5px;
   background-color: gray;
-  display: inline-block;
-  border-radius: 50%;
+  border-radius: 50%
 }
 
 .point-slider.active {
-  background-color: white;
+  background-color: #fff
 }
 
+/* Animations */
 .a {
   animation-duration: var(--ad, 1s);
-  animation-timing-function: var(--atf, ease-in-out);
+  animation-timing-function: var(--atf, ease-in-out)
+}
+
+.left,
+.left-right,
+.right,
+.right-right,
+.mid-left,
+.mid-right,
+.left-in,
+.right-in {
+  @extend .a
 }
 
 .left {
-  @extend .a;
-  animation-name: animaOutLeft;
+  animation-name: animaOutLeft
 }
 
 .left-right {
-  @extend .a;
-  animation-name: animaInLeftToRight;
+  animation-name: animaInLeftToRight
 }
 
 .right {
-  @extend .a;
-  animation-name: animaInRight;
+  animation-name: animaInRight
 }
 
 .right-right {
-  @extend .a;
-  animation-name: animaOutRight;
+  animation-name: animaOutRight
 }
 
 .mid-left {
-  @extend .a;
   animation-name: animaMidLeft;
-  transform: scale(0.85) translateX(-700px);
+  transform: scale(.85) translateX(-700px)
 }
 
 .mid-right {
-  @extend .a;
   animation-name: animaMidRight;
-  transform: scale(0.85) translateX(-700px);
+  transform: scale(.85) translateX(-700px)
 }
 
 .left-in {
-  @extend .a;
   animation-name: animaLeftIn;
-  margin-left: -525px;
+  margin-left: -525px
 }
 
 .right-in {
-  @extend .a;
   animation-name: animaRightIn;
   transform: scale(1.15);
-  margin-right: -525px;
+  margin-right: -525px
 }
 
 @keyframes animaOutLeft {
   0% {
-    transform: translateX(0);
+    transform: translateX(0)
   }
 
   100% {
-    transform: translateX(-700px);
+    transform: translateX(-700px)
   }
 }
 
 @keyframes animaOutRight {
   0% {
-    transform: translateX(0);
+    transform: translateX(0)
   }
 
   100% {
-    transform: translateX(700px);
+    transform: translateX(700px)
   }
 }
 
 @keyframes animaInRight {
   0% {
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0)
   }
 
   100% {
-    transform: scale(1.1755) translateX(-500px);
+    transform: scale(1.1755) translateX(-500px)
   }
 }
 
 @keyframes animaInLeftToRight {
   0% {
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0)
   }
 
   100% {
-    transform: scale(1.185555) translateX(500px);
+    transform: scale(1.185555) translateX(500px)
   }
 }
 
 @keyframes animaMidLeft {
   0% {
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0)
   }
 
   100% {
-    transform: scale(0.84) translateX(-700px);
+    transform: scale(.84) translateX(-700px)
   }
 }
 
 @keyframes animaMidRight {
   0% {
-    transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0)
   }
 
   100% {
-    transform: scale(0.84) translateX(700px);
+    transform: scale(.84) translateX(700px)
   }
 }
 
 @keyframes animaLeftIn {
   0% {
-    transform: translateX(0);
+    transform: translateX(0)
   }
 
   100% {
-    transform: translateX(550px);
+    transform: translateX(550px)
   }
 }
 
 @keyframes animaRightIn {
   0% {
-    transform: translateX(0);
+    transform: translateX(0)
   }
 
   100% {
-    transform: translateX(-550px);
+    transform: translateX(-550px)
   }
 }
 
-// ----------------------------
-// Responsive via respond($max) — nur 1:1 umgestellt
-// ----------------------------
-
+/* Responsive */
 @include respond(1700px) {
   .box-shadow {
-    box-shadow:
-      inset 425px 0px 150px -220px rgba(28, 28, 28, 0.5),
-      inset -425px 0px 150px -220px rgba(28, 28, 28, 0.5);
+    box-shadow: inset 425px 0 150px -220px rgba(28, 28, 28, .5), inset -425px 0 150px -220px rgba(28, 28, 28, .5)
   }
 }
 
 @include respond(1200px) {
   .box-shadow {
-    box-shadow:
-      inset 225px 0px 200px -220px rgba(28, 28, 28, 0.5),
-      inset -225px 0px 200px -220px rgba(28, 28, 28, 0.5);
+    box-shadow: inset 225px 0 200px -220px rgba(28, 28, 28, .5), inset -225px 0 200px -220px rgba(28, 28, 28, .5)
   }
 }
 
 @include respond(950px) {
   .box-shadow {
-    box-shadow: none;
+    box-shadow: none
   }
 
   .box-shadow-second {
-    box-shadow:
-      inset 72px 0px 15px 0px rgb(28, 28, 28),
-      inset -72px 0px 15px 0px rgb(28, 28, 28);
+    box-shadow: inset 72px 0 15px 0 rgb(28, 28, 28), inset -72px 0 15px 0 rgb(28, 28, 28)
   }
 }
 
 @include respond(800px) {
   .single-comment-field {
-    width: 500px;
+    width: 500px
   }
 
   .show-container>div.quotes-img-pos {
     height: 318px;
-    width: 628px;
+    width: 628px
   }
 }
 
 @include respond(715px) {
   .single-comment-field {
-    width: 400px;
+    width: 400px
   }
 
   .show-container>div.quotes-img-pos {
     height: 318px;
-    width: 506px;
+    width: 506px
   }
 }
 
 @include respond(580px) {
   .show-container>div.quotes-img-pos {
-    width: 306px;
+    width: 306px
   }
 }

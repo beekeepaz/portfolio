@@ -9,9 +9,34 @@ import { CommonModule } from '@angular/common';
   templateUrl: './reevaluation.component.html',
   styleUrl: './reevaluation.component.scss'
 })
-
 export class ReevaluationComponent {
+  // --- Bilder zentral in TS (keine Images mehr aus SCSS laden) ---
+  public img = {
+    quotes: '../../assets/img/quotes.png',
+    leftDefault: '../../assets/img/left-arrow.png',
+    leftHover: '../../assets/img/left-arrow-move.png',
+    rightDefault: '../../assets/img/right-arrow.png',
+    rightHover: '../../assets/img/right-arrow-move.png'
+  };
 
+  // Hover-States für die Pfeile (für HTML-Bindings)
+  public isLeftHovered = false;
+  public isRightHovered = false;
+
+  // Steuerung der animierten Pfeile im Template
+  get leftArrowSrc(): string {
+    return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
+  }
+  get rightArrowSrc(): string {
+    return this.isRightHovered ? this.img.rightHover : this.img.rightDefault;
+  }
+
+  onLeftEnter(): void { this.isLeftHovered = true; }
+  onLeftLeave(): void { this.isLeftHovered = false; }
+  onRightEnter(): void { this.isRightHovered = true; }
+  onRightLeave(): void { this.isRightHovered = false; }
+
+  // --- Bestehende Slider-/Animations-Logik ---
   animationDuration = '800ms';
   animationTiming = 'ease-in-out';
 
@@ -25,14 +50,10 @@ export class ReevaluationComponent {
   animateright = false;
 
   animationClasses: string[] = [];
-
   slides: string[] = [];
+  slideIndex = 0;
 
-  slideIndex: number = 0;
-
-  constructor(
-    public languageService: Language
-  ) { }
+  constructor(public languageService: Language) { }
 
   ngOnInit(): void {
     this.slides = Array(this.languageService.reevaluation.length).fill('');
@@ -43,9 +64,8 @@ export class ReevaluationComponent {
     this.animationClasses = [0, 1, 2, 3, 4].map(index => this.getAnimationClass(index));
   }
 
-  changeSlide(direction: 'left' | 'right') {
+  changeSlide(direction: 'left' | 'right'): void {
     const isLeft = direction === 'left';
-
     this.animateleft = isLeft;
     this.animateright = !isLeft;
     this.calculateAnimationClasses();
@@ -79,7 +99,7 @@ export class ReevaluationComponent {
   }
 
   getAnimationClass(index: number): string {
-    const baseClasses: any = {
+    const baseClasses: Record<number, { neutral: string; left: string; right: string }> = {
       0: { neutral: 'd-none', left: 'd-none', right: 'single-comment-field preview left-in' },
       1: { neutral: 'single-comment-field preview', left: 'single-comment-field preview left', right: 'single-comment-field preview left-right' },
       2: { neutral: 'single-comment-field show-mid-color', left: 'single-comment-field mid-left', right: 'single-comment-field mid-right' },
@@ -87,20 +107,13 @@ export class ReevaluationComponent {
       4: { neutral: 'd-none', left: 'single-comment-field preview right-in', right: 'd-none' }
     };
 
-    if (!this.animateleft && !this.animateright) {
-      return baseClasses[index]?.neutral || '';
-    }
-    if (this.animateleft) {
-      return baseClasses[index]?.left || '';
-    }
-    if (this.animateright) {
-      return baseClasses[index]?.right || '';
-    }
+    if (!this.animateleft && !this.animateright) return baseClasses[index]?.neutral || '';
+    if (this.animateleft) return baseClasses[index]?.left || '';
+    if (this.animateright) return baseClasses[index]?.right || '';
     return '';
   }
 
   isActive(index: number): boolean {
     return this.slideIndex === index;
   }
-
 }
