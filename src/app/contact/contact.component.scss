@@ -7,9 +7,7 @@ section {
     color: $c-fg;
 
     >div.contact-me {
-        height: 100%;
         overflow-x: hidden;
-        cursor: default;
 
         >div {
             padding-top: 32px;
@@ -19,7 +17,7 @@ section {
             font-family: var(--ff-fira);
             font-size: 64px;
             line-height: 64px;
-            letter-spacing: -0.03em;
+            letter-spacing: -.03em;
             color: $c-accent;
             padding-top: 16px;
         }
@@ -27,7 +25,7 @@ section {
         >h2 {
             font-family: var(--ff-karla);
             font-size: 24px;
-            line-height: 28.06px;
+            line-height: 28px;
             color: $c-accent;
             padding-bottom: 32px;
         }
@@ -41,8 +39,6 @@ section {
             font-family: var(--ff-karla);
             font-size: 18px;
             color: #fff;
-            width: 100%;
-            gap: 0;
             opacity: 0;
         }
 
@@ -64,7 +60,6 @@ section {
                 line-height: 28.8px;
                 color: $c-accent;
                 padding-bottom: 32px;
-                cursor: default;
             }
 
             >div.longe-line {
@@ -89,7 +84,7 @@ section {
     }
 }
 
-/* Hover Linien */
+/* Hover-Linien */
 form:has(.cip1:hover) .ll1,
 form:has(.cip1:hover) .ll2,
 .cip1:hover~.ll2 {
@@ -124,14 +119,9 @@ form:has(.cip3:hover) .ll4,
         @include display(flex, null, null, row);
 
         >span {
-            display: inline-block;
-            cursor: default;
-
             >a {
                 color: $c-accent;
-                padding-right: 6px;
-                padding-left: 6px;
-                cursor: default;
+                padding: 0 6px;
 
                 &:hover {
                     color: #fff;
@@ -154,45 +144,39 @@ form:has(.cip3:hover) .ll4,
 .valid-massage {
     font-family: var(--ff-karla);
     color: $c-error;
-    cursor: default;
+}
+
+/* Inputs */
+input,
+textarea {
+    font-family: var(--ff-karla);
+    font-size: 24px;
+    color: $c-accent;
+    background-color: $c-bg;
+    border: none;
+    outline: none;
 }
 
 input {
     @include position(null, null, 32px, 332px);
-    font-family: var(--ff-karla);
-    font-size: 24px;
-    border: none;
-    outline: none;
     box-sizing: border-box;
-    color: $c-accent;
-    background-color: $c-bg;
-
-    &:focus {
-        border: none;
-    }
 }
 
 ::placeholder {
-    font-family: var(--ff-karla);
-    font-size: 24px;
+    font: inherit;
     color: $c-accent;
 }
 
 textarea {
     @include position(null, null, 32px);
-    font-family: var(--ff-karla);
-    font-size: 24px;
-    outline: none;
-    border: none;
     resize: none;
     overflow: hidden;
     min-block-size: 3.5rlh;
     min-inline-size: 20ch;
     max-inline-size: 50ch;
-    color: $c-accent;
-    background-color: $c-bg;
 }
 
+/* Checkbox */
 .container {
     position: relative;
     padding-left: 35px;
@@ -232,14 +216,6 @@ textarea {
     }
 }
 
-.container:hover input~.checkmark {
-    background-color: $c-bg;
-}
-
-.container input:checked~.checkmark {
-    background-color: $c-bg;
-}
-
 .container input:checked~.checkmark:after {
     display: block;
 }
@@ -254,6 +230,7 @@ textarea {
     transform: rotate(45deg);
 }
 
+/* ---------- Responsive ---------- */
 @include respond(1200px) {
     section {
         height: 100%;
@@ -262,9 +239,7 @@ textarea {
         flex-direction: column;
 
         div.contact-me {
-            padding-bottom: 64px;
-            padding-right: 32px;
-            padding-left: 32px;
+            padding: 0 32px 64px;
         }
 
         >div.form-contain>form .con-information-pos {
