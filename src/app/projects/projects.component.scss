@@ -1,13 +1,5 @@
 @use '../scss_global/global.style' as *;
 
-@mixin smooth($prop: all, $dur: .2s, $ease: ease-in-out) {
-    transition: $prop $dur $ease;
-
-    @media (prefers-reduced-motion: reduce) {
-        transition: none !important;
-    }
-}
-
 section {
     @include display(flex, space-around, center, row);
     @include position(null, null, 100vh, 100%);
@@ -19,7 +11,7 @@ section {
         width: 280px;
 
         >div {
-            position: absolute;
+            position: absolute
         }
     }
 
@@ -27,168 +19,136 @@ section {
         @include display(flex, center, null, column);
         width: 880px;
 
-        >div.portfolio-header {
+        .portfolio-header {
             @include display(flex, center, start, column);
-            cursor: default;
 
-            >h1 {
+            h1 {
                 padding-bottom: 32px;
                 @include fira-font($fs: 64px, $lh: 1);
-                letter-spacing: -0.03em;
-                color: $c-accent;
-                @include smooth(color);
+                color: $c-accent
             }
 
-            >h2 {
+            h2 {
                 padding-bottom: 32px;
                 @include karla-font($fs: 24px, $lh: 28.06px);
-                color: $c-accent;
-                @include smooth(color);
+                color: $c-accent
             }
 
-            >span {
+            span {
                 @include position(null, null, 44px, 456px);
                 padding-bottom: 32px;
-                @include karla-font($fs: 18px);
-                color: $c-fg;
-                gap: 0;
-                opacity: 1;
-                @include smooth(color, .2s);
+                @include karla-font($fs: 18px)
             }
         }
 
-        >div.projects {
-            >div.single-project {
+        .projects {
+            .single-project {
                 @include display(flex, center, center, column);
                 @include position(null, null, 109px, 100%);
-                @include smooth(background-color);
 
-                >div.place-single-project {
+                .place-single-project {
                     @include display(flex, space-between, center, row);
                     width: 800px;
 
+                    >div:first-child img {
+                        padding-left: 6px
+                    }
+
                     h3 {
-                        @include fira-font($fs: 24px);
-                        color: $c-fg;
-                        @include smooth(color);
+                        @include fira-font($fs: 24px)
                     }
 
                     span {
-                        @include karla-font($fs: 18px);
-                        color: $c-fg;
-                        @include smooth(color);
+                        @include karla-font($fs: 18px)
                     }
 
                     >div {
                         @include display(flex, center, center, row);
-                        gap: 4px;
+                        gap: 4px
                     }
                 }
-            }
 
-            >div.single-project:hover {
-                background-color: rgba($c-accent, 0.32);
-                cursor: pointer;
+                &:hover {
+                    background-color: rgba($c-accent, .32);
+                    cursor: pointer
+                }
             }
         }
     }
 }
 
 .back-distance-bot {
-    padding-bottom: 200px;
+    padding-bottom: 200px
 }
 
 .back-distance-top {
-    padding-top: 200px;
+    padding-top: 200px
 }
 
 .short-line {
     @include position(null, null, 20px, 1px);
-    background-color: $c-accent;
-    @include smooth(background-color);
+    background-color: $c-accent
 }
 
 .longe-line {
     @include position(null, null, 1px);
-    background-color: $c-accent;
-    @include smooth(background-color);
+    background-color: $c-accent
 }
 
-div.single-project div.image-preview {
-    @include smooth(opacity);
-}
-
-div.single-project:hover div.image-preview {
-    opacity: 0.9;
-    visibility: visible;
+img.pre,
+img.back {
+    object-fit: cover;
+    border-radius: 30px
 }
 
 img.pre {
-    @include position(absolute, 1, 300px, 500px);
-    object-fit: cover;
-    border-radius: 30px;
-    @include smooth(transform, .2s);
+    @include position(absolute, 1, 300px, 500px)
 }
 
 img.back {
     @include position(absolute, null, 300px, 500px);
     margin-top: 20px;
-    margin-left: 40px;
-    object-fit: cover;
-    border-radius: 30px;
-    @include smooth(transform, .2s);
+    margin-left: 40px
 }
 
 .set-background {
     @include display(flex, baseline, center, column);
-    @include position(relative, unset, 100%, 100%);
+    @include position(relative, unset, 100%, 100%)
 }
 
 app-project-cart {
     @include display(flex, center, center, row);
-    @include position($z: unset);
-    @include smooth(box-shadow);
+    @include position($z: unset)
 }
 
-/* ---------- Responsive via respond() ---------- */
+$psp: ">div.projects>div.single-project>div.place-single-project";
 
 @include respond(1700px) {
     section {
         div.preview-projects {
-            width: 158px;
+            width: 158px
         }
     }
 }
 
 @include respond(1550px) {
+
     section {
         >div {
             width: 750px;
 
-            >div.projects>div.single-project>div.place-single-project {
-                width: 650px;
-            }
-        }
-    }
-}
-
-@include respond(1450px) {
-    section {
-        >div {
-            width: 750px;
-
-            >div.projects>div.single-project>div.place-single-project {
-                width: 650px;
+            #{$psp} {
+                width: 650px
             }
         }
     }
 
     img.pre {
-        @include position($z: 1, $h: 260px, $w: 440px);
+        @include position($z: 1, $h: 260px, $w: 440px)
     }
 
     img.back {
-        @include position($z: unset, $h: 260px, $w: 440px);
+        @include position($z: unset, $h: 260px, $w: 440px)
     }
 }
 
@@ -197,8 +157,8 @@ app-project-cart {
         >div {
             width: 600px;
 
-            >div.projects>div.single-project>div.place-single-project {
-                width: 550px;
+            #{$psp} {
+                width: 550px
             }
         }
     }
@@ -209,11 +169,11 @@ app-project-cart {
         >div {
             width: 412px;
 
-            >div.projects>div.single-project>div.place-single-project {
+            #{$psp} {
                 align-items: start;
                 flex-direction: column;
                 width: 400px;
-                gap: 10px;
+                gap: 10px
             }
         }
     }
@@ -224,11 +184,11 @@ app-project-cart {
         justify-content: start;
 
         >div {
-            padding-left: 32px;
+            padding-left: 32px
         }
 
         >div.preview-projects {
-            padding-left: 252px;
+            padding-left: 252px
         }
     }
 }
@@ -238,15 +198,15 @@ app-project-cart {
         justify-content: center;
 
         div.preview-projects {
-            display: none;
+            display: none
         }
 
         >div {
             width: 780px;
             padding-left: 0;
 
-            >div.projects>div.single-project>div.place-single-project {
-                width: 700px;
+            #{$psp} {
+                width: 700px
             }
         }
     }
@@ -258,8 +218,8 @@ app-project-cart {
             width: 480px;
             padding-left: 0;
 
-            >div.projects>div.single-project>div.place-single-project {
-                width: 400px;
+            #{$psp} {
+                width: 400px
             }
         }
     }
@@ -270,8 +230,8 @@ app-project-cart {
         >div {
             width: 380px;
 
-            >div.projects>div.single-project>div.place-single-project {
-                width: 300px;
+            #{$psp} {
+                width: 300px
             }
         }
     }
@@ -283,14 +243,14 @@ app-project-cart {
             width: 280px;
 
             >div.portfolio-header>span {
-                width: 280px;
+                width: 280px
             }
 
-            >div.projects>div.single-project>div.place-single-project {
+            #{$psp} {
                 width: 280px;
 
                 span {
-                    font-size: 15px;
+                    font-size: 15px
                 }
             }
         }

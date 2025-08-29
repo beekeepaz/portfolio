@@ -13,12 +13,20 @@ import { ToggleScroll } from '../global/togglescroll';
 })
 export class ProjectsComponent implements OnInit {
 
+  // Bildpfade (aus dem Template ausgelagert in die TS)
+  arrowOutward = '../../assets/img/arrow_outward.png';
+
+  joinPreview = '../../assets/img/joinPreview.png';
+  polloLocoPreview = '../../assets/img/pollo-locoPreview.png';
+  daBubblePreview = '../../assets/img/racoon_CSM.png';
+
+  singleProjectBackground = '../../assets/img/single-project-back-ground.png';
+
   constructor(
     public carts: Carts,
     public languageService: Language,
     public scrollbarService: ToggleScroll
-  ) {
-  }
+  ) { }
 
   ngOnInit(): void { }
 

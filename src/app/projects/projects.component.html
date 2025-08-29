@@ -7,14 +7,14 @@
         </div>
         <div class="projects">
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'Join' )" class="single-project" (mouseenter)="mouseEnter('preJoin') "
+
+            <div (click)="choosenProject('Join')" class="single-project" (mouseenter)="mouseEnter('preJoin')"
                 (mouseleave)="mouseLeave('leaveJoin')">
                 <div class="place-single-project">
                     <div>
                         <h3>Join</h3>
                         @if (this.carts.hoverJoin === true) {
-                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
-                            src="../../assets/img/arrow_outward.png">
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;" [src]="arrowOutward">
                         }
                     </div>
                     <div>
@@ -28,15 +28,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'ElPolloLoco' )" class="single-project"
-                (mouseenter)="mouseEnter('preElPollo') " (mouseleave)="mouseLeave('leaveElPollo')">
+
+            <div (click)="choosenProject('ElPolloLoco')" class="single-project" (mouseenter)="mouseEnter('preElPollo')"
+                (mouseleave)="mouseLeave('leaveElPollo')">
                 <div class="place-single-project">
                     <div>
                         <h3>El Pollo Loco</h3>
                         @if (this.carts.hoverElPollo === true) {
-                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
-                            src="../../assets/img/arrow_outward.png">
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;" [src]="arrowOutward">
                         }
                     </div>
                     <div>
@@ -48,15 +49,16 @@
                     </div>
                 </div>
             </div>
+
             <div class="longe-line"></div>
-            <div (click)="choosenProject( 'DaBubble' )" class="single-project" (mouseenter)="mouseEnter('preDaBubble') "
+
+            <div (click)="choosenProject('DaBubble')" class="single-project" (mouseenter)="mouseEnter('preDaBubble')"
                 (mouseleave)="mouseLeave('leaveDaBubble')">
                 <div class="place-single-project">
                     <div>
                         <h3>Da Bubble</h3>
                         @if (this.carts.hoverDaBubble === true) {
-                        <img style="display: flex; justify-content: baseline; padding-left: 6px;"
-                            src="../../assets/img/arrow_outward.png">
+                        <img style="display: flex; justify-content: baseline; padding-left: 6px;" [src]="arrowOutward">
                         }
                     </div>
                     <div>
@@ -68,28 +70,31 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
     <div class="preview-projects">
         <div class="pre-pos">
             @if (this.carts.hoverJoin === true) {
             <div class="set-background back-distance-bot">
-                <img class="pre" src="../../assets/img/joinPreview.png">
-                <img class="back" src="../../assets/img/single-project-back-ground.png">
+                <img class="pre" [src]="joinPreview">
+                <img class="back" [src]="singleProjectBackground">
             </div>
             } @else if (this.carts.hoverElPollo === true) {
             <div class="set-background">
-                <img class="pre" src="../../assets/img/pollo-locoPreview.png">
-                <img class="back" src="../../assets/img/single-project-back-ground.png">
+                <img class="pre" [src]="polloLocoPreview">
+                <img class="back" [src]="singleProjectBackground">
             </div>
             } @else if (this.carts.hoverDaBubble === true) {
             <div class="set-background back-distance-top">
-                <img class="pre" src="../../assets/img/racoon_CSM.png">
-                <img class="back" src="../../assets/img/single-project-back-ground.png">
+                <img class="pre" [src]="daBubblePreview">
+                <img class="back" [src]="singleProjectBackground">
             </div>
             }
         </div>
     </div>
+
     @if(this.carts.hideModal === true) {
     <app-project-cart></app-project-cart>
     }
