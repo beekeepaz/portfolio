@@ -4,8 +4,6 @@ import { Router } from "@angular/router";
 import { MarqueeComponent } from '../main/marquee/marquee.component';
 import { Language } from '../global/language';
 
-// import { Init } from 'node:v8';
-
 @Component({
   selector: 'app-main',
   standalone: true,
@@ -15,7 +13,15 @@ import { Language } from '../global/language';
 })
 export class MainComponent implements OnInit {
   name = "Angular " + VERSION.major;
-  pointimg = "./../../assets/img/point_green.png";
+
+  githubDefault = 'assets/img/github_green.png';
+  githubHover = 'assets/img/github_white.png';
+
+  mailDefault = 'assets/img/mail_green.png';
+  mailHover = 'assets/img/mail_white.png';
+
+  currentGithub = this.githubDefault;
+  currentMail = this.mailDefault;
 
   private animationFrameId = 0;
   private offset = 0;
@@ -65,6 +71,22 @@ export class MainComponent implements OnInit {
     requestAnimationFrame(step);
   }
 
+  onGithubEnter() {
+    this.currentGithub = this.githubHover;
+
+  }
+
+  onGithubLeave() {
+    this.currentGithub = this.githubDefault;
+  }
+
+  onMailEnter() {
+    this.currentMail = this.mailHover;
+  }
+
+  onMailLeave() {
+    this.currentMail = this.mailDefault;
+  }
 
   private animate(): void {
     const track = this.trackRef.nativeElement;

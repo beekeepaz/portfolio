@@ -31,16 +31,19 @@
             <div class="mail-img-pos">
                 <a href="mailto:mech.Peters@mail.de" target="_blank">
                     <div>
+                        <img [src]="currentMail" alt="Mail" (mouseenter)="onMailEnter()" (mouseleave)="onMailLeave()" />
                     </div>
                 </a>
-                <img src="../../assets/img/point_green.png">
+                <img src="assets/img/point_green.png" alt="point" />
             </div>
             <div class="git-pos">
                 <a href="https://github.com/beekeepaz/portfolio" target="_blank">
                     <div>
+                        <img [src]="currentGithub" alt="GitHub" (mouseenter)="onGithubEnter()"
+                            (mouseleave)="onGithubLeave()" />
                     </div>
                 </a>
-                <img src="../../assets/img/point_green.png">
+                <img src="assets/img/point_green.png">
             </div>
             <div class="line-right"></div>
         </div>
