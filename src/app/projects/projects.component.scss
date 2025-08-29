@@ -1,24 +1,18 @@
 @use '../scss_global/global.style' as *;
 
-@mixin display($d: flex, $j: center, $a: center, $f: column) {
-    display: $d;
-    justify-content: $j;
-    align-items: $a;
-    flex-direction: $f;
-}
+@mixin smooth($prop: all, $dur: .2s, $ease: ease-in-out) {
+    transition: $prop $dur $ease;
 
-@mixin position($p: absolute, $z: 99, $h: 100%, $w: 100%) {
-    position: $p;
-    z-index: $z;
-    height: $h;
-    width: $w;
+    @media (prefers-reduced-motion: reduce) {
+        transition: none !important;
+    }
 }
 
 section {
-    @include display($j: space-around, $f: row);
-    @include position($p: unset, $z: unset, $h: 100vh);
-    background-color: rgb(28, 28, 28);
-    color: #FFFFFFCC;
+    @include display(flex, space-around, center, row);
+    @include position(null, null, 100vh, 100%);
+    background-color: $c-bg;
+    color: $c-fg;
     overflow: hidden;
 
     >div.preview-projects {
@@ -30,71 +24,70 @@ section {
     }
 
     >div {
-        @include display($a: unset);
+        @include display(flex, center, null, column);
         width: 880px;
 
         >div.portfolio-header {
-            @include display($a: start);
+            @include display(flex, center, start, column);
             cursor: default;
 
             >h1 {
                 padding-bottom: 32px;
-                font-family: Fira_Code;
-                font-size: 64px;
+                @include fira-font($fs: 64px, $lh: 1);
                 letter-spacing: -0.03em;
-                color: #3DCFB6;
+                color: $c-accent;
+                @include smooth(color);
             }
 
             >h2 {
                 padding-bottom: 32px;
-                font-family: Karla;
-                font-size: 24px;
-                line-height: 28.06px;
-                color: #3DCFB6;
+                @include karla-font($fs: 24px, $lh: 28.06px);
+                color: $c-accent;
+                @include smooth(color);
             }
 
             >span {
-                @include position($p: unset, $z: unset, $h: 44px, $w: 456px);
+                @include position(null, null, 44px, 456px);
                 padding-bottom: 32px;
-                font-family: Karla;
-                font-size: 18px;
-                color: #FFFFFF;
-                gap: 0px;
-                opacity: 0px;
+                @include karla-font($fs: 18px);
+                color: $c-fg;
+                gap: 0;
+                opacity: 1;
+                @include smooth(color, .2s);
             }
         }
 
         >div.projects {
-
             >div.single-project {
-                @include display();
-                @include position($p: unset, $z: unset, $h: 109px);
+                @include display(flex, center, center, column);
+                @include position(null, null, 109px, 100%);
+                @include smooth(background-color);
 
                 >div.place-single-project {
-                    @include display($j: space-between, $f: row);
+                    @include display(flex, space-between, center, row);
                     width: 800px;
 
                     h3 {
-                        font-family: Fira_Code;
-                        font-size: 24px;
-                        color: #FFFFFF;
+                        @include fira-font($fs: 24px);
+                        color: $c-fg;
+                        @include smooth(color);
                     }
 
                     span {
-                        font-family: Karla;
-                        font-size: 18px;
-                        color: #FFFFFF;
+                        @include karla-font($fs: 18px);
+                        color: $c-fg;
+                        @include smooth(color);
                     }
 
                     >div {
-                        @include display($f: row);
+                        @include display(flex, center, center, row);
                         gap: 4px;
                     }
                 }
             }
 
             >div.single-project:hover {
-                background-color: #37af9b52;
+                background-color: rgba($c-accent, 0.32);
                 cursor: pointer;
             }
         }
@@ -110,13 +103,19 @@ section {
 }
 
 .short-line {
-    @include position($p: unset, $z: unset, $h: 20px, $w: 1px);
-    background-color: #3DCFB6;
+    @include position(null, null, 20px, 1px);
+    background-color: $c-accent;
+    @include smooth(background-color);
 }
 
 .longe-line {
-    @include position($p: unset, $z: unset, $h: 1px);
-    background-color: #3DCFB6;
+    @include position(null, null, 1px);
+    background-color: $c-accent;
+    @include smooth(background-color);
+}
+
+div.single-project div.image-preview {
+    @include smooth(opacity);
 }
 
 div.single-project:hover div.image-preview {
@@ -125,30 +124,35 @@ div.single-project:hover div.image-preview {
 }
 
 img.pre {
-    @include position($z: 1, $h: 300px, $w: 500px);
+    @include position(absolute, 1, 300px, 500px);
     object-fit: cover;
     border-radius: 30px;
+    @include smooth(transform, .2s);
 }
 
 img.back {
-    @include position($z: unset, $h: 300px, $w: 500px);
+    @include position(absolute, null, 300px, 500px);
     margin-top: 20px;
     margin-left: 40px;
     object-fit: cover;
     border-radius: 30px;
+    @include smooth(transform, .2s);
 }
 
 .set-background {
-    @include display($j: baseline);
-    @include position($p: relative, $z: unset);
+    @include display(flex, baseline, center, column);
+    @include position(relative, unset, 100%, 100%);
 }
 
 app-project-cart {
-    @include display($f: row);
+    @include display(flex, center, center, row);
     @include position($z: unset);
+    @include smooth(box-shadow);
 }
 
-@media (max-width: 1700px) {
+/* ---------- Responsive via respond() ---------- */
+
+@include respond(1700px) {
     section {
         div.preview-projects {
             width: 158px;
@@ -156,33 +160,25 @@ app-project-cart {
     }
 }
 
-@media (max-width: 1550px) {
+@include respond(1550px) {
     section {
         >div {
             width: 750px;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 650px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 650px;
             }
         }
     }
 }
 
-@media (max-width: 1450px) {
+@include respond(1450px) {
     section {
         >div {
             width: 750px;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 650px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 650px;
             }
         }
     }
@@ -196,42 +192,34 @@ app-project-cart {
     }
 }
 
-@media (max-width: 1400px) {
+@include respond(1400px) {
     section {
         >div {
             width: 600px;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 550px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 550px;
             }
         }
     }
 }
 
-@media (max-width: 1250px) {
+@include respond(1250px) {
     section {
         >div {
             width: 412px;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        align-items: start;
-                        flex-direction: column;
-                        width: 400px;
-                        gap: 10px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                align-items: start;
+                flex-direction: column;
+                width: 400px;
+                gap: 10px;
             }
         }
     }
 }
 
-@media (max-width: 1075px) {
+@include respond(1075px) {
     section {
         justify-content: start;
 
@@ -245,7 +233,7 @@ app-project-cart {
     }
 }
 
-@media (max-width: 975px) {
+@include respond(975px) {
     section {
         justify-content: center;
 
@@ -255,72 +243,54 @@ app-project-cart {
 
         >div {
             width: 780px;
-            padding-left: 0px;
+            padding-left: 0;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 700px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 700px;
             }
         }
     }
 }
 
-@media (max-width: 850px) {
+@include respond(850px) {
     section {
         >div {
             width: 480px;
-            padding-left: 0px;
+            padding-left: 0;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 400px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 400px;
             }
         }
     }
 }
 
-@media (max-width: 650px) {
+@include respond(650px) {
     section {
         >div {
             width: 380px;
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 300px;
-                    }
-                }
+            >div.projects>div.single-project>div.place-single-project {
+                width: 300px;
             }
         }
     }
 }
 
-@media (max-width: 550px) {
+@include respond(550px) {
     section {
         >div {
             width: 280px;
 
-            >div.portfolio-header {
-                >span {
-                    width: 280px;
-                }
+            >div.portfolio-header>span {
+                width: 280px;
             }
 
-            >div.projects {
-                >div.single-project {
-                    >div.place-single-project {
-                        width: 280px;
+            >div.projects>div.single-project>div.place-single-project {
+                width: 280px;
 
-                        span {
-                            font-size: 15px;
-                        }
-                    }
+                span {
+                    font-size: 15px;
                 }
             }
         }
