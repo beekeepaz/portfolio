@@ -18,7 +18,9 @@ section {
 
             >a {
                 @include display(flex, center, center, column);
-                @include fira-font($fs: 20px);
+                font-family: var(--ff-fira);
+                font-size: 20px;
+
                 color: $c-fg;
                 text-decoration: none;
                 margin-top: 6px;
@@ -63,7 +65,8 @@ section {
     padding: 10px;
     position: relative;
     text-align: center;
-    @include fira-font($fs: 16px);
+    font-family: var(--ff-fira);
+    font-size: 16px;
 }
 
 input[type="radio"].toggle {
@@ -100,7 +103,7 @@ input[type="radio"].toggle {
 
     &.toggle-right+label {
         &:after {
-            left: -100%;
+            left: -100%
         }
     }
 
@@ -125,7 +128,7 @@ input[type="radio"].toggle {
         cursor: pointer;
 
         .bar {
-            background-color: $c-accent;
+            background-color: $c-accent
         }
     }
 }
@@ -145,7 +148,7 @@ nav {
     border-radius: 100px;
 }
 
-// Responsive
+/* Responsive */
 @include respond(1400px) {
     section {
         justify-content: center;

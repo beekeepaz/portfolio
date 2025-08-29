@@ -12,18 +12,19 @@
         >.next-span {
             position: absolute;
             margin-right: 48px;
-            @include karla-font($fs: 18px);
+            font-family: var(--ff-karla);
+            font-size: 18px;
             color: $c-accent;
-            text-align: left
+            text-align: left;
         }
 
         img {
-            position: absolute
+            position: absolute;
         }
     }
 
     >.next-button:hover .next-span {
-        color: $c-fg
+        color: $c-fg;
     }
 }
 
@@ -32,17 +33,18 @@
     border-radius: 30px;
     border: 1px solid $c-accent;
     background: linear-gradient(55.22deg, $c-bg 36.26%, rgba($c-accent, .35) 93.28%);
-    @include karla-font($fs: 18px);
+    font-family: var(--ff-karla);
+    font-size: 18px;
     color: $c-fg;
     margin: 42px;
-    position: absolute
+    position: absolute;
 }
 
 .preview {
     @include display(flex, center, center);
     @include position(fixed, 999, 100%, 100%);
     inset: 0;
-    background-color: rgba($c-bg, .76)
+    background-color: rgba($c-bg, .76);
 }
 
 .project-description {
@@ -55,20 +57,26 @@
         gap: 16px;
 
         >h4 {
-            @include karla-font($fs: 128px, $lh: 128px);
-            color: $c-accent
+            font-family: var(--ff-karla);
+            font-size: 128px;
+            line-height: 128px;
+            color: $c-accent;
         }
 
         >h1 {
-            @include fira-font($fs: 64px, $lh: 64px);
-            color: $c-fg
+            font-family: var(--ff-fira);
+            font-size: 64px;
+            line-height: 64px;
+            color: $c-fg;
         }
     }
 
     >h2 {
-        @include fira-font($fs: 24px, $lh: 24px);
+        font-family: var(--ff-fira);
+        font-size: 24px;
+        line-height: 24px;
         color: $c-accent;
-        word-spacing: -4px
+        word-spacing: -4px;
     }
 
     >div {
@@ -81,50 +89,50 @@
 
             >span {
                 display: flex;
-                align-items: center
+                align-items: center;
             }
         }
     }
 
     >.place-btn>.btn-gap {
-        gap: 16px
+        gap: 16px;
     }
 }
 
 .cart-rightside-pos {
     @include display(flex, center, end, column);
-    padding-inline: 128px 80px
+    padding-inline: 128px 80px;
 }
 
 .closes {
     width: 18px;
     height: 18px;
-    object-fit: contain
+    object-fit: contain;
 }
 
 .cart-preview {
     @include position(relative, null, 370px, 520px);
     border-radius: 30px;
-    object-fit: cover
+    object-fit: cover;
 }
 
 .cart-radius {
     margin: 64px 0;
-    border-radius: 30px
+    border-radius: 30px;
 }
 
 .btn-arrow {
     width: 20px;
     height: 20px;
-    object-fit: contain
+    object-fit: contain;
 }
 
 button:hover .btn-cart {
-    color: $c-accent
+    color: $c-accent;
 }
 
 .cart-font-icon {
-    color: $c-fg
+    color: $c-fg;
 }
 
 @include respond(1350px) {
@@ -133,7 +141,7 @@ button:hover .btn-cart {
 
         >div {
             width: 330px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
         }
     }
 }
@@ -146,63 +154,65 @@ button:hover .btn-cart {
 
         >div {
             width: 518px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
         }
 
         >.project-headers {
             padding-top: 14px;
 
             >h4 {
-                @include karla-font($fs: 80px, $lh: 80px)
+                font-size: 80px;
+                line-height: 80px;
             }
 
             >h1 {
-                @include fira-font($fs: 64px, $lh: 64px)
+                font-size: 64px;
+                line-height: 64px;
             }
         }
     }
 
     .cart-preview {
-        height: 334px
+        height: 334px;
     }
 
     .cart-layer {
         flex-direction: column-reverse;
-        align-items: start
+        align-items: start;
     }
 
     .cart-rightside-pos {
-        padding-inline: 64px
+        padding-inline: 64px;
     }
 
     .cart-radius {
-        margin: 32px 0 0
+        margin: 32px 0 0;
     }
 
     .closes {
-        margin-top: 32px
+        margin-top: 32px;
     }
 
     .next-button {
         position: absolute;
-        top: 842px
+        top: 842px;
     }
 }
 
 @include respond(800px) {
     .project-description {
-        padding-left: 32px
+        padding-left: 32px;
     }
 
     .cart-rightside-pos {
-        padding-inline: 32px
+        padding-inline: 32px;
     }
 }
 
 @include respond(675px) {
     .cart-preview {
         height: 268px;
-        width: 384px
+        width: 384px;
     }
 
     .project-description {
@@ -214,33 +224,35 @@ button:hover .btn-cart {
             gap: 16px;
 
             >h4 {
-                @include karla-font($fs: 58px, $lh: 58px)
+                font-size: 58px;
+                line-height: 58px;
             }
 
             >h1 {
-                @include fira-font($fs: 52px, $lh: 52px)
+                font-size: 52px;
+                line-height: 52px;
             }
         }
 
         >div {
-            width: 384px
+            width: 384px;
         }
 
         >.place-btn {
             padding-top: 18px;
-            justify-content: center
+            justify-content: center;
         }
     }
 
     .next-button {
-        top: 786px
+        top: 786px;
     }
 }
 
 @include respond(540px) {
     .cart-preview {
         height: 228px;
-        width: 284px
+        width: 284px;
     }
 
     .project-description {
@@ -249,29 +261,30 @@ button:hover .btn-cart {
         padding-left: 16px;
 
         >h2 {
-            @include fira-font($fs: 18px, $lh: 18px)
+            font-size: 18px;
+            line-height: 18px;
         }
 
         >div {
             width: 284px;
-            flex-wrap: wrap
+            flex-wrap: wrap;
         }
 
         >.place-btn>.btn-gap {
-            gap: 12px
+            gap: 12px;
         }
     }
 
     .next-button {
-        top: 754px
+        top: 754px;
     }
 
     .cart-rightside-pos {
-        padding-inline: 16px
+        padding-inline: 16px;
     }
 
     button {
         width: 132px;
-        height: 42px
+        height: 42px;
     }
 }

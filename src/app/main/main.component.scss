@@ -21,13 +21,15 @@ section {
 }
 
 h1 {
-    @include karla-font($fs: 128px);
+    font-family: var(--ff-karla);
+    font-size: 128px;
     letter-spacing: -0.02em;
     color: $c-fg;
 }
 
 h2 {
-    @include fira-font($fs: 40px);
+    font-family: var(--ff-fira);
+    font-size: 40px;
     color: $c-fg;
 }
 
@@ -120,7 +122,8 @@ app-marquee {
     rotate: -90deg;
 
     >a {
-        @include karla-font($fs: 18px);
+        font-family: var(--ff-karla);
+        font-size: 18px;
         text-decoration: none;
         color: #fff;
 
@@ -130,14 +133,12 @@ app-marquee {
     }
 }
 
-
 .mail-img-pos {
     @include display(none, center, center);
     position: absolute;
     z-index: 999999;
     margin-right: 103px;
     margin-bottom: 252px;
-
 
     >img:last-child {
         @include position(null, null, 8px, 8px);
@@ -215,10 +216,8 @@ app-marquee {
         font-size: 68px;
     }
 
-    .headline {
-        >div {
-            gap: 10px;
-        }
+    .headline>div {
+        gap: 10px;
     }
 }
 

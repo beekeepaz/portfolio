@@ -13,9 +13,10 @@ section {
 
     >h1 {
       color: $c-accent;
-      @include fira-font($fs: 32px);
+      font-family: var(--ff-fira);
+      font-size: 32px;
       text-align: center;
-      margin: 0 32px 48px
+      margin: 0 32px 48px;
     }
   }
 }
@@ -26,11 +27,11 @@ section {
   border: 1px solid $c-accent;
   background-color: #2b3a37;
   border-radius: 16px;
-  @include fira-font();
+  font-family: var(--ff-fira);
 
   >span {
     @include display($d: flex, $j: center, $a: center, $f: column);
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -41,7 +42,7 @@ section {
 .preview {
   @include position($h: 250px, $w: 500px);
   margin: 32px;
-  background-color: #2b3a37
+  background-color: #2b3a37;
 }
 
 .show-container {
@@ -50,7 +51,7 @@ section {
 
   >div.quotes-img-pos {
     @include display($d: flex, $j: baseline, $a: baseline);
-    @include position($h: 322px, $w: 700px)
+    @include position($h: 322px, $w: 700px);
   }
 }
 
@@ -60,12 +61,12 @@ img.quotes {
 
 .box-shadow {
   @include position($h: 400px);
-  box-shadow: inset 625px 0 150px 0 rgba(28, 28, 28, .5), inset -625px 0 150px -220px rgba(28, 28, 28, .5)
+  box-shadow: inset 625px 0 150px 0 rgba(28, 28, 28, .5), inset -625px 0 150px -220px rgba(28, 28, 28, .5);
 }
 
 .box-shadow-second {
   @include position($h: 400px);
-  box-shadow: inset 150px 0 15px 0 rgb(28, 28, 28), inset -150px 0 15px 0 rgb(28, 28, 28)
+  box-shadow: inset 150px 0 15px 0 rgb(28, 28, 28), inset -150px 0 15px 0 rgb(28, 28, 28);
 }
 
 .comment-field {
@@ -125,7 +126,7 @@ img.quotes {
   height: 12px;
   margin: 5px;
   background-color: gray;
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .point-slider.active {

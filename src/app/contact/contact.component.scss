@@ -16,14 +16,18 @@ section {
         }
 
         >h1 {
-            @include fira-font($fs: 64px, $lh: 64px);
+            font-family: var(--ff-fira);
+            font-size: 64px;
+            line-height: 64px;
             letter-spacing: -0.03em;
             color: $c-accent;
             padding-top: 16px;
         }
 
         >h2 {
-            @include karla-font($fs: 24px, $lh: 28.06px);
+            font-family: var(--ff-karla);
+            font-size: 24px;
+            line-height: 28.06px;
             color: $c-accent;
             padding-bottom: 32px;
         }
@@ -34,7 +38,8 @@ section {
 
         >span,
         >div span {
-            @include karla-font($fs: 18px);
+            font-family: var(--ff-karla);
+            font-size: 18px;
             color: #fff;
             width: 100%;
             gap: 0;
@@ -54,7 +59,9 @@ section {
 
         >form {
             .contact-question {
-                @include fira-font($fs: 24px, $lh: 28.8px);
+                font-family: var(--ff-fira);
+                font-size: 24px;
+                line-height: 28.8px;
                 color: $c-accent;
                 padding-bottom: 32px;
                 cursor: default;
@@ -64,14 +71,14 @@ section {
                 height: 1px;
                 background-color: $c-accent;
                 width: 100%;
-                transition: opacity 0.2s ease-in-out;
+                transition: opacity .2s ease-in-out;
             }
 
             >div.ll1,
             >div.ll2,
             >div.ll3,
             >div.ll4 {
-                opacity: 0.5;
+                opacity: .5;
             }
 
             >div.con-information-pos {
@@ -82,6 +89,7 @@ section {
     }
 }
 
+/* Hover Linien */
 form:has(.cip1:hover) .ll1,
 form:has(.cip1:hover) .ll2,
 .cip1:hover~.ll2 {
@@ -108,7 +116,8 @@ form:has(.cip3:hover) .ll4,
 
 .con-police-pos {
     @include display(flex, center, center, column);
-    @include karla-font($fs: 15px);
+    font-family: var(--ff-karla);
+    font-size: 15px;
     @include position(null, null, 75px);
 
     >div {
@@ -143,14 +152,15 @@ form:has(.cip3:hover) .ll4,
 }
 
 .valid-massage {
-    font-family: $ff-karla;
+    font-family: var(--ff-karla);
     color: $c-error;
     cursor: default;
 }
 
 input {
     @include position(null, null, 32px, 332px);
-    @include karla-font($fs: 24px);
+    font-family: var(--ff-karla);
+    font-size: 24px;
     border: none;
     outline: none;
     box-sizing: border-box;
@@ -163,13 +173,15 @@ input {
 }
 
 ::placeholder {
-    @include karla-font($fs: 24px);
+    font-family: var(--ff-karla);
+    font-size: 24px;
     color: $c-accent;
 }
 
 textarea {
     @include position(null, null, 32px);
-    @include karla-font($fs: 24px);
+    font-family: var(--ff-karla);
+    font-size: 24px;
     outline: none;
     border: none;
     resize: none;
@@ -243,55 +255,55 @@ textarea {
 }
 
 @include respond(1200px) {
-  section {
-    height: 100%;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+    section {
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
 
-    div.contact-me {
-      padding-bottom: 64px;
-      padding-right: 32px;
-      padding-left: 32px;
-    }
+        div.contact-me {
+            padding-bottom: 64px;
+            padding-right: 32px;
+            padding-left: 32px;
+        }
 
-    >div.form-contain > form .con-information-pos {
-      padding-right: 58px;
-      padding-left: 58px;
+        >div.form-contain>form .con-information-pos {
+            padding-right: 58px;
+            padding-left: 58px;
+        }
     }
-  }
 }
 
 @include respond(710px) {
-  section > div.form-contain {
-    width: 536px;
-  }
+    section>div.form-contain {
+        width: 536px;
+    }
 }
 
 @include respond(600px) {
-  section > div.form-contain {
-    width: 476px;
-  }
+    section>div.form-contain {
+        width: 476px;
+    }
 }
 
 @include respond(520px) {
-  section > div.form-contain {
-    width: 356px;
+    section>div.form-contain {
+        width: 356px;
 
-    > form .con-information-pos {
-      padding-right: 0;
+        >form .con-information-pos {
+            padding-right: 0;
+        }
     }
-  }
 }
 
 @include respond(430px) {
-  section > div.form-contain {
-    width: 326px;
-  }
+    section>div.form-contain {
+        width: 326px;
+    }
 }
 
 @include respond(380px) {
-  section > div.form-contain {
-    width: 286px;
-  }
+    section>div.form-contain {
+        width: 286px;
+    }
 }

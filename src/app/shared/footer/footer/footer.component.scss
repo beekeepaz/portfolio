@@ -1,94 +1,112 @@
 @use '../../../scss_global/global.style' as *; // Tokens, Mixins, respond()
 
-// ----------------------------
-// Footer Component Styles (refactored auf globale Mixins & Tokens)
-// ----------------------------
-
+/* Fonts leichtgewichtig: keine @include fira/karla – stattdessen globale Vars */
 section {
   @include display($d: flex, $f: row);
   @include position($h: 25vh);
   background-color: $c-bg;
   color: $c-fg;
 
-  > div {
+  >div {
     @include display($d: flex, $j: space-around, $a: center, $f: row);
 
-    > span {
+    >span {
       @include display($d: flex, $j: flex-end);
-      @include position($p: absolute); // bewusst absolut, wie im Original
-      @include fira-font();
+      @include position($p: absolute);
+      font-family: var(--ff-fira);
       color: $c-accent;
     }
 
-    > span:hover { cursor: default; }
+    >span:hover {
+      cursor: default;
+    }
 
-    > div.place-logo {
+    >div.place-logo {
       @include display($d: flex, $j: flex-end, $a: flex-start);
       width: 668px;
 
-      > div.logos { display: flex; padding-top: 32px; }
-
-      > span {
-        @include karla-font($fs: 16px, $lh: 19.2px);
-        text-align: left;
-        color: #FFFFFF;
+      >div.logos {
+        display: flex;
+        padding-top: 32px;
       }
 
-      > span:hover { cursor: default; }
+      >span {
+        font-family: var(--ff-karla);
+        font-size: 16px;
+        line-height: 19.2px;
+        text-align: left;
+        color: #fff;
+      }
+
+      >span:hover {
+        cursor: default;
+      }
     }
 
-    > div.place-links {
+    >div.place-links {
       @include display($d: flex, $j: center, $a: flex-end);
       @include position($w: 568px);
       gap: 10px;
 
-      > div {
+      >div {
         @include display($d: flex, $a: center);
         gap: 6px;
 
-        > a {
+        >a {
           @include display($d: flex, $j: flex-start, $a: center);
           text-decoration: none;
           width: 130px;
-          color: #FFFFFF;
-          @include fira-font();
+          color: #fff;
+          font-family: var(--ff-fira);
           gap: 6px;
 
-          > img.green-point { @include position($h: 8px, $w: 8px); visibility: hidden; }
+          >img.green-point {
+            @include position($h: 8px, $w: 8px);
+            visibility: hidden;
+          }
         }
 
-        > a:hover { color: $c-accent; cursor: pointer; }
-        > a:hover img.green-point { visibility: visible; }
+        >a:hover {
+          color: $c-accent;
+          cursor: pointer;
+        }
+
+        >a:hover img.green-point {
+          visibility: visible;
+        }
       }
     }
 
-    > div.place-links:hover { cursor: default; }
+    >div.place-links:hover {
+      cursor: default;
+    }
   }
 }
 
-span:hover img { visibility: hidden; }
-
-// ----------------------------
-// Responsive via respond($max)
-// ----------------------------
+span:hover img {
+  visibility: hidden;
+}
 
 @include respond(1400px) {
-  .place-links { padding-right: 32px; }
-  .place-logo { padding-left: 32px; }
+  .place-links {
+    padding-right: 32px;
+  }
+
+  .place-logo {
+    padding-left: 32px;
+  }
 }
 
 @include respond(720px) {
   section {
     @include position($h: 35vh);
 
-    > div {
+    >div {
       @include display($d: flex, $j: space-around, $a: center, $f: row);
 
-      > span { margin-top: 254px; }
+      >span {
+        margin-top: 254px;
+      }
     }
   }
 }
-
-// app-legal-notice {
-//   // Beispiel: @include position();
-// }

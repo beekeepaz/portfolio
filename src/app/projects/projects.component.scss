@@ -24,20 +24,25 @@ section {
 
             h1 {
                 padding-bottom: 32px;
-                @include fira-font($fs: 64px, $lh: 1);
-                color: $c-accent
+                font-family: var(--ff-fira);
+                font-size: 64px;
+                line-height: 1;
+                color: $c-accent;
             }
 
             h2 {
                 padding-bottom: 32px;
-                @include karla-font($fs: 24px, $lh: 28.06px);
-                color: $c-accent
+                font-family: var(--ff-karla);
+                font-size: 24px;
+                line-height: 28.06px;
+                color: $c-accent;
             }
 
             span {
                 @include position(null, null, 44px, 456px);
                 padding-bottom: 32px;
-                @include karla-font($fs: 18px)
+                font-family: var(--ff-karla);
+                font-size: 18px;
             }
         }
 
@@ -55,11 +60,13 @@ section {
                     }
 
                     h3 {
-                        @include fira-font($fs: 24px)
+                        font-family: var(--ff-fira);
+                        font-size: 24px;
                     }
 
                     span {
-                        @include karla-font($fs: 18px)
+                        font-family: var(--ff-karla);
+                        font-size: 18px;
                     }
 
                     >div {
@@ -132,7 +139,6 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
 }
 
 @include respond(1550px) {
-
     section {
         >div {
             width: 750px;
