@@ -1,0 +1,59 @@
+:host {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+
+    --cc-color: #3b82f6;
+    --cc-glow: rgba(59, 130, 246, .7);
+    --cc-dot-size: 10px;
+    --cc-ring-size: 36px;
+}
+
+.cc-dot,
+.cc-ring {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform, opacity;
+    transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(var(--s, 1));
+    transition: opacity .25s ease;
+}
+
+.cc-dot {
+    width: var(--cc-dot-size, 10px);
+    height: var(--cc-dot-size, 10px);
+    border-radius: 9999px;
+    background: var(--cc-color, #3b82f6);
+    box-shadow:
+        0 0 4px var(--cc-color, #3b82f6),
+        0 0 12px var(--cc-glow, rgba(59, 130, 246, .7)),
+        0 0 28px var(--cc-glow, rgba(59, 130, 246, .7));
+    mix-blend-mode: screen;
+}
+
+.cc-ring {
+    width: var(--cc-ring-size, 36px);
+    height: var(--cc-ring-size, 36px);
+    border-radius: 9999px;
+    border: 2px solid var(--cc-color, #3b82f6);
+    box-shadow: 0 0 18px var(--cc-glow, rgba(59, 130, 246, .7)), inset 0 0 8px rgba(255, 255, 255, 0.08);
+    opacity: .9;
+    transition: opacity .25s ease, transform .12s ease;
+
+    &.interactive {
+        --s: 1.18;
+        box-shadow: 0 0 24px var(--cc-glow, rgba(59, 130, 246, .7)), inset 0 0 10px rgba(255, 255, 255, 0.12);
+    }
+
+    &.active {
+        transform: translate3d(var(--x), var(--y), 0) scale(0.96);
+        opacity: 1;
+    }
+}
+
+/* Ein-/Ausblenden */
+.hidden {
+    opacity: 0;
+}
