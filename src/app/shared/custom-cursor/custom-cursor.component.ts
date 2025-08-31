@@ -23,7 +23,7 @@ export class CustomCursorComponent implements OnInit, OnDestroy {
   // Zustände
   visible = false;
   active = false;       // mousedown
-  interactive = false;  // Hover auf a/button/etc.
+  interactive = false;  // Hover auf a/button/etc. oder markierten Elementen
   enabled = true;       // wird auf Touch-Geräten deaktiviert
 
   // Motion
@@ -65,8 +65,20 @@ export class CustomCursorComponent implements OnInit, OnDestroy {
     // Interaktive Elemente erkennen
     const t = e.target as Element | null;
     this.interactive = !!t && (
-      t.closest('a, button, [role="button"], input[type="submit"], .cursor-pointer') !== null
+      t.closest(
+        // Standard-Interaktoren:
+        'a, button, [role="button"], input[type="submit"], ' +
+        // NEU: eigene Marker ohne Hand-Pointer:
+        '.cc-interactive, [data-interactive]' +
+        // (Optional/kompatibel: falls du irgendwo noch .cursor-pointer verwendest)
+        ', .cursor-pointer'
+      ) !== null
     );
+
+    const overText = !!t && !!t.closest(
+      'input[type="text"], input[type="search"], input[type="email"], input[type="url"], input[type="tel"], textarea, [contenteditable="true"], .mat-mdc-text-field, .mdc-text-field, .form-control'
+    );
+    this.doc.documentElement.classList.toggle('cc-over-text', overText);
   }
 
   @HostListener('document:mousedown') onDown() { if (this.enabled) this.active = true; }

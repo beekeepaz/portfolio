@@ -25,20 +25,64 @@ select,
     cursor: auto !important;
 }
 
-/* Farben/Größen an deine CI anpassen */
 :root {
     --cc-color: #22d3ee;
-    /* Hauptfarbe (Cyan) */
     --cc-glow: rgba(34, 211, 238, .75);
-    /* Glow-Farbe */
+
+
+    --cc-glow-alpha: 0.75;
+    --cc-glow-mul: 1;
+    --cc-glow-speed: 1.6s;
     --cc-dot-size: 10px;
     --cc-ring-size: 36px;
+}
+
+:root.cc-over-text {
+    --sx: 1;
+    --sy: 2.0;
+    --cc-glow-mul: 1.6;
+}
+
+:root.glow-soft {
+    --cc-glow-alpha: .45;
+    --cc-glow-mul: .7;
+    --cc-glow-speed: 2.2s;
+}
+
+:root.glow-strong {
+    --cc-glow-alpha: .95;
+    --cc-glow-mul: 1.5;
+    --cc-glow-speed: 1.2s;
 }
 
 /* Optional: Dark-Mode */
 :root.dark {
     --cc-color: #60a5fa;
     --cc-glow: rgba(96, 165, 250, .85);
+}
+
+:root:has(.cc-interactive:hover),
+:root:has(a:hover, button:hover, [role="button"]:hover) {
+    --cc-glow-alpha: .95;
+    --cc-glow-mul: 1.4;
+}
+
+/* Noch mal ’ne Schippe beim Klicken */
+:root:has(.cc-interactive:active) {
+    --cc-glow-alpha: .98;
+    --cc-glow-mul: 1.6;
+}
+
+/* Tastaturfreundlich (Tab-Fokus) */
+:root:has(.cc-interactive:focus-visible) {
+    --cc-glow-alpha: .9;
+    --cc-glow-mul: 1.3;
+}
+
+/* Zielgenau für einen Bereich (z. B. Header) */
+:root:has(header .cc-interactive:hover) {
+    --cc-glow-alpha: .95;
+    --cc-glow-mul: 1.5;
 }
 
 // colors

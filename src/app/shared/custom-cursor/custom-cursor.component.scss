@@ -4,52 +4,124 @@
     pointer-events: none;
     z-index: 2147483647;
 
-    --cc-color: #3b82f6;
-    --cc-glow: rgba(59, 130, 246, .7);
+    /* Defaults (global in :root übersteuerbar) */
+    --cc-color: #8b5cf6;
+    /* Violett */
+    --cc-glow-rgb: 139 92 246;
+    /* RGB von #8b5cf6 */
+    --cc-glow-alpha: .75;
+    /* 0.3 soft … 1.0 stark */
+    --cc-glow-mul: 1;
+    /* 0.6 soft … 1.5 stark */
+    --cc-glow-speed: 1.6s;
+
     --cc-dot-size: 10px;
-    --cc-ring-size: 36px;
 }
 
-.cc-dot,
-.cc-ring {
+/* --------------------------------------- */
+/* Punkt                                   */
+/* --------------------------------------- */
+.cc-dot {
     position: fixed;
     left: 0;
     top: 0;
     pointer-events: none;
-    will-change: transform, opacity;
-    transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(var(--s, 1));
-    transition: opacity .25s ease;
-}
+    will-change: transform, opacity, box-shadow, filter;
+    transform: translate3d(var(--x, -100px), var(--y, -100px), 0) scale(var(--sx, var(--s, 1)), var(--sy, var(--s, 1)));
+    transition: opacity .25s ease, transform .12s ease, box-shadow .2s ease;
 
-.cc-dot {
     width: var(--cc-dot-size, 10px);
     height: var(--cc-dot-size, 10px);
     border-radius: 9999px;
-    background: var(--cc-color, #3b82f6);
+    background: var(--cc-color, #8b5cf6);
     box-shadow:
-        0 0 4px var(--cc-color, #3b82f6),
-        0 0 12px var(--cc-glow, rgba(59, 130, 246, .7)),
-        0 0 28px var(--cc-glow, rgba(59, 130, 246, .7));
+        0 0 calc(4px * var(--cc-glow-mul, 1)) var(--cc-color, #8b5cf6),
+        0 0 calc(12px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75)),
+        0 0 calc(28px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75));
     mix-blend-mode: screen;
 }
 
-.cc-ring {
-    width: var(--cc-ring-size, 36px);
-    height: var(--cc-ring-size, 36px);
-    border-radius: 9999px;
-    border: 2px solid var(--cc-color, #3b82f6);
-    box-shadow: 0 0 18px var(--cc-glow, rgba(59, 130, 246, .7)), inset 0 0 8px rgba(255, 255, 255, 0.08);
-    opacity: .9;
-    transition: opacity .25s ease, transform .12s ease;
+/* HOVER über interaktiven Zielen → größer + stärkerer Glow */
+.cc-dot.interactive {
+    --s: 1.6;
+    /* deutlich größer */
+    --cc-glow-mul: 1.5;
+    animation: ccGlow var(--cc-glow-speed, 1.6s) ease-in-out infinite;
+}
 
-    &.interactive {
-        --s: 1.18;
-        box-shadow: 0 0 24px var(--cc-glow, rgba(59, 130, 246, .7)), inset 0 0 10px rgba(255, 255, 255, 0.12);
+/* KLICK (global) → Punkt & Glow kleiner, kein Blinken */
+.cc-dot.active {
+    --s: .6;
+    /* kleiner Punkt */
+    --cc-glow-mul: .7;
+    /* Glow schwächer/kleiner */
+    --cc-glow-alpha: .55;
+    /* Transparenterer Glow */
+    animation: none;
+    /* kein Puls beim Klicken */
+}
+
+/* Falls Hover + Klick gleichzeitig: Klick soll gewinnen */
+.cc-dot.interactive.active {
+    --s: .6;
+    --cc-glow-mul: .7;
+    --cc-glow-alpha: .55;
+    animation: none;
+}
+
+/* --------------------------------------- */
+/* Spezielle Kontexte via :has()           */
+/* --------------------------------------- */
+
+/* Über Textfeldern: Punkt wird zum leuchtenden Strich (nur Hover) */
+:root:has(input[type="text"]:hover,
+    input[type="search"]:hover,
+    input[type="email"]:hover,
+    input[type="url"]:hover,
+    input[type="tel"]:hover,
+    textarea:hover,
+    [contenteditable="true"]:hover) {
+    --sx: 2.8;
+    /* breiter */
+    --sy: .20;
+    /* flacher → Strich */
+    --cc-glow-mul: 1.6;
+}
+
+:root:has(input[type="text"]:hover,
+    input[type="search"]:hover,
+    input[type="email"]:hover,
+    input[type="url"]:hover,
+    input[type="tel"]:hover,
+    textarea:hover,
+    [contenteditable="true"]:hover) .cc-dot {
+    animation: ccGlow var(--cc-glow-speed, 1.6s) ease-in-out infinite;
+}
+
+/* Optional: noch kleiner beim Klick auf speziell markierte Ziele */
+:root:has(.cc-shrink:active) {
+    --sx: .08;
+    --sy: .08;
+    --cc-glow-mul: .6;
+    --cc-glow-alpha: .5;
+}
+
+/* Puls-Animation (für Hover-Zustände) */
+@keyframes ccGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 calc(6px * var(--cc-glow-mul, 1)) var(--cc-color, #8b5cf6),
+            0 0 calc(16px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75)),
+            0 0 calc(32px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75));
     }
 
-    &.active {
-        transform: translate3d(var(--x), var(--y), 0) scale(0.96);
-        opacity: 1;
+    50% {
+        box-shadow:
+            0 0 calc(10px * var(--cc-glow-mul, 1)) var(--cc-color, #8b5cf6),
+            0 0 calc(28px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75)),
+            0 0 calc(48px * var(--cc-glow-mul, 1)) rgb(var(--cc-glow-rgb, 139 92 246) / var(--cc-glow-alpha, .75));
     }
 }
 

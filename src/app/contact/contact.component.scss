@@ -103,10 +103,8 @@ form:has(.cip3:hover) .ll4,
     opacity: 1 !important;
 }
 
-.con-information-pos.cip1,
-.con-information-pos.cip2,
-.con-information-pos.cip3 {
-    cursor: text;
+input {
+    cursor: null;
 }
 
 .con-police-pos {
@@ -185,7 +183,6 @@ textarea {
     user-select: none;
 
     &:hover span {
-        cursor: pointer;
         z-index: 99;
         background-color: $c-accent;
     }
@@ -193,7 +190,6 @@ textarea {
     input {
         position: absolute;
         opacity: 0;
-        cursor: pointer;
         height: 0;
         width: 0;
     }

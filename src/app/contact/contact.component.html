@@ -38,7 +38,7 @@
                 }
             </div>
             <div class="longe-line ll3"></div>
-            <div class="con-information-pos cip3" (click)="this.focusInput(messageInput)" tabindex="0"
+            <div class="con-information-pos cip3 cc-over-text" (click)="this.focusInput(messageInput)" tabindex="0"
                 aria-label="Nachricht eingeben">
                 <span class="contact-question">{{ languageService.contact.message }}</span>
                 <textarea #messageInput autocomplete="off" required #message="ngModel" minlength="6"
