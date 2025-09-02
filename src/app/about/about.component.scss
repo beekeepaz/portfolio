@@ -2,35 +2,69 @@
 
 section {
     @include display(flex, space-around, center, row);
-    @include position(relative, 99, 100vh, 100%);
+    @include position(null, null, 100vh, 100%);
     background-color: $c-bg;
     color: $c-fg;
 
-    >div.pictures {
-        @include display(flex, space-between, center, column);
-        @include position(relative, 99, 668px, 668px);
+    >div {
+        display: flex;
+        height: 70px;
 
-        >img.front {
-            @include position(absolute, 2, 568px, 568px);
-            border-radius: 30px;
-            margin-left: 32px;
-        }
+        >div.pictures {
+            @include display(flex, center, center, row);
+            @include position(null, null, 100%, 100%);
 
-        >img.behind {
-            @include position(absolute, 1, 568px, 568px);
-            margin-top: 32px;
+            >img.front {
+                @include position(absolute, 2, 568px, 568px);
+                border-radius: 30px;
+                margin-left: 38px;
+                margin-bottom: 38px;
+            }
+
+            >img.behind {
+                @include position(absolute, 1, 568px, 568px);
+            }
         }
     }
 }
 
+/* section {
+    @include display(flex, space-around, center, row);
+    @include position(null, null, 100vh, 100%);
+    background-color: $c-bg;
+    color: $c-fg;
+
+    >div.pictures {
+        @include display(flex, center, center, row);
+        @include position(null, null, 100%, 100%);
+
+        >img.front {
+            @include position(absolute, 2, 568px, 568px);
+            border-radius: 30px;
+            margin-left: 38px;
+            margin-bottom: 38px;
+        }
+
+        >img.behind {
+            @include position(absolute, 1, 568px, 568px);
+        }
+    }
+} */
+
+.about-me-text {
+    @include display(flex, center, center, column);
+    width: 100%;
+    height: 100%;
+}
+
 h3 {
-    @include display(flex, flex-start, center, column);
+    @include display(flex, flex-start, flex-start, column);
+    width: 602px;
     font-family: var(--ff-karla);
     font-size: 24px;
     line-height: 21.6px;
     color: $c-accent;
     padding-bottom: 10px;
-    padding-left: 10px;
 }
 
 .about-me-container {
@@ -43,7 +77,6 @@ h3 {
     background-color: rgb(31, 46, 43);
     color: #FFFFFF;
     padding: 32px;
-    gap: 40px;
 
     >h4 {
         font-family: var(--ff-fira);
@@ -52,13 +85,17 @@ h3 {
         color: $c-accent;
     }
 
+    >span {
+        @include display(flex, center, center, null);
+    }
+
     >div {
-        @include display(flex, center, center, column);
+        @include display(flex, center, start, row);
         font-family: var(--ff-karla);
         font-size: 18px;
         color: #ffffffad;
         gap: 32px;
-        height: 100%;
+        padding-bottom: 32px;
     }
 }
 
@@ -79,43 +116,47 @@ span.hover-text:hover {
     color: #ffffffed;
 }
 
-#targeRed {
+/* #targeRed {
     scroll-behavior: smooth;
     overflow-y: scroll;
-}
+} */
 
-div.layout-section {
+/* div.layout-section {
     @include display(flex, center, center, column);
-    @include position(absolute, -1, 100%, 100%);
+    @include position(null, -1, 100%, 100%);
     inset: 0;
     pointer-events: none;
     background-image: url("../../assets/img/background_skill.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: left top;
-}
+} */
 
 @include respond(1400px) {
     section {
-        @include display(flex, center, center, column);
-
         >div.pictures {
-            @include position(absolute, 99, 568px, 568px);
-
             >img.front {
-                @include position(absolute, 1, 468px, 468px);
+                width: 468px;
+                height: 468px;
             }
 
             >img.behind {
-                @include position(absolute, 99, 468px, 468px);
+                width: 468px;
+                height: 468px;
             }
         }
     }
 
+    div.about-me-text {
+        >h3 {
+            width: 502px;
+        }
+    }
+
     .about-me-container {
-        @include position(absolute, 99, 430px, 436px);
+        @include position(null, null, 430px, 436px);
         font-size: 16px;
-        gap: 16px;
+        gap: 14px;
 
         >h4 {
             font-size: 54px;
@@ -123,17 +164,40 @@ div.layout-section {
 
         >div {
             font-size: 16px;
+            padding-bottom: 20px;
         }
     }
 }
 
 @include respond(1150px) {
-    section>div.pictures {
-        @include position(absolute, 99, 568px, 526px);
+    section {
+        >div.pictures {
+            >img.front {
+                width: 468px;
+                height: 468px;
+            }
+
+            >img.behind {
+                width: 468px;
+                height: 468px;
+            }
+        }
+    }
+
+    div.about-me-text {
+        >h3 {
+            width: 466px;
+        }
     }
 
     .about-me-container {
-        @include position(absolute, 99, 530px, 320px);
+        width: 400px;
+        height: 406px;
+        padding: 22px;
+
+        >div {
+            padding-bottom: 10px;
+        }
     }
 }
 
