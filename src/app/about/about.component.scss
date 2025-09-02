@@ -1,28 +1,30 @@
 @use '../scss_global/global.style' as *;
 
 section {
-    @include display(flex, space-around, center, row);
+    @include display(flex, center, center, row);
     @include position(null, null, 100vh, 100%);
     background-color: $c-bg;
     color: $c-fg;
 
-    >div {
-        display: flex;
-        height: 70px;
+    >div.placed {
+        @include display(flex, space-around, center, row);
+        width: 100%;
+        height: 706px;
 
-        >div.pictures {
-            @include display(flex, center, center, row);
-            @include position(null, null, 100%, 100%);
+        .pictures {
+            @include display(flex, flex-start, center, column);
+            width: 100%;
+            height: 100%;
 
             >img.front {
                 @include position(absolute, 2, 568px, 568px);
                 border-radius: 30px;
                 margin-left: 38px;
-                margin-bottom: 38px;
             }
 
             >img.behind {
                 @include position(absolute, 1, 568px, 568px);
+                margin-top: 26px;
             }
         }
     }
@@ -52,7 +54,7 @@ section {
 } */
 
 .about-me-text {
-    @include display(flex, center, center, column);
+    @include display(flex, flex-end, center, column);
     width: 100%;
     height: 100%;
 }
