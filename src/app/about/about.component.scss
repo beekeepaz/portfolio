@@ -2,9 +2,11 @@
 
 section {
     @include display(flex, center, center, row);
-    @include position(null, null, 100vh, 100%);
+    width: 100%;
+    min-height: 100vh;
     background-color: $c-bg;
     color: $c-fg;
+    cursor: default;
 
     >div.placed {
         @include display(flex, space-around, center, row);
@@ -19,12 +21,12 @@ section {
             >img.front {
                 @include position(absolute, 2, 568px, 568px);
                 border-radius: 30px;
-                margin-left: 38px;
+                margin-left: 48px;
             }
 
             >img.behind {
                 @include position(absolute, 1, 568px, 568px);
-                margin-top: 26px;
+                margin-top: 24px;
             }
         }
     }
@@ -57,6 +59,7 @@ section {
     @include display(flex, flex-end, center, column);
     width: 100%;
     height: 100%;
+    text-align: justify;
 }
 
 h3 {
@@ -96,7 +99,7 @@ h3 {
         font-family: var(--ff-karla);
         font-size: 18px;
         color: #ffffffad;
-        gap: 32px;
+        gap: 42px;
         padding-bottom: 32px;
     }
 }
@@ -134,34 +137,85 @@ span.hover-text:hover {
     background-position: left top;
 } */
 
-@include respond(1400px) {
+@include respond(1450px) {
     section {
-        >div.pictures {
-            >img.front {
-                width: 468px;
-                height: 468px;
-            }
+        >div.placed {
+            flex-direction: column;
+            height: 1812px;
 
-            >img.behind {
-                width: 468px;
-                height: 468px;
+            .pictures {
+                justify-content: center;
+
+                >img.front {
+                    height: 668px;
+                    width: 668px;
+                    margin-left: 48px;
+                }
+
+                >img.behind {
+                    height: 668px;
+                    width: 668px;
+                    margin-top: 48px;
+                }
             }
         }
     }
 
-    div.about-me-text {
-        >h3 {
-            width: 502px;
+    .about-me-text {
+        justify-content: center;
+    }
+
+    .about-me-container {
+        height: 630px;
+        width: 636px;
+        font-size: 22px;
+
+        >h4 {
+            font-size: 84px;
+        }
+
+        >div {
+            font-size: 22px;
+            padding-bottom: 24px;
+        }
+    }
+
+    h3 {
+        font-size: 34px;
+        width: 702px;
+        padding-bottom: 14px;
+    }
+}
+
+
+@include respond(950px) {
+    section {
+        >div.placed {
+            height: 1512px;
+
+            .pictures {
+                >img.front {
+                    height: 568px;
+                    width: 568px;
+                    margin-left: 38px;
+                }
+
+                >img.behind {
+                    height: 568px;
+                    width: 568px;
+                    margin-top: 38px;
+                }
+            }
         }
     }
 
     .about-me-container {
-        @include position(null, null, 430px, 436px);
-        font-size: 16px;
-        gap: 14px;
+        height: 530px;
+        width: 536px;
+        font-size: 18px;
 
         >h4 {
-            font-size: 54px;
+            font-size: 64px;
         }
 
         >div {
@@ -169,114 +223,147 @@ span.hover-text:hover {
             padding-bottom: 20px;
         }
     }
+
+    h3 {
+        font-size: 24px;
+        width: 602px;
+        padding-bottom: 10px;
+    }
 }
 
-@include respond(1150px) {
+@include respond(700px) {
     section {
-        >div.pictures {
-            >img.front {
-                width: 468px;
-                height: 468px;
-            }
+        >div.placed {
+            height: 1412px;
 
-            >img.behind {
-                width: 468px;
-                height: 468px;
-            }
-        }
-    }
+            .pictures {
 
-    div.about-me-text {
-        >h3 {
-            width: 466px;
-        }
-    }
+                >img.front {
+                    height: 468px;
+                    width: 468px;
+                }
 
-    .about-me-container {
-        width: 400px;
-        height: 406px;
-        padding: 22px;
-
-        >div {
-            padding-bottom: 10px;
-        }
-    }
-}
-
-@include respond(950px) {
-    section {
-        @include display(flex, space-around, column);
-        @include position(absolute, 99, 1096px, 100%);
-    }
-
-    .about-me-container {
-        @include position(430px, 436px);
-    }
-}
-
-@include respond(850px) {
-    div.layout-section {
-        height: 127%;
-    }
-}
-
-@include respond(710px) {
-    div.layout-section {
-        height: 134%;
-    }
-}
-
-@include respond(560px) {
-    section {
-        @include position($h: 1196px);
-
-        >div.pictures {
-            @include display($d: flex);
-            width: 306px;
-
-            >img.front {
-                @include position($z: 1, $h: 386px, $w: 386px);
-                margin-left: 16px;
-            }
-
-            >img.behind {
-                @include position($h: 386px, $w: 386px);
-                margin-right: 16px;
+                >img.behind {
+                    height: 468px;
+                    width: 468px;
+                }
             }
         }
     }
 
     .about-me-container {
-        @include position($h: 580px, $w: 336px);
+        height: 450px;
+        width: 436px;
+        font-size: 16px;
 
         >h4 {
-            font-size: 48px;
+            font-size: 54px;
         }
+
+        >div {
+            font-size: 16px;
+            padding-bottom: 18px;
+        }
+    }
+
+    h3 {
+        font-size: 24px;
+        width: 502px;
+        padding-bottom: 10px;
     }
 }
 
-@include respond(450px) {
+@include respond(590px) {
     section {
-        @include position($h: 1196px);
+        >div.placed {
+            height: 1212px;
 
-        >div.pictures {
-            >img.front {
-                @include position($z: 1, $h: 298px, $w: 298px);
-                margin-left: 16px;
-            }
+            .pictures {
 
-            >img.behind {
-                @include position($h: 298px, $w: 298px);
-                margin-right: 16px;
+                >img.front {
+                    height: 386px;
+                    width: 386px;
+                }
+
+                >img.behind {
+                    height: 386px;
+                    width: 386px;
+                }
             }
         }
     }
 
     .about-me-container {
-        @include position($h: 680px, $w: 248px);
+        height: 406px;
+        width: 386px;
+        font-size: 16px;
+
+        >h4 {
+            font-size: 54px;
+            padding-bottom: 14px;
+        }
+
+        >span {
+            padding-bottom: 14px;
+        }
+
+        >div {
+            font-size: 16px;
+            padding-bottom: 14px;
+        }
     }
 
-    div.layout-section {
-        height: 148%;
+    h3 {
+        font-size: 22px;
+        width: 452px;
+    }
+}
+
+@include respond(490px) {
+    section {
+        >div.placed {
+            height: 1612px;
+
+            .pictures {
+
+                >img.front {
+                    height: 300px;
+                    width: 300px;
+                    margin-left: 0;
+                }
+
+                >img.behind {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .about-me-text {
+        justify-content: flex-start;
+    }
+
+    .about-me-container {
+        height: 666px;
+        width: 230px;
+        font-size: 16px;
+
+        >h4 {
+            font-size: 44px;
+        }
+
+        >span {
+            padding-bottom: 14px;
+        }
+
+        >div {
+            font-size: 16px;
+            padding-bottom: 14px;
+        }
+    }
+
+    h3 {
+        font-size: 22px;
+        width: 296px;
     }
 }
