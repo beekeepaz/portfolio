@@ -2,11 +2,41 @@
 
 section {
     @include display(flex, space-around, center, column);
-    @include position(relative, 2, 100vh, 100%);
-    background-color: $c-bg;
+    @include position(relative, 2, auto, 100%);
+    min-height: 100dvh;
     color: $c-fg;
-    opacity: 0.85;
     cursor: default;
+    text-align: justify;
+    overflow: clip;
+    background: none;
+    --bg-pos: center top;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image: url("../../assets/img/background_skill.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: var(--bg-pos);
+        will-change: transform;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-color: rgba($c-bg, 0.85);
+        pointer-events: none;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
 
     >div {
         width: 100%;
@@ -15,13 +45,10 @@ section {
 
 .skill-set-container {
     @include display(flex, center, baseline, column);
-    @include position(absolute, 99, 530px, 536px);
-
-    /* ▼ Fonts statt Mixins */
+    @include position(null, null, 530px, 536px);
     font-family: var(--ff-karla);
     font-size: 18px;
     line-height: 21.6px;
-
     border-radius: 30px;
     border: 1px solid $c-accent;
     background-color: rgb(31, 46, 43);
@@ -30,21 +57,17 @@ section {
     gap: 40px;
 
     >h4 {
-        /* ▼ Fonts statt Mixins */
         font-family: var(--ff-fira);
         font-size: 64px;
         line-height: 64px;
-
         letter-spacing: -0.03em;
         text-align: left;
         color: $c-accent;
     }
 
     >div {
-        /* ▼ Fonts statt Mixins */
         font-family: var(--ff-karla);
         font-size: 18px;
-
         text-align: left;
         color: #ffffffad;
     }
@@ -58,20 +81,18 @@ section {
 .skill-pos {
     @include display(flex, space-around, flex-start, row);
     width: 100%;
+    height: auto;
 }
 
 h3 {
-    /* ▼ Fonts statt Mixins */
     font-family: var(--ff-karla);
     font-size: 24px;
-
     color: $c-accent;
     padding-bottom: 10px;
     padding-left: 10px;
 }
 
 h5 {
-    /* ▼ Fonts statt Mixins */
     font-family: var(--ff-fira);
     font-size: 24px;
     line-height: 28.8px;
@@ -92,7 +113,7 @@ h5 {
 }
 
 img.icon {
-    @include position(absolute, 99, 32px, 32px);
+    @include position(null, 99, 32px, 32px);
 }
 
 .icon-container-pos {
@@ -101,18 +122,19 @@ img.icon {
 }
 
 .icons {
-    @include position(absolute, 99, 428px, 632px);
-    @include display(flex, center, center, column);
+    @include position(null, null, 428px, 632px);
+    @include display(flex, center, center);
     flex-wrap: wrap;
     gap: 72px;
 
     >div {
         @include display(flex, center, center, column);
-        @include position(absolute, 99, 116px, 104px);
+        @include position(null, null, 116px, 104px);
+        position: relative;
         gap: 8px;
 
         >img {
-            @include position(absolute, 99, 60px, 60px);
+            @include position(null, null, 60px, 60px);
         }
 
         >img:hover {
@@ -120,19 +142,37 @@ img.icon {
         }
 
         >span {
-            /* ▼ Fonts statt Mixins */
             font-family: var(--ff-fira);
             font-size: 18px;
             line-height: 21.6px;
-
             letter-spacing: -0.03em;
             width: 100%;
             text-align: center;
+            min-height: calc(2 * 21.6px);
         }
     }
 }
 
-/* ---------- Responsive ---------- */
+.icons>div .bubble {
+    position: absolute;
+    bottom: calc(100% + -12px);
+    left: 50%;
+    transform: translateX(-30%) translateY(0);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    max-width: min(280px, 80vw);
+    width: auto;
+    height: auto;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .25));
+    transition: opacity .45s ease, transform .45s ease;
+}
+
+.icons>div>img.with-bubble:hover~.bubble {
+    opacity: 1;
+    transform: translateX(-30%) translateY(18px);
+}
+
 
 @include respond(1400px) {
     .skill-pos {
@@ -156,17 +196,17 @@ img.icon {
     .skill-set-container {
         font-size: 16px;
 
-        /* statt karla-font */
         >h4 {
             font-size: 54px;
         }
 
-        /* statt fira-font */
         >div {
             font-size: 16px;
         }
+    }
 
-        /* statt karla-font */
+    section {
+        --bg-pos: left top;
     }
 }
 
@@ -187,13 +227,19 @@ img.icon {
 }
 
 @include respond(1050px) {
+    .skill-pos {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 175vh;
+    }
+
     .skill-set-container {
-        @include position($h: 528px, $w: 336px);
+        @include position($h: 528px, $w: 536px);
         gap: 32px;
     }
 
     .icons {
-        @include position($h: 428px, $w: 368px);
+        @include position($h: 428px, $w: 602px);
         gap: 28px;
     }
 
@@ -202,14 +248,12 @@ img.icon {
     }
 }
 
-@include respond(850px) {
-    section {
-        height: 1200px;
-    }
-
+/* @include respond(850px) {
     .skill-pos {
         flex-direction: column;
+        justify-content: space-around;
         gap: 24px;
+        height: 125vh;
     }
 
     .skill-set-container {
@@ -224,6 +268,10 @@ img.icon {
 
     .icon-container-pos {
         width: 526px;
+    }
+
+    section {
+        --bg-pos: center top;
     }
 }
 
@@ -244,12 +292,9 @@ img.icon {
 }
 
 @include respond(450px) {
-    section {
-        height: 1300px;
-    }
-
     .skill-set-container {
         @include position($h: 628px, $w: 248px);
+        padding: 24px;
         gap: 32px;
     }
 
@@ -276,3 +321,9 @@ img.icon {
         }
     }
 }
+
+@media (hover: hover) and (min-width: 1200px) {
+    section::before {
+        background-attachment: fixed;
+    }
+} */
