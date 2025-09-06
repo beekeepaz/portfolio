@@ -75,7 +75,6 @@ section {
 
 .header-pos {
     @include display(flex, baseline, baseline, column);
-    margin-top: -40px;
 }
 
 .skill-pos {
@@ -89,7 +88,6 @@ h3 {
     font-size: 24px;
     color: $c-accent;
     padding-bottom: 10px;
-    padding-left: 10px;
 }
 
 h5 {
@@ -122,8 +120,8 @@ img.icon {
 }
 
 .icons {
-    @include position(null, null, 428px, 632px);
-    @include display(flex, center, center);
+    @include position(null, null, 580px, 632px);
+    @include display(flex, start, center);
     flex-wrap: wrap;
     gap: 72px;
 
@@ -131,14 +129,15 @@ img.icon {
         @include display(flex, center, center, column);
         @include position(null, null, 116px, 104px);
         position: relative;
-        gap: 8px;
+        gap: 16px;
 
         >img {
             @include position(null, null, 60px, 60px);
+            transition: transform .25s ease, filter .95s ease;
         }
 
         >img:hover {
-            transform: scale(1.078);
+            transform: scale(1.18);
         }
 
         >span {
@@ -161,9 +160,8 @@ img.icon {
     opacity: 0;
     pointer-events: none;
     z-index: 10;
-    max-width: min(280px, 80vw);
-    width: auto;
-    height: auto;
+    width: 260px;
+    height: 200px;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .25));
     transition: opacity .45s ease, transform .45s ease;
 }
@@ -174,59 +172,11 @@ img.icon {
 }
 
 
-@include respond(1400px) {
+@include respond(1450px) {
     .skill-pos {
-        @include display(flex, center, center, row);
+        @include display(flex, center, center, column);
     }
 
-    .skill-set-container {
-        @include position($h: 430px, $w: 436px);
-        gap: 32px;
-    }
-
-    .icons {
-        @include position($h: 428px, $w: 512px);
-        gap: 32px;
-    }
-
-    .icon-container-pos {
-        width: 564px;
-    }
-
-    .skill-set-container {
-        font-size: 16px;
-
-        >h4 {
-            font-size: 54px;
-        }
-
-        >div {
-            font-size: 16px;
-        }
-    }
-
-    section {
-        --bg-pos: left top;
-    }
-}
-
-@include respond(1150px) {
-    .skill-set-container {
-        @include position($h: 430px, $w: 380px);
-        gap: 24px;
-    }
-
-    .icons {
-        @include position($h: 428px, $w: 436px);
-        gap: 28px;
-    }
-
-    .icon-container-pos {
-        width: 480px;
-    }
-}
-
-@include respond(1050px) {
     .skill-pos {
         flex-direction: column;
         justify-content: space-around;
@@ -234,21 +184,29 @@ img.icon {
     }
 
     .skill-set-container {
-        @include position($h: 528px, $w: 536px);
-        gap: 32px;
+        @include position($h: 630px, $w: 636px);
+        gap: 60px;
+        font-size: 22px;
+
+        >h4 {
+            font-size: 84px;
+        }
     }
 
-    .icons {
-        @include position($h: 428px, $w: 602px);
-        gap: 28px;
-    }
-
-    .icon-container-pos {
-        width: 380px;
+    h3 {
+        font-size: 34px;
+        padding-bottom: 14px;
     }
 }
 
-/* @include respond(850px) {
+@include respond(950px) {
+    .skill-set-container {
+        @include position($h: 528px, $w: 536px);
+        gap: 46px;
+    }
+}
+
+@include respond(700px) {
     .skill-pos {
         flex-direction: column;
         justify-content: space-around;
@@ -275,7 +233,7 @@ img.icon {
     }
 }
 
-@include respond(560px) {
+@include respond(590px) {
     .skill-set-container {
         @include position($h: 528px, $w: 336px);
         gap: 32px;
@@ -290,6 +248,8 @@ img.icon {
         width: 380px;
     }
 }
+
+/*
 
 @include respond(450px) {
     .skill-set-container {
