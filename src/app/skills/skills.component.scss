@@ -120,7 +120,7 @@ img.icon {
 }
 
 .icons {
-    @include position(null, null, 580px, 632px);
+    @include position(null, null, 580px, 100%);
     @include display(flex, start, center);
     flex-wrap: wrap;
     gap: 72px;
@@ -175,12 +175,12 @@ img.icon {
 @include respond(1450px) {
     .skill-pos {
         @include display(flex, center, center, column);
+        height: 150vh;
     }
 
     .skill-pos {
         flex-direction: column;
         justify-content: space-around;
-        height: 175vh;
     }
 
     .skill-set-container {
@@ -203,6 +203,15 @@ img.icon {
     .skill-set-container {
         @include position($h: 528px, $w: 536px);
         gap: 46px;
+
+        >h4 {
+            font-size: 64px;
+        }
+    }
+
+    h3 {
+        font-size: 24px;
+        padding-bottom: 10px;
     }
 }
 
@@ -211,17 +220,25 @@ img.icon {
         flex-direction: column;
         justify-content: space-around;
         gap: 24px;
-        height: 125vh;
     }
 
     .skill-set-container {
         @include position($h: 428px, $w: 436px);
+        font-size: 16px;
         gap: 32px;
     }
 
     .icons {
-        @include position($h: 428px, $w: 512px);
+        @include position($w: 512px);
         gap: 28px;
+
+        >div {
+            padding-bottom: 16px;
+
+            >span {
+                font-size: 16px;
+            }
+        }
     }
 
     .icon-container-pos {
@@ -235,55 +252,38 @@ img.icon {
 
 @include respond(590px) {
     .skill-set-container {
-        @include position($h: 528px, $w: 336px);
+        @include position($h: 436px, $w: 386px);
         gap: 32px;
     }
 
     .icons {
-        @include position($h: 428px, $w: 368px);
-        gap: 28px;
+        width: 488px;
+        gap: 24px;
     }
 
     .icon-container-pos {
         width: 380px;
     }
+
+    .icons>div .bubble {
+        width: 220px;
+        height: 180px;
+    }
 }
 
-/*
-
-@include respond(450px) {
+@include respond(490px) {
     .skill-set-container {
-        @include position($h: 628px, $w: 248px);
+        @include position($h: 562px, $w: 248px);
         padding: 24px;
         gap: 32px;
     }
 
     .icons {
-        @include position($h: 428px, $w: 368px);
-        gap: 16px;
+        width: 338px;
+        gap: 12px;
     }
 
     .icon-container-pos {
         width: 380px;
     }
 }
-
-@include respond(410px) {
-    .icon-container-pos {
-        width: 400px;
-    }
-
-    .icons {
-        gap: 8px;
-
-        >div>span {
-            font-size: 14px;
-        }
-    }
-}
-
-@media (hover: hover) and (min-width: 1200px) {
-    section::before {
-        background-attachment: fixed;
-    }
-} */
