@@ -1,17 +1,20 @@
 @use '../scss_global/global.style' as *;
 
+$psp: ">div.projects>div.single-project>div.place-single-project";
+
 section {
     @include display(flex, space-around, center, row);
     @include position(null, null, 100vh, 100%);
     background-color: $c-bg;
     color: $c-fg;
     overflow: hidden;
+    cursor: default;
 
     >div.preview-projects {
         width: 280px;
 
         >div {
-            position: absolute
+            position: absolute;
         }
     }
 
@@ -50,13 +53,14 @@ section {
             .single-project {
                 @include display(flex, center, center, column);
                 @include position(null, null, 109px, 100%);
+                transition: background-color 0.3s ease, transform 0.3s ease;
 
                 .place-single-project {
                     @include display(flex, space-between, center, row);
                     width: 800px;
 
                     >div:first-child img {
-                        padding-left: 6px
+                        padding-left: 6px;
                     }
 
                     h3 {
@@ -71,13 +75,13 @@ section {
 
                     >div {
                         @include display(flex, center, center, row);
-                        gap: 4px
+                        gap: 4px;
                     }
                 }
 
                 &:hover {
                     background-color: rgba($c-accent, .32);
-                    cursor: pointer
+                    cursor: pointer;
                 }
             }
         }
@@ -85,55 +89,74 @@ section {
 }
 
 .back-distance-bot {
-    padding-bottom: 200px
+    padding-bottom: 200px;
 }
 
 .back-distance-top {
-    padding-top: 200px
+    padding-top: 200px;
 }
 
 .short-line {
     @include position(null, null, 20px, 1px);
-    background-color: $c-accent
+    background-color: $c-accent;
 }
 
 .longe-line {
     @include position(null, null, 1px);
-    background-color: $c-accent
+    background-color: $c-accent;
+}
+
+.project-pre-image {
+    display: flex;
+    justify-content: baseline;
+    padding-left: 6px;
 }
 
 img.pre,
 img.back {
     object-fit: cover;
-    border-radius: 30px
+    border-radius: 30px;
+    transition: transform .4s ease, opacity .4s ease, filter .4s ease, box-shadow .4s ease;
+    will-change: transform, opacity;
 }
 
 img.pre {
-    @include position(absolute, 1, 300px, 500px)
+    @include position(absolute, 1, 300px, 500px);
 }
 
 img.back {
     @include position(absolute, null, 300px, 500px);
     margin-top: 20px;
-    margin-left: 40px
+    margin-left: 40px;
 }
 
 .set-background {
     @include display(flex, baseline, center, column);
-    @include position(relative, unset, 100%, 100%)
+    @include position(relative, null, 100%, 100%);
+    animation: previewFadeIn .35s ease both;
 }
 
 app-project-cart {
     @include display(flex, center, center, row);
-    @include position($z: unset)
+    @include position($z: null);
 }
 
-$psp: ">div.projects>div.single-project>div.place-single-project";
+@keyframes previewFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
 @include respond(1700px) {
     section {
         div.preview-projects {
-            width: 158px
+            width: 158px;
         }
     }
 }
@@ -144,17 +167,17 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
             width: 750px;
 
             #{$psp} {
-                width: 650px
+                width: 650px;
             }
         }
     }
 
     img.pre {
-        @include position($z: 1, $h: 260px, $w: 440px)
+        @include position($z: 1, $h: 260px, $w: 440px);
     }
 
     img.back {
-        @include position($z: unset, $h: 260px, $w: 440px)
+        @include position($z: null, $h: 260px, $w: 440px);
     }
 }
 
@@ -164,7 +187,7 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
             width: 600px;
 
             #{$psp} {
-                width: 550px
+                width: 550px;
             }
         }
     }
@@ -179,7 +202,7 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
                 align-items: start;
                 flex-direction: column;
                 width: 400px;
-                gap: 10px
+                gap: 10px;
             }
         }
     }
@@ -190,11 +213,11 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
         justify-content: start;
 
         >div {
-            padding-left: 32px
+            padding-left: 32px;
         }
 
         >div.preview-projects {
-            padding-left: 252px
+            padding-left: 252px;
         }
     }
 }
@@ -204,59 +227,71 @@ $psp: ">div.projects>div.single-project>div.place-single-project";
         justify-content: center;
 
         div.preview-projects {
-            display: none
+            display: none;
         }
 
         >div {
-            width: 780px;
+            width: 702px;
             padding-left: 0;
 
             #{$psp} {
-                width: 700px
+                width: 670px;
             }
         }
     }
 }
 
-@include respond(850px) {
+@include respond(950px) {
     section {
         >div {
-            width: 480px;
+            width: 602px;
             padding-left: 0;
 
             #{$psp} {
-                width: 400px
+                width: 570px;
             }
         }
     }
 }
 
-@include respond(650px) {
+@include respond(700px) {
     section {
         >div {
-            width: 380px;
+            width: 502px;
 
             #{$psp} {
-                width: 300px
+                width: 470px;
             }
         }
     }
 }
 
-@include respond(550px) {
+@include respond(590px) {
+    section {
+        >div {
+            width: 452px;
+
+            #{$psp} {
+                width: 420px;
+            }
+        }
+    }
+}
+
+@include respond(490px) {
     section {
         >div {
             width: 280px;
 
             >div.portfolio-header>span {
-                width: 280px
+                width: 280px;
             }
 
             #{$psp} {
                 width: 280px;
 
                 span {
-                    font-size: 15px
+                    font-size: 15px;
                 }
             }
         }

@@ -78,7 +78,7 @@ section {
 }
 
 .skill-pos {
-    @include display(flex, space-around, flex-start, row);
+    @include display(flex, space-around, center, row);
     width: 100%;
     height: auto;
 }
