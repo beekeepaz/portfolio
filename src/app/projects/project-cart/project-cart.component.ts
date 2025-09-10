@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Carts } from '../../global/carts';
 import { Language } from '../../global/language';
 import { Router } from '@angular/router';
+
+type CartKey = 'setJoin' | 'setElPolloLoco' | 'setDaBubble';
 
 @Component({
   selector: 'app-project-cart',
@@ -10,9 +12,8 @@ import { Router } from '@angular/router';
   templateUrl: './project-cart.component.html',
   styleUrl: './project-cart.component.scss'
 })
-export class ProjectCartComponent {
+export class ProjectCartComponent implements OnInit {
   public img = {
-
     scssCart: '../../../assets/img/scss-cart.png',
     htmlCart: '../../../assets/img/html-cart.png',
     angularCart: '../../../assets/img/Angular-cart.png',
@@ -21,6 +22,8 @@ export class ProjectCartComponent {
     firebaseCart: '../../../assets/img/firebase-cart.png',
 
     joinPreviewCart: '../../assets/img/joinPreview-cart.png',
+    polloPreviewCart: '../../assets/img/elPolloPreview-cart.png',
+    bubblePreviewCart: '../../assets/img/joinPreview-cart.png',
 
     nextFirst: '../../assets/img/arrow-hirizontal.png',
     nextSecond: '../../assets/img/arrow-horizontale-moved.png',
@@ -34,14 +37,20 @@ export class ProjectCartComponent {
 
   public isNextHovered = false;
   public isCloseHovered = false;
-
   public arrowBtnHover: boolean[] = [false, false];
+
+  private readonly order: CartKey[] = ['setJoin', 'setElPolloLoco', 'setDaBubble'];
+  private currentIndex = 0;
 
   constructor(
     public carts: Carts,
     public languageService: Language,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+    this.syncIndexFromFlags();
+  }
 
   onNextEnter(): void { this.isNextHovered = true; }
   onNextLeave(): void { this.isNextHovered = false; }
@@ -76,5 +85,27 @@ export class ProjectCartComponent {
 
   goToPage(): void {
     window.open('https://github.com/Simon-Kral/join', '_blank', 'noopener,noreferrer');
+  }
+
+  nextProject(): void {
+    this.currentIndex = (this.currentIndex + 1) % this.order.length;
+    this.applyFlagsFromIndex();
+  }
+
+  private syncIndexFromFlags(): void {
+    if (this.carts.setElPolloLoco) {
+      this.currentIndex = 1;
+    } else if (this.carts.setDaBubble) {
+      this.currentIndex = 2;
+    } else {
+      this.currentIndex = 0;
+    }
+    this.applyFlagsFromIndex();
+  }
+
+  private applyFlagsFromIndex(): void {
+    this.carts.setJoin = this.currentIndex === 0;
+    this.carts.setElPolloLoco = this.currentIndex === 1;
+    this.carts.setDaBubble = this.currentIndex === 2;
   }
 }
