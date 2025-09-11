@@ -60,20 +60,25 @@ img.quotes {
 }
 
 .box-shadow {
-  width: 400px;
+  @include position(absolute, 5, 400px, 100%);
+  left: 0;
+  top: 0;
+  bottom: 0;
   box-shadow: inset 625px 0 150px 0 rgba(28, 28, 28, .5),
     inset -625px 0 150px -220px rgba(28, 28, 28, .5);
 }
 
 .box-shadow-second {
-  width: 400px;
-
-  /*   @include position(null, null, null, 400px); */
+  @include position(absolute, 4, 400px, 100%);
+  right: 0;
+  top: 0;
+  bottom: 0;
   box-shadow: inset 150px 0 15px 0 rgb(28, 28, 28),
     inset -150px 0 15px 0 rgb(28, 28, 28);
 }
 
 .comment-field {
+  position: relative;
   overflow: hidden;
 }
 
@@ -103,6 +108,16 @@ img.quotes {
     border: none;
     background: none;
     padding: 0;
+    cursor: pointer;
+
+    transition: transform 120ms ease, box-shadow 200ms ease, filter 200ms ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  >button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px currentColor;
   }
 
   >button.b-right:active {
