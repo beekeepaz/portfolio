@@ -1,17 +1,18 @@
 @use '../../../scss_global/global.style' as *; // Tokens, Mixins, respond()
 
-/* Fonts leichtgewichtig: keine @include fira/karla – stattdessen globale Vars */
 section {
-  @include display($d: flex, $f: row);
+  @include display(flex, null, null, row);
   @include position($h: 25vh);
+  width: 100%;
   background-color: $c-bg;
   color: $c-fg;
 
   >div {
-    @include display($d: flex, $j: space-around, $a: center, $f: row);
+    @include display(flex, space-around, center, row);
+    width: 100%;
 
     >span {
-      @include display($d: flex, $j: flex-end);
+      @include display(flex, flex-end);
       @include position($p: absolute);
       font-family: var(--ff-fira);
       color: $c-accent;
@@ -22,7 +23,7 @@ section {
     }
 
     >div.place-logo {
-      @include display($d: flex, $j: flex-end, $a: flex-start);
+      @include display(flex, flex-end, flex-start, column);
       width: 668px;
 
       >div.logos {
@@ -44,16 +45,16 @@ section {
     }
 
     >div.place-links {
-      @include display($d: flex, $j: center, $a: flex-end);
-      @include position($w: 568px);
+      @include display(flex, center, flex-end, column);
+      width: 568px;
       gap: 10px;
 
       >div {
-        @include display($d: flex, $a: center);
+        @include display(flex, center);
         gap: 6px;
 
         >a {
-          @include display($d: flex, $j: flex-start, $a: center);
+          @include display(flex, flex-start, center);
           text-decoration: none;
           width: 130px;
           color: #fff;
@@ -87,6 +88,21 @@ span:hover img {
   visibility: hidden;
 }
 
+.logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("./../../../../assets/img/logo_sp_full.png");
+  background-position: center;
+  width: 196px;
+  height: 72px;
+  padding-bottom: 48px;
+}
+
+.logo:hover {
+  background-image: url("./../../../../assets/img/logo_sp_empty.png");
+  cursor: pointer;
+}
+
 @include respond(1400px) {
   .place-links {
     padding-right: 32px;
@@ -102,10 +118,38 @@ span:hover img {
     @include position($h: 35vh);
 
     >div {
-      @include display($d: flex, $j: space-around, $a: center, $f: row);
+      @include display(flex, space-around, center, row);
 
       >span {
         margin-top: 254px;
+      }
+    }
+  }
+}
+
+@include respond(500px) {
+  .place-logo {
+    padding-left: 12px;
+  }
+
+  .place-links {
+    padding-right: 0px;
+  }
+
+  .logo {
+    width: 170px;
+    height: 0px;
+    padding-bottom: 128px;
+  }
+
+  section {
+    >div {
+      >div.place-links {
+        >div {
+          >a {
+            width: 112px;
+          }
+        }
       }
     }
   }
