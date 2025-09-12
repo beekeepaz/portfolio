@@ -204,6 +204,17 @@ img.quotes {
   margin-right: -525px;
 }
 
+.swipe-area {
+  touch-action: pan-y;
+}
+
+.box-shadow,
+.box-shadow-second,
+.show-container>div.quotes-img-pos,
+img.quotes {
+  pointer-events: none;
+}
+
 @include respond(1700px) {
   .box-shadow {
     box-shadow: inset 425px 0 150px -220px rgba(28, 28, 28, .5),

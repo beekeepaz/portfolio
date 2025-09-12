@@ -23,7 +23,15 @@ export class ReevaluationComponent {
   public isLeftHovered = false;
   public isRightHovered = false;
 
-  // Steuerung der animierten Pfeile im Template
+  private swipeThreshold = 50;
+  private swipeRestraint = 80;
+  private swipeTime = 600;
+
+  private tracking = false;
+  private startX = 0;
+  private startY = 0;
+  private startTime = 0;
+
   get leftArrowSrc(): string {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
@@ -36,7 +44,6 @@ export class ReevaluationComponent {
   onRightEnter(): void { this.isRightHovered = true; }
   onRightLeave(): void { this.isRightHovered = false; }
 
-  // --- Bestehende Slider-/Animations-Logik ---
   animationDuration = '800ms';
   animationTiming = 'ease-in-out';
 
@@ -115,5 +122,39 @@ export class ReevaluationComponent {
 
   isActive(index: number): boolean {
     return this.slideIndex === index;
+  }
+
+  onPointerDown(ev: PointerEvent, index: number): void {
+    if (index !== 2 || ev.isPrimary === false) return;
+    this.tracking = true;
+    this.startX = ev.clientX;
+    this.startY = ev.clientY;
+    this.startTime = Date.now();
+    (ev.target as HTMLElement)?.setPointerCapture?.(ev.pointerId);
+  }
+
+  onPointerMove(ev: PointerEvent, index: number): void {
+    if (index !== 2 || !this.tracking) return;
+    const dy = Math.abs(ev.clientY - this.startY);
+    if (dy > this.swipeRestraint) this.tracking = false;
+  }
+
+  onPointerUp(ev: PointerEvent, index: number): void {
+    if (index !== 2 || !this.tracking) return;
+    this.tracking = false;
+
+    const dx = ev.clientX - this.startX;
+    const dy = Math.abs(ev.clientY - this.startY);
+    const dt = Date.now() - this.startTime;
+
+    if (dt <= this.swipeTime && dy <= this.swipeRestraint && Math.abs(dx) >= this.swipeThreshold) {
+      if (dx < 0) this.changeSlide('left');
+      else this.changeSlide('right');
+    }
+  }
+
+  onPointerCancel(_: PointerEvent, index: number): void {
+    if (index !== 2) return;
+    this.tracking = false;
   }
 }

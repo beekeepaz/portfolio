@@ -10,7 +10,10 @@
 
                 @for (offset of [0, 1, 2, 3, 4]; track offset; let index = $index) {
                 <div [ngClass]="animationClasses[index]" [style.--ad]="animationDuration"
-                    [style.--atf]="animationTiming">
+                    [style.--atf]="animationTiming" [class.swipe-area]="index === 2"
+                    (pointerdown)="onPointerDown($event, index)" (pointermove)="onPointerMove($event, index)"
+                    (pointerup)="onPointerUp($event, index)" (pointercancel)="onPointerCancel($event, index)"
+                    (pointerleave)="onPointerCancel($event, index)">
                     <span>
                         {{ getReevaluationText(index) }}
                         <div class="place-name">
