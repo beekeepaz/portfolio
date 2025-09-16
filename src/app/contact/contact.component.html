@@ -52,19 +52,21 @@
             <div class="con-police-pos">
                 <div>
                     <label class="container">
-                        <input required [checked]="false" [(ngModel)]="checked" type="checkbox" name="myCheckbox">
+                        <input required [(ngModel)]="checked" #policy="ngModel" type="checkbox" name="myCheckbox">
                         <span class="checkmark"></span>
                     </label>
                     <span>{{ languageService.contact.policytxtbefore }}<a>{{ languageService.contact.policyicealink
                             }}</a>{{ languageService.contact.policyafter }}</span>
                 </div>
-
-                @if(checked === false) {
+            </div>
+            <div class="validation-slot" aria-live="polite">
+                @if(contactForm.submitted && !checked) {
                 <span class="valid-massage">{{ languageService.contact.missingpolicy }}</span>
                 }
             </div>
             <div class="con-button-pos">
-                <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit">
+                <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit"
+                    [class.is-active]="checked" [attr.aria-disabled]="!checked" [attr.tabindex]="0">
                     <span class="btn-span-one">{{ languageService.contact.button }}</span>
                     <span class="btn-span-sec">{{ languageService.contact.button }}</span>
                 </button>

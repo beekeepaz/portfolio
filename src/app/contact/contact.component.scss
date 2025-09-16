@@ -50,6 +50,7 @@ section {
     >div.form-contain {
         display: flex;
         justify-content: center;
+        flex-direction: column;
         width: 616px;
         overflow-x: hidden;
 
@@ -77,9 +78,14 @@ section {
             }
 
             >div.con-information-pos {
-                @include display(null, null, flex-start);
+                @include display(flex, center, flex-start, column);
                 padding: 32px;
+                height: 100px;
             }
+        }
+
+        >form:hover {
+            cursor: text;
         }
     }
 }
@@ -108,13 +114,14 @@ input {
 }
 
 .con-police-pos {
-    @include display(flex, center, center, column);
+    @include display(flex, center, start, column);
     font-family: var(--ff-karla);
     font-size: 15px;
+    padding-top: 48px;
     @include position(null, null, 75px);
 
     >div {
-        @include display(flex, null, null, row);
+        @include display(flex, center, center, row);
 
         >span {
             >a {
@@ -134,14 +141,26 @@ input {
     }
 }
 
+:host .button:not(.is-active):hover .btn-span-one,
+:host .button:not(.is-active):hover .btn-span-sec {
+    animation: none !important;
+}
+
 .con-button-pos {
-    @include display(flex);
-    padding-top: 32px;
+    @include display(flex, center);
+    margin-top: 32px;
 }
 
 .valid-massage {
     font-family: var(--ff-karla);
     color: $c-error;
+    animation: fadeInUp 200ms ease-out both;
+}
+
+.validation-slot {
+    min-height: 1.4em; // ~eine Zeile; passe bei Bedarf an
+    margin-top: 6px;
+    display: block;
 }
 
 /* Inputs */
@@ -156,7 +175,7 @@ textarea {
 }
 
 input {
-    @include position(null, null, 32px, 332px);
+    @include position(null, null, 32px, 100%);
     box-sizing: border-box;
 }
 
@@ -166,15 +185,12 @@ input {
 }
 
 textarea {
-    @include position(null, null, 32px);
+    @include position(null, null, 100%, 100%);
     resize: none;
     overflow: hidden;
     min-block-size: 3.5rlh;
-    min-inline-size: 20ch;
-    max-inline-size: 50ch;
 }
 
-/* Checkbox */
 .container {
     position: relative;
     padding-left: 35px;
@@ -184,7 +200,7 @@ textarea {
 
     &:hover span {
         z-index: 99;
-        background-color: $c-accent;
+        cursor: pointer;
     }
 
     input {
@@ -226,7 +242,24 @@ textarea {
     transform: rotate(45deg);
 }
 
-/* ---------- Responsive ---------- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .valid-massage {
+        animation: none;
+    }
+}
+
 @include respond(1200px) {
     section {
         height: 100%;
@@ -263,6 +296,10 @@ textarea {
 
         >form .con-information-pos {
             padding-right: 0;
+        }
+
+        >form .con-button-pos {
+            padding-top: 74px;
         }
     }
 }
