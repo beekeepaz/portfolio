@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Language } from '../global/language';
 
@@ -11,6 +11,8 @@ import { Language } from '../global/language';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+
+  sentSuccess = false;
 
   http = inject(HttpClient);
 
@@ -25,6 +27,7 @@ export class ContactComponent {
   formchech: any = true;
 
   mailTest = false;
+  triedSubmit = false;
 
   post = {
     endPoint: 'https://devcontain.de/sendMail.php',
@@ -37,34 +40,49 @@ export class ContactComponent {
     },
   };
 
-  constructor(
-    public languageService: Language
-  ) { }
+  constructor(public languageService: Language) { }
+
+  onTrySubmit(form: NgForm, name: NgModel, mail: NgModel, message: NgModel) {
+    const formValid = form.form.valid;
+    const allOk = formValid && this.checked;
+
+    if (!allOk) {
+      name.control.markAsTouched();
+      mail.control.markAsTouched();
+      message.control.markAsTouched();
+      this.triedSubmit = true;
+    }
+  }
 
   sendMail(ngForm: NgForm) {
     if (ngForm.form.valid && ngForm.submitted && !this.mailTest) {
-      console.log(this.contactData);
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
-          next: (response) => {
-            console.log(response);
+          next: () => {
             ngForm.resetForm();
+            this.checked = false;
+            this.triedSubmit = false;
+            this.sentSuccess = true;
+            setTimeout(() => this.sentSuccess = false, 2000);
           },
-          error: (error: any) => {
-            console.error(error);
-          },
+          error: (error: any) => console.error(error),
           complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      console.log('Mail Test aktiviert');
       ngForm.resetForm();
+      this.checked = false;
+      this.triedSubmit = false;
+      this.sentSuccess = true;
+      setTimeout(() => this.sentSuccess = false, 2000);
     }
   }
 
   focusInput(element: HTMLInputElement | HTMLTextAreaElement) {
     element?.focus();
-    if (element instanceof HTMLTextAreaElement ||
-      element instanceof HTMLInputElement && element.type === 'text') {
+    if (
+      element instanceof HTMLTextAreaElement ||
+      (element instanceof HTMLInputElement && element.type === 'text')
+    ) {
       const len = element.value.length;
       element.selectionStart = len;
       element.selectionEnd = len;

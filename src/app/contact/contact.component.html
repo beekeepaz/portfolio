@@ -60,17 +60,23 @@
                 </div>
             </div>
             <div class="validation-slot" aria-live="polite">
-                @if(contactForm.submitted && !checked) {
+                @if((contactForm.submitted || triedSubmit) && !checked) {
                 <span class="valid-massage">{{ languageService.contact.missingpolicy }}</span>
                 }
             </div>
             <div class="con-button-pos">
                 <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit"
-                    [class.is-active]="checked" [attr.aria-disabled]="!checked" [attr.tabindex]="0">
+                    [class.is-active]="contactForm.form.valid && checked"
+                    (click)="onTrySubmit(contactForm, name, mail, message)">
                     <span class="btn-span-one">{{ languageService.contact.button }}</span>
                     <span class="btn-span-sec">{{ languageService.contact.button }}</span>
                 </button>
             </div>
         </form>
     </div>
+    @if (sentSuccess) {
+    <div class="mail-sent-overlay" (click)="sentSuccess = false" role="alert" aria-live="assertive">
+        <span>Ihre Mail wurde gesendet.</span>
+    </div>
+    }
 </section>
