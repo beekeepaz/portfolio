@@ -51,7 +51,7 @@ section {
 
   >div.quotes-img-pos {
     @include display(flex, baseline, baseline);
-    @include position(absolute, 9999, 322px, 700px);
+    @include position(absolute, 9, 322px, 700px);
   }
 }
 
@@ -143,12 +143,12 @@ img.quotes {
   width: 12px;
   height: 12px;
   margin: 5px;
-  background-color: gray;
+  background-color: #fff;
   border-radius: 50%;
 }
 
 .point-slider.active {
-  background-color: #fff;
+  background-color: gray;
 }
 
 .a {
@@ -264,6 +264,16 @@ img.quotes {
 
 @include respond(580px) {
   .show-container>div.quotes-img-pos {
-    width: 306px;
+    width: 464px;
+  }
+}
+
+@include respond(480px) {
+  .show-container>div.quotes-img-pos {
+    width: 288px;
+  }
+
+  .single-comment-field {
+    width: 284px;
   }
 }

@@ -165,12 +165,11 @@ input {
 }
 
 .validation-slot {
-    min-height: 1.4em; // ~eine Zeile; passe bei Bedarf an
+    min-height: 1.4em;
     margin-top: 6px;
     display: block;
 }
 
-/* Inputs */
 input,
 textarea {
     font-family: var(--ff-karla);

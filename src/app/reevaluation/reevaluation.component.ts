@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './reevaluation.component.scss'
 })
 export class ReevaluationComponent {
-  // --- Bilder zentral in TS (keine Images mehr aus SCSS laden) ---
+
   public img = {
     quotes: '../../assets/img/quotes.png',
     leftDefault: '../../assets/img/left-arrow.png',
@@ -19,7 +19,6 @@ export class ReevaluationComponent {
     rightHover: '../../assets/img/right-arrow-move.png'
   };
 
-  // Hover-States für die Pfeile (für HTML-Bindings)
   public isLeftHovered = false;
   public isRightHovered = false;
 
@@ -63,8 +62,18 @@ export class ReevaluationComponent {
   constructor(public languageService: Language) { }
 
   ngOnInit(): void {
-    this.slides = Array(this.languageService.reevaluation.length).fill('');
+    this.slides = Array(3).fill('');
+    this.slideIndex = this.computeSegment();
     this.calculateAnimationClasses();
+  }
+
+  // --- NEU: Segmentberechnung (0: Anfang, 1: Mitte, 2: Ende)
+  private computeSegment(): number {
+    const n = this.languageService.reevaluation.length || 1;
+    // Verteile currentIndex gleichmäßig auf 3 Segmente
+    // floor((i * 3) / n) → 0,1,2   (mit Clamp)
+    const seg = Math.floor((this.currentIndex * 3) / n);
+    return Math.max(0, Math.min(2, seg));
   }
 
   calculateAnimationClasses(): void {
@@ -90,6 +99,8 @@ export class ReevaluationComponent {
         this.currentIndex = (this.currentIndex - 1 + length) % length;
         this.slideIndex = (this.slideIndex + 1) % this.slides.length;
       }
+
+      this.slideIndex = this.computeSegment();
 
       this.calculateAnimationClasses();
     }, this.animMs);
