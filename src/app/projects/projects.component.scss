@@ -136,9 +136,18 @@ img.back {
     animation: previewFadeIn .35s ease both;
 }
 
-app-project-cart {
-    @include display(flex, center, center, row);
-    @include position($z: null);
+.modal-portal {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    isolation: isolate;
+    pointer-events: none;
+}
+
+.modal-portal app-project-cart {
+    pointer-events: auto;
+    display: block;
+    height: 100%;
 }
 
 @keyframes previewFadeIn {

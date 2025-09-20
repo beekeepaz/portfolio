@@ -13,7 +13,6 @@ import { ToggleScroll } from '../global/togglescroll';
 })
 export class ProjectsComponent implements OnInit {
 
-  // Bildpfade (aus dem Template ausgelagert in die TS)
   arrowOutward = '../../assets/img/arrow_outward.png';
 
   joinPreview = '../../assets/img/joinPreview.png';

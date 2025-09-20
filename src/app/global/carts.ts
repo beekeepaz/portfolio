@@ -5,6 +5,9 @@ import { Injectable } from '@angular/core';
 })
 
 export class Carts {
+
+    modalOpen = false;
+
     public hideModal = false;
 
     public hoverJoin = false;

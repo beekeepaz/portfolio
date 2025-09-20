@@ -13,6 +13,7 @@ type CartKey = 'setJoin' | 'setElPolloLoco' | 'setDaBubble';
   styleUrl: './project-cart.component.scss'
 })
 export class ProjectCartComponent implements OnInit {
+
   public img = {
     scssCart: '../../../assets/img/scss-cart.png',
     htmlCart: '../../../assets/img/html-cart.png',

@@ -102,7 +102,7 @@ export class Language {
     };
 
     public retxtenglish = [
-        { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
+        { text: "Lorem ipsum Quallenfischen", name: "Nicole C. Abteilungsleitung" },
         { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
         { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
         { text: "Lorem ipsum Stein", name: "Patrick Star" },
@@ -111,7 +111,7 @@ export class Language {
     ];
 
     public retxtgerman = [
-        { text: "Lorem ipsum Quallenfischen", name: "Maximilian Knabe" },
+        { text: "Lorem ipsum Quallenfischen", name: "Nicole C. Abteilungsleitung" },
         { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
         { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
         { text: "Lorem ipsum Stein", name: "Patrick Star" },

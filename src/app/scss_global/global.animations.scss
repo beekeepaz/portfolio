@@ -12,86 +12,72 @@
 
 @keyframes animaOutRight {
     0% {
-        transform: translateX(0)
+        transform: translateX(0);
     }
 
     100% {
-        transform: translateX(700px)
+        transform: translateX(700px);
     }
 }
 
 @keyframes animaInRight {
     0% {
-        transform: scale(1) translateX(0) // ⬆️ Hier später: Startgröße per width/height setzen (seitliche Größe), nicht über scale
-            // z. B.: width: [sideWidth]; height: [sideHeight];
+        transform: scale(1) translateX(0);
+        ;
     }
 
     100% {
-        transform: scale(1.1755) translateX(-500px) // ⬆️ HIER scale durch width/height-Animation ersetzen:
-            // 0%: width: [sideWidth]; height: [sideHeight];
-            // 100%: width: [centerWidth]; height: [centerHeight];
-            // translateX(-500px) kann bleiben, scale bitte entfernen.
+        transform: scale(1.1755) translateX(-500px);
     }
 }
 
 @keyframes animaInLeftToRight {
     0% {
-        transform: scale(1) translateX(0) // ⬆️ Hier später: Startgröße per width/height setzen (seitliche Größe), nicht über scale
-            // z. B.: width: [sideWidth]; height: [sideHeight];
+        transform: scale(1) translateX(0);
     }
 
     100% {
-        transform: scale(1.185555) translateX(500px) // ⬆️ HIER scale durch width/height-Animation ersetzen:
-            // 0%: width: [sideWidth]; height: [sideHeight];
-            // 100%: width: [centerWidth]; height: [centerHeight];
-            // translateX(500px) kann bleiben, scale bitte entfernen.
+        transform: scale(1.185555) translateX(500px);
     }
 }
 
 @keyframes animaMidLeft {
     0% {
-        transform: scale(1) translateX(0) // ⬆️ Hier später: Startgröße per width/height setzen (CENTER-Größe), nicht über scale
-            // z. B.: width: [centerWidth]; height: [centerHeight];
+        transform: scale(1) translateX(0);
     }
 
     100% {
-        transform: scale(.84) translateX(-700px) // ⬆️ HIER scale(.84) NICHT verwenden.
-            // Stattdessen Zielgröße per width/height auf „seitliche Größe“ setzen:
-            // 100%: width: [sideWidth]; height: [sideHeight]; transform: translateX(-700px);
+        transform: scale(.84) translateX(-700px);
     }
 }
 
 @keyframes animaMidRight {
     0% {
-        transform: scale(1) translateX(0) // ⬆️ Hier später: Startgröße per width/height setzen (CENTER-Größe), nicht über scale
-            // z. B.: width: [centerWidth]; height: [centerHeight];
+        transform: scale(1) translateX(0);
     }
 
     100% {
-        transform: scale(.84) translateX(700px) // ⬆️ HIER scale(.84) NICHT verwenden.
-            // Stattdessen Zielgröße per width/height auf „seitliche Größe“ setzen:
-            // 100%: width: [sideWidth]; height: [sideHeight]; transform: translateX(700px);
+        transform: scale(.84) translateX(700px);
     }
 }
 
 @keyframes animaLeftIn {
     0% {
-        transform: translateX(0) // (Kein scale vorhanden) — Optional: falls linke sichtbare Position eine feste seitliche Größe hat,
-            // hier/100% ggf. width/height explizit auf [sideWidth]/[sideHeight] setzen.
+        transform: translateX(0);
     }
 
     100% {
-        transform: translateX(550px) // (Kein scale vorhanden)
+        transform: translateX(550px);
     }
 }
 
 @keyframes animaRightIn {
     0% {
-        transform: translateX(0) // (Kein scale vorhanden) — Optional: falls rechte sichtbare Position eine feste seitliche Größe hat,
-            // hier/100% ggf. width/height explizit auf [sideWidth]/[sideHeight] setzen.
+        transform: translateX(0);
+
     }
 
     100% {
-        transform: translateX(-550px) // (Kein scale vorhanden)
+        transform: translateX(-550px);
     }
 }

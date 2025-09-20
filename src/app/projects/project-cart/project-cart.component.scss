@@ -1,5 +1,13 @@
 @use '../../scss_global/global.style' as *;
 
+:host.is-closing {
+    animation: fadeOut 150ms ease-in both;
+}
+
+:host {
+    animation: fadeIn 220ms ease-out both;
+}
+
 .pos-next-button {
     @include display(flex, null, end, column);
     width: 100%;
@@ -41,13 +49,19 @@
     font-size: 18px;
     color: $c-fg;
     position: relative;
+    animation: cardPop 240ms cubic-bezier(.2, .8, .2, 1) both;
+    transform-origin: 50% 60%;
+    will-change: transform, opacity;
 }
 
 .preview {
     @include display(flex, center, center);
-    @include position(fixed, 999, 100%, 100%);
+    @include position(fixed, 2147483647, 100%, 100%);
     background-color: rgba(0, 0, 0, 0.4);
     inset: 0;
+    animation: backdropIn 200ms ease-out both;
+    will-change: opacity;
+    cursor: default;
 }
 
 .project-description {
@@ -129,7 +143,7 @@
 .cart-preview {
     @include position(relative, null, 370px, 520px);
     border-radius: 30px;
-    object-fit: cover;
+    /*     object-fit: cover; */
 }
 
 .cart-radius {
@@ -149,6 +163,44 @@ button:hover .btn-cart {
 
 .cart-font-icon {
     color: $c-fg;
+}
+
+@keyframes backdropIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardPop {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 @include respond(1300px) {
@@ -182,7 +234,7 @@ button:hover .btn-cart {
     }
 
     .cart-preview {
-        height: 334px;
+        height: 288px;
     }
 
     .cart-layer {
@@ -200,7 +252,7 @@ button:hover .btn-cart {
 
     .next-button {
         position: absolute;
-        top: 842px;
+        top: 794px;
     }
 }
 

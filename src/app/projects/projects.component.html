@@ -94,8 +94,10 @@
             }
         </div>
     </div>
-
-    @if(this.carts.hideModal === true) {
-    <app-project-cart></app-project-cart>
-    }
 </section>
+
+@if (carts.hideModal) {
+<div class="modal-portal">
+    <app-project-cart></app-project-cart>
+</div>
+}
