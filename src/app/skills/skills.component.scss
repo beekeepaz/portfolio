@@ -45,7 +45,7 @@ section {
 
 .skill-set-container {
     @include display(flex, center, baseline, column);
-    @include position(null, null, 530px, 536px);
+    @include position(null, null, null, 536px);
     font-family: var(--ff-karla);
     font-size: 18px;
     line-height: 21.6px;
@@ -63,6 +63,7 @@ section {
         letter-spacing: -0.03em;
         text-align: left;
         color: $c-accent;
+        overflow-wrap: anywhere;
     }
 
     >div {
@@ -184,7 +185,7 @@ img.icon {
     }
 
     .skill-set-container {
-        @include position($h: 630px, $w: 636px);
+        @include position($w: 636px);
         gap: 60px;
         font-size: 22px;
 
@@ -201,7 +202,7 @@ img.icon {
 
 @include respond(950px) {
     .skill-set-container {
-        @include position($h: 528px, $w: 536px);
+        @include position($w: 536px);
         gap: 46px;
 
         >h4 {
@@ -223,7 +224,7 @@ img.icon {
     }
 
     .skill-set-container {
-        @include position($h: 428px, $w: 436px);
+        @include position($w: 436px);
         font-size: 16px;
         gap: 32px;
     }
@@ -252,7 +253,7 @@ img.icon {
 
 @include respond(590px) {
     .skill-set-container {
-        @include position($h: 436px, $w: 386px);
+        @include position($w: 386px);
         gap: 32px;
     }
 
@@ -273,7 +274,7 @@ img.icon {
 
 @include respond(490px) {
     .skill-set-container {
-        @include position($h: 562px, $w: 248px);
+        @include position($w: 248px);
         padding: 24px;
         gap: 32px;
     }

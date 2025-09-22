@@ -218,12 +218,13 @@ app-marquee {
 
     .headline>div {
         gap: 10px;
+        width: unset;
     }
 }
 
 @include respond(515px) {
     .headline {
-        padding-bottom: 128px;
+        padding-bottom: 200px;
     }
 
     .arrow-box {

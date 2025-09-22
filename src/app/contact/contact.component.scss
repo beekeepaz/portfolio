@@ -8,6 +8,7 @@ section {
 
     >div.contact-me {
         overflow-x: hidden;
+        min-width: 0;
 
         >div {
             padding-top: 32px;
@@ -20,6 +21,7 @@ section {
             letter-spacing: -.03em;
             color: $c-accent;
             padding-top: 16px;
+            overflow-wrap: anywhere;
         }
 
         >h2 {
@@ -80,7 +82,7 @@ section {
             >div.con-information-pos {
                 @include display(flex, center, flex-start, column);
                 padding: 32px;
-                height: 100px;
+                height: 100%;
             }
         }
     }
@@ -131,12 +133,16 @@ input {
         @include display(flex, center, center, row);
 
         >span {
+            overflow-wrap: anywhere;
+            cursor: default;
+
             >a {
                 color: $c-accent;
                 padding: 0 6px;
 
                 &:hover {
                     color: #fff;
+                    cursor: pointer;
                 }
             }
         }
