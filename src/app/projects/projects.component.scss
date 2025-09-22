@@ -21,9 +21,11 @@ section {
     >div {
         @include display(flex, center, null, column);
         width: 880px;
+        height: 100%;
 
         .portfolio-header {
             @include display(flex, center, start, column);
+            height: 100%;
 
             h1 {
                 padding-bottom: 32px;

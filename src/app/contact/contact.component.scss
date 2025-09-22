@@ -162,6 +162,7 @@ input {
 .con-button-pos {
     @include display(flex, center);
     margin-top: 32px;
+    padding-bottom: 32px;
 }
 
 .valid-massage {

@@ -121,7 +121,7 @@ img.icon {
 }
 
 .icons {
-    @include position(null, null, 580px, 100%);
+    @include position(null, null, 100%, 100%);
     @include display(flex, start, center);
     flex-wrap: wrap;
     gap: 72px;
