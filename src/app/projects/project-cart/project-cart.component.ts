@@ -4,6 +4,7 @@ import { Language } from '../../global/language';
 import { Router } from '@angular/router';
 
 type CartKey = 'setJoin' | 'setElPolloLoco' | 'setDaBubble';
+type LinkKind = 'github' | 'live';
 
 @Component({
   selector: 'app-project-cart',
@@ -42,6 +43,21 @@ export class ProjectCartComponent implements OnInit {
 
   private readonly order: CartKey[] = ['setJoin', 'setElPolloLoco', 'setDaBubble'];
   private currentIndex = 0;
+
+  private readonly links: Record<CartKey, Record<LinkKind, string | null>> = {
+    setJoin: {
+      github: 'https://github.com/Simon-Kral/join',
+      live: 'https://devcontain.de/join/'
+    },
+    setElPolloLoco: {
+      github: 'https://github.com/beekeepaz/El-pollo-loco',
+      live: 'https://devcontain.de/elpollo/'
+    },
+    setDaBubble: {
+      github: 'https://github.com/beekeepaz/da-bubble',
+      live: 'https://deine-domain.de/da-bubble/'
+    }
+  };
 
   constructor(
     public carts: Carts,
@@ -84,8 +100,14 @@ export class ProjectCartComponent implements OnInit {
     html.classList.remove('no-scroll');
   }
 
-  goToPage(): void {
-    window.open('https://github.com/Simon-Kral/join', '_blank', 'noopener,noreferrer');
+  private get activeKey(): CartKey {
+    return this.order[this.currentIndex];
+  }
+
+  goTo(kind: LinkKind): void {
+    const url = this.links[this.activeKey][kind];
+    if (!url) return;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 
   nextProject(): void {

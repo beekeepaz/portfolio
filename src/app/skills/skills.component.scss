@@ -176,7 +176,6 @@ img.icon {
 @include respond(1450px) {
     .skill-pos {
         @include display(flex, center, center, column);
-        height: 150vh;
     }
 
     .skill-pos {
@@ -198,12 +197,21 @@ img.icon {
         font-size: 34px;
         padding-bottom: 14px;
     }
+
+    .icon-container-pos {
+        height: 100%;
+    }
+
+    .responsive-pos {
+        padding-bottom: 64px;
+    }
 }
 
 @include respond(950px) {
     .skill-set-container {
         @include position($w: 536px);
         gap: 46px;
+        height: 100%;
 
         >h4 {
             font-size: 64px;

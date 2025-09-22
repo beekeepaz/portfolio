@@ -1,4 +1,13 @@
-@use '../../../scss_global/global.style' as *; 
+@use '../../../scss_global/global.style' as *;
+
+html,
+body {
+  background: $c-bg;
+  min-height: 100%;
+  overflow-x: hidden;
+  min-height: 100svh;
+  margin: 0px;
+}
 
 section {
   @include display(flex, null, null, row);
@@ -10,6 +19,8 @@ section {
   >div {
     @include display(flex, space-around, center, row);
     width: 100%;
+    padding-bottom: 32px;
+    background: $c-bg;
 
     >span {
       @include display(flex, flex-end);
@@ -115,7 +126,9 @@ span:hover img {
 
 @include respond(720px) {
   section {
-    @include position($h: 35vh);
+    height: auto;
+    min-height: 35svh;
+    /* statt 35vh */
 
     >div {
       @include display(flex, space-around, center, row);

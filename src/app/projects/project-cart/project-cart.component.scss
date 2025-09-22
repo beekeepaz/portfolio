@@ -57,7 +57,7 @@
 .preview {
     @include display(flex, center, center);
     @include position(fixed, 2147483647, 100%, 100%);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
     inset: 0;
     animation: backdropIn 200ms ease-out both;
     will-change: opacity;
@@ -278,15 +278,15 @@ button:hover .btn-cart {
         >.project-headers {
             padding-top: 6px;
             width: 384px;
-            gap: 16px;
+            gap: 0px;
 
             >h4 {
-                font-size: 58px;
+                font-size: 48px;
                 line-height: 58px;
             }
 
             >h1 {
-                font-size: 52px;
+                font-size: 42px;
                 line-height: 52px;
             }
         }
@@ -308,7 +308,7 @@ button:hover .btn-cart {
 
 @include respond(540px) {
     .cart-preview {
-        height: 228px;
+        height: 188px;
         width: 284px;
     }
 
@@ -316,9 +316,11 @@ button:hover .btn-cart {
         justify-content: start;
         width: 284px;
         padding-left: 16px;
+        gap: 4px;
+        height: 470px;
 
         >h2 {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 18px;
         }
 
@@ -333,7 +335,7 @@ button:hover .btn-cart {
     }
 
     .next-button {
-        top: 754px;
+        top: 678px;
     }
 
     .cart-rightside-pos {
@@ -343,5 +345,9 @@ button:hover .btn-cart {
     button {
         width: 132px;
         height: 42px;
+    }
+
+    .cart-layer {
+        scale: 0.9;
     }
 }
