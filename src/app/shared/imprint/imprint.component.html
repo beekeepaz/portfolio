@@ -1,4 +1,10 @@
 <section>
+    <div class="back-button-pos">
+        <button class="b-left" (click)="back()">
+            <img class="left-arrow" [src]="leftArrowSrc" (mouseenter)="onLeftEnter()" (mouseleave)="onLeftLeave()"
+                alt="left">
+        </button>
+    </div>
     <div class='impressum'>
         <h1>Impressum</h1>
         <p>Angaben gemäß § 5 TMG</p>

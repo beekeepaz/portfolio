@@ -1,4 +1,10 @@
 <section>
+    <div class="back-button-pos">
+        <button class="b-left" (click)="back()">
+            <img class="left-arrow" [src]="leftArrowSrc" (mouseenter)="onLeftEnter()" (mouseleave)="onLeftLeave()"
+                alt="left">
+        </button>
+    </div>
     <div class='data-notice'>
         <h1>1. Datenschutz auf einen Blick</h1>
         <p>Allgemeine Hinweise</p>

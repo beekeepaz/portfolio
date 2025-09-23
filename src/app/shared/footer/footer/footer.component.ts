@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Language } from '../../../global/language';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,13 @@ import { RouterLink } from '@angular/router';
 })
 export class FooterComponent {
   constructor(
-    public languageService: Language
-  ) { }
+    public languageService: Language,
+    private router: Router
+  ) {
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    });
+  }
 }

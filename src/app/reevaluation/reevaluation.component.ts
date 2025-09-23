@@ -67,11 +67,8 @@ export class ReevaluationComponent {
     this.calculateAnimationClasses();
   }
 
-  // --- NEU: Segmentberechnung (0: Anfang, 1: Mitte, 2: Ende)
   private computeSegment(): number {
     const n = this.languageService.reevaluation.length || 1;
-    // Verteile currentIndex gleichmäßig auf 3 Segmente
-    // floor((i * 3) / n) → 0,1,2   (mit Clamp)
     const seg = Math.floor((this.currentIndex * 3) / n);
     return Math.max(0, Math.min(2, seg));
   }

@@ -14,8 +14,10 @@
 
 section {
     @include display();
-    @include position($p: unset, $z: unset);
+    @include position($p: null, $z: null);
     background-color: rgb(28, 28, 28);
+    padding-top: 100px;
+    cursor: default;
 
     >.data-notice {
         @include display();
@@ -45,8 +47,19 @@ section {
         text-decoration: none;
         color: #3DCFB6;
 
-        &:hover{
+        &:hover {
             color: #47ecd1;
         }
+    }
+
+    .back-button-pos {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+    }
+
+    button {
+        border: unset;
     }
 }

@@ -10,6 +10,7 @@ section {
         overflow-x: hidden;
         min-width: 0;
         width: 616px;
+        cursor: default;
 
         >div {
             padding-top: 32px;
@@ -329,7 +330,6 @@ textarea {
 
         div.contact-me {
             padding-bottom: 64px;
-            cursor: default;
         }
 
         >div.form-contain>form .con-information-pos {
