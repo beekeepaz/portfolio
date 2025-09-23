@@ -9,6 +9,7 @@ section {
     >div.contact-me {
         overflow-x: hidden;
         min-width: 0;
+        width: 616px;
 
         >div {
             padding-top: 32px;
@@ -41,7 +42,8 @@ section {
             font-family: var(--ff-karla);
             font-size: 18px;
             color: #fff;
-            opacity: 0;
+            overflow-wrap: anywhere;
+            width: 100%;
         }
 
         >div span.farbcode-green {
@@ -128,6 +130,7 @@ input {
     font-size: 15px;
     padding-top: 48px;
     @include position(null, null, 75px);
+    cursor: default;
 
     >div {
         @include display(flex, center, center, row);
@@ -325,7 +328,8 @@ textarea {
         flex-direction: column;
 
         div.contact-me {
-            padding: 0 32px 64px;
+            padding-bottom: 64px;
+            cursor: default;
         }
 
         >div.form-contain>form .con-information-pos {
@@ -339,10 +343,18 @@ textarea {
     section>div.form-contain {
         width: 536px;
     }
+
+    section>div.contact-me {
+        width: 536px;
+    }
 }
 
 @include respond(600px) {
     section>div.form-contain {
+        width: 476px;
+    }
+
+    section>div.contact-me {
         width: 476px;
     }
 }
@@ -359,16 +371,28 @@ textarea {
             padding-top: 74px;
         }
     }
+
+    section>div.contact-me {
+        width: 356px;
+    }
 }
 
 @include respond(430px) {
     section>div.form-contain {
         width: 326px;
     }
+
+    section>div.contact-me {
+        width: 326px;
+    }
 }
 
 @include respond(380px) {
     section>div.form-contain {
+        width: 286px;
+    }
+
+    section>div.contact-me {
         width: 286px;
     }
 }

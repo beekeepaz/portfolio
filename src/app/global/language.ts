@@ -31,10 +31,10 @@ export class Language {
 
         abouta: 'Who I Am',
         aboutb: 'About me',
-        aboutc: 'Hi, I`m german speaking Frontend Developer based in Hannover, Motivated by the limitless opportunities within IT, I am excited about crafting visually captivating and intuitive websites and applications.',
+        aboutc: 'My name is Sebastian, I have always been involved in IT and work in a solution-oriented way, because I am passionate about solving complex tasks and creating new applications. I find inspiration in innovative projects and in continuously developing myself.',
         aboutd: 'Flexible in terms of working environments, I can work effectivley both on-site remotely.',
         aboute: 'I am open-minded and always looking for personal challanges to constantly improve my knowledge and skills.',
-        aboutf: 'In my profession, programming isn&amp;t just about writing code&amp; its&amp;#39;s creatve form of problem-solving. I take pride in my ability to distill complex technical challanges into simple, user-friendly solutions. This way, I help you achieve your goals and bring your visions to life.',
+        aboutf: 'In my profession, programming isn\'t just about writing code it\'s creative form of problem-solving. I take pride in my ability to distill complex technical challanges into simple, user-friendly solutions. This way, I help you achieve your goals and bring your visions to life.',
 
         skillsa: 'Technologies',
         skillsb: 'Skill Set',
@@ -73,10 +73,10 @@ export class Language {
 
         abouta: 'Wer ich bin',
         aboutb: 'Ueber mich',
-        aboutc: 'Hallo, ich bin ein deutschsprachiger Frontend-Entwickler mit Sitz in Hannover, motiviert durch die grenzenlosen Möglichkeiten in der IT, begeistere ich mich für die Gestaltung von visuell ansprechenden und intuitiven Webseiten und Anwendungen.',
+        aboutc: 'Mein Name ist Sebastian, ich bin schon immer in der IT unterwegs und arbeite lösungsorientiert, weil mich das Lösen komplexer Aufgaben und das Erschaffen neuer Anwendungen begeistert. Inspiration finde ich in innovativen Projekten und darin, mich stetig weiterzuentwickeln.',
         aboutd: 'Ich bin flexibel, was die Arbeitsumgebung angeht, und kann sowohl vor Ort als auch aus der Ferne effektiv arbeiten.',
         aboute: 'Ich bin aufgeschlossen und immer auf der Suche nach persönlichen Herausforderungen, um meine Kenntnisse und Fähigkeiten Fähigkeiten.',
-        aboutf: 'In meinem Beruf geht es beim Programmieren nicht nur um das Code zu schreiben; es ist eine kreative Form des Problemlösens. Ich bin stolz auf meine Fähigkeit, komplexe technische Herausforderungen in einfache, benutzerfreundliche Lösungen zu verwandeln. Auf diese Weise helfe ich Ihnen, Ihre Ziele zu erreichen und Ihre Visionen zum Leben zu erwecken.',
+        aboutf: 'In meinem Beruf geht es beim Programmieren nicht nur um Code zu schreiben; es ist eine kreative Form des Problemlösens. Ich bin stolz auf meine Fähigkeit, komplexe technische Herausforderungen in einfache, benutzerfreundliche Lösungen zu verwandeln. Auf diese Weise helfe ich Ihnen, Ihre Ziele zu erreichen und Ihre Visionen zum Leben zu erwecken.',
 
         skillsa: 'Technologien',
         skillsb: 'Fertigkeiten',
@@ -102,21 +102,19 @@ export class Language {
     };
 
     public retxtenglish = [
-        { text: "Lorem ipsum Quallenfischen", name: "Nicole C. Abteilungsleitung" },
-        { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
-        { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
-        { text: "Lorem ipsum Stein", name: "Patrick Star" },
-        { text: "Lorem ipsum Eintopf", name: "Yellow Dragon" },
-        { text: "Lorem Knallerbsen", name: "Lira Larum Löffel" }
+        { text: "Sebastian keeps calm under stress and always finds a solution.", name: "Anna, Project Manager" },
+        { text: "He gladly shares his knowledge and helps new colleagues settle in.", name: "Markus, Developer" },
+        { text: "He thinks solution-oriented and brings ideas that move us forward.", name: "Laura, Team Lead" },
+        { text: "He explains tech so simply that even non-experts understand it.", name: "Daniel, IT Support" },
+        { text: "He looks beyond code and cares about the user experience.", name: "Sarah, Designer" }
     ];
 
     public retxtgerman = [
-        { text: "Lorem ipsum Quallenfischen", name: "Nicole C. Abteilungsleitung" },
-        { text: "Lorem ipsum Brett form Kopf", name: "Wurzel Wurzeler von Wurzelsen" },
-        { text: "Lorem ipsum Moneten", name: "Chram Schon Schingschen" },
-        { text: "Lorem ipsum Stein", name: "Patrick Star" },
-        { text: "Lorem ipsum Eintopf", name: "Yellow Dragon" },
-        { text: "Lorem Knallerbsen", name: "Lira Larum Löffel" }
+        { text: "Sebastian bleibt auch im Stress ruhig und findet immer Lösungen.", name: "Anna, Projektmanagerin" },
+        { text: "Er teilt sein Wissen gern und hilft neuen Kollegen beim Einstieg.", name: "Markus, Entwickler" },
+        { text: "Er denkt lösungsorientiert und bringt Ideen, die uns weiterbringen.", name: "Laura, Teamleiterin" },
+        { text: "Er erklärt Technik so einfach, dass es jeder versteht.", name: "Daniel, IT-Support" },
+        { text: "Er schaut über den Code hinaus und achtet auf die Nutzererfahrung.", name: "Sarah, Designerin" }
     ];
 
     public contacttxtenglish = {
@@ -124,7 +122,7 @@ export class Language {
         headbefore: 'Let s work',
         headafter: 'together',
         underhead: 'Got a problem to solve',
-        descriptbefore: 'Contact me through this form, I am interestd in hearing from you, knowing',
+        descriptbefore: 'I enjoy turning ideas into results and I’m always curious about new challenges. If you’re looking for someone who brings energy, focus, and reliable value to your projects, I’d be happy to connect.',
         descriptafter: 'your ideas and contributing to your projects with my work.',
         question: 'Need a Frontend developer?',
         reply: 'Let s talk!',
@@ -149,10 +147,9 @@ export class Language {
         headbefore: 'Lass uns',
         headafter: 'zusammenarbeiten',
         underhead: 'Sie haben ein Problem zu lösen',
-        descriptbefore: 'Contact me through this form, I am interestd in hearing from you, knowing',
-        descriptafter: 'your ideas and contributing to your projects with my work.',
-        question: 'Need a Frontend developer?',
-        reply: 'Let s talk!',
+        descriptbefore: 'Ich habe Freude daran, Ideen in Ergebnisse zu verwandeln und bin immer neugierig auf neue Herausforderungen. Wenn Sie jemanden suchen, der Energie, Fokus und verlässlichen Mehrwert in Ihre Projekte bringt, freue ich mich auf den Austausch.',
+        question: 'Brauchen Sie einen Frontend-Entwickler?',
+        reply: 'Lassen Sie uns reden!',
 
         name: 'Wie ist Ihr Name?',
         missingname: 'Ups! Ihr Name scheint zu fehlen',
