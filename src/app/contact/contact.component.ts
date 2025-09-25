@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Language } from '../global/language';
+import { RouterLink, Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -39,7 +40,7 @@ export class ContactComponent {
     },
   };
 
-  constructor(public languageService: Language) { }
+  constructor(public languageService: Language, private router: Router) { }
 
   /**
    * Mark fields as touched when form invalid or checkbox not checked
