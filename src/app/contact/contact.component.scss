@@ -40,11 +40,13 @@ section {
 
         >span,
         >div span {
+            display: block;
             font-family: var(--ff-karla);
             font-size: 18px;
             color: #fff;
             overflow-wrap: anywhere;
             width: 100%;
+            text-align: justify;
         }
 
         >div span.farbcode-green {

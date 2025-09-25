@@ -21,4 +21,16 @@ export class FooterComponent {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     });
   }
+
+  /**
+   * Scroll to bottom of page
+   */
+  back(): void {
+    this.router.navigate(['/'], { replaceUrl: true }).then(() => {
+      setTimeout(() => {
+        document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    });
+  }
+
 }

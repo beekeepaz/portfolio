@@ -20,7 +20,6 @@ const ANIM_CLASSES: Record<number, AnimTriple> = {
   templateUrl: './reevaluation.component.html',
   styleUrl: './reevaluation.component.scss'
 })
-
 export class ReevaluationComponent {
 
   public img = {

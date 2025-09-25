@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-legal-notice',
@@ -19,6 +20,8 @@ export class LegalNoticeComponent {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
 
+  constructor(private router: Router) { }
+
   /**
    * Set left arrow hover state to active
    */
@@ -34,13 +37,13 @@ export class LegalNoticeComponent {
   }
 
   /**
-   * Navigate back in browser history if possible, otherwise scroll to bottom of page 
+   * Scroll to bottom of page
    */
   back(): void {
-    if (window.history.length > 1) {
-      window.history.back();
-    } else {
-      window.scrollTo({ top: document.documentElement.scrollHeight, left: 0, behavior: 'auto' });
-    }
+    this.router.navigate(['/'], { replaceUrl: true }).then(() => {
+      setTimeout(() => {
+        document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    });
   }
 }

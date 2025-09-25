@@ -12,7 +12,6 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-
 export class HeaderComponent implements OnInit {
 
   readonly languageService = inject(Language);
@@ -95,9 +94,9 @@ export class HeaderComponent implements OnInit {
   }
 
   /**
- * Lifecycle hook: on component initialization navigate to the root route
- * @returns {void}
- */
+   * Lifecycle hook: on component initialization navigate to the root route
+   * @returns {void}
+   */
   ngOnInit() {
     this.router.navigate(["/"]);
   }
@@ -123,8 +122,8 @@ export class HeaderComponent implements OnInit {
   }
 
   /**
- * Update the <html> element class based on scrollbar state
- * Adds 'no-scroll' if checked, removes it otherwise
+   * Update the <html> element class based on scrollbar state
+   * Adds 'no-scroll' if checked, removes it otherwise
    */
   logCheckedStatus(): void {
     const html = document.documentElement;

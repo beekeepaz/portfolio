@@ -1,7 +1,7 @@
-<section>
+<section id="footer">
     <div>
         <div class="place-logo">
-            <div class="logo">
+            <div (click)="this.back()" class="logo">
             </div>
             <span>{{ languageService.currentHeader.footerunderlogoa }}</span>
             <span style="padding-top: 8px;">{{ languageService.currentHeader.footerunderlogob }}</span>
@@ -15,11 +15,11 @@
                 <a><img class="green-point" src="../../../../assets/img/point_green.png">Email</a>
             </div>
             <div>
-                <a routerLink="/legal-notice"><img class="green-point" src="../../../../assets/img/point_green.png">{{
+                <a routerLink="/imprint"><img class="green-point" src="../../../../assets/img/point_green.png">{{
                     languageService.currentHeader.footerimp }}</a>
             </div>
             <div>
-                <a routerLink="/imprint"><img class="green-point" src="../../../../assets/img/point_green.png">{{
+                <a routerLink="/legal-notice"><img class="green-point" src="../../../../assets/img/point_green.png">{{
                     languageService.currentHeader.footerdat }}</a>
             </div>
         </div>

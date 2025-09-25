@@ -33,23 +33,30 @@ section {
         font-family: Fira_Code;
         font-weight: bolder;
         font-size: 32px;
-        color: #3DCFB6;
+        color: #FFFFFFCC;
     }
 
     p {
+        display: block;
+        text-align: justify;
         font-family: Karla;
         font-size: 18px;
+        color: #3DCFB6;
     }
 
     a {
         font-family: Karla;
         font-size: 18px;
         text-decoration: none;
-        color: #3DCFB6;
+        color: #FFFFFFCC;
 
         &:hover {
-            color: #47ecd1;
+            color: #288777;
         }
+    }
+
+    .headercolor {
+        color: #FFFFFFCC;
     }
 }
 
@@ -62,4 +69,13 @@ section {
 
 button {
     border: unset;
+}
+
+@media (max-width: 700px) {
+
+    section>.impressum {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
 }

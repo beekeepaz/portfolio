@@ -18,6 +18,7 @@ section {
     background-color: rgb(28, 28, 28);
     padding-top: 100px;
     cursor: default;
+    overflow-wrap: anywhere;
 
     >.data-notice {
         @include display();
@@ -25,18 +26,20 @@ section {
         padding-bottom: 32px;
         padding-right: 64px;
         padding-left: 64px;
-        color: #FFFFFFCC;
         gap: 14px;
+        color: #3DCFB6;
     }
 
     h1 {
         font-family: Fira_Code;
         font-weight: bolder;
         font-size: 32px;
-        color: #3DCFB6;
+        color: #FFFFFFCC;
     }
 
     p {
+        display: block;
+        text-align: justify;
         font-family: Karla;
         font-size: 18px;
     }
@@ -45,10 +48,10 @@ section {
         font-family: Karla;
         font-size: 18px;
         text-decoration: none;
-        color: #3DCFB6;
+        color: #FFFFFFCC;
 
         &:hover {
-            color: #47ecd1;
+            color: #227165;
         }
     }
 
@@ -62,4 +65,13 @@ section {
     button {
         border: unset;
     }
+}
+
+@media (max-width: 700px) {
+
+    section>.data-notice {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
 }
