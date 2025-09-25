@@ -27,24 +27,35 @@ export class ProjectsComponent implements OnInit {
     public scrollbarService: ToggleScroll
   ) { }
 
-  // Lifecycle: nothing on init (placeholder)
+  /**
+   * Lifecycle: nothing on init (placeholder)
+   */
   ngOnInit(): void { }
 
-  // Set hover state for a specific project on mouse enter
+  /**
+   * Set hover state for a project preview on mouse enter
+   * @param {string} enterproject - project identifier ('preJoin' | 'preElPollo' | 'preDaBubble')
+   */
   mouseEnter(enterproject: string) {
     this.carts.hoverJoin = enterproject === 'preJoin' ? true : this.carts.hoverJoin;
     this.carts.hoverElPollo = enterproject === 'preElPollo' ? true : this.carts.hoverElPollo;
     this.carts.hoverDaBubble = enterproject === 'preDaBubble' ? true : this.carts.hoverDaBubble;
   }
 
-  // Clear hover state for a specific project on mouse leave
+  /**
+   * Reset hover state for a project preview on mouse leave
+   * @param {string} leaveproject - project identifier ('leaveJoin' | 'leaveElPollo' | 'leaveDaBubble')
+   */
   mouseLeave(leaveproject: string) {
     this.carts.hoverJoin = leaveproject === 'leaveJoin' ? false : this.carts.hoverJoin;
     this.carts.hoverElPollo = leaveproject === 'leaveElPollo' ? false : this.carts.hoverElPollo;
     this.carts.hoverDaBubble = leaveproject === 'leaveDaBubble' ? false : this.carts.hoverDaBubble;
   }
 
-  // Open modal for chosen project and disable page scroll
+  /**
+   * Handle project selection: disable page scroll, set project flag, and open modal
+   * @param {string} ele - project identifier ('Join' | 'ElPolloLoco' | 'DaBubble')
+   */
   choosenProject(ele: string) {
     const html = document.documentElement;
     html.classList.add('no-scroll');
@@ -52,11 +63,14 @@ export class ProjectsComponent implements OnInit {
     this.carts.toggleModal();
   }
 
-  // Activate the selected project flag on the service
+  /**
+   * Activate the selected project flag in the carts service
+   * @param {string} ele - project identifier ('Join' | 'ElPolloLoco' | 'DaBubble')
+   * @returns {boolean | null} true if a matching project flag was set, otherwise null
+   */
   getSingleProject(ele: string) {
     return ele === 'Join' ? this.carts.setJoin = true :
       ele === 'ElPolloLoco' ? this.carts.setElPolloLoco = true :
         ele === 'DaBubble' ? this.carts.setDaBubble = true : null;
   }
-
 }

@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
     providedIn: 'root',
 })
-
 export class Carts {
-
     modalOpen = false;
 
     public hideModal = false;
@@ -22,13 +20,17 @@ export class Carts {
     public elpolloloco: string = '';
     public dabubble: string = '';
 
-    // Toggle modal visibility flag
-    toggleModal() {
+    /**
+     * Toggle modal visibility flag
+     */
+    toggleModal(): void {
         this.hideModal = !this.hideModal;
     }
 
-    // Reset all selection flags to false
-    setFalse() {
+    /**
+     * Reset all project selection flags to false
+     */
+    setFalse(): void {
         this.setJoin = false;
         this.setElPolloLoco = false;
         this.setDaBubble = false;

@@ -10,18 +10,23 @@ import { Language } from '../global/language';
 })
 export class SkillsComponent {
 
-    constructor(
-      public languageService: Language
-    ) { }
-  
-    get toggleValue(): string {
-      return this.languageService.toggleValue;
-    }
-  
-    set toggleValue(value: string) {
-      this.languageService.toggleValue = value;
-    }
+  constructor(
+    public languageService: Language
+  ) { }
 
+  get toggleValue(): string {
+    return this.languageService.toggleValue;
+  }
+
+  set toggleValue(value: string) {
+    this.languageService.toggleValue = value;
+  }
+
+
+  /**
+ * Smoothly scroll the window to the top of a given element by ID
+ * @param {string} id - DOM element ID to scroll into view
+   */
   scrollToId(id: string) {
     const sliderElement = document.getElementById(id);
     if (sliderElement) {

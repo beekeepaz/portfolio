@@ -19,9 +19,23 @@ export class LegalNoticeComponent {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
 
-  onLeftEnter(): void { this.isLeftHovered = true; }
-  onLeftLeave(): void { this.isLeftHovered = false; }
+  /**
+   * Set left arrow hover state to active
+   */
+  onLeftEnter(): void {
+    this.isLeftHovered = true;
+  }
 
+  /**
+   * Reset left arrow hover state to inactive
+   */
+  onLeftLeave(): void {
+    this.isLeftHovered = false;
+  }
+
+  /**
+   * Navigate back in browser history if possible, otherwise scroll to bottom of page 
+   */
   back(): void {
     if (window.history.length > 1) {
       window.history.back();

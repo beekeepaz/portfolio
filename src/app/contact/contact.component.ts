@@ -25,7 +25,6 @@ export class ContactComponent {
   name: any;
   checked: boolean = false;
   formchech: any = true;
-
   mailTest = false;
   triedSubmit = false;
 
@@ -42,9 +41,14 @@ export class ContactComponent {
 
   constructor(public languageService: Language) { }
 
-
-  // Mark fields as touched if invalid or checkbox not checked
-  onTrySubmit(form: NgForm, name: NgModel, mail: NgModel, message: NgModel) {
+  /**
+   * Mark fields as touched when form invalid or checkbox not checked
+   * @param {NgForm} form - template-driven form
+   * @param {NgModel} name - name control
+   * @param {NgModel} mail - email control
+   * @param {NgModel} message - message control
+   */
+  onTrySubmit(form: NgForm, name: NgModel, mail: NgModel, message: NgModel): void {
     const formValid = form.form.valid;
     const allOk = formValid && this.checked;
 
@@ -56,32 +60,84 @@ export class ContactComponent {
     }
   }
 
-  // Send form data (or simulate in test mode) and reset UI state
-  sendMail(ngForm: NgForm) {
-    if (ngForm.form.valid && ngForm.submitted && !this.mailTest) {
-      this.http.post(this.post.endPoint, this.post.body(this.contactData))
-        .subscribe({
-          next: () => {
-            ngForm.resetForm();
-            this.checked = false;
-            this.triedSubmit = false;
-            this.sentSuccess = true;
-            setTimeout(() => this.sentSuccess = false, 2000);
-          },
-          error: (error: any) => console.error(error),
-          complete: () => console.info('send post complete'),
-        });
-    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-      ngForm.resetForm();
-      this.checked = false;
-      this.triedSubmit = false;
-      this.sentSuccess = true;
-      setTimeout(() => this.sentSuccess = false, 2000);
+  /**
+   * Submit handler: validates, optionally mocks, else sends HTTP request
+   * @param {NgForm} form - template-driven form instance
+   * @returns {void}
+   */
+  sendMail(form: NgForm): void {
+    if (!form.submitted || !form.form.valid) return;
+
+    if (this.mailTest) {
+      this.onSuccess(form);
+      return;
     }
+
+    this.sendRequest()
+      .subscribe({
+        next: () => this.onSuccess(form),
+        error: this.onError,
+        complete: this.onComplete
+      });
   }
 
-  // Focus input/textarea and place cursor at the end
-  focusInput(element: HTMLInputElement | HTMLTextAreaElement) {
+  /**
+   * Build and send the HTTP POST request
+   * @returns {import('rxjs').Observable<any>} HTTP observable
+   */
+  private sendRequest() {
+    const url = this.post.endPoint;
+    const body = this.post.body(this.contactData);
+    return this.http.post(url, body);
+  }
+
+  /**
+   * Success handler: reset form and show success feedback
+   * @param {NgForm} form - form to reset
+   */
+  private onSuccess(form: NgForm): void {
+    form.resetForm();
+    this.resetUiFlags();
+    this.flashSuccess();
+  }
+
+  /**
+   * Reset local UI flags after a submission
+   */
+  private resetUiFlags(): void {
+    this.checked = false;
+    this.triedSubmit = false;
+  }
+
+  /**
+   * Show success flag for a limited time window
+   * @param {number} [ms=2000] - display duration in milliseconds
+   */
+  private flashSuccess(ms: number = 2000): void {
+    this.sentSuccess = true;
+    setTimeout(() => (this.sentSuccess = false), ms);
+  }
+
+  /**
+   * Error callback for HTTP request
+   * @param {unknown} err - error payload
+   */
+  private onError = (err: unknown): void => {
+    console.error(err);
+  };
+
+  /**
+   * Completion callback for HTTP request
+   */
+  private onComplete = (): void => {
+    console.info('send post complete');
+  };
+
+  /**
+   * Focus a text input/textarea and move caret to the end
+   * @param {HTMLInputElement | HTMLTextAreaElement} element - target element
+   */
+  focusInput(element: HTMLInputElement | HTMLTextAreaElement): void {
     element?.focus();
     if (
       element instanceof HTMLTextAreaElement ||

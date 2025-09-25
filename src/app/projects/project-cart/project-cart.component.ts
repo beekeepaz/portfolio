@@ -37,6 +37,7 @@ export class ProjectCartComponent implements OnInit {
     arrowBtnHover: '../../../assets/img/arrow_btn_out.png'
   };
 
+
   public isNextHovered = false;
   public isCloseHovered = false;
   public arrowBtnHover: boolean[] = [false, false];
@@ -65,93 +66,137 @@ export class ProjectCartComponent implements OnInit {
     private router: Router
   ) { }
 
-  // Initialize view state from service flags
+  /**
+   * Initialize view state from service flags
+   */
   ngOnInit(): void {
     this.syncIndexFromFlags();
   }
 
-  // Hover handlers: show "next" hover frame
+  /**
+   * Show “next” hover frame
+   */
   onNextEnter(): void {
     this.isNextHovered = true;
   }
 
-  // Hover handlers: show "next" hover frame
+  /**
+   * Hide “next” hover frame
+   */
   onNextLeave(): void {
     this.isNextHovered = false;
   }
 
-  // Hover handlers: swap close icon
+  /**
+   * Set close icon to hover state
+   */
   onCloseEnter(): void {
     this.isCloseHovered = true;
   }
 
-  // Hover handlers: swap close icon
+  /**
+   * Reset close icon hover state
+   */
   onCloseLeave(): void {
     this.isCloseHovered = false;
   }
 
-  // Hover handlers: swap arrow button image
+  /**
+   * Set arrow button hover state by index
+   * @param {number} idx - arrow button index (0 or 1)
+   */
   onArrowBtnEnter(idx: number): void {
     this.arrowBtnHover[idx] = true;
   }
 
-  // Hover handlers: swap arrow button image
+  /**
+   * Reset arrow button hover state by index
+   * @param {number} idx - arrow button index (0 or 1)
+   */
   onArrowBtnLeave(idx: number): void {
     this.arrowBtnHover[idx] = false;
   }
 
-  // Computed: close icon source based on hover
+  /**
+   * Get close icon source based on hover state
+   * @returns {string} image URL for the close icon
+   */
   get closeIcon(): string {
     return this.isCloseHovered ? this.img.closeHover : this.img.closeDefault;
   }
 
-  // Get arrow image by index with hover fallback
+  /**
+   * Get arrow image by index with hover fallback
+   * @param {number} idx - arrow button index (0 or 1)
+   * @returns {string} image URL for the arrow button
+   */
   arrowBtnSrc(idx: number): string {
     return this.arrowBtnHover[idx] ? this.img.arrowBtnHover : this.img.arrowBtnDefault;
   }
 
-  // Computed: which "next" image to show
+  /**
+   * Whether to show the default “next” image (non-hover)
+   * @returns {boolean} true when not hovered
+   */
   get showNextFirst(): boolean {
     return !this.isNextHovered;
   }
 
-  // Computed: which "next" image to show
+  /**
+   * Whether to show the hovered “next” image
+   * @returns {boolean} true when hovered
+   */
   get showNextSecond(): boolean {
     return this.isNextHovered;
   }
 
-  // Close modal and clear flags / body class
+  /**
+   * Close modal and clear flags / remove page no-scroll class
+   */
   close(): void {
     this.carts.toggleModal();
     this.carts.setFalse();
     setTimeout(() => this.logCheckedStatus(), 100);
   }
 
-  // Remove page-level no-scroll class
+  /**
+   * Remove 'no-scroll' class from <html> element
+   */
   private logCheckedStatus(): void {
     const html = document.documentElement;
     html.classList.remove('no-scroll');
   }
 
-  // Active key based on current index
+  /**
+   * Get active project key based on current index
+   * @returns {CartKey} the active project key
+   */
   private get activeKey(): CartKey {
     return this.order[this.currentIndex];
   }
 
-  // Open current project's github/live in new tab
+  /**
+   * Open the active project's GitHub or live link in a new tab
+   * @param {'github'|'live'} kind - link kind to open
+   * @returns {void}
+   */
   goTo(kind: LinkKind): void {
     const url = this.links[this.activeKey][kind];
     if (!url) return;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
-  // Advance to next project and sync flags
+  /**
+   * Advance to the next project and sync service flags
+   */
   nextProject(): void {
     this.currentIndex = (this.currentIndex + 1) % this.order.length;
     this.applyFlagsFromIndex();
   }
 
-  // Read service flags to set current index
+  /**
+   * Read service flags to set the current index
+   */
   private syncIndexFromFlags(): void {
     if (this.carts.setElPolloLoco) {
       this.currentIndex = 1;
@@ -163,7 +208,9 @@ export class ProjectCartComponent implements OnInit {
     this.applyFlagsFromIndex();
   }
 
-  // Reflect current index back into service flags
+  /**
+   * Reflect current index back into the carts service flags
+   */
   private applyFlagsFromIndex(): void {
     this.carts.setJoin = this.currentIndex === 0;
     this.carts.setElPolloLoco = this.currentIndex === 1;

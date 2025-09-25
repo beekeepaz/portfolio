@@ -22,41 +22,90 @@ export class HeaderComponent implements OnInit {
     public scrollbarService: ToggleScroll
   ) { }
 
-  scrollToId(id: string, duration: number = 800) {
+  /**
+   * Smoothly scroll the window to the top of a given element by ID with easing
+   * @param {string} id - DOM element ID to scroll into view
+   * @param {number} [duration=800] - animation duration in milliseconds
+   * @returns {void}
+   */
+  public scrollToId(id: string, duration = 800): void {
     const target = document.getElementById(id);
     if (!target) return;
 
+    const { start, distance } = this.scrollMetrics(target);
+    this.rafTween(duration, t => {
+      window.scrollTo(0, start + distance * this.easeInOut(t));
+    });
+  }
+
+  /**
+   * Calculate scroll metrics for a target element
+   * @param {HTMLElement} el - element to measure position of
+   * @returns {{start: number, distance: number}} start offset and distance to target element
+   */
+  private scrollMetrics(el: HTMLElement): { start: number; distance: number } {
     const start = window.pageYOffset;
-    const end = target.getBoundingClientRect().top + start;
-    const distance = end - start;
-    let startTime: number | null = null;
+    const end = el.getBoundingClientRect().top + start;
+    return { start, distance: end - start };
+  }
 
-    const step = (currentTime: number) => {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const progress = Math.min(timeElapsed / duration, 1); 
-      const easeInOut = progress < 0.5
-        ? 2 * progress * progress
-        : -1 + (4 - 2 * progress) * progress;
+  /*   private easeInOut(t: number): number {
+      if (t <= 0) return 0;
+      if (t >= 1) return 1;
+  
+      Erste Hälfte: Ease-In (beschleunigt)
+      if (t < 0.5) return 2 * t * t;
+  
+      Zweite Hälfte: Ease-Out (abgebremst)
+      return 1 - Math.pow(2 - 2 * t, 2) / 2;
+    } */
 
-      window.scrollTo(0, start + distance * easeInOut);
+  /**
+   * Calculate scroll metrics for a target element
+   * @param {HTMLElement} el - element to measure position of
+   * @returns {{start: number, distance: number}} start offset and distance to target element
+   */
+  private easeInOut(t: number): number {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
 
-      if (timeElapsed < duration) {
-        requestAnimationFrame(step);
-      }
+  /**
+   * Run a requestAnimationFrame loop for a given duration and call a frame callback
+   * @param {number} duration - animation duration in milliseconds
+   * @param {(t: number) => void} frame - callback executed on each frame with progress (0..1)
+   * @returns {void}
+   */
+  private rafTween(duration: number, frame: (t: number) => void): void {
+    const t0 = performance.now();
+    const step = (now: number) => {
+      const t = Math.min((now - t0) / duration, 1);
+      frame(t);
+      if (t < 1) requestAnimationFrame(step);
     };
-
     requestAnimationFrame(step);
   }
 
+  /**
+   * Switch the current application language
+   * @param {string} value - new language toggle value
+   * @returns {void}
+   */
   switchLanguage(value: string): void {
     this.languageService.toggleValue = value;
   }
 
+  /**
+ * Lifecycle hook: on component initialization navigate to the root route
+ * @returns {void}
+ */
   ngOnInit() {
     this.router.navigate(["/"]);
   }
 
+  /**
+   * Handle background click: reset scrollbar state and update DOM after delay
+   * @returns {void}
+   */
   backgroundClick() {
     this.scrollbarService.isChecked = false;
     setTimeout(() => {
@@ -73,6 +122,10 @@ export class HeaderComponent implements OnInit {
     this.logCheckedStatus();
   }
 
+  /**
+ * Update the <html> element class based on scrollbar state
+ * Adds 'no-scroll' if checked, removes it otherwise
+   */
   logCheckedStatus(): void {
     const html = document.documentElement;
     if (this.scrollbarService.isChecked) {
