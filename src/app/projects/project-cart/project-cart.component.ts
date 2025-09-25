@@ -65,56 +65,93 @@ export class ProjectCartComponent implements OnInit {
     private router: Router
   ) { }
 
+  // Initialize view state from service flags
   ngOnInit(): void {
     this.syncIndexFromFlags();
   }
 
-  onNextEnter(): void { this.isNextHovered = true; }
-  onNextLeave(): void { this.isNextHovered = false; }
+  // Hover handlers: show "next" hover frame
+  onNextEnter(): void {
+    this.isNextHovered = true;
+  }
 
-  onCloseEnter(): void { this.isCloseHovered = true; }
-  onCloseLeave(): void { this.isCloseHovered = false; }
+  // Hover handlers: show "next" hover frame
+  onNextLeave(): void {
+    this.isNextHovered = false;
+  }
 
-  onArrowBtnEnter(idx: number): void { this.arrowBtnHover[idx] = true; }
-  onArrowBtnLeave(idx: number): void { this.arrowBtnHover[idx] = false; }
+  // Hover handlers: swap close icon
+  onCloseEnter(): void {
+    this.isCloseHovered = true;
+  }
 
+  // Hover handlers: swap close icon
+  onCloseLeave(): void {
+    this.isCloseHovered = false;
+  }
+
+  // Hover handlers: swap arrow button image
+  onArrowBtnEnter(idx: number): void {
+    this.arrowBtnHover[idx] = true;
+  }
+
+  // Hover handlers: swap arrow button image
+  onArrowBtnLeave(idx: number): void {
+    this.arrowBtnHover[idx] = false;
+  }
+
+  // Computed: close icon source based on hover
   get closeIcon(): string {
     return this.isCloseHovered ? this.img.closeHover : this.img.closeDefault;
   }
 
+  // Get arrow image by index with hover fallback
   arrowBtnSrc(idx: number): string {
     return this.arrowBtnHover[idx] ? this.img.arrowBtnHover : this.img.arrowBtnDefault;
   }
 
-  get showNextFirst(): boolean { return !this.isNextHovered; }
-  get showNextSecond(): boolean { return this.isNextHovered; }
+  // Computed: which "next" image to show
+  get showNextFirst(): boolean {
+    return !this.isNextHovered;
+  }
 
+  // Computed: which "next" image to show
+  get showNextSecond(): boolean {
+    return this.isNextHovered;
+  }
+
+  // Close modal and clear flags / body class
   close(): void {
     this.carts.toggleModal();
     this.carts.setFalse();
     setTimeout(() => this.logCheckedStatus(), 100);
   }
 
+  // Remove page-level no-scroll class
   private logCheckedStatus(): void {
     const html = document.documentElement;
     html.classList.remove('no-scroll');
   }
 
+  // Active key based on current index
   private get activeKey(): CartKey {
     return this.order[this.currentIndex];
   }
 
+  // Open current project's github/live in new tab
   goTo(kind: LinkKind): void {
     const url = this.links[this.activeKey][kind];
     if (!url) return;
     window.open(url, '_blank', 'noopener,noreferrer');
   }
 
+  // Advance to next project and sync flags
   nextProject(): void {
     this.currentIndex = (this.currentIndex + 1) % this.order.length;
     this.applyFlagsFromIndex();
   }
 
+  // Read service flags to set current index
   private syncIndexFromFlags(): void {
     if (this.carts.setElPolloLoco) {
       this.currentIndex = 1;
@@ -126,6 +163,7 @@ export class ProjectCartComponent implements OnInit {
     this.applyFlagsFromIndex();
   }
 
+  // Reflect current index back into service flags
   private applyFlagsFromIndex(): void {
     this.carts.setJoin = this.currentIndex === 0;
     this.carts.setElPolloLoco = this.currentIndex === 1;

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-    providedIn: 'root', // Singleton-Service
+    providedIn: 'root',
 })
 
 export class Carts {
@@ -22,10 +22,12 @@ export class Carts {
     public elpolloloco: string = '';
     public dabubble: string = '';
 
+    // Toggle modal visibility flag
     toggleModal() {
         this.hideModal = !this.hideModal;
     }
 
+    // Reset all selection flags to false
     setFalse() {
         this.setJoin = false;
         this.setElPolloLoco = false;

@@ -19,8 +19,13 @@ export class ImprintComponent {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
 
-  onLeftEnter(): void { this.isLeftHovered = true; }
-  onLeftLeave(): void { this.isLeftHovered = false; }
+  onLeftEnter(): void {
+    this.isLeftHovered = true;
+  }
+
+  onLeftLeave(): void {
+    this.isLeftHovered = false;
+  }
 
   back(): void {
     if (window.history.length > 1) {

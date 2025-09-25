@@ -42,6 +42,8 @@ export class ContactComponent {
 
   constructor(public languageService: Language) { }
 
+
+  // Mark fields as touched if invalid or checkbox not checked
   onTrySubmit(form: NgForm, name: NgModel, mail: NgModel, message: NgModel) {
     const formValid = form.form.valid;
     const allOk = formValid && this.checked;
@@ -54,6 +56,7 @@ export class ContactComponent {
     }
   }
 
+  // Send form data (or simulate in test mode) and reset UI state
   sendMail(ngForm: NgForm) {
     if (ngForm.form.valid && ngForm.submitted && !this.mailTest) {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
@@ -77,6 +80,7 @@ export class ContactComponent {
     }
   }
 
+  // Focus input/textarea and place cursor at the end
   focusInput(element: HTMLInputElement | HTMLTextAreaElement) {
     element?.focus();
     if (
