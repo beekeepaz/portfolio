@@ -22,19 +22,32 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   /**
-   * Smoothly scroll the window to the top of a given element by ID with easing
-   * @param {string} id - DOM element ID to scroll into view
+   * Smoothly scroll to an element by ID; if not on root, navigate home first and then scroll
+   * @param {string} id - target element ID to scroll into view
    * @param {number} [duration=800] - animation duration in milliseconds
    * @returns {void}
    */
   public scrollToId(id: string, duration = 800): void {
-    const target = document.getElementById(id);
-    if (!target) return;
+    if (this.tryScroll(id, duration)) return;
 
-    const { start, distance } = this.scrollMetrics(target);
-    this.rafTween(duration, t => {
-      window.scrollTo(0, start + distance * this.easeInOut(t));
-    });
+    this.router.navigate(['/']).then(() =>
+      setTimeout(() => this.tryScroll(id, duration), 0)
+    );
+  }
+
+  /**
+   * Attempt to smoothly scroll to an element by ID
+   * @param {string} id - target element ID
+   * @param {number} duration - animation duration in milliseconds
+   * @returns {boolean} true if the element was found and scrolling started, false otherwise
+   */
+  private tryScroll(id: string, duration: number): boolean {
+    const el = document.getElementById(id);
+    if (!el) return false;
+
+    const { start, distance } = this.scrollMetrics(el);
+    this.rafTween(duration, t => window.scrollTo(0, start + distance * this.easeInOut(t)));
+    return true;
   }
 
   /**

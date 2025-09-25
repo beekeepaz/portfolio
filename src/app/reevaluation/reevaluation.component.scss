@@ -28,10 +28,12 @@ section {
   background-color: #2b3a37;
   border-radius: 16px;
   font-family: var(--ff-fira);
+  cursor: default;
 
   >span {
     @include display(flex, center, center, column);
     width: 100%;
+    gap: 48px;
   }
 }
 
@@ -254,6 +256,11 @@ img.quotes {
 @include respond(715px) {
   .single-comment-field {
     width: 400px;
+
+    >span {
+      width: 80%;
+    }
+
   }
 
   .show-container>div.quotes-img-pos {
@@ -270,10 +277,14 @@ img.quotes {
 
 @include respond(480px) {
   .show-container>div.quotes-img-pos {
-    width: 288px;
+    width: 308px;
   }
 
   .single-comment-field {
     width: 284px;
+  }
+
+  .line {
+    width: 150px;
   }
 }
