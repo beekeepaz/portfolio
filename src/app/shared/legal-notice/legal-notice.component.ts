@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Language } from './../../global/language';
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
   imports: [],
   templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss'
+  styleUrl: './legal-notice.component.scss',
 })
 export class LegalNoticeComponent {
   public img = {
@@ -20,7 +21,7 @@ export class LegalNoticeComponent {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public languageService: Language) { }
 
   /**
    * Set left arrow hover state to active

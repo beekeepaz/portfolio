@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Language } from './../../global/language';
 
 @Component({
   selector: 'app-imprint',
@@ -20,7 +21,7 @@ export class ImprintComponent {
     return this.isLeftHovered ? this.img.leftHover : this.img.leftDefault;
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public languageService: Language) { }
 
   /**
    * Set left arrow hover state to active
