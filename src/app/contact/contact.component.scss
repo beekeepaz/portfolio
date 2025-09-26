@@ -13,6 +13,7 @@ section {
         cursor: default;
 
         >div {
+            display: flex;
             padding-top: 32px;
         }
 
@@ -45,12 +46,12 @@ section {
             font-size: 18px;
             color: #fff;
             overflow-wrap: anywhere;
-            width: 100%;
             text-align: justify;
         }
 
         >div span.farbcode-green {
             color: $c-accent;
+            padding-left: 6px;
         }
     }
 
@@ -387,6 +388,14 @@ textarea {
 
     section>div.contact-me {
         width: 326px;
+
+        >div {
+            flex-direction: column;
+        }
+    }
+
+    section>div.contact-me>div span.farbcode-green {
+        padding-left: 0px;
     }
 }
 
