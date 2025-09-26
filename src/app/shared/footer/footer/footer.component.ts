@@ -26,6 +26,13 @@ export class FooterComponent {
    * Scroll to bottom of page
    */
   back(): void {
+    const isHome = this.router.url === '/';
+
+    if (isHome) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    } 
+
     this.router.navigate(['/'], { replaceUrl: true }).then(() => {
       setTimeout(() => {
         document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });

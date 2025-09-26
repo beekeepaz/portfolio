@@ -22,6 +22,17 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   /**
+   * Scroll to bottom of page
+   */
+  back(): void {
+    this.router.navigate(['/'], { replaceUrl: true }).then(() => {
+      setTimeout(() => {
+        document.getElementById('footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    });
+  }
+
+  /**
    * Smoothly scroll to an element by ID; if not on root, navigate home first and then scroll
    * @param {string} id - target element ID to scroll into view
    * @param {number} [duration=800] - animation duration in milliseconds

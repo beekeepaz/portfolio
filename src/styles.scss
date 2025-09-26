@@ -9,12 +9,10 @@ html.no-scroll {
     overflow-y: hidden;
 }
 
-/* System-Cursor ausblenden, sobald die Komponente aktiv ist */
 .has-custom-cursor {
     cursor: none;
 }
 
-/* In Eingabefeldern normaler Cursor */
 input,
 textarea {
     cursor: text !important;
@@ -55,7 +53,6 @@ select,
     --cc-glow-speed: 1.2s;
 }
 
-/* Optional: Dark-Mode */
 :root.dark {
     --cc-color: #60a5fa;
     --cc-glow: rgba(96, 165, 250, .85);
@@ -67,34 +64,20 @@ select,
     --cc-glow-mul: 1.4;
 }
 
-/* Noch mal ’ne Schippe beim Klicken */
 :root:has(.cc-interactive:active) {
     --cc-glow-alpha: .98;
     --cc-glow-mul: 1.6;
 }
 
-/* Tastaturfreundlich (Tab-Fokus) */
 :root:has(.cc-interactive:focus-visible) {
     --cc-glow-alpha: .9;
     --cc-glow-mul: 1.3;
 }
 
-/* Zielgenau für einen Bereich (z. B. Header) */
 :root:has(header .cc-interactive:hover) {
     --cc-glow-alpha: .95;
     --cc-glow-mul: 1.5;
 }
-
-// colors
-// background-color: rgb(28, 28, 28);
-// background-color: rgb(31, 46, 43);
-// background-color: #37af9b52;
-// color: #FFFFFFCC;
-// color: #3DCFB6;
-// color: #3DCFB6;
-// color: #ffffffad;
-// color: #ffffffed;
-// color: #FFFFFF;
 
 h1:hover {
     cursor: default;
@@ -215,7 +198,6 @@ button:hover span.btn-span-sec {
     font-weight: bold;
 }
 
-/* Globale Tokens (einmalig) */
 :root {
     --ff-fira: "Fira Sans", system-ui, sans-serif;
     --ff-karla: "Karla", system-ui, sans-serif;

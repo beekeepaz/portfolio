@@ -128,7 +128,6 @@ span:hover img {
   section {
     height: auto;
     min-height: 35svh;
-    /* statt 35vh */
 
     >div {
       @include display(flex, space-around, center, row);
