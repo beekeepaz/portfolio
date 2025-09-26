@@ -1,29 +1,32 @@
-<section id="footer">
-    <div>
-        <div class="place-logo">
-            <div (click)="this.back()" class="logo">
+<div class="background-color">
+    <section id="footer">
+        <div>
+            <div class="place-logo">
+                <div (click)="this.back()" class="logo">
+                </div>
+                <span>{{ languageService.currentHeader.footerunderlogoa }}</span>
+                <span style="padding-top: 8px;">{{ languageService.currentHeader.footerunderlogob }}</span>
             </div>
-            <span>{{ languageService.currentHeader.footerunderlogoa }}</span>
-            <span style="padding-top: 8px;">{{ languageService.currentHeader.footerunderlogob }}</span>
+            <span>&#169; Sebastian Peters 2024</span>
+            <div class="place-links">
+                <div>
+                    <a href="https://github.com/beekeepaz/portfolio"><img class="green-point"
+                            src="../../../../assets/img/point_green.png">Github</a>
+                </div>
+                <div>
+                    <a href="mailto:data.devcontain@gmail.com"><img class="green-point"
+                            src="../../../../assets/img/point_green.png">Email</a>
+                </div>
+                <div>
+                    <a routerLink="/imprint"><img class="green-point" src="../../../../assets/img/point_green.png">{{
+                        languageService.currentHeader.footerimp }}</a>
+                </div>
+                <div>
+                    <a routerLink="/legal-notice"><img class="green-point"
+                            src="../../../../assets/img/point_green.png">{{
+                        languageService.currentHeader.footerdat }}</a>
+                </div>
+            </div>
         </div>
-        <span>&#169; Sebastian Peters 2024</span>
-        <div class="place-links">
-            <div>
-                <a href="https://github.com/beekeepaz/portfolio"><img class="green-point"
-                        src="../../../../assets/img/point_green.png">Github</a>
-            </div>
-            <div>
-                <a href="mailto:data.devcontain@gmail.com"><img class="green-point"
-                        src="../../../../assets/img/point_green.png">Email</a>
-            </div>
-            <div>
-                <a routerLink="/imprint"><img class="green-point" src="../../../../assets/img/point_green.png">{{
-                    languageService.currentHeader.footerimp }}</a>
-            </div>
-            <div>
-                <a routerLink="/legal-notice"><img class="green-point" src="../../../../assets/img/point_green.png">{{
-                    languageService.currentHeader.footerdat }}</a>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>

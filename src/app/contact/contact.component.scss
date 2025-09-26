@@ -1,12 +1,24 @@
 @use '../scss_global/global.style' as *;
 
-section {
-    @include display(flex, space-around, flex-start);
-    @include position(null, null, 100vh);
+.background-color {
+    display: flex;
     background-color: $c-bg;
+}
+
+section {
+    @include display(flex, space-around, center);
+    @include position(null, null, 100%);
+    flex: 1 1 auto;
+    max-width: 1920px;
+    margin-inline: auto;
     color: $c-fg;
+    background-color: $c-bg;
+    padding-top: 164px;
+    padding-bottom: 164px;
 
     >div.contact-me {
+        @include display(flex, start, start, column);
+        height: 857.95px;
         overflow-x: hidden;
         min-width: 0;
         width: 616px;

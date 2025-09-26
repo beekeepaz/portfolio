@@ -1,9 +1,15 @@
 @use '../scss_global/global.style' as *;
 
+.background-color {
+    @include display(flex, center, center, row);
+    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+}
+
 section {
     @include display(flex, center, center, row);
-    @include position(null, null, 100vh, null);
-    background: linear-gradient(55.22deg, #1C1C1C 36.26%, #08463B 93.28%);
+    @include position(null, null, 100vh);
+    max-width: 1920px;
+    margin-inline: auto;
 }
 
 .headline {
@@ -96,7 +102,7 @@ app-marquee {
 .git-pos {
     @include display(flex, center, center);
     @include position(absolute, 999999);
-        margin-right: 153px;
+    margin-right: 153px;
     margin-bottom: 214px;
 
     >img:last-child {

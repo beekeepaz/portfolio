@@ -2,9 +2,11 @@
 
 section {
   @include display(flex, center, center, column);
-  @include position(null, null, 100vh);
+  @include position(null, null, 100%);
   background-color: $c-bg;
   color: $c-fg;
+  padding-top: 164px;
+  padding-bottom: 164px;
 
   >div {
     @include display(flex, center, center, column);

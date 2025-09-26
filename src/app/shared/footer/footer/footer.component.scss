@@ -1,8 +1,13 @@
 @use '../../../scss_global/global.style' as *;
 
+.background-color {
+  display: flex;
+  justify-content: center;
+  background: $c-bg;
+}
+
 html,
 body {
-  background: $c-bg;
   min-height: 100%;
   overflow-x: hidden;
   min-height: 100svh;
@@ -12,8 +17,9 @@ body {
 section {
   @include display(flex, null, null, row);
   @include position($h: 25vh);
-  width: 100%;
+  flex: 1 1 auto;
   background-color: $c-bg;
+  max-width: 1920px;
   color: $c-fg;
 
   >div {
@@ -115,6 +121,10 @@ span:hover img {
 }
 
 @include respond(1400px) {
+  .background-color {
+    display: unset;
+  }
+
   .place-links {
     padding-right: 32px;
   }

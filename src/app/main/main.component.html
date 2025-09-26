@@ -1,50 +1,54 @@
-<section>
-    <div class="headline">
-        <h2>{{ languageService.currentHeader.bannertxta }}</h2>
-        <h1>Sebastian Peters</h1>
-        <div>
-            <button (click)="scrollToId('projects')">
-                <span class="btn-span-one">{{ languageService.currentHeader.buttonleft }}</span>
-                <span class="btn-span-sec">{{ languageService.currentHeader.buttonleft }}</span>
-            </button>
+<div class="background-color">
+    <section>
+        <div class="headline">
+            <h2>{{ languageService.currentHeader.bannertxta }}</h2>
+            <h1>Sebastian Peters</h1>
+            <div>
+                <button (click)="scrollToId('projects')">
+                    <span class="btn-span-one">{{ languageService.currentHeader.buttonleft }}</span>
+                    <span class="btn-span-sec">{{ languageService.currentHeader.buttonleft }}</span>
+                </button>
 
-            <button (click)="scrollToId('contact')">
-                <span class="btn-span-one">{{ languageService.currentHeader.buttonright }}</span>
-                <span class="btn-span-sec">{{ languageService.currentHeader.buttonright }}</span>
-            </button>
+                <button (click)="scrollToId('contact')">
+                    <span class="btn-span-one">{{ languageService.currentHeader.buttonright }}</span>
+                    <span class="btn-span-sec">{{ languageService.currentHeader.buttonright }}</span>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div class="line">
-        <div class="line-left-pos">
-            <div class="arrow-box">
-                <span class="arrow" #arrowtrack>&#8595;</span>
+        <div class="line">
+            <div class="line-left-pos">
+                <div class="arrow-box">
+                    <span class="arrow" #arrowtrack>&#8595;</span>
+                </div>
+                <div class="line-left"></div>
             </div>
-            <div class="line-left"></div>
+            <div class="line-right-pos">
+                <div class="mail-pos">
+                    <a href="mailto:data.devcontain@gmail.com" target="_blank">data.devcontain&#64;gmail.com</a>
+                </div>
+                <div class="mail-img-pos">
+                    <a href="mailto:data.devcontain@gmail.com" target="_blank">
+                        <div>
+                            <img [src]="currentMail" alt="Mail" (mouseenter)="onMailEnter()"
+                                (mouseleave)="onMailLeave()" />
+                        </div>
+                    </a>
+                    <img src="assets/img/point_green.png" alt="point" />
+                </div>
+                <div class="git-pos">
+                    <a href="https://github.com/beekeepaz/portfolio" target="_blank">
+                        <div>
+                            <img [src]="currentGithub" alt="GitHub" (mouseenter)="onGithubEnter()"
+                                (mouseleave)="onGithubLeave()" />
+                        </div>
+                    </a>
+                    <img src="assets/img/point_green.png">
+                </div>
+                <div class="line-right"></div>
+            </div>
         </div>
-        <div class="line-right-pos">
-            <div class="mail-pos">
-                <a href="mailto:data.devcontain@gmail.com" target="_blank">data.devcontain&#64;gmail.com</a>
-            </div>
-            <div class="mail-img-pos">
-                <a href="mailto:data.devcontain@gmail.com" target="_blank">
-                    <div>
-                        <img [src]="currentMail" alt="Mail" (mouseenter)="onMailEnter()" (mouseleave)="onMailLeave()" />
-                    </div>
-                </a>
-                <img src="assets/img/point_green.png" alt="point" />
-            </div>
-            <div class="git-pos">
-                <a href="https://github.com/beekeepaz/portfolio" target="_blank">
-                    <div>
-                        <img [src]="currentGithub" alt="GitHub" (mouseenter)="onGithubEnter()"
-                            (mouseleave)="onGithubLeave()" />
-                    </div>
-                </a>
-                <img src="assets/img/point_green.png">
-            </div>
-            <div class="line-right"></div>
-        </div>
-    </div>
-    <app-marquee></app-marquee>
-</section>
+
+        <app-marquee></app-marquee>
+    </section>
+</div>

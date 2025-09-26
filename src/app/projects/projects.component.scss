@@ -2,10 +2,17 @@
 
 $psp: ">div.projects>div.single-project>div.place-single-project";
 
+.background-color {
+    background-color: $c-bg;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
 section {
     @include display(flex, space-around, center, row);
-    @include position(null, null, 100vh, 100%);
-    background-color: $c-bg;
+    @include position(null, null, 100%);
+    max-width: 1920px;
+    margin-inline: auto;
     color: $c-fg;
     overflow: hidden;
     cursor: default;

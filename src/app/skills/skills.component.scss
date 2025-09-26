@@ -3,13 +3,15 @@
 section {
     @include display(flex, space-around, center, column);
     @include position(relative, 2, auto, 100%);
-    min-height: 100dvh;
+    height: 100%;
     color: $c-fg;
     cursor: default;
     text-align: justify;
     overflow: clip;
     background: none;
     --bg-pos: center top;
+    padding-top: 164px;
+    padding-bottom: 164px;
 
     &::before {
         content: '';
@@ -172,6 +174,20 @@ img.icon {
     transform: translateX(-30%) translateY(18px);
 }
 
+@media (min-width: 2000px) {
+    .background-color {
+        display: flex;
+        justify-content: center;
+        background-color: $c-bg;
+    }
+
+    section {
+        inline-size: min(1920px, 100%);
+        margin-inline: auto;
+        flex: 0 1 auto;
+        min-inline-size: 0;
+    }
+}
 
 @include respond(1450px) {
     .skill-pos {

@@ -1,12 +1,19 @@
 @use '../scss_global/global.style' as *;
 
+.background-color {
+    @include display(flex, center, center, row);
+    background-color: $c-bg;
+}
+
 section {
     @include display(flex, center, center, row);
-    width: 100%;
-    min-height: 100vh;
-    background-color: $c-bg;
+    max-width: 1920px;
+    min-height: 100%;
     color: $c-fg;
+    width: 100%;
     cursor: default;
+    padding-top: 164px;
+    padding-bottom: 164px;
 
     >div.placed {
         @include display(flex, space-around, center, row);
