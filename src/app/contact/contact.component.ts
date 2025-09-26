@@ -77,8 +77,6 @@ export class ContactComponent {
     this.sendRequest()
       .subscribe({
         next: () => this.onSuccess(form),
-        error: this.onError,
-        complete: this.onComplete
       });
   }
 
@@ -118,21 +116,6 @@ export class ContactComponent {
     this.sentSuccess = true;
     setTimeout(() => (this.sentSuccess = false), ms);
   }
-
-  /**
-   * Error callback for HTTP request
-   * @param {unknown} err - error payload
-   */
-  private onError = (err: unknown): void => {
-    console.error(err);
-  };
-
-  /**
-   * Completion callback for HTTP request
-   */
-  private onComplete = (): void => {
-    console.info('send post complete');
-  };
 
   /**
    * Focus a text input/textarea and move caret to the end
