@@ -159,7 +159,60 @@ app-marquee {
     }
 }
 
-/* Breakpoints */
+@media (min-height:800px) {
+    
+}
+
+@media (min-width: 2000px) {
+    .line-right {
+        height: 240px;
+    }
+
+    .arrow-box {
+        margin-left: 324px;
+    }
+
+    .line-left {
+        margin-left: 340px;
+    }
+
+    .mail-pos {
+        margin-right: 216px;
+        margin-bottom: 418px;
+    }
+
+    .git-pos {
+        margin-right: 303px;
+        margin-bottom: 254px;
+    }
+
+    .line-right {
+        margin-right: 330px;
+    }
+}
+
+@media (min-width: 2450px) {
+    .arrow-box {
+        margin-left: 624px;
+    }
+
+    .line-left {
+        margin-left: 640px;
+    }
+
+    .mail-pos {
+        margin-right: 516px;
+    }
+
+    .git-pos {
+        margin-right: 603px;
+    }
+
+    .line-right {
+        margin-right: 630px;
+    }
+}
+
 @include respond(1400px) {
     h1 {
         font-size: 100px;

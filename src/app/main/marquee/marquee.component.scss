@@ -33,3 +33,9 @@
     white-space: nowrap;
     padding-right: 40px;
 }
+
+@media (min-width: 2000px) {
+    .marquee {
+        margin-bottom: 96px;
+    }
+}

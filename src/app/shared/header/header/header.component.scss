@@ -213,6 +213,12 @@ html.no-scroll {
     overflow-y: hidden;
 }
 
+@media (min-width: 2450px) {
+    section {
+        justify-content: space-evenly;
+    }
+}
+
 @include respond(500px) {
     section>div.second {
         left: -45px;

@@ -16,7 +16,7 @@ body {
 
 section {
   @include display(flex, null, null, row);
-  @include position($h: 25vh);
+  @include position($h: 310px);
   flex: 1 1 auto;
   background-color: $c-bg;
   max-width: 1920px;

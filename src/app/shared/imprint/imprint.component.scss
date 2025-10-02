@@ -16,7 +16,9 @@ section {
     @include display();
     @include position($p: null, $z: null);
     background-color: rgb(28, 28, 28);
+    max-width: 100%;
     padding-top: 100px;
+    padding-bottom: 176px;
     cursor: default;
 
     >.impressum {
@@ -27,6 +29,7 @@ section {
         padding-left: 64px;
         color: #FFFFFFCC;
         gap: 14px;
+        max-width: 1920px;
     }
 
     h1 {
