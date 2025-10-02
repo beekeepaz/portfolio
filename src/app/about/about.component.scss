@@ -1,11 +1,11 @@
 @use '../scss_global/global.style' as *;
 
-.background-color {
+section.background-color {
     @include display(flex, center, center, row);
     background-color: $c-bg;
 }
 
-section {
+#aboutme {
     @include display(flex, center, center, row);
     max-width: 1920px;
     min-height: 100%;
@@ -14,6 +14,7 @@ section {
     cursor: default;
     padding-top: 164px;
     padding-bottom: 164px;
+    background-color: $c-bg;
 
     >div.placed {
         @include display(flex, space-around, center, row);
@@ -107,7 +108,7 @@ span.hover-text:hover {
 }
 
 @include respond(1450px) {
-    section {
+    #aboutme {
         >div.placed {
             flex-direction: column;
             height: 1812px;
@@ -154,9 +155,8 @@ span.hover-text:hover {
     }
 }
 
-
 @include respond(950px) {
-    section {
+    #aboutme {
         >div.placed {
             height: 1512px;
 
@@ -199,12 +199,11 @@ span.hover-text:hover {
 }
 
 @include respond(700px) {
-    section {
+    #aboutme {
         >div.placed {
             height: 1412px;
 
             .pictures {
-
                 >img.front {
                     height: 468px;
                     width: 468px;
@@ -240,12 +239,11 @@ span.hover-text:hover {
 }
 
 @include respond(590px) {
-    section {
+    #aboutme {
         >div.placed {
             height: 1212px;
 
             .pictures {
-
                 >img.front {
                     height: 386px;
                     width: 386px;
@@ -285,7 +283,7 @@ span.hover-text:hover {
 }
 
 @include respond(490px) {
-    section {
+    #aboutme {
         >div.placed {
             height: 1612px;
 

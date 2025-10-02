@@ -1,6 +1,6 @@
 @use '../scss_global/global.style' as *;
 
-section {
+#skills {
     @include display(flex, space-around, center, column);
     @include position(relative, 2, auto, 100%);
     height: 100%;
@@ -16,7 +16,7 @@ section {
     &::before {
         content: '';
         position: absolute;
-        inset: 0;
+        inset: -1px;
         z-index: 0;
         pointer-events: none;
         background-image: url("../../assets/img/background_skill.png");
@@ -175,13 +175,13 @@ img.icon {
 }
 
 @media (min-width: 2000px) {
-    .background-color {
+    section.background-color {
         display: flex;
         justify-content: center;
         background-color: $c-bg;
     }
 
-    section {
+    #skills {
         inline-size: min(1920px, 100%);
         margin-inline: auto;
         flex: 0 1 auto;
@@ -270,7 +270,7 @@ img.icon {
         width: 526px;
     }
 
-    section {
+    #skills {
         --bg-pos: center top;
     }
 }

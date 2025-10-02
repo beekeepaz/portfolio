@@ -1,11 +1,12 @@
 @use '../scss_global/global.style' as *;
 
-.background-color {
+section.background-color {
     display: flex;
     background-color: $c-bg;
 }
 
-section {
+/* innerer Container ist nun #contact (vorher: section) */
+#contact {
     @include display(flex, space-around, center);
     @include position(null, null, 100%);
     flex: 1 1 auto;
@@ -106,18 +107,13 @@ section {
     }
 }
 
-.cip1:hover {
-    cursor: text;
-}
-
-.cip2:hover {
-    cursor: text;
-}
-
+.cip1:hover,
+.cip2:hover,
 .cip3:hover {
     cursor: text;
 }
 
+/* Hover-Linienlogik bleibt identisch */
 form:has(.cip1:hover) .ll1,
 form:has(.cip1:hover) .ll2,
 .cip1:hover~.ll2 {
@@ -224,6 +220,7 @@ textarea {
     min-block-size: 3.5rlh;
 }
 
+/* Checkbox */
 .container {
     position: relative;
     padding-left: 35px;
@@ -275,6 +272,7 @@ textarea {
     transform: rotate(45deg);
 }
 
+/* Overlay */
 .mail-sent-overlay {
     position: fixed;
     inset: 0;
@@ -337,8 +335,9 @@ textarea {
     }
 }
 
+/* --- Breakpoints angepasst auf #contact --- */
 @include respond(1400px) {
-    section {
+    #contact {
         height: 100%;
         justify-content: space-between;
         align-items: center;
@@ -356,27 +355,27 @@ textarea {
 }
 
 @include respond(710px) {
-    section>div.form-contain {
+    #contact>div.form-contain {
         width: 536px;
     }
 
-    section>div.contact-me {
+    #contact>div.contact-me {
         width: 536px;
     }
 }
 
 @include respond(600px) {
-    section>div.form-contain {
+    #contact>div.form-contain {
         width: 476px;
     }
 
-    section>div.contact-me {
+    #contact>div.contact-me {
         width: 476px;
     }
 }
 
 @include respond(520px) {
-    section>div.form-contain {
+    #contact>div.form-contain {
         width: 356px;
 
         >form .con-information-pos {
@@ -388,17 +387,17 @@ textarea {
         }
     }
 
-    section>div.contact-me {
+    #contact>div.contact-me {
         width: 356px;
     }
 }
 
 @include respond(430px) {
-    section>div.form-contain {
+    #contact>div.form-contain {
         width: 326px;
     }
 
-    section>div.contact-me {
+    #contact>div.contact-me {
         width: 326px;
 
         >div {
@@ -406,17 +405,17 @@ textarea {
         }
     }
 
-    section>div.contact-me>div span.farbcode-green {
+    #contact>div.contact-me>div span.farbcode-green {
         padding-left: 0px;
     }
 }
 
 @include respond(380px) {
-    section>div.form-contain {
+    #contact>div.form-contain {
         width: 286px;
     }
 
-    section>div.contact-me {
+    #contact>div.contact-me {
         width: 286px;
     }
 }

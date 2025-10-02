@@ -1,5 +1,5 @@
-<div class="background-color">
-    <section id="contact">
+<section class="background-color">
+    <div id="contact">
         <div class="contact-me">
             <h2>{{ languageService.contact.headeroverbox }}</h2>
             <h1>{{ languageService.contact.headbefore }}<br>
@@ -12,10 +12,12 @@
                 <span class="farbcode-green">{{ languageService.contact.reply }}</span>
             </div>
         </div>
+
         <div class="form-contain">
             <form autocomplete="off" class="kontaktformular position-contact-elements"
                 (ngSubmit)="sendMail(contactForm)" #contactForm="ngForm" id="contact-me">
                 <div class="longe-line ll1"></div>
+
                 <div class="con-information-pos cip1" (click)="this.focusInput(nameInput)" tabindex="0"
                     aria-label="Name eingeben">
                     <span class="contact-question">{{ languageService.contact.name }}</span>
@@ -28,7 +30,9 @@
                         }
                     </div>
                 </div>
+
                 <div class="longe-line ll2"></div>
+
                 <div class="con-information-pos cip2" (click)="this.focusInput(mailInput)" tabindex="0"
                     aria-label="E-Mail eingeben">
                     <span class="contact-question">{{ languageService.contact.email }}</span>
@@ -41,7 +45,9 @@
                         }
                     </div>
                 </div>
+
                 <div class="longe-line ll3"></div>
+
                 <div class="con-information-pos cip3 cc-over-text" (click)="this.focusInput(messageInput)" tabindex="0"
                     aria-label="Nachricht eingeben">
                     <span class="contact-question">{{ languageService.contact.message }}</span>
@@ -54,23 +60,29 @@
                         }
                     </div>
                 </div>
+
                 <div class="longe-line ll4"></div>
+
                 <div class="con-police-pos">
                     <div>
                         <label class="container">
                             <input required [(ngModel)]="checked" #policy="ngModel" type="checkbox" name="myCheckbox">
                             <span class="checkmark"></span>
                         </label>
-                        <span>{{ languageService.contact.policytxtbefore }}<a routerLink="/legal-notice">{{
-                                languageService.contact.policyicealink
-                                }}</a>{{ languageService.contact.policyafter }}</span>
+                        <span>
+                            {{ languageService.contact.policytxtbefore }}
+                            <a routerLink="/legal-notice">{{ languageService.contact.policyicealink }}</a>
+                            {{ languageService.contact.policyafter }}
+                        </span>
                     </div>
                 </div>
+
                 <div class="validation-slot" aria-live="polite">
                     @if((contactForm.submitted || triedSubmit) && !checked) {
                     <span class="valid-massage">{{ languageService.contact.missingpolicy }}</span>
                     }
                 </div>
+
                 <div class="con-button-pos">
                     <button required class="button" type="submit" name="submit-button" form="contact-me" value="Submit"
                         [class.is-active]="contactForm.form.valid && checked"
@@ -81,10 +93,11 @@
                 </div>
             </form>
         </div>
+
         @if (sentSuccess) {
         <div class="mail-sent-overlay" (click)="sentSuccess = false" role="alert" aria-live="assertive">
             <span>Ihre Mail wurde gesendet.</span>
         </div>
         }
-    </section>
-</div>
+    </div>
+</section>

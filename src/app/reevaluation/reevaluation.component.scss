@@ -5,8 +5,8 @@ section {
   @include position(null, null, 100%);
   background-color: $c-bg;
   color: $c-fg;
-  padding-top: 164px;
-  padding-bottom: 164px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   >div {
     @include display(flex, center, center, column);
@@ -19,6 +19,7 @@ section {
       font-size: 32px;
       text-align: center;
       margin: 0 32px 48px;
+      user-select: none;
     }
   }
 }
@@ -31,6 +32,8 @@ section {
   border-radius: 16px;
   font-family: var(--ff-fira);
   cursor: default;
+  user-select: none;
+  transition: background-color 300ms ease-in-out;
 
   >span {
     @include display(flex, center, center, column);
@@ -45,13 +48,14 @@ section {
 
 .preview {
   @include position(null, null, 250px, 500px);
-  margin: 32px;
   background-color: #2b3a37;
+  transition: background-color 300ms ease-in-out;
 }
 
 .show-container {
   @include display(flex, center, center);
   width: 100%;
+  gap: 24px;
 
   >div.quotes-img-pos {
     @include display(flex, baseline, baseline);
@@ -61,6 +65,7 @@ section {
 
 img.quotes {
   display: block;
+  user-select: none;
 }
 
 .box-shadow {
@@ -68,8 +73,8 @@ img.quotes {
   left: 0;
   top: 0;
   bottom: 0;
-  box-shadow: inset 625px 0 150px 0 rgba(28, 28, 28, .5),
-    inset -625px 0 150px -220px rgba(28, 28, 28, .5);
+  box-shadow: inset 525px 0 150px -220px rgba(28, 28, 28, .5),
+    inset -525px 0 150px -220px rgba(28, 28, 28, .5);
 }
 
 .box-shadow-second {
@@ -82,6 +87,8 @@ img.quotes {
 }
 
 .comment-field {
+  display: flex;
+  min-height: 400px;
   position: relative;
   overflow: hidden;
 }
@@ -158,12 +165,14 @@ img.quotes {
 .a {
   animation-duration: var(--ad, 1s);
   animation-timing-function: var(--atf, ease-in-out);
+  animation-fill-mode: both;
+  backface-visibility: hidden;
 }
 
-.left,
-.left-right,
-.right,
-.right-right,
+.outleft,
+.in-left-mid,
+.outright,
+.in-right-mid,
 .mid-left,
 .mid-right,
 .left-in,
@@ -171,41 +180,38 @@ img.quotes {
   @extend .a;
 }
 
-.left {
-  animation-name: animaOutLeft;
+.outleft {
+  animation-name: outLeft;
 }
 
-.left-right {
-  animation-name: animaInLeftToRight;
+.outright {
+  animation-name: outRight;
 }
 
-.right {
-  animation-name: animaInRight;
+.in-left-mid {
+  animation-name: inLeftMid;
 }
 
-.right-right {
-  animation-name: animaOutRight;
+.in-right-mid {
+  animation-name: inRightMid;
 }
 
 .mid-left {
-  animation-name: animaMidLeft;
-  transform: scale(.85) translateX(-700px);
+  animation-name: midLeft;
 }
 
 .mid-right {
-  animation-name: animaMidRight;
-  transform: scale(.85) translateX(+700px);
+  animation-name: midRight;
 }
 
 .left-in {
-  animation-name: animaLeftIn;
-  margin-left: -525px;
+  animation-name: leftIn;
+  margin-left: -524px;
 }
 
 .right-in {
-  animation-name: animaRightIn;
-  transform: scale(1.15);
-  margin-right: -525px;
+  animation-name: rightIn;
+  margin-right: -524px;
 }
 
 .swipe-area {
@@ -262,12 +268,23 @@ img.quotes {
     >span {
       width: 80%;
     }
+  }
 
+  .preview {
+    width: 400px;
   }
 
   .show-container>div.quotes-img-pos {
     height: 318px;
     width: 506px;
+  }
+
+  .left-in {
+    margin-left: -424px;
+  }
+
+  .right-in {
+    margin-right: -424px;
   }
 }
 
@@ -286,7 +303,19 @@ img.quotes {
     width: 284px;
   }
 
+  .preview {
+    width: 284px;
+  }
+
   .line {
     width: 150px;
+  }
+
+  .left-in {
+    margin-left: -308px;
+  }
+
+  .right-in {
+    margin-right: -308px;
   }
 }

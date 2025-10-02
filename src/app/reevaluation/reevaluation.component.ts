@@ -7,9 +7,9 @@ type AnimTriple = Record<AnimState, string>;
 
 const ANIM_CLASSES: Record<number, AnimTriple> = {
   0: { neutral: 'd-none', left: 'd-none', right: 'single-comment-field preview left-in' },
-  1: { neutral: 'single-comment-field preview', left: 'single-comment-field preview left', right: 'single-comment-field preview left-right' },
+  1: { neutral: 'single-comment-field preview', left: 'single-comment-field preview outleft', right: 'single-comment-field preview in-left-mid' },
   2: { neutral: 'single-comment-field show-mid-color', left: 'single-comment-field mid-left', right: 'single-comment-field mid-right' },
-  3: { neutral: 'single-comment-field preview', left: 'single-comment-field preview right', right: 'single-comment-field preview right-right' },
+  3: { neutral: 'single-comment-field preview', left: 'single-comment-field preview in-right-mid', right: 'single-comment-field preview outright' },
   4: { neutral: 'd-none', left: 'single-comment-field preview right-in', right: 'd-none' },
 } as const;
 
@@ -42,7 +42,7 @@ export class ReevaluationComponent {
   private startY = 0;
   private startTime = 0;
 
-  animationDuration = '800ms';
+  animationDuration = '1s';
   animationTiming = 'ease-in-out';
 
   currentIndex = 0;
