@@ -128,10 +128,13 @@ export class Language {
         reply: 'Let s talk!',
 
         name: 'What s your name?',
+        mynameis: 'Your name goes here',
         missingname: 'Oops! it seems your name is missing',
         email: 'What s your email?',
+        mymailis: 'yourmail@email.com',
         missingmail: 'Hoppla! your email is required',
         message: 'How can I help you?',
+        mymassageis: 'Hello Sebastian, I am interested in ...',
         missingmassage: 'What do you need to develop?',
 
         policytxtbefore: 'I ve read the',
@@ -152,10 +155,13 @@ export class Language {
         reply: 'Lassen Sie uns reden!',
 
         name: 'Wie ist Ihr Name?',
+        mynameis: 'Dein Name kommt hier hin',
         missingname: 'Ups! Ihr Name scheint zu fehlen',
         email: 'Wie lautet Ihre E-Mail?',
+        mymailis: 'deinemail@email.de',
         missingmail: 'Hoppla! Ihre E-Mail ist erforderlich',
         message: 'Wie kann ich Ihnen helfen?',
+        mymassageis: 'Hallo Sebastian, ich bin interessiert an ...',
         missingmassage: 'Was müssen Sie entwickeln?',
 
         policytxtbefore: 'Ich habe die',

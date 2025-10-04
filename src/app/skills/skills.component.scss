@@ -186,6 +186,10 @@ img.icon {
         margin-inline: auto;
         flex: 0 1 auto;
         min-inline-size: 0;
+
+        &::before {
+            display: none;
+        }
     }
 }
 
