@@ -1,42 +1,46 @@
 <section>
 
-    <input class="checkbox" type="checkbox" id="toggle_button" [(ngModel)]="isChecked">
-    <label for="toggle_button" class="toggle_button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </label>
+    <div class="contentmax">
 
-    <div class="menu" (click)="backgroundClick()">
+        <input class="checkbox" type="checkbox" id="toggle_button" [(ngModel)]="isChecked">
+        <label for="toggle_button" class="toggle_button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </label>
 
-        <nav (click)="$event.stopPropagation()">
-            <div class="background" *ngIf="languageService.toggleValue$ | async as toggleValue">
-                <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
-                    [checked]="toggleValue === 'false'"(change)="switchLanguage('false')">
-                <label for="toggle-on" class="btn">EN</label>
-                <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
-                     [checked]="toggleValue === 'true'"(change)="switchLanguage('true')">
-                <label for="toggle-off" class="btn">DE</label>
-            </div>
+        <div class="menu" (click)="backgroundClick()">
 
-            <a (click)="scrollToId('aboutme')" (click)="backgroundClick()">
-                {{ languageService.currentHeader.navleft }}
-                <img src="../../../../assets/img/point_green.png">
-            </a>
-            <a (click)="scrollToId('skills')" (click)="backgroundClick()">
-                {{ languageService.currentHeader.navmid }}
-                <img src="../../../../assets/img/point_green.png">
-            </a>
-            <a (click)="scrollToId('projects')" (click)="backgroundClick()">
-                {{ languageService.currentHeader.navright }}
-                <img src="../../../../assets/img/point_green.png">
-            </a>
-        </nav>
-    </div>
+            <nav (click)="$event.stopPropagation()">
+                <div class="background" *ngIf="languageService.toggleValue$ | async as toggleValue">
+                    <input id="toggle-on" class="toggle toggle-left" name="toggle" value="false" type="radio"
+                        [checked]="toggleValue === 'false'" (change)="switchLanguage('false')">
+                    <label for="toggle-on" class="btn">EN</label>
+                    <input id="toggle-off" class="toggle toggle-right" name="toggle" value="true" type="radio"
+                        [checked]="toggleValue === 'true'" (change)="switchLanguage('true')">
+                    <label for="toggle-off" class="btn">DE</label>
+                </div>
 
-    <div class="second">
-        <div (click)="this.back()" class="logos">
+                <a (click)="scrollToId('aboutme')" (click)="backgroundClick()">
+                    {{ languageService.currentHeader.navleft }}
+                    <img src="../../../../assets/img/point_green.png">
+                </a>
+                <a (click)="scrollToId('skills')" (click)="backgroundClick()">
+                    {{ languageService.currentHeader.navmid }}
+                    <img src="../../../../assets/img/point_green.png">
+                </a>
+                <a (click)="scrollToId('projects')" (click)="backgroundClick()">
+                    {{ languageService.currentHeader.navright }}
+                    <img src="../../../../assets/img/point_green.png">
+                </a>
+            </nav>
         </div>
+
+        <div class="second">
+            <div (click)="this.back()" class="logos">
+            </div>
+        </div>
+
     </div>
 
 </section>

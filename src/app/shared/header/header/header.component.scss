@@ -6,46 +6,52 @@ section {
     color: $c-fg;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 13.56%, rgba(0, 0, 0, 0.6) 84.01%);
 
-    >div {
-        @include display(flex, start, center, row);
-        @include position(null, 99, null, 668px);
-        gap: 24px;
+    >div.contentmax {
+        @include display(flex, space-around, center, row);
+        width: 100%;
+        max-width: 1920px;
 
-        nav {
+        >div.menu {
             @include display(flex, start, center, row);
-            width: 100%;
-            gap: 28px;
+            @include position(null, 99, null, 668px);
+            gap: 24px;
 
-            >a {
-                @include display(flex, center, center, column);
-                font-family: var(--ff-fira);
-                font-size: 20px;
+            nav {
+                @include display(flex, start, center, row);
+                width: 100%;
+                gap: 28px;
 
-                color: $c-fg;
-                text-decoration: none;
-                margin-top: 6px;
-                white-space: nowrap;
+                >a {
+                    @include display(flex, center, center, column);
+                    font-family: var(--ff-fira);
+                    font-size: 20px;
 
-                >img {
-                    visibility: hidden;
+                    color: $c-fg;
+                    text-decoration: none;
+                    margin-top: 6px;
+                    white-space: nowrap;
+
+                    >img {
+                        visibility: hidden;
+                    }
+                }
+
+                >a:hover {
+                    cursor: pointer;
+                    color: $c-accent;
+                }
+
+                >a:hover img {
+                    background: url('../../../../assets/img/point_green.png') no-repeat center/contain;
+                    visibility: visible;
                 }
             }
-
-            >a:hover {
-                cursor: pointer;
-                color: $c-accent;
-            }
-
-            >a:hover img {
-                background: url('../../../../assets/img/point_green.png') no-repeat center/contain;
-                visibility: visible;
-            }
         }
-    }
 
-    >div.second {
-        @include display(flex, end, center, row);
-        @include position(null, 100, null, 568px);
+        >div.second {
+            @include display(flex, end, center, row);
+            @include position(null, 100, null, 568px);
+        }
     }
 }
 
@@ -150,10 +156,10 @@ nav {
 
 /* Responsive */
 @include respond(1400px) {
-    section {
+    section>div.contentmax {
         justify-content: center;
 
-        >div,
+        >div.menu,
         >div.second {
             width: 40%;
         }
@@ -172,35 +178,38 @@ nav {
     section {
         justify-content: start;
 
-        >div.menu {
-            @include display(none, center, center, row);
-            @include position(fixed, 9999999999, 100%, 100%);
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            background-color: rgba(6, 21, 19, 0.76);
-        }
-
-        >.menu nav {
-            display: none;
-            height: min-content;
-            width: 300px;
-
+        >div.contentmax {
             @include display(flex, center, center, column);
-            position: fixed;
-            top: 100px;
-            right: 8px;
-            padding: 24px 0;
-            background: linear-gradient(55.22deg, $c-bg 36.26%, #08463B 93.28%);
-            border-radius: 30px;
-            border: 1px solid $c-accent;
-        }
+            >div.menu {
+                @include display(none, center, center, row);
+                @include position(fixed, 9999999999, 100%, 100%);
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                background-color: rgba(6, 21, 19, 0.76);
+            }
 
-        >div.second {
-            justify-content: start;
-            position: absolute;
-            left: 25px;
+            >div.menu nav {
+                display: none;
+                height: min-content;
+                width: 300px;
+
+                @include display(flex, center, center, column);
+                position: fixed;
+                top: 100px;
+                right: 8px;
+                padding: 24px 0;
+                background: linear-gradient(55.22deg, $c-bg 36.26%, #08463B 93.28%);
+                border-radius: 30px;
+                border: 1px solid $c-accent;
+            }
+
+            >div.second {
+                justify-content: start;
+                position: absolute;
+                left: 25px;
+            }
         }
     }
 
@@ -213,32 +222,26 @@ html.no-scroll {
     overflow-y: hidden;
 }
 
-@media (min-width: 2450px) {
-    section {
-        justify-content: space-evenly;
-    }
-}
-
 @include respond(500px) {
-    section>div.second {
+    section>div.contentmax>div.second {
         left: -45px;
     }
 }
 
 @include respond(450px) {
-    section>div.second {
+    section>div.contentmax>div.second {
         left: -35px;
     }
 }
 
 @include respond(400px) {
-    section>div.second {
+    section>div.contentmax>div.second {
         left: -30px;
     }
 }
 
 @include respond(350px) {
-    section>div.second {
+    section>div.contentmax>div.second {
         left: -20px;
     }
 }

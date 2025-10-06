@@ -8,7 +8,6 @@ section.background-color {
 #banner {
     @include display(flex, center, center, row);
     @include position(null, null, 100vh);
-    max-width: 1920px;
     margin-inline: auto;
 }
 
