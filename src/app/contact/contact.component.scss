@@ -345,6 +345,7 @@ textarea {
 
         div.contact-me {
             padding-bottom: 64px;
+            height: unset;
         }
 
         >div.form-contain>form .con-information-pos {
@@ -393,6 +394,10 @@ textarea {
 }
 
 @include respond(430px) {
+    #contact {
+        padding-top: 48px;
+    }
+
     #contact>div.form-contain {
         width: 326px;
     }

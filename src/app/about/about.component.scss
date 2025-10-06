@@ -285,11 +285,14 @@ span.hover-text:hover {
 
 @include respond(490px) {
     #aboutme {
+        padding-bottom: 16px;
+        padding-top: unset;
+
         >div.placed {
-            height: 1612px;
+            height: unset;
 
             .pictures {
-                height: 600px;
+                height: 384px;
 
                 >img.front {
                     height: 300px;

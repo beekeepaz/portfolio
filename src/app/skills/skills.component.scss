@@ -301,6 +301,11 @@ img.icon {
 }
 
 @include respond(490px) {
+    #skills {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
     .skill-set-container {
         @include position($w: 248px);
         padding: 24px;
