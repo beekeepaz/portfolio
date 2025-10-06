@@ -70,6 +70,12 @@ app-marquee {
     padding-bottom: 6px;
 }
 
+.line-content {
+    @include display(flex, space, flex-end);
+    @include position(absolute, null, 100vh, 100%);
+    max-width: 1920px;
+}
+
 .line {
     @include display(flex, space-between, flex-end);
     @include position(absolute, null, 100vh, 100%);
@@ -163,48 +169,12 @@ app-marquee {
         height: 240px;
     }
 
-    .arrow-box {
-        margin-left: 324px;
-    }
-
-    .line-left {
-        margin-left: 340px;
-    }
-
     .mail-pos {
-        margin-right: 216px;
         margin-bottom: 418px;
     }
 
     .git-pos {
-        margin-right: 303px;
         margin-bottom: 254px;
-    }
-
-    .line-right {
-        margin-right: 330px;
-    }
-}
-
-@media (min-width: 2450px) {
-    .arrow-box {
-        margin-left: 624px;
-    }
-
-    .line-left {
-        margin-left: 640px;
-    }
-
-    .mail-pos {
-        margin-right: 516px;
-    }
-
-    .git-pos {
-        margin-right: 603px;
-    }
-
-    .line-right {
-        margin-right: 630px;
     }
 }
 

@@ -16,39 +16,41 @@
             </div>
         </div>
 
-        <div class="line">
-            <div class="line-left-pos">
-                <div class="arrow-box">
-                    <span class="arrow" #arrowtrack>&#8595;</span>
+        <div class="line-content">
+
+            <div class="line">
+                <div class="line-left-pos">
+                    <div class="arrow-box">
+                        <span class="arrow" #arrowtrack>&#8595;</span>
+                    </div>
+                    <div class="line-left"></div>
                 </div>
-                <div class="line-left"></div>
-            </div>
-            <div class="line-right-pos">
-                <div class="mail-pos">
-                    <a href="mailto:data.devcontain@gmail.com" target="_blank">data.devcontain&#64;gmail.com</a>
+                <div class="line-right-pos">
+                    <div class="mail-pos">
+                        <a href="mailto:data.devcontain@gmail.com" target="_blank">data.devcontain&#64;gmail.com</a>
+                    </div>
+                    <div class="mail-img-pos">
+                        <a href="mailto:data.devcontain@gmail.com" target="_blank">
+                            <div>
+                                <img [src]="currentMail" alt="Mail" (mouseenter)="onMailEnter()"
+                                    (mouseleave)="onMailLeave()" />
+                            </div>
+                        </a>
+                        <img src="assets/img/point_green.png" alt="point" />
+                    </div>
+                    <div class="git-pos">
+                        <a href="https://github.com/beekeepaz/portfolio" target="_blank">
+                            <div>
+                                <img [src]="currentGithub" alt="GitHub" (mouseenter)="onGithubEnter()"
+                                    (mouseleave)="onGithubLeave()" />
+                            </div>
+                        </a>
+                        <img src="assets/img/point_green.png">
+                    </div>
+                    <div class="line-right"></div>
                 </div>
-                <div class="mail-img-pos">
-                    <a href="mailto:data.devcontain@gmail.com" target="_blank">
-                        <div>
-                            <img [src]="currentMail" alt="Mail" (mouseenter)="onMailEnter()"
-                                (mouseleave)="onMailLeave()" />
-                        </div>
-                    </a>
-                    <img src="assets/img/point_green.png" alt="point" />
-                </div>
-                <div class="git-pos">
-                    <a href="https://github.com/beekeepaz/portfolio" target="_blank">
-                        <div>
-                            <img [src]="currentGithub" alt="GitHub" (mouseenter)="onGithubEnter()"
-                                (mouseleave)="onGithubLeave()" />
-                        </div>
-                    </a>
-                    <img src="assets/img/point_green.png">
-                </div>
-                <div class="line-right"></div>
             </div>
         </div>
-
         <app-marquee></app-marquee>
     </div>
 </section>

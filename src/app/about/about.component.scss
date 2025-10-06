@@ -30,6 +30,7 @@ section.background-color {
                 @include position(absolute, 2, 568px, 568px);
                 border-radius: 30px;
                 margin-left: 48px;
+                object-fit: cover;
             }
 
             >img.behind {
