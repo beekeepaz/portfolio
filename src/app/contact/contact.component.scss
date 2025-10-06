@@ -15,7 +15,6 @@ section.background-color {
     color: $c-fg;
     background-color: $c-bg;
     padding-top: 164px;
-    padding-bottom: 164px;
 
     >div.contact-me {
         @include display(flex, start, start, column);
@@ -173,6 +172,16 @@ input {
 :host .button:not(.is-active):hover .btn-span-one,
 :host .button:not(.is-active):hover .btn-span-sec {
     animation: none !important;
+    cursor: default !important;
+    border-color: unset !important;
+    color: unset !important;
+}
+
+:host .button:not(.is-active):hover {
+    animation: none !important;
+    cursor: default !important;
+    border-color: unset !important;
+    color: none !important;
 }
 
 .con-button-pos {
