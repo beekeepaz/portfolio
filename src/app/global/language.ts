@@ -104,17 +104,13 @@ export class Language {
     public retxtenglish = [
         { text: "Sebastian keeps calm under stress and always finds a solution.", name: "Anna, Project Manager" },
         { text: "He gladly shares his knowledge and helps new colleagues settle in.", name: "Markus, Developer" },
-        { text: "He thinks solution-oriented and brings ideas that move us forward.", name: "Laura, Team Lead" },
-        { text: "He explains tech so simply that even non-experts understand it.", name: "Daniel, IT Support" },
-        { text: "He looks beyond code and cares about the user experience.", name: "Sarah, Designer" }
+        { text: "He thinks solution-oriented and brings ideas that move us forward.", name: "Laura, Team Lead" }
     ];
 
     public retxtgerman = [
         { text: "Sebastian bleibt auch im Stress ruhig und findet immer Lösungen.", name: "Anna, Projektmanagerin" },
         { text: "Er teilt sein Wissen gern und hilft neuen Kollegen beim Einstieg.", name: "Markus, Entwickler" },
-        { text: "Er denkt lösungsorientiert und bringt Ideen, die uns weiterbringen.", name: "Laura, Teamleiterin" },
-        { text: "Er erklärt Technik so einfach, dass es jeder versteht.", name: "Daniel, IT-Support" },
-        { text: "Er schaut über den Code hinaus und achtet auf die Nutzererfahrung.", name: "Sarah, Designerin" }
+        { text: "Er denkt lösungsorientiert und bringt Ideen, die uns weiterbringen.", name: "Laura, Teamleiterin" }
     ];
 
     public contacttxtenglish = {
@@ -142,7 +138,7 @@ export class Language {
         policyafter: 'and agree to the processing of my data as outlined.',
         missingpolicy: 'Please accept the privacy policy',
 
-        button: 'absend'
+        button: 'send'
     };
 
     public contacttxtgerman = {

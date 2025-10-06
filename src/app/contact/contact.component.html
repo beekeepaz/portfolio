@@ -38,7 +38,7 @@
                     <span class="contact-question">{{ languageService.contact.email }}</span>
                     <input #mailInput autocomplete="off" required #mail="ngModel" [(ngModel)]="contactData.email"
                         class="namemail" type="email" name="email" placeholder="{{ languageService.contact.mymailis }}"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                        pattern="^[A-Za-z0-9](?:[A-Za-z0-9._%+\-]*[A-Za-z0-9])?@[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9\-]*[A-Za-z0-9])?)+$">
                     <div class="validation-slot" aria-live="polite">
                         @if(!mail.valid && mail.touched) {
                         <span class="valid-massage">{{ languageService.contact.missingmail }}</span>

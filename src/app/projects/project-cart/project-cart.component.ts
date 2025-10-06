@@ -42,7 +42,7 @@ export class ProjectCartComponent implements OnInit {
   public isCloseHovered = false;
   public arrowBtnHover: boolean[] = [false, false];
 
-  private readonly order: CartKey[] = ['setJoin', 'setElPolloLoco', 'setDaBubble'];
+  private readonly order: CartKey[] = ['setJoin', 'setElPolloLoco'];
   private currentIndex = 0;
 
   private readonly links: Record<CartKey, Record<LinkKind, string | null>> = {

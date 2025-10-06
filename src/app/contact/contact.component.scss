@@ -139,7 +139,7 @@ input {
 .con-police-pos {
     @include display(flex, center, start, column);
     font-family: var(--ff-karla);
-    font-size: 15px;
+    font-size: 16px;
     padding-top: 48px;
     @include position(null, null, 75px);
     cursor: default;
