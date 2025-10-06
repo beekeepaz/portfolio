@@ -157,6 +157,11 @@
     object-fit: contain;
 }
 
+button {
+    font-size: 14px;
+}
+
+
 button:hover .btn-cart {
     color: $c-accent;
 }
@@ -348,6 +353,6 @@ button:hover .btn-cart {
     }
 
     .cart-layer {
-        scale: 0.9;
+        scale: 0.84;
     }
 }

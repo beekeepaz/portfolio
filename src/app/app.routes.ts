@@ -4,7 +4,8 @@ import { LegalNoticeComponent } from './shared/legal-notice/legal-notice.compone
 import { ImprintComponent } from './shared/imprint/imprint.component';
 
 export const routes: Routes = [
-    { path: '', component: GenerateComponent },
     { path: 'legal-notice', component: LegalNoticeComponent },
-    { path: 'imprint', component: ImprintComponent }
+    { path: 'imprint', component: ImprintComponent },
+    { path: '', component: GenerateComponent, pathMatch: 'full' },
+    { path: '**', redirectTo: '' }
 ];

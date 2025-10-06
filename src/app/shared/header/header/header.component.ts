@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   readonly languageService = inject(Language);
 
@@ -115,14 +115,6 @@ export class HeaderComponent implements OnInit {
    */
   switchLanguage(value: string): void {
     this.languageService.toggleValue = value;
-  }
-
-  /**
-   * Lifecycle hook: on component initialization navigate to the root route
-   * @returns {void}
-   */
-  ngOnInit() {
-    this.router.navigate(["/"]);
   }
 
   /**
