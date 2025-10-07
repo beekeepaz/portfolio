@@ -64,7 +64,7 @@ export class Language {
         skillsc: 'My journey has involved working on diverse projects, employing a range of frontend technologies and concepts. I am open to empracing new technologies and methodolohies to Continously enhance my skills and stay ahead in the ever-evolving landscape of web develepment.',
         skillsd: 'You need',
         skillse: 'another skill',
-        skillsf: 'Feel free ton contact me. I look forward to expanding on my previous knowledge',
+        skillsf: 'Feel free to contact me. I look forward to expanding on my previous knowledge',
         skillsbutton: 'Lets Talk',
 
         projectsa: 'Featured Projects',
@@ -84,7 +84,7 @@ export class Language {
 
     public german = {
         navleft: 'Ueber mich',
-        navmid: 'Faehigkeiten',
+        navmid: 'Skills',
         navright: 'Projekte',
 
         buttonleft: 'Arbeiten',
@@ -102,14 +102,14 @@ export class Language {
         aboutf: 'In meinem Beruf geht es beim Programmieren nicht nur um Code zu schreiben; es ist eine kreative Form des Problemlösens. Ich bin stolz auf meine Fähigkeit, komplexe technische Herausforderungen in einfache, benutzerfreundliche Lösungen zu verwandeln. Auf diese Weise helfe ich Ihnen, Ihre Ziele zu erreichen und Ihre Visionen zum Leben zu erwecken.',
 
         skillsa: 'Technologien',
-        skillsb: 'Fertigkeiten',
+        skillsb: 'Skills',
         skillsc: 'Auf meinem Weg habe ich an verschiedenen Projekten gearbeitet, einer Reihe von Frontend-Technologien und Konzepten Konzepte. Ich bin offen für die Einführung neuer Technologien und Methoden, um meine Fähigkeiten kontinuierlich zu verbessern und in der sich ständig weiterentwickelnden Landschaft der Web entwicklung.',
-        skillsd: 'Sie benötigen',
-        skillse: 'andere Fähigkeit',
+        skillsd: 'Sie brauchen',
+        skillse: 'einen Skill',
         skillsf: 'Nehmen Sie Kontakt mit mir auf. Ich freue mich darauf mein bisheriges Wissen zu erweitern',
-        skillsbutton: 'Lasst uns reden',
+        skillsbutton: 'Lassen Sie reden',
 
-        projectsa: 'Ausgewählte Projekte',
+        projectsa: 'Projekte',
         projectsb: 'Entdecken Sie hier eine Auswahl meiner Arbeiten - Interagieren Sie mit Projekten, um meine Fähigkeiten in Aktion zu sehen.',
 
         headercart: 'Um was geht es bei diesem Projekt?',
@@ -138,13 +138,13 @@ export class Language {
 
     public contacttxtenglish = {
         headeroverbox: 'Contact me',
-        headbefore: 'Let s work',
+        headbefore: 'Let’s work',
         headafter: 'together',
         underhead: 'Got a problem to solve',
         descriptbefore: 'I enjoy turning ideas into results and I’m always curious about new challenges. If you’re looking for someone who brings energy, focus, and reliable value to your projects, I’d be happy to connect.',
         descriptafter: 'your ideas and contributing to your projects with my work.',
         question: 'Need a Frontend developer?',
-        reply: 'Let s talk!',
+        reply: 'Let’s talk!',
 
         name: 'What s your name?',
         mynameis: 'Your name goes here',
@@ -156,7 +156,7 @@ export class Language {
         mymassageis: 'Hello Sebastian, I am interested in ...',
         missingmassage: 'What do you need to develop?',
 
-        policytxtbefore: 'I ve read the',
+        policytxtbefore: 'I’ve read the',
         policyicealink: 'privacy policy',
         policyafter: 'and agree to the processing of my data as outlined.',
         missingpolicy: 'Please accept the privacy policy',
@@ -166,8 +166,8 @@ export class Language {
 
     public contacttxtgerman = {
         headeroverbox: 'Kontaktieren Sie mich',
-        headbefore: 'Lass uns',
-        headafter: 'zusammenarbeiten',
+        headbefore: 'Lassen Sie uns ein',
+        headafter: 'Netzwerk bilden.',
         underhead: 'Sie haben ein Problem zu lösen',
         descriptbefore: 'Ich habe Freude daran, Ideen in Ergebnisse zu verwandeln und bin immer neugierig auf neue Herausforderungen. Wenn Sie jemanden suchen, der Energie, Fokus und verlässlichen Mehrwert in Ihre Projekte bringt, freue ich mich auf den Austausch.',
         question: 'Brauchen Sie einen Frontend-Entwickler?',
