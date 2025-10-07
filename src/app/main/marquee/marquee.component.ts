@@ -15,7 +15,7 @@ export class MarqueeComponent implements AfterViewInit, OnDestroy {
 
   private animationFrameId = 0;
   private offset = 0;
-  private speed = 3.5;
+  private speed = 2.0;
 
   readonly languageService = inject(Language);
   private langSub!: Subscription;

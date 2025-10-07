@@ -142,6 +142,7 @@ button:hover {
 
 .btn-span-one {
     content-visibility: hidden;
+    font-size: 16px;
 }
 
 button:hover span.btn-span-one {
@@ -155,6 +156,7 @@ button:hover span.btn-span-one {
     cursor: pointer;
     position: absolute;
     z-index: 0;
+    font-size: 16px;
 }
 
 button:hover span.btn-span-sec {

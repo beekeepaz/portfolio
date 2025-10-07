@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,14 +8,36 @@ import { BehaviorSubject } from 'rxjs';
 
 export class Language {
 
+    private readonly STORAGE_KEY = 'langToggle'; 
+    private readonly isBrowser: boolean;
+
     private _toggleValue = new BehaviorSubject<string>('false');
     toggleValue$ = this._toggleValue.asObservable();
+
+    constructor(@Inject(PLATFORM_ID) platformId: Object) {
+        this.isBrowser = isPlatformBrowser(platformId);
+        const saved = this.safeGet(this.STORAGE_KEY);
+        if (saved === 'true' || saved === 'false') {
+            this._toggleValue.next(saved);
+        }
+    }
 
     get toggleValue(): string {
         return this._toggleValue.getValue();
     }
     set toggleValue(val: string) {
-        this._toggleValue.next(val);
+        const normalized = val === 'true' ? 'true' : 'false';
+        this._toggleValue.next(normalized);
+        this.safeSet(this.STORAGE_KEY, normalized);
+    }
+
+    private safeGet(key: string): string | null {
+        if (!this.isBrowser) return null;
+        try { return localStorage.getItem(key); } catch { return null; }
+    }
+    private safeSet(key: string, value: string): void {
+        if (!this.isBrowser) return;
+        try { localStorage.setItem(key, value); } catch { }
     }
 
     public english = {
