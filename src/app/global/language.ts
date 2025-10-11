@@ -167,7 +167,7 @@ export class Language {
     public contacttxtgerman = {
         headeroverbox: 'Kontaktieren Sie mich',
         headbefore: 'Lassen Sie uns ein',
-        headafter: 'Netzwerk bilden.',
+        headafter: 'Netzwerk bilden',
         underhead: 'Sie haben ein Problem zu lösen',
         descriptbefore: 'Ich habe Freude daran, Ideen in Ergebnisse zu verwandeln und bin immer neugierig auf neue Herausforderungen. Wenn Sie jemanden suchen, der Energie, Fokus und verlässlichen Mehrwert in Ihre Projekte bringt, freue ich mich auf den Austausch.',
         question: 'Brauchen Sie einen Frontend-Entwickler?',
