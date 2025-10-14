@@ -261,7 +261,7 @@ export class Language {
         s5Country: 'Deutschland',
         s5PhoneLabel: 'Telefon:',
         s5Phone: '0173-4540375',
-        s5Email: 'data.devcontain[at]gmail.com',
+        s5Email: 'contact&#64;devcontain.de',
         s5ControllerText: 'Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.',
 
         s6Subtitle: 'Speicherdauer',
@@ -338,7 +338,7 @@ export class Language {
         s5Country: 'Germany',
         s5PhoneLabel: 'Phone:',
         s5Phone: '0173-4540375',
-        s5Email: 'data.devcontain[at]gmail.com',
+        s5Email: 'contact&#64;devcontain.de',
         s5ControllerText: 'The controller is the natural or legal person who, alone or jointly with others, determines the purposes and means of the processing of personal data (e.g. names, e-mail addresses, etc.).',
 
         s6Subtitle: 'Storage Duration',
@@ -398,7 +398,7 @@ export class Language {
         phoneLabel: 'Telefon:',
         phone: '0173-4540375',
         emailLabel: 'E-Mail:',
-        emailText: 'contact[at]devcontain.de',
+        emailText: 'contact&#64;devcontain.de',
 
         disclaimerLabel: 'Haftungsausschluss:',
         contentTitle: 'Haftung für Inhalte',
@@ -442,7 +442,7 @@ export class Language {
         phoneLabel: 'Phone:',
         phone: '0173-4540375',
         emailLabel: 'Email:',
-        emailText: 'contact[at]devcontain.de',
+        emailText: 'contact&#64;devcontain.de',
 
         disclaimerLabel: 'Disclaimer:',
         contentTitle: 'Liability for Content',
