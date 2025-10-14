@@ -127,8 +127,8 @@ app-marquee {
 
 .mail-pos {
     @include position(absolute, 999999);
-    margin-right: 66px;
-    margin-bottom: 368px;
+    margin-right: 84px;
+    margin-bottom: 350px;
     rotate: -90deg;
 
     >a {
@@ -196,7 +196,7 @@ app-marquee {
     }
 
     .mail-pos {
-        margin-right: 16px;
+        margin-right: 34px;
     }
 
     .git-pos {
