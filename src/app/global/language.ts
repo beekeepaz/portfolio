@@ -398,7 +398,7 @@ export class Language {
         phoneLabel: 'Telefon:',
         phone: '0173-4540375',
         emailLabel: 'E-Mail:',
-        emailText: 'data.devcontain[at]gmail.com',
+        emailText: 'contact[at]devcontain.de',
 
         disclaimerLabel: 'Haftungsausschluss:',
         contentTitle: 'Haftung für Inhalte',
@@ -442,7 +442,7 @@ export class Language {
         phoneLabel: 'Phone:',
         phone: '0173-4540375',
         emailLabel: 'Email:',
-        emailText: 'data.devcontain[at]gmail.com',
+        emailText: 'contact[at]devcontain.de',
 
         disclaimerLabel: 'Disclaimer:',
         contentTitle: 'Liability for Content',
